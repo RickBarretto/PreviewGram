@@ -22,6 +22,7 @@
   <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
 </svg>                            &nbsp;src.model</a>
 
+                        <img src="../assets/PreviewGram.svg" class="logo" alt="project logo"/>
 
                         <input type="search" placeholder="Search..." role="searchbox" aria-label="search"
                                pattern=".+" required>
@@ -54,6 +55,7 @@
     </ul>
 
 
+                    <footer>Private PreviewGram 1.1</footer>
 
                     <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev">
                         built with <span class="visually-hidden">pdoc</span><img
@@ -70,10 +72,8 @@
                 
                         <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span><span class="c1">#-- importing database module</span>
-<span class="kn">import</span> <span class="nn">json</span> <span class="k">as</span> <span class="nn">js</span>
+            <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">json</span> <span class="k">as</span> <span class="nn">js</span>
 
-<span class="c1">#-- importing parser module</span>
 <span class="kn">from</span> <span class="nn">.__parser__</span> <span class="kn">import</span> <span class="n">Parse</span>
 
 <span class="n">PATH</span> <span class="o">=</span> <span class="s2">&quot;./src/data/data.json&quot;</span>
@@ -100,8 +100,6 @@
 <span class="sd">        params:</span>
 <span class="sd">        - chan_name: str</span>
 <span class="sd">        - url: str (ready to save)</span>
-
-<span class="sd">        (ready to save is a Preview url: `https://t.me/s/*`)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">new_url</span> <span class="o">=</span> <span class="n">Parse</span><span class="o">.</span><span class="n">rts</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -142,15 +140,11 @@
 
 
     <span class="k">def</span> <span class="nf">update_channel</span><span class="p">(</span><span class="n">old_chan_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_chan_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;&gt; `[!] - Never Used...`</span>
-<span class="sd">        </span>
-<span class="sd">        Updates name and url from a channel saved on database</span>
+        <span class="sd">&quot;&quot;&quot;Updates name and url from a channel saved on database</span>
 <span class="sd">        params:</span>
 <span class="sd">        - old_chan_name: str</span>
 <span class="sd">        - nem_chan_name: str</span>
 <span class="sd">        - url: str (ready to save)</span>
-
-<span class="sd">        (ready to save is a Preview url: `https://t.me/s/*`)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">try</span><span class="p">:</span>
@@ -207,8 +201,6 @@
 <span class="sd">        params:</span>
 <span class="sd">        - chan_name: str</span>
 <span class="sd">        - url: str (ready to save)</span>
-
-<span class="sd">        (ready to save is a Preview url: `https://t.me/s/*`)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">new_url</span> <span class="o">=</span> <span class="n">Parse</span><span class="o">.</span><span class="n">rts</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -249,15 +241,11 @@
 
 
     <span class="k">def</span> <span class="nf">update_channel</span><span class="p">(</span><span class="n">old_chan_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_chan_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;&gt; `[!] - Never Used...`</span>
-<span class="sd">        </span>
-<span class="sd">        Updates name and url from a channel saved on database</span>
+        <span class="sd">&quot;&quot;&quot;Updates name and url from a channel saved on database</span>
 <span class="sd">        params:</span>
 <span class="sd">        - old_chan_name: str</span>
 <span class="sd">        - nem_chan_name: str</span>
 <span class="sd">        - url: str (ready to save)</span>
-
-<span class="sd">        (ready to save is a Preview url: `https://t.me/s/*`)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">try</span><span class="p">:</span>
@@ -340,8 +328,6 @@
 <span class="sd">        params:</span>
 <span class="sd">        - chan_name: str</span>
 <span class="sd">        - url: str (ready to save)</span>
-
-<span class="sd">        (ready to save is a Preview url: `https://t.me/s/*`)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">new_url</span> <span class="o">=</span> <span class="n">Parse</span><span class="o">.</span><span class="n">rts</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -370,8 +356,6 @@ params:</p>
 <li>chan_name: str</li>
 <li>url: str (ready to save)</li>
 </ul>
-
-<p>(ready to save is a Preview url: <code>https://t.me/s/*</code>)</p>
 </div>
 
 
@@ -429,15 +413,11 @@ param:</p>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">update_channel</span><span class="p">(</span><span class="n">old_chan_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_chan_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;&gt; `[!] - Never Used...`</span>
-<span class="sd">        </span>
-<span class="sd">        Updates name and url from a channel saved on database</span>
+        <span class="sd">&quot;&quot;&quot;Updates name and url from a channel saved on database</span>
 <span class="sd">        params:</span>
 <span class="sd">        - old_chan_name: str</span>
 <span class="sd">        - nem_chan_name: str</span>
 <span class="sd">        - url: str (ready to save)</span>
-
-<span class="sd">        (ready to save is a Preview url: `https://t.me/s/*`)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">try</span><span class="p">:</span>
@@ -461,11 +441,7 @@ param:</p>
 
         </details>
 
-            <div class="docstring"><blockquote>
-  <p><code>[!] - Never Used...</code></p>
-</blockquote>
-
-<p>Updates name and url from a channel saved on database
+            <div class="docstring"><p>Updates name and url from a channel saved on database
 params:</p>
 
 <ul>
@@ -473,8 +449,6 @@ params:</p>
 <li>nem_chan_name: str</li>
 <li>url: str (ready to save)</li>
 </ul>
-
-<p>(ready to save is a Preview url: <code>https://t.me/s/*</code>)</p>
 </div>
 
 

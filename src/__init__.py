@@ -11,6 +11,8 @@ A lot of help was gave by Pinnaculum https://github.com/pinnaculum/
 Thank you, yurisnm, UN-GCPDS and Pinnaculum!
 """
 
+VERSION = 1.1
+
 #-- importing system modules
 import sys, os
 

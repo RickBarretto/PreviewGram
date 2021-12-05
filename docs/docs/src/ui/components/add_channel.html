@@ -22,6 +22,7 @@
   <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
 </svg>                            &nbsp;src.ui.components</a>
 
+                        <img src="../assets/PreviewGram.svg" class="logo" alt="project logo"/>
 
                         <input type="search" placeholder="Search..." role="searchbox" aria-label="search"
                                pattern=".+" required>
@@ -37,15 +38,6 @@
                                 <a class="function" href="#AddBtn.__init__">AddBtn</a>
                         </li>
                         <li>
-                                <a class="variable" href="#AddBtn.mainWin">mainWin</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#AddBtn.config">config</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#AddBtn.action">action</a>
-                        </li>
-                        <li>
                                 <a class="variable" href="#AddBtn.staticMetaObject">staticMetaObject</a>
                         </li>
                 </ul>
@@ -54,6 +46,7 @@
     </ul>
 
 
+                    <footer>Private PreviewGram 1.1</footer>
 
                     <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev">
                         built with <span class="visually-hidden">pdoc</span><img
@@ -70,37 +63,21 @@
                 
                         <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span><span class="c1">#-- importing Qt modules</span>
-<span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span><span class="p">,</span> <span class="n">QCursor</span>
+            <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span><span class="p">,</span> <span class="n">QCursor</span>
 <span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="n">QPushButton</span>
 <span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span>
 
-
-<span class="c1">#-- Widget Button</span>
 <span class="k">class</span> <span class="nc">AddBtn</span><span class="p">(</span><span class="n">QPushButton</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;It&#39;s the blue button on Bottom Right Conner</span>
-<span class="sd">    </span>
-<span class="sd">    When clicked, it&#39;ll open the `src.channel.ChannelDialog` Window</span>
-<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Init</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">):</span>
         <span class="c1"># parent = Container(QWidget)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
 
-        <span class="c1">#-- class&#39; variable</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the `src.Window` instance&quot;&quot;&quot;</span>
-        
-        <span class="c1">#-- Configuring</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
-        <span class="c1">#-- Action</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action</span><span class="p">()</span>
 
-
-    <span class="c1">#-- Configuring</span>
-    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;ll configure the button&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">740</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span>
@@ -110,9 +87,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">PointingHandCursor</span><span class="p">))</span>
 
 
-    <span class="c1">#-- Action</span>
-    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Defines the button act: create a `src.ui.channel.ChannelDialog`&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">channelDialog</span><span class="p">)</span>
 </pre></div>
 
@@ -131,29 +106,16 @@
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">AddBtn</span><span class="p">(</span><span class="n">QPushButton</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;It&#39;s the blue button on Bottom Right Conner</span>
-<span class="sd">    </span>
-<span class="sd">    When clicked, it&#39;ll open the `src.channel.ChannelDialog` Window</span>
-<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Init</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">):</span>
         <span class="c1"># parent = Container(QWidget)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
 
-        <span class="c1">#-- class&#39; variable</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the `src.Window` instance&quot;&quot;&quot;</span>
-        
-        <span class="c1">#-- Configuring</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
-        <span class="c1">#-- Action</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action</span><span class="p">()</span>
 
-
-    <span class="c1">#-- Configuring</span>
-    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;ll configure the button&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">740</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span>
@@ -163,17 +125,15 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">PointingHandCursor</span><span class="p">))</span>
 
 
-    <span class="c1">#-- Action</span>
-    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Defines the button act: create a `src.ui.channel.ChannelDialog`&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">channelDialog</span><span class="p">)</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>It's the blue button on Bottom Right Conner</p>
-
-<p>When clicked, it'll open the <code><a href="../../../src.html#channel.ChannelDialog">src.channel.ChannelDialog</a></code> Window</p>
+            <div class="docstring"><p>QPushButton(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None
+QPushButton(self, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None
+QPushButton(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None</p>
 </div>
 
 
@@ -190,14 +150,9 @@
         <span class="c1"># parent = Container(QWidget)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
 
-        <span class="c1">#-- class&#39; variable</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the `src.Window` instance&quot;&quot;&quot;</span>
-        
-        <span class="c1">#-- Configuring</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
-        <span class="c1">#-- Action</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action</span><span class="p">()</span>
 </pre></div>
 
         </details>
@@ -207,67 +162,6 @@ __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None
 __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None</p>
 
 <p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</div>
-
-
-                            </div>
-                            <div id="AddBtn.mainWin" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#AddBtn.mainWin">#&nbsp;&nbsp</a>
-
-        <span class="name">mainWin</span>
-    </div>
-
-            <div class="docstring"><p>It's the <code><a href="../../../src.html#Window">src.Window</a></code> instance</p>
-</div>
-
-
-                            </div>
-                            <div id="AddBtn.config" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#AddBtn.config">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">config</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;ll configure the button&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">740</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span>
-            <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            color: #fff; background-color: #448aff;</span>
-<span class="sd">            &quot;&quot;&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">PointingHandCursor</span><span class="p">))</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>It'll configure the button</p>
-</div>
-
-
-                            </div>
-                            <div id="AddBtn.action" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#AddBtn.action">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">action</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Defines the button act: create a `src.ui.channel.ChannelDialog`&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">channelDialog</span><span class="p">)</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Defines the button act: create a <code><a href="../channel.html#ChannelDialog">src.ui.channel.ChannelDialog</a></code></p>
 </div>
 
 
@@ -340,10 +234,10 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
                 <dd id="AddBtn.text" class="function">text</dd>
                 <dd id="AddBtn.timerEvent" class="function">timerEvent</dd>
                 <dd id="AddBtn.toggle" class="function">toggle</dd>
-                <dd id="AddBtn.toggled" class="function">toggled</dd>
                 <dd id="AddBtn.pressed" class="function">pressed</dd>
-                <dd id="AddBtn.released" class="function">released</dd>
                 <dd id="AddBtn.clicked" class="function">clicked</dd>
+                <dd id="AddBtn.released" class="function">released</dd>
+                <dd id="AddBtn.toggled" class="function">toggled</dd>
 
             </div>
             <div><dt>PySide6.QtWidgets.QWidget</dt>
@@ -603,8 +497,8 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
                 <dd id="AddBtn.IgnoreMask" class="variable">IgnoreMask</dd>
                 <dd id="AddBtn.customContextMenuRequested" class="function">customContextMenuRequested</dd>
                 <dd id="AddBtn.windowTitleChanged" class="function">windowTitleChanged</dd>
-                <dd id="AddBtn.windowIconTextChanged" class="function">windowIconTextChanged</dd>
                 <dd id="AddBtn.windowIconChanged" class="function">windowIconChanged</dd>
+                <dd id="AddBtn.windowIconTextChanged" class="function">windowIconTextChanged</dd>
 
             </div>
             <div><dt>PySide6.QtCore.QObject</dt>
@@ -645,8 +539,8 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
                 <dd id="AddBtn.startTimer" class="function">startTimer</dd>
                 <dd id="AddBtn.thread" class="function">thread</dd>
                 <dd id="AddBtn.tr" class="function">tr</dd>
-                <dd id="AddBtn.destroyed" class="function">destroyed</dd>
                 <dd id="AddBtn.objectNameChanged" class="function">objectNameChanged</dd>
+                <dd id="AddBtn.destroyed" class="function">destroyed</dd>
 
             </div>
             <div><dt>PySide6.QtGui.QPaintDevice</dt>

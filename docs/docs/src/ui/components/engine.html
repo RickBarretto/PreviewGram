@@ -22,6 +22,7 @@
   <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
 </svg>                            &nbsp;src.ui.components</a>
 
+                        <img src="../assets/PreviewGram.svg" class="logo" alt="project logo"/>
 
                         <input type="search" placeholder="Search..." role="searchbox" aria-label="search"
                                pattern=".+" required>
@@ -35,21 +36,6 @@
                             <ul class="memberlist">
                         <li>
                                 <a class="function" href="#Engine.__init__">Engine</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Engine.mainWin">mainWin</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Engine.init_url">init_url</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Engine.config_widget">config_widget</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Engine.privacy_config">privacy_config</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Engine.clear_data">clear_data</a>
                         </li>
                         <li>
                                 <a class="function" href="#Engine.update">update</a>
@@ -75,6 +61,7 @@
     </ul>
 
 
+                    <footer>Private PreviewGram 1.1</footer>
 
                     <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev">
                         built with <span class="visually-hidden">pdoc</span><img
@@ -115,15 +102,13 @@
 
         <span class="c1"># Setting parameters</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;`src.Window` instance&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">init_url</span> <span class="o">=</span> <span class="n">url</span>
-        <span class="sd">&quot;&quot;&quot;loads start page&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_url</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">())</span><span class="o">.</span><span class="n">toString</span><span class="p">()</span> 
 
-        <span class="c1"># Configuring Widget and Privacy</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">privacy_config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_widget</span><span class="p">()</span>
+        <span class="c1"># Configuring Widget</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__privacy_config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_widget</span><span class="p">()</span>
 
         <span class="c1"># Loading start page</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -135,60 +120,43 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">urlChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url_changed</span><span class="p">)</span>
 
 
+
     <span class="c1">#-- Configuring</span>
-    <span class="k">def</span> <span class="nf">config_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the Widget&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setMinimumWidth</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>   
-
-    <span class="c1">#-- Privacy Config</span>
-    <span class="c1">#-- WARNING: Important!</span>
-    <span class="k">def</span> <span class="nf">privacy_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Configures the `Engine` attributes to improve user privacy, blocking Js, cookies, trackers...</span>
-<span class="sd">        It&#39;s the main Browser Privacy Feature, please add a Issue if you find.</span>
-
-<span class="sd">        &lt;a href=&quot;https://github.com/RickBarretto/PreviewGram/issues&quot;&gt;Report a Issue&lt;/a&gt; </span>
-<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__privacy_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">settings</span><span class="p">()</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="n">QWebEngineSettings</span><span class="o">.</span><span class="n">JavascriptEnabled</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearHttpCache</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Off Record:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">isOffTheRecord</span><span class="p">())</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">isOffTheRecord</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">setPersistentStoragePath</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">setPersistentCookiesPolicy</span><span class="p">(</span><span class="n">QWebEngineProfile</span><span class="o">.</span><span class="n">NoPersistentCookies</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">setHttpUserAgent</span><span class="p">(</span><span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36&quot;</span><span class="p">)</span>
 
-    <span class="c1">#-- WARNING: Important!</span>
-    <span class="k">def</span> <span class="nf">clear_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Clears HttpsCache and VisitedLinks&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMinimumWidth</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>   
+
+
+
+    <span class="c1">#-- functions</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reload</span><span class="p">()</span>
+
+
+    <span class="k">def</span> <span class="nf">loading</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">BusyCursor</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearHttpCache</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearAllVisitedLinks</span><span class="p">()</span>
 
-
-    <span class="c1">#-- Actions</span>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Reload the `Engine`&#39;s page&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">reload</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">loading</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Clears HttpsCache and VisitedLinks and changes the cursor to `Qt.BusyCursor`&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clear_data</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">BusyCursor</span><span class="p">))</span>
-        
     <span class="k">def</span> <span class="nf">loaded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Changes the cursor to `Qt.OpenHandCursor`&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
 
+
     <span class="k">def</span> <span class="nf">link_hover</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Creates a tooltip, teachin how to open links&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="s2">&quot;[Right Mouse Button] &gt; Copy Link Address&quot;</span><span class="p">)</span>
 
+
     <span class="k">def</span> <span class="nf">url_changed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Clears HttpsCache and VisitedLinks and checks current url</span>
-<span class="sd">        </span>
-<span class="sd">        - Todo:</span>
-<span class="sd">            - Change url checker to intercept() </span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clear_data</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearHttpCache</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearAllVisitedLinks</span><span class="p">()</span>
         <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_url</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;old:&quot;</span><span class="p">,</span><span class="n">url</span><span class="p">)</span>
 
@@ -245,15 +213,13 @@
 
         <span class="c1"># Setting parameters</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;`src.Window` instance&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">init_url</span> <span class="o">=</span> <span class="n">url</span>
-        <span class="sd">&quot;&quot;&quot;loads start page&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_url</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">())</span><span class="o">.</span><span class="n">toString</span><span class="p">()</span> 
 
-        <span class="c1"># Configuring Widget and Privacy</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">privacy_config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_widget</span><span class="p">()</span>
+        <span class="c1"># Configuring Widget</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__privacy_config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_widget</span><span class="p">()</span>
 
         <span class="c1"># Loading start page</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -265,60 +231,43 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">urlChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url_changed</span><span class="p">)</span>
 
 
+
     <span class="c1">#-- Configuring</span>
-    <span class="k">def</span> <span class="nf">config_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the Widget&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setMinimumWidth</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>   
-
-    <span class="c1">#-- Privacy Config</span>
-    <span class="c1">#-- WARNING: Important!</span>
-    <span class="k">def</span> <span class="nf">privacy_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Configures the `Engine` attributes to improve user privacy, blocking Js, cookies, trackers...</span>
-<span class="sd">        It&#39;s the main Browser Privacy Feature, please add a Issue if you find.</span>
-
-<span class="sd">        &lt;a href=&quot;https://github.com/RickBarretto/PreviewGram/issues&quot;&gt;Report a Issue&lt;/a&gt; </span>
-<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__privacy_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">settings</span><span class="p">()</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="n">QWebEngineSettings</span><span class="o">.</span><span class="n">JavascriptEnabled</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearHttpCache</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Off Record:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">isOffTheRecord</span><span class="p">())</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">isOffTheRecord</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">setPersistentStoragePath</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">setPersistentCookiesPolicy</span><span class="p">(</span><span class="n">QWebEngineProfile</span><span class="o">.</span><span class="n">NoPersistentCookies</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">setHttpUserAgent</span><span class="p">(</span><span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36&quot;</span><span class="p">)</span>
 
-    <span class="c1">#-- WARNING: Important!</span>
-    <span class="k">def</span> <span class="nf">clear_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Clears HttpsCache and VisitedLinks&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMinimumWidth</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>   
+
+
+
+    <span class="c1">#-- functions</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reload</span><span class="p">()</span>
+
+
+    <span class="k">def</span> <span class="nf">loading</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">BusyCursor</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearHttpCache</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearAllVisitedLinks</span><span class="p">()</span>
 
-
-    <span class="c1">#-- Actions</span>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Reload the `Engine`&#39;s page&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">reload</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">loading</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Clears HttpsCache and VisitedLinks and changes the cursor to `Qt.BusyCursor`&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clear_data</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">BusyCursor</span><span class="p">))</span>
-        
     <span class="k">def</span> <span class="nf">loaded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Changes the cursor to `Qt.OpenHandCursor`&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
 
+
     <span class="k">def</span> <span class="nf">link_hover</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Creates a tooltip, teachin how to open links&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="s2">&quot;[Right Mouse Button] &gt; Copy Link Address&quot;</span><span class="p">)</span>
 
+
     <span class="k">def</span> <span class="nf">url_changed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Clears HttpsCache and VisitedLinks and checks current url</span>
-<span class="sd">        </span>
-<span class="sd">        - Todo:</span>
-<span class="sd">            - Change url checker to intercept() </span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clear_data</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearHttpCache</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearAllVisitedLinks</span><span class="p">()</span>
         <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_url</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;old:&quot;</span><span class="p">,</span><span class="n">url</span><span class="p">)</span>
 
@@ -373,15 +322,13 @@ params:</p>
 
         <span class="c1"># Setting parameters</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;`src.Window` instance&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">init_url</span> <span class="o">=</span> <span class="n">url</span>
-        <span class="sd">&quot;&quot;&quot;loads start page&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_url</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">())</span><span class="o">.</span><span class="n">toString</span><span class="p">()</span> 
 
-        <span class="c1"># Configuring Widget and Privacy</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">privacy_config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_widget</span><span class="p">()</span>
+        <span class="c1"># Configuring Widget</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__privacy_config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_widget</span><span class="p">()</span>
 
         <span class="c1"># Loading start page</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -402,109 +349,6 @@ params:</p>
 
 
                             </div>
-                            <div id="Engine.mainWin" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#Engine.mainWin">#&nbsp;&nbsp</a>
-
-        <span class="name">mainWin</span>
-    </div>
-
-            <div class="docstring"><p><code><a href="../../../src.html#Window">src.Window</a></code> instance</p>
-</div>
-
-
-                            </div>
-                            <div id="Engine.init_url" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#Engine.init_url">#&nbsp;&nbsp</a>
-
-        <span class="name">init_url</span>
-    </div>
-
-            <div class="docstring"><p>loads start page</p>
-</div>
-
-
-                            </div>
-                            <div id="Engine.config_widget" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Engine.config_widget">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">config_widget</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the Widget&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setMinimumWidth</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>   
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Configures the Widget</p>
-</div>
-
-
-                            </div>
-                            <div id="Engine.privacy_config" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Engine.privacy_config">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">privacy_config</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">privacy_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Configures the `Engine` attributes to improve user privacy, blocking Js, cookies, trackers...</span>
-<span class="sd">        It&#39;s the main Browser Privacy Feature, please add a Issue if you find.</span>
-
-<span class="sd">        &lt;a href=&quot;https://github.com/RickBarretto/PreviewGram/issues&quot;&gt;Report a Issue&lt;/a&gt; </span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">settings</span><span class="p">()</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="n">QWebEngineSettings</span><span class="o">.</span><span class="n">JavascriptEnabled</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearHttpCache</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Off Record:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">isOffTheRecord</span><span class="p">())</span> <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">setPersistentStoragePath</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">setPersistentCookiesPolicy</span><span class="p">(</span><span class="n">QWebEngineProfile</span><span class="o">.</span><span class="n">NoPersistentCookies</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">setHttpUserAgent</span><span class="p">(</span><span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36&quot;</span><span class="p">)</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Configures the <code><a href="#Engine">Engine</a></code> attributes to improve user privacy, blocking Js, cookies, trackers...
-It's the main Browser Privacy Feature, please add a Issue if you find.</p>
-
-<p><a href="https://github.com/RickBarretto/PreviewGram/issues">Report a Issue</a></p>
-</div>
-
-
-                            </div>
-                            <div id="Engine.clear_data" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Engine.clear_data">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">clear_data</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">clear_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Clears HttpsCache and VisitedLinks&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearHttpCache</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearAllVisitedLinks</span><span class="p">()</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Clears HttpsCache and VisitedLinks</p>
-</div>
-
-
-                            </div>
                             <div id="Engine.update" class="classattr">
                                         <div class="attr function"><a class="headerlink" href="#Engine.update">#&nbsp;&nbsp</a>
 
@@ -516,13 +360,15 @@ It's the main Browser Privacy Feature, please add a Issue if you find.</p>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Reload the `Engine`&#39;s page&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">reload</span><span class="p">()</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>Reload the <code><a href="#Engine">Engine</a></code>'s page</p>
+            <div class="docstring"><p>update(self) -> None
+update(self, arg__1: PySide6.QtCore.QRect) -> None
+update(self, arg__1: Union[PySide6.QtGui.QRegion, PySide6.QtGui.QBitmap, PySide6.QtGui.QPolygon, PySide6.QtCore.QRect]) -> None
+update(self, x: int, y: int, w: int, h: int) -> None</p>
 </div>
 
 
@@ -538,16 +384,14 @@ It's the main Browser Privacy Feature, please add a Issue if you find.</p>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">loading</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Clears HttpsCache and VisitedLinks and changes the cursor to `Qt.BusyCursor`&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clear_data</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">BusyCursor</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearHttpCache</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearAllVisitedLinks</span><span class="p">()</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>Clears HttpsCache and VisitedLinks and changes the cursor to <code>Qt.BusyCursor</code></p>
-</div>
-
+    
 
                             </div>
                             <div id="Engine.loaded" class="classattr">
@@ -561,15 +405,12 @@ It's the main Browser Privacy Feature, please add a Issue if you find.</p>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">loaded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Changes the cursor to `Qt.OpenHandCursor`&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>Changes the cursor to <code>Qt.OpenHandCursor</code></p>
-</div>
-
+    
 
                             </div>
                             <div id="Engine.link_hover" class="classattr">
@@ -583,15 +424,12 @@ It's the main Browser Privacy Feature, please add a Issue if you find.</p>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">link_hover</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Creates a tooltip, teachin how to open links&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="s2">&quot;[Right Mouse Button] &gt; Copy Link Address&quot;</span><span class="p">)</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>Creates a tooltip, teachin how to open links</p>
-</div>
-
+    
 
                             </div>
                             <div id="Engine.url_changed" class="classattr">
@@ -605,12 +443,8 @@ It's the main Browser Privacy Feature, please add a Issue if you find.</p>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">url_changed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Clears HttpsCache and VisitedLinks and checks current url</span>
-<span class="sd">        </span>
-<span class="sd">        - Todo:</span>
-<span class="sd">            - Change url checker to intercept() </span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clear_data</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearHttpCache</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">()</span><span class="o">.</span><span class="n">profile</span><span class="p">()</span><span class="o">.</span><span class="n">clearAllVisitedLinks</span><span class="p">()</span>
         <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_url</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;old:&quot;</span><span class="p">,</span><span class="n">url</span><span class="p">)</span>
 
@@ -641,16 +475,7 @@ It's the main Browser Privacy Feature, please add a Issue if you find.</p>
 
         </details>
 
-            <div class="docstring"><p>Clears HttpsCache and VisitedLinks and checks current url</p>
-
-<ul>
-<li>Todo:
-<ul>
-<li>Change url checker to intercept()</li>
-</ul></li>
-</ul>
-</div>
-
+    
 
                             </div>
                             <div id="Engine.staticMetaObject" class="classattr">
@@ -705,18 +530,18 @@ It's the main Browser Privacy Feature, please add a Issue if you find.</p>
                 <dd id="Engine.triggerPageAction" class="function">triggerPageAction</dd>
                 <dd id="Engine.url" class="function">url</dd>
                 <dd id="Engine.zoomFactor" class="function">zoomFactor</dd>
-                <dd id="Engine.renderProcessTerminated" class="function">renderProcessTerminated</dd>
-                <dd id="Engine.iconChanged" class="function">iconChanged</dd>
-                <dd id="Engine.iconUrlChanged" class="function">iconUrlChanged</dd>
-                <dd id="Engine.printRequested" class="function">printRequested</dd>
-                <dd id="Engine.urlChanged" class="function">urlChanged</dd>
-                <dd id="Engine.loadProgress" class="function">loadProgress</dd>
-                <dd id="Engine.loadFinished" class="function">loadFinished</dd>
-                <dd id="Engine.printFinished" class="function">printFinished</dd>
                 <dd id="Engine.selectionChanged" class="function">selectionChanged</dd>
-                <dd id="Engine.loadStarted" class="function">loadStarted</dd>
-                <dd id="Engine.titleChanged" class="function">titleChanged</dd>
+                <dd id="Engine.renderProcessTerminated" class="function">renderProcessTerminated</dd>
+                <dd id="Engine.printRequested" class="function">printRequested</dd>
                 <dd id="Engine.pdfPrintingFinished" class="function">pdfPrintingFinished</dd>
+                <dd id="Engine.urlChanged" class="function">urlChanged</dd>
+                <dd id="Engine.iconUrlChanged" class="function">iconUrlChanged</dd>
+                <dd id="Engine.printFinished" class="function">printFinished</dd>
+                <dd id="Engine.loadFinished" class="function">loadFinished</dd>
+                <dd id="Engine.loadProgress" class="function">loadProgress</dd>
+                <dd id="Engine.titleChanged" class="function">titleChanged</dd>
+                <dd id="Engine.iconChanged" class="function">iconChanged</dd>
+                <dd id="Engine.loadStarted" class="function">loadStarted</dd>
 
             </div>
             <div><dt>PySide6.QtWidgets.QWidget</dt>
@@ -977,8 +802,8 @@ It's the main Browser Privacy Feature, please add a Issue if you find.</p>
                 <dd id="Engine.IgnoreMask" class="variable">IgnoreMask</dd>
                 <dd id="Engine.customContextMenuRequested" class="function">customContextMenuRequested</dd>
                 <dd id="Engine.windowTitleChanged" class="function">windowTitleChanged</dd>
-                <dd id="Engine.windowIconTextChanged" class="function">windowIconTextChanged</dd>
                 <dd id="Engine.windowIconChanged" class="function">windowIconChanged</dd>
+                <dd id="Engine.windowIconTextChanged" class="function">windowIconTextChanged</dd>
 
             </div>
             <div><dt>PySide6.QtCore.QObject</dt>
@@ -1020,8 +845,8 @@ It's the main Browser Privacy Feature, please add a Issue if you find.</p>
                 <dd id="Engine.thread" class="function">thread</dd>
                 <dd id="Engine.timerEvent" class="function">timerEvent</dd>
                 <dd id="Engine.tr" class="function">tr</dd>
-                <dd id="Engine.destroyed" class="function">destroyed</dd>
                 <dd id="Engine.objectNameChanged" class="function">objectNameChanged</dd>
+                <dd id="Engine.destroyed" class="function">destroyed</dd>
 
             </div>
             <div><dt>PySide6.QtGui.QPaintDevice</dt>

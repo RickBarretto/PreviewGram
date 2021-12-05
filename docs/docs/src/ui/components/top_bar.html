@@ -22,6 +22,7 @@
   <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
 </svg>                            &nbsp;src.ui.components</a>
 
+                        <img src="../assets/PreviewGram.svg" class="logo" alt="project logo"/>
 
                         <input type="search" placeholder="Search..." role="searchbox" aria-label="search"
                                pattern=".+" required>
@@ -37,9 +38,6 @@
                                 <a class="function" href="#Title.__init__">Title</a>
                         </li>
                         <li>
-                                <a class="function" href="#Title.config">config</a>
-                        </li>
-                        <li>
                                 <a class="variable" href="#Title.staticMetaObject">staticMetaObject</a>
                         </li>
                 </ul>
@@ -52,10 +50,7 @@
                                 <a class="function" href="#Github.__init__">Github</a>
                         </li>
                         <li>
-                                <a class="function" href="#Github.config">config</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Github.action">action</a>
+                                <a class="function" href="#Github.openGithub">openGithub</a>
                         </li>
                         <li>
                                 <a class="variable" href="#Github.staticMetaObject">staticMetaObject</a>
@@ -70,18 +65,6 @@
                                 <a class="function" href="#CloseBtn.__init__">CloseBtn</a>
                         </li>
                         <li>
-                                <a class="variable" href="#CloseBtn.mainWin">mainWin</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#CloseBtn.size">size</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#CloseBtn.config">config</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#CloseBtn.action">action</a>
-                        </li>
-                        <li>
                                 <a class="variable" href="#CloseBtn.staticMetaObject">staticMetaObject</a>
                         </li>
                 </ul>
@@ -92,18 +75,6 @@
                             <ul class="memberlist">
                         <li>
                                 <a class="function" href="#MinBtn.__init__">MinBtn</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#MinBtn.mainWin">mainWin</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MinBtn.size">size</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MinBtn.config">config</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MinBtn.action">action</a>
                         </li>
                         <li>
                                 <a class="variable" href="#MinBtn.staticMetaObject">staticMetaObject</a>
@@ -118,21 +89,6 @@
                                 <a class="function" href="#TopBar.__init__">TopBar</a>
                         </li>
                         <li>
-                                <a class="variable" href="#TopBar.mainWin">mainWin</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#TopBar.layout">layout</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#TopBar.add_widgets">add_widgets</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#TopBar.config_widget">config_widget</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#TopBar.config_layout">config_layout</a>
-                        </li>
-                        <li>
                                 <a class="variable" href="#TopBar.staticMetaObject">staticMetaObject</a>
                         </li>
                 </ul>
@@ -141,6 +97,7 @@
     </ul>
 
 
+                    <footer>Private PreviewGram 1.1</footer>
 
                     <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev">
                         built with <span class="visually-hidden">pdoc</span><img
@@ -157,53 +114,37 @@
                 
                         <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span><span class="c1">#-- importing system modules</span>
-<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
-
-<span class="c1">#-- importing Qt modules</span>
-<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span>
+            <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">QLabel</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span> <span class="n">QPushButton</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span> 
 <span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">QCursor</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
 
-
-<span class="c1">#-- Sets Title</span>
 <span class="k">class</span> <span class="nc">Title</span><span class="p">(</span><span class="n">QLabel</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Sets the Title&quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Init</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">35</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Private Previewgram&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="p">()</span>
 
-
-    <span class="c1">#-- Configuring</span>
-    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the `Title`&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setFixedHeight</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">AlignCenter</span><span class="p">)</span>
 
-
-<span class="c1">#-- Sets Open on Github Button</span>
 <span class="k">class</span> <span class="nc">Github</span><span class="p">(</span><span class="n">QPushButton</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Creates a &#39;open Repository&#39; Button</span>
-<span class="sd">    </span>
-<span class="sd">    it&#39;ll open on &lt;a href=&quot;https://github.com/RickBarretto/PreviewGram&quot;&gt;GitHub&lt;/a&gt;</span>
-<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Init</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">35</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action</span><span class="p">()</span>
     
-    <span class="c1">#-- Configuring</span>
-    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the `Github` button&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;Visit Us on Github!&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span>
             <span class="s2">&quot;border: none;&quot;</span><span class="o">+</span>
@@ -212,42 +153,27 @@
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">PointingHandCursor</span><span class="p">))</span>
 
+    <span class="k">def</span> <span class="nf">__action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">openGithub</span><span class="p">)</span>
 
-    <span class="c1">#-- Action</span>
-    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;When clicked, Opens &lt;a href=&quot;https://github.com/RickBarretto/PreviewGram&quot;&gt;Github link&lt;/a&gt; on system default browser&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__openGithub</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">__openGithub</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Opens &lt;a href=&quot;https://github.com/RickBarretto/PreviewGram&quot;&gt;Github link&lt;/a&gt; on system default browser&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">openGithub</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">repo_link</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/RickBarretto/PreviewGram&quot;</span>
         <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;explorer &quot;</span><span class="o">+</span><span class="n">repo_link</span>
         <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;MacOSX&quot;</span><span class="p">:</span>
             <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;open &quot;</span><span class="o">+</span><span class="n">repo_link</span>
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
 
-
-<span class="c1">#-- Sets the Close Window Button</span>
 <span class="k">class</span> <span class="nc">CloseBtn</span><span class="p">(</span><span class="n">QPushButton</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Closes the `Window` and ends the application&quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Init</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-
-        <span class="c1">#-- class&#39; variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;`src.Window` instance&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">35</span>
-        <span class="sd">&quot;&quot;&quot;size to be configured&quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action</span><span class="p">()</span>
     
-
-    <span class="c1">#-- Configuring</span>
-    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configuring `CloseBtn`&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setFixedSize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span>
@@ -258,32 +184,20 @@
             <span class="s2">&quot;margin: 0&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">PointingHandCursor</span><span class="p">))</span>
 
-
-    <span class="c1">#-- Action</span>
-    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Connects to `src.Window.closeWindow` to close Main Window&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">closeWindow</span><span class="p">)</span>
 
-
-<span class="c1">#-- Sets the Minimize Window Button</span>
 <span class="k">class</span> <span class="nc">MinBtn</span><span class="p">(</span><span class="n">QPushButton</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Minimize Button: Minimizes the `src.Window` when clicked&quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Init</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;`src.Window` instance&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">35</span>
-        <span class="sd">&quot;&quot;&quot;size to be configured&quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action</span><span class="p">()</span>
     
-
-    <span class="c1">#-- Configuring</span>
-    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configuring `MinBtn`&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setFixedSize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span>
@@ -293,57 +207,40 @@
             <span class="s2">&quot;margin: 0&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">PointingHandCursor</span><span class="p">))</span>
 
-
-    <span class="c1">#-- Action</span>
-    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Connects to `src.Window.minWindow` to minimize Main Window&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">minWindow</span><span class="p">())</span>
 
 
-
-<span class="c1">#-- Sets the Window&#39;s TopBar</span>
 <span class="k">class</span> <span class="nc">TopBar</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;It will change the default Windows&#39;s title bar</span>
 <span class="sd">    param:</span>
 <span class="sd">    - parent: QWidget </span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Init</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span><span class="n">QWidget</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;`src.Window` instance&quot;&quot;&quot;</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;Sets layout as QHBox&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_widget</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">add_widgets</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_widget</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__add_widgets</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_layout</span><span class="p">()</span>
 
-
-    <span class="c1">#-- Adding Widgets</span>
-    <span class="k">def</span> <span class="nf">add_widgets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Adds Widgets: `Github`, `Title`, `MinBtn` and `CloseBtn`&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Github</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Title</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">MinBtn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">CloseBtn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
-
-
-    <span class="c1">#-- Configuring</span>
-    <span class="k">def</span> <span class="nf">config_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures widget&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setFixedHeight</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setWhatsThis</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">&quot;padding: 0 15px 0 0; margin: 0;&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setContentsMargins</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures layout&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">setContentsMargins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
+    <span class="k">def</span> <span class="nf">__add_widgets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Github</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Title</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">MinBtn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">CloseBtn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
             
 </pre></div>
 
@@ -362,26 +259,23 @@
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Title</span><span class="p">(</span><span class="n">QLabel</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Sets the Title&quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Init</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">35</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Private Previewgram&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="p">()</span>
 
-
-    <span class="c1">#-- Configuring</span>
-    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the `Title`&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setFixedHeight</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">AlignCenter</span><span class="p">)</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>Sets the Title</p>
+            <div class="docstring"><p>QLabel(self, parent: Optional[PySide6.QtWidgets.QWidget] = None, f: PySide6.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None
+QLabel(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None, f: PySide6.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
 </div>
 
 
@@ -389,16 +283,17 @@
                                         <div class="attr function"><a class="headerlink" href="#Title.__init__">#&nbsp;&nbsp</a>
 
         
-            <span class="name">Title</span><span class="signature">()</span>
+            <span class="name">Title</span><span class="signature">(mainWin)</span>
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">35</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Private Previewgram&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="p">()</span>
 </pre></div>
 
         </details>
@@ -407,29 +302,6 @@
 __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None, f: PySide6.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
 
 <p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</div>
-
-
-                            </div>
-                            <div id="Title.config" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Title.config">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">config</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the `Title`&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setFixedHeight</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">AlignCenter</span><span class="p">)</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Configures the <code><a href="#Title">Title</a></code></p>
 </div>
 
 
@@ -701,8 +573,8 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None, f:
                 <dd id="Title.IgnoreMask" class="variable">IgnoreMask</dd>
                 <dd id="Title.customContextMenuRequested" class="function">customContextMenuRequested</dd>
                 <dd id="Title.windowTitleChanged" class="function">windowTitleChanged</dd>
-                <dd id="Title.windowIconTextChanged" class="function">windowIconTextChanged</dd>
                 <dd id="Title.windowIconChanged" class="function">windowIconChanged</dd>
+                <dd id="Title.windowIconTextChanged" class="function">windowIconTextChanged</dd>
 
             </div>
             <div><dt>PySide6.QtWidgets.QLabel</dt>
@@ -828,8 +700,8 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None, f:
                 <dd id="Title.thread" class="function">thread</dd>
                 <dd id="Title.timerEvent" class="function">timerEvent</dd>
                 <dd id="Title.tr" class="function">tr</dd>
-                <dd id="Title.destroyed" class="function">destroyed</dd>
                 <dd id="Title.objectNameChanged" class="function">objectNameChanged</dd>
+                <dd id="Title.destroyed" class="function">destroyed</dd>
 
             </div>
             <div><dt>PySide6.QtGui.QPaintDevice</dt>
@@ -876,21 +748,16 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None, f:
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Github</span><span class="p">(</span><span class="n">QPushButton</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Creates a &#39;open Repository&#39; Button</span>
-<span class="sd">    </span>
-<span class="sd">    it&#39;ll open on &lt;a href=&quot;https://github.com/RickBarretto/PreviewGram&quot;&gt;GitHub&lt;/a&gt;</span>
-<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Init</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">35</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action</span><span class="p">()</span>
     
-    <span class="c1">#-- Configuring</span>
-    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the `Github` button&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;Visit Us on Github!&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span>
             <span class="s2">&quot;border: none;&quot;</span><span class="o">+</span>
@@ -899,14 +766,10 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None, f:
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">PointingHandCursor</span><span class="p">))</span>
 
+    <span class="k">def</span> <span class="nf">__action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">openGithub</span><span class="p">)</span>
 
-    <span class="c1">#-- Action</span>
-    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;When clicked, Opens &lt;a href=&quot;https://github.com/RickBarretto/PreviewGram&quot;&gt;Github link&lt;/a&gt; on system default browser&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__openGithub</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">__openGithub</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Opens &lt;a href=&quot;https://github.com/RickBarretto/PreviewGram&quot;&gt;Github link&lt;/a&gt; on system default browser&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">openGithub</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">repo_link</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/RickBarretto/PreviewGram&quot;</span>
         <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;explorer &quot;</span><span class="o">+</span><span class="n">repo_link</span>
         <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;MacOSX&quot;</span><span class="p">:</span>
@@ -916,9 +779,9 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None, f:
 
         </details>
 
-            <div class="docstring"><p>Creates a 'open Repository' Button</p>
-
-<p>it'll open on <a href="https://github.com/RickBarretto/PreviewGram">GitHub</a></p>
+            <div class="docstring"><p>QPushButton(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None
+QPushButton(self, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None
+QPushButton(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None</p>
 </div>
 
 
@@ -926,16 +789,18 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None, f:
                                         <div class="attr function"><a class="headerlink" href="#Github.__init__">#&nbsp;&nbsp</a>
 
         
-            <span class="name">Github</span><span class="signature">()</span>
+            <span class="name">Github</span><span class="signature">(mainWin)</span>
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">35</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action</span><span class="p">()</span>
 </pre></div>
 
         </details>
@@ -949,54 +814,27 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
 
 
                             </div>
-                            <div id="Github.config" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Github.config">#&nbsp;&nbsp</a>
+                            <div id="Github.openGithub" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Github.openGithub">#&nbsp;&nbsp</a>
 
         
             <span class="def">def</span>
-            <span class="name">config</span><span class="signature">(self)</span>:
+            <span class="name">openGithub</span><span class="signature">(self)</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the `Github` button&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;Visit Us on Github!&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span>
-            <span class="s2">&quot;border: none;&quot;</span><span class="o">+</span>
-            <span class="s2">&quot;background-color: #448aff; color: #fff;&quot;</span><span class="o">+</span>
-            <span class="s2">&quot;padding: 0; margin: 0 36px 0 0;&quot;</span>
-            <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">PointingHandCursor</span><span class="p">))</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">openGithub</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">repo_link</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/RickBarretto/PreviewGram&quot;</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;explorer &quot;</span><span class="o">+</span><span class="n">repo_link</span>
+        <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;MacOSX&quot;</span><span class="p">:</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;open &quot;</span><span class="o">+</span><span class="n">repo_link</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>Configures the <code><a href="#Github">Github</a></code> button</p>
-</div>
-
-
-                            </div>
-                            <div id="Github.action" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Github.action">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">action</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;When clicked, Opens &lt;a href=&quot;https://github.com/RickBarretto/PreviewGram&quot;&gt;Github link&lt;/a&gt; on system default browser&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__openGithub</span><span class="p">)</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>When clicked, Opens <a href="https://github.com/RickBarretto/PreviewGram">Github link</a> on system default browser</p>
-</div>
-
+    
 
                             </div>
                             <div id="Github.staticMetaObject" class="classattr">
@@ -1011,70 +849,9 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
                             <div class="inherited">
                                 <h5>Inherited Members</h5>
                                 <dl>
-                                    <div><dt>PySide6.QtWidgets.QPushButton</dt>
-                                <dd id="Github.autoDefault" class="function">autoDefault</dd>
-                <dd id="Github.event" class="function">event</dd>
-                <dd id="Github.focusInEvent" class="function">focusInEvent</dd>
-                <dd id="Github.focusOutEvent" class="function">focusOutEvent</dd>
-                <dd id="Github.hitButton" class="function">hitButton</dd>
-                <dd id="Github.initStyleOption" class="function">initStyleOption</dd>
-                <dd id="Github.isDefault" class="function">isDefault</dd>
-                <dd id="Github.isFlat" class="function">isFlat</dd>
-                <dd id="Github.keyPressEvent" class="function">keyPressEvent</dd>
-                <dd id="Github.menu" class="function">menu</dd>
-                <dd id="Github.minimumSizeHint" class="function">minimumSizeHint</dd>
-                <dd id="Github.mouseMoveEvent" class="function">mouseMoveEvent</dd>
-                <dd id="Github.paintEvent" class="function">paintEvent</dd>
-                <dd id="Github.setAutoDefault" class="function">setAutoDefault</dd>
-                <dd id="Github.setDefault" class="function">setDefault</dd>
-                <dd id="Github.setFlat" class="function">setFlat</dd>
-                <dd id="Github.setMenu" class="function">setMenu</dd>
-                <dd id="Github.showMenu" class="function">showMenu</dd>
-                <dd id="Github.sizeHint" class="function">sizeHint</dd>
-
-            </div>
-            <div><dt>PySide6.QtWidgets.QAbstractButton</dt>
-                                <dd id="Github.animateClick" class="function">animateClick</dd>
-                <dd id="Github.autoExclusive" class="function">autoExclusive</dd>
-                <dd id="Github.autoRepeat" class="function">autoRepeat</dd>
-                <dd id="Github.autoRepeatDelay" class="function">autoRepeatDelay</dd>
-                <dd id="Github.autoRepeatInterval" class="function">autoRepeatInterval</dd>
-                <dd id="Github.changeEvent" class="function">changeEvent</dd>
-                <dd id="Github.checkStateSet" class="function">checkStateSet</dd>
-                <dd id="Github.click" class="function">click</dd>
-                <dd id="Github.group" class="function">group</dd>
-                <dd id="Github.icon" class="function">icon</dd>
-                <dd id="Github.iconSize" class="function">iconSize</dd>
-                <dd id="Github.isCheckable" class="function">isCheckable</dd>
-                <dd id="Github.isChecked" class="function">isChecked</dd>
-                <dd id="Github.isDown" class="function">isDown</dd>
-                <dd id="Github.keyReleaseEvent" class="function">keyReleaseEvent</dd>
-                <dd id="Github.mousePressEvent" class="function">mousePressEvent</dd>
-                <dd id="Github.mouseReleaseEvent" class="function">mouseReleaseEvent</dd>
-                <dd id="Github.nextCheckState" class="function">nextCheckState</dd>
-                <dd id="Github.setAutoExclusive" class="function">setAutoExclusive</dd>
-                <dd id="Github.setAutoRepeat" class="function">setAutoRepeat</dd>
-                <dd id="Github.setAutoRepeatDelay" class="function">setAutoRepeatDelay</dd>
-                <dd id="Github.setAutoRepeatInterval" class="function">setAutoRepeatInterval</dd>
-                <dd id="Github.setCheckable" class="function">setCheckable</dd>
-                <dd id="Github.setChecked" class="function">setChecked</dd>
-                <dd id="Github.setDown" class="function">setDown</dd>
-                <dd id="Github.setIcon" class="function">setIcon</dd>
-                <dd id="Github.setIconSize" class="function">setIconSize</dd>
-                <dd id="Github.setShortcut" class="function">setShortcut</dd>
-                <dd id="Github.setText" class="function">setText</dd>
-                <dd id="Github.shortcut" class="function">shortcut</dd>
-                <dd id="Github.text" class="function">text</dd>
-                <dd id="Github.timerEvent" class="function">timerEvent</dd>
-                <dd id="Github.toggle" class="function">toggle</dd>
-                <dd id="Github.toggled" class="function">toggled</dd>
-                <dd id="Github.pressed" class="function">pressed</dd>
-                <dd id="Github.released" class="function">released</dd>
-                <dd id="Github.clicked" class="function">clicked</dd>
-
-            </div>
-            <div><dt>PySide6.QtWidgets.QWidget</dt>
-                                <dd id="Github.acceptDrops" class="function">acceptDrops</dd>
+                                    <div><dt>PySide6.QtWidgets.QWidget</dt>
+                                <dd id="Github.size" class="function">size</dd>
+                <dd id="Github.acceptDrops" class="function">acceptDrops</dd>
                 <dd id="Github.accessibleDescription" class="function">accessibleDescription</dd>
                 <dd id="Github.accessibleName" class="function">accessibleName</dd>
                 <dd id="Github.actionEvent" class="function">actionEvent</dd>
@@ -1283,7 +1060,6 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
                 <dd id="Github.showMaximized" class="function">showMaximized</dd>
                 <dd id="Github.showMinimized" class="function">showMinimized</dd>
                 <dd id="Github.showNormal" class="function">showNormal</dd>
-                <dd id="Github.size" class="function">size</dd>
                 <dd id="Github.sizeIncrement" class="function">sizeIncrement</dd>
                 <dd id="Github.sizePolicy" class="function">sizePolicy</dd>
                 <dd id="Github.stackUnder" class="function">stackUnder</dd>
@@ -1330,8 +1106,70 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
                 <dd id="Github.IgnoreMask" class="variable">IgnoreMask</dd>
                 <dd id="Github.customContextMenuRequested" class="function">customContextMenuRequested</dd>
                 <dd id="Github.windowTitleChanged" class="function">windowTitleChanged</dd>
-                <dd id="Github.windowIconTextChanged" class="function">windowIconTextChanged</dd>
                 <dd id="Github.windowIconChanged" class="function">windowIconChanged</dd>
+                <dd id="Github.windowIconTextChanged" class="function">windowIconTextChanged</dd>
+
+            </div>
+            <div><dt>PySide6.QtWidgets.QPushButton</dt>
+                                <dd id="Github.autoDefault" class="function">autoDefault</dd>
+                <dd id="Github.event" class="function">event</dd>
+                <dd id="Github.focusInEvent" class="function">focusInEvent</dd>
+                <dd id="Github.focusOutEvent" class="function">focusOutEvent</dd>
+                <dd id="Github.hitButton" class="function">hitButton</dd>
+                <dd id="Github.initStyleOption" class="function">initStyleOption</dd>
+                <dd id="Github.isDefault" class="function">isDefault</dd>
+                <dd id="Github.isFlat" class="function">isFlat</dd>
+                <dd id="Github.keyPressEvent" class="function">keyPressEvent</dd>
+                <dd id="Github.menu" class="function">menu</dd>
+                <dd id="Github.minimumSizeHint" class="function">minimumSizeHint</dd>
+                <dd id="Github.mouseMoveEvent" class="function">mouseMoveEvent</dd>
+                <dd id="Github.paintEvent" class="function">paintEvent</dd>
+                <dd id="Github.setAutoDefault" class="function">setAutoDefault</dd>
+                <dd id="Github.setDefault" class="function">setDefault</dd>
+                <dd id="Github.setFlat" class="function">setFlat</dd>
+                <dd id="Github.setMenu" class="function">setMenu</dd>
+                <dd id="Github.showMenu" class="function">showMenu</dd>
+                <dd id="Github.sizeHint" class="function">sizeHint</dd>
+
+            </div>
+            <div><dt>PySide6.QtWidgets.QAbstractButton</dt>
+                                <dd id="Github.animateClick" class="function">animateClick</dd>
+                <dd id="Github.autoExclusive" class="function">autoExclusive</dd>
+                <dd id="Github.autoRepeat" class="function">autoRepeat</dd>
+                <dd id="Github.autoRepeatDelay" class="function">autoRepeatDelay</dd>
+                <dd id="Github.autoRepeatInterval" class="function">autoRepeatInterval</dd>
+                <dd id="Github.changeEvent" class="function">changeEvent</dd>
+                <dd id="Github.checkStateSet" class="function">checkStateSet</dd>
+                <dd id="Github.click" class="function">click</dd>
+                <dd id="Github.group" class="function">group</dd>
+                <dd id="Github.icon" class="function">icon</dd>
+                <dd id="Github.iconSize" class="function">iconSize</dd>
+                <dd id="Github.isCheckable" class="function">isCheckable</dd>
+                <dd id="Github.isChecked" class="function">isChecked</dd>
+                <dd id="Github.isDown" class="function">isDown</dd>
+                <dd id="Github.keyReleaseEvent" class="function">keyReleaseEvent</dd>
+                <dd id="Github.mousePressEvent" class="function">mousePressEvent</dd>
+                <dd id="Github.mouseReleaseEvent" class="function">mouseReleaseEvent</dd>
+                <dd id="Github.nextCheckState" class="function">nextCheckState</dd>
+                <dd id="Github.setAutoExclusive" class="function">setAutoExclusive</dd>
+                <dd id="Github.setAutoRepeat" class="function">setAutoRepeat</dd>
+                <dd id="Github.setAutoRepeatDelay" class="function">setAutoRepeatDelay</dd>
+                <dd id="Github.setAutoRepeatInterval" class="function">setAutoRepeatInterval</dd>
+                <dd id="Github.setCheckable" class="function">setCheckable</dd>
+                <dd id="Github.setChecked" class="function">setChecked</dd>
+                <dd id="Github.setDown" class="function">setDown</dd>
+                <dd id="Github.setIcon" class="function">setIcon</dd>
+                <dd id="Github.setIconSize" class="function">setIconSize</dd>
+                <dd id="Github.setShortcut" class="function">setShortcut</dd>
+                <dd id="Github.setText" class="function">setText</dd>
+                <dd id="Github.shortcut" class="function">shortcut</dd>
+                <dd id="Github.text" class="function">text</dd>
+                <dd id="Github.timerEvent" class="function">timerEvent</dd>
+                <dd id="Github.toggle" class="function">toggle</dd>
+                <dd id="Github.pressed" class="function">pressed</dd>
+                <dd id="Github.clicked" class="function">clicked</dd>
+                <dd id="Github.released" class="function">released</dd>
+                <dd id="Github.toggled" class="function">toggled</dd>
 
             </div>
             <div><dt>PySide6.QtCore.QObject</dt>
@@ -1372,8 +1210,8 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
                 <dd id="Github.startTimer" class="function">startTimer</dd>
                 <dd id="Github.thread" class="function">thread</dd>
                 <dd id="Github.tr" class="function">tr</dd>
-                <dd id="Github.destroyed" class="function">destroyed</dd>
                 <dd id="Github.objectNameChanged" class="function">objectNameChanged</dd>
+                <dd id="Github.destroyed" class="function">destroyed</dd>
 
             </div>
             <div><dt>PySide6.QtGui.QPaintDevice</dt>
@@ -1420,25 +1258,16 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">CloseBtn</span><span class="p">(</span><span class="n">QPushButton</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Closes the `Window` and ends the application&quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Init</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-
-        <span class="c1">#-- class&#39; variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;`src.Window` instance&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">35</span>
-        <span class="sd">&quot;&quot;&quot;size to be configured&quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action</span><span class="p">()</span>
     
-
-    <span class="c1">#-- Configuring</span>
-    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configuring `CloseBtn`&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setFixedSize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span>
@@ -1449,16 +1278,15 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
             <span class="s2">&quot;margin: 0&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">PointingHandCursor</span><span class="p">))</span>
 
-
-    <span class="c1">#-- Action</span>
-    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Connects to `src.Window.closeWindow` to close Main Window&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">closeWindow</span><span class="p">)</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>Closes the <code>Window</code> and ends the application</p>
+            <div class="docstring"><p>QPushButton(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None
+QPushButton(self, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None
+QPushButton(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None</p>
 </div>
 
 
@@ -1473,15 +1301,11 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-
-        <span class="c1">#-- class&#39; variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;`src.Window` instance&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">35</span>
-        <span class="sd">&quot;&quot;&quot;size to be configured&quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action</span><span class="p">()</span>
 </pre></div>
 
         </details>
@@ -1491,83 +1315,6 @@ __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None
 __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None</p>
 
 <p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</div>
-
-
-                            </div>
-                            <div id="CloseBtn.mainWin" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#CloseBtn.mainWin">#&nbsp;&nbsp</a>
-
-        <span class="name">mainWin</span>
-    </div>
-
-            <div class="docstring"><p><code><a href="../../../src.html#Window">src.Window</a></code> instance</p>
-</div>
-
-
-                            </div>
-                            <div id="CloseBtn.size" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#CloseBtn.size">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">size</span><span class="signature">(self) -&gt; PySide6.QtCore.QSize</span>:
-    </div>
-
-        
-            <div class="docstring"><p>size(self) -> PySide6.QtCore.QSize</p>
-</div>
-
-
-                            </div>
-                            <div id="CloseBtn.config" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#CloseBtn.config">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">config</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configuring `CloseBtn`&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setFixedSize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span>
-            <span class="s2">&quot;background-color: red;&quot;</span><span class="o">+</span>
-            <span class="s2">&quot;border: none;&quot;</span><span class="o">+</span>
-            <span class="s2">&quot;color: white;&quot;</span><span class="o">+</span>
-            <span class="s2">&quot;padding: 0;&quot;</span><span class="o">+</span>
-            <span class="s2">&quot;margin: 0&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">PointingHandCursor</span><span class="p">))</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Configuring <code><a href="#CloseBtn">CloseBtn</a></code></p>
-</div>
-
-
-                            </div>
-                            <div id="CloseBtn.action" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#CloseBtn.action">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">action</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Connects to `src.Window.closeWindow` to close Main Window&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">closeWindow</span><span class="p">)</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Connects to <code><a href="../../../src.html#Window.closeWindow">src.Window.closeWindow</a></code> to close Main Window</p>
 </div>
 
 
@@ -1584,70 +1331,9 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
                             <div class="inherited">
                                 <h5>Inherited Members</h5>
                                 <dl>
-                                    <div><dt>PySide6.QtWidgets.QPushButton</dt>
-                                <dd id="CloseBtn.autoDefault" class="function">autoDefault</dd>
-                <dd id="CloseBtn.event" class="function">event</dd>
-                <dd id="CloseBtn.focusInEvent" class="function">focusInEvent</dd>
-                <dd id="CloseBtn.focusOutEvent" class="function">focusOutEvent</dd>
-                <dd id="CloseBtn.hitButton" class="function">hitButton</dd>
-                <dd id="CloseBtn.initStyleOption" class="function">initStyleOption</dd>
-                <dd id="CloseBtn.isDefault" class="function">isDefault</dd>
-                <dd id="CloseBtn.isFlat" class="function">isFlat</dd>
-                <dd id="CloseBtn.keyPressEvent" class="function">keyPressEvent</dd>
-                <dd id="CloseBtn.menu" class="function">menu</dd>
-                <dd id="CloseBtn.minimumSizeHint" class="function">minimumSizeHint</dd>
-                <dd id="CloseBtn.mouseMoveEvent" class="function">mouseMoveEvent</dd>
-                <dd id="CloseBtn.paintEvent" class="function">paintEvent</dd>
-                <dd id="CloseBtn.setAutoDefault" class="function">setAutoDefault</dd>
-                <dd id="CloseBtn.setDefault" class="function">setDefault</dd>
-                <dd id="CloseBtn.setFlat" class="function">setFlat</dd>
-                <dd id="CloseBtn.setMenu" class="function">setMenu</dd>
-                <dd id="CloseBtn.showMenu" class="function">showMenu</dd>
-                <dd id="CloseBtn.sizeHint" class="function">sizeHint</dd>
-
-            </div>
-            <div><dt>PySide6.QtWidgets.QAbstractButton</dt>
-                                <dd id="CloseBtn.animateClick" class="function">animateClick</dd>
-                <dd id="CloseBtn.autoExclusive" class="function">autoExclusive</dd>
-                <dd id="CloseBtn.autoRepeat" class="function">autoRepeat</dd>
-                <dd id="CloseBtn.autoRepeatDelay" class="function">autoRepeatDelay</dd>
-                <dd id="CloseBtn.autoRepeatInterval" class="function">autoRepeatInterval</dd>
-                <dd id="CloseBtn.changeEvent" class="function">changeEvent</dd>
-                <dd id="CloseBtn.checkStateSet" class="function">checkStateSet</dd>
-                <dd id="CloseBtn.click" class="function">click</dd>
-                <dd id="CloseBtn.group" class="function">group</dd>
-                <dd id="CloseBtn.icon" class="function">icon</dd>
-                <dd id="CloseBtn.iconSize" class="function">iconSize</dd>
-                <dd id="CloseBtn.isCheckable" class="function">isCheckable</dd>
-                <dd id="CloseBtn.isChecked" class="function">isChecked</dd>
-                <dd id="CloseBtn.isDown" class="function">isDown</dd>
-                <dd id="CloseBtn.keyReleaseEvent" class="function">keyReleaseEvent</dd>
-                <dd id="CloseBtn.mousePressEvent" class="function">mousePressEvent</dd>
-                <dd id="CloseBtn.mouseReleaseEvent" class="function">mouseReleaseEvent</dd>
-                <dd id="CloseBtn.nextCheckState" class="function">nextCheckState</dd>
-                <dd id="CloseBtn.setAutoExclusive" class="function">setAutoExclusive</dd>
-                <dd id="CloseBtn.setAutoRepeat" class="function">setAutoRepeat</dd>
-                <dd id="CloseBtn.setAutoRepeatDelay" class="function">setAutoRepeatDelay</dd>
-                <dd id="CloseBtn.setAutoRepeatInterval" class="function">setAutoRepeatInterval</dd>
-                <dd id="CloseBtn.setCheckable" class="function">setCheckable</dd>
-                <dd id="CloseBtn.setChecked" class="function">setChecked</dd>
-                <dd id="CloseBtn.setDown" class="function">setDown</dd>
-                <dd id="CloseBtn.setIcon" class="function">setIcon</dd>
-                <dd id="CloseBtn.setIconSize" class="function">setIconSize</dd>
-                <dd id="CloseBtn.setShortcut" class="function">setShortcut</dd>
-                <dd id="CloseBtn.setText" class="function">setText</dd>
-                <dd id="CloseBtn.shortcut" class="function">shortcut</dd>
-                <dd id="CloseBtn.text" class="function">text</dd>
-                <dd id="CloseBtn.timerEvent" class="function">timerEvent</dd>
-                <dd id="CloseBtn.toggle" class="function">toggle</dd>
-                <dd id="CloseBtn.toggled" class="function">toggled</dd>
-                <dd id="CloseBtn.pressed" class="function">pressed</dd>
-                <dd id="CloseBtn.released" class="function">released</dd>
-                <dd id="CloseBtn.clicked" class="function">clicked</dd>
-
-            </div>
-            <div><dt>PySide6.QtWidgets.QWidget</dt>
-                                <dd id="CloseBtn.acceptDrops" class="function">acceptDrops</dd>
+                                    <div><dt>PySide6.QtWidgets.QWidget</dt>
+                                <dd id="CloseBtn.size" class="function">size</dd>
+                <dd id="CloseBtn.acceptDrops" class="function">acceptDrops</dd>
                 <dd id="CloseBtn.accessibleDescription" class="function">accessibleDescription</dd>
                 <dd id="CloseBtn.accessibleName" class="function">accessibleName</dd>
                 <dd id="CloseBtn.actionEvent" class="function">actionEvent</dd>
@@ -1902,8 +1588,70 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
                 <dd id="CloseBtn.IgnoreMask" class="variable">IgnoreMask</dd>
                 <dd id="CloseBtn.customContextMenuRequested" class="function">customContextMenuRequested</dd>
                 <dd id="CloseBtn.windowTitleChanged" class="function">windowTitleChanged</dd>
-                <dd id="CloseBtn.windowIconTextChanged" class="function">windowIconTextChanged</dd>
                 <dd id="CloseBtn.windowIconChanged" class="function">windowIconChanged</dd>
+                <dd id="CloseBtn.windowIconTextChanged" class="function">windowIconTextChanged</dd>
+
+            </div>
+            <div><dt>PySide6.QtWidgets.QPushButton</dt>
+                                <dd id="CloseBtn.autoDefault" class="function">autoDefault</dd>
+                <dd id="CloseBtn.event" class="function">event</dd>
+                <dd id="CloseBtn.focusInEvent" class="function">focusInEvent</dd>
+                <dd id="CloseBtn.focusOutEvent" class="function">focusOutEvent</dd>
+                <dd id="CloseBtn.hitButton" class="function">hitButton</dd>
+                <dd id="CloseBtn.initStyleOption" class="function">initStyleOption</dd>
+                <dd id="CloseBtn.isDefault" class="function">isDefault</dd>
+                <dd id="CloseBtn.isFlat" class="function">isFlat</dd>
+                <dd id="CloseBtn.keyPressEvent" class="function">keyPressEvent</dd>
+                <dd id="CloseBtn.menu" class="function">menu</dd>
+                <dd id="CloseBtn.minimumSizeHint" class="function">minimumSizeHint</dd>
+                <dd id="CloseBtn.mouseMoveEvent" class="function">mouseMoveEvent</dd>
+                <dd id="CloseBtn.paintEvent" class="function">paintEvent</dd>
+                <dd id="CloseBtn.setAutoDefault" class="function">setAutoDefault</dd>
+                <dd id="CloseBtn.setDefault" class="function">setDefault</dd>
+                <dd id="CloseBtn.setFlat" class="function">setFlat</dd>
+                <dd id="CloseBtn.setMenu" class="function">setMenu</dd>
+                <dd id="CloseBtn.showMenu" class="function">showMenu</dd>
+                <dd id="CloseBtn.sizeHint" class="function">sizeHint</dd>
+
+            </div>
+            <div><dt>PySide6.QtWidgets.QAbstractButton</dt>
+                                <dd id="CloseBtn.animateClick" class="function">animateClick</dd>
+                <dd id="CloseBtn.autoExclusive" class="function">autoExclusive</dd>
+                <dd id="CloseBtn.autoRepeat" class="function">autoRepeat</dd>
+                <dd id="CloseBtn.autoRepeatDelay" class="function">autoRepeatDelay</dd>
+                <dd id="CloseBtn.autoRepeatInterval" class="function">autoRepeatInterval</dd>
+                <dd id="CloseBtn.changeEvent" class="function">changeEvent</dd>
+                <dd id="CloseBtn.checkStateSet" class="function">checkStateSet</dd>
+                <dd id="CloseBtn.click" class="function">click</dd>
+                <dd id="CloseBtn.group" class="function">group</dd>
+                <dd id="CloseBtn.icon" class="function">icon</dd>
+                <dd id="CloseBtn.iconSize" class="function">iconSize</dd>
+                <dd id="CloseBtn.isCheckable" class="function">isCheckable</dd>
+                <dd id="CloseBtn.isChecked" class="function">isChecked</dd>
+                <dd id="CloseBtn.isDown" class="function">isDown</dd>
+                <dd id="CloseBtn.keyReleaseEvent" class="function">keyReleaseEvent</dd>
+                <dd id="CloseBtn.mousePressEvent" class="function">mousePressEvent</dd>
+                <dd id="CloseBtn.mouseReleaseEvent" class="function">mouseReleaseEvent</dd>
+                <dd id="CloseBtn.nextCheckState" class="function">nextCheckState</dd>
+                <dd id="CloseBtn.setAutoExclusive" class="function">setAutoExclusive</dd>
+                <dd id="CloseBtn.setAutoRepeat" class="function">setAutoRepeat</dd>
+                <dd id="CloseBtn.setAutoRepeatDelay" class="function">setAutoRepeatDelay</dd>
+                <dd id="CloseBtn.setAutoRepeatInterval" class="function">setAutoRepeatInterval</dd>
+                <dd id="CloseBtn.setCheckable" class="function">setCheckable</dd>
+                <dd id="CloseBtn.setChecked" class="function">setChecked</dd>
+                <dd id="CloseBtn.setDown" class="function">setDown</dd>
+                <dd id="CloseBtn.setIcon" class="function">setIcon</dd>
+                <dd id="CloseBtn.setIconSize" class="function">setIconSize</dd>
+                <dd id="CloseBtn.setShortcut" class="function">setShortcut</dd>
+                <dd id="CloseBtn.setText" class="function">setText</dd>
+                <dd id="CloseBtn.shortcut" class="function">shortcut</dd>
+                <dd id="CloseBtn.text" class="function">text</dd>
+                <dd id="CloseBtn.timerEvent" class="function">timerEvent</dd>
+                <dd id="CloseBtn.toggle" class="function">toggle</dd>
+                <dd id="CloseBtn.pressed" class="function">pressed</dd>
+                <dd id="CloseBtn.clicked" class="function">clicked</dd>
+                <dd id="CloseBtn.released" class="function">released</dd>
+                <dd id="CloseBtn.toggled" class="function">toggled</dd>
 
             </div>
             <div><dt>PySide6.QtCore.QObject</dt>
@@ -1944,8 +1692,8 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
                 <dd id="CloseBtn.startTimer" class="function">startTimer</dd>
                 <dd id="CloseBtn.thread" class="function">thread</dd>
                 <dd id="CloseBtn.tr" class="function">tr</dd>
-                <dd id="CloseBtn.destroyed" class="function">destroyed</dd>
                 <dd id="CloseBtn.objectNameChanged" class="function">objectNameChanged</dd>
+                <dd id="CloseBtn.destroyed" class="function">destroyed</dd>
 
             </div>
             <div><dt>PySide6.QtGui.QPaintDevice</dt>
@@ -1992,23 +1740,16 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">MinBtn</span><span class="p">(</span><span class="n">QPushButton</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Minimize Button: Minimizes the `src.Window` when clicked&quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Init</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;`src.Window` instance&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">35</span>
-        <span class="sd">&quot;&quot;&quot;size to be configured&quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action</span><span class="p">()</span>
     
-
-    <span class="c1">#-- Configuring</span>
-    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configuring `MinBtn`&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setFixedSize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span>
@@ -2018,16 +1759,15 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
             <span class="s2">&quot;margin: 0&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">PointingHandCursor</span><span class="p">))</span>
 
-
-    <span class="c1">#-- Action</span>
-    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Connects to `src.Window.minWindow` to minimize Main Window&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">minWindow</span><span class="p">())</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>Minimize Button: Minimizes the <code><a href="../../../src.html#Window">src.Window</a></code> when clicked</p>
+            <div class="docstring"><p>QPushButton(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None
+QPushButton(self, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None
+QPushButton(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None</p>
 </div>
 
 
@@ -2043,12 +1783,10 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;`src.Window` instance&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">35</span>
-        <span class="sd">&quot;&quot;&quot;size to be configured&quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action</span><span class="p">()</span>
 </pre></div>
 
         </details>
@@ -2058,82 +1796,6 @@ __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None
 __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) -> None</p>
 
 <p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</div>
-
-
-                            </div>
-                            <div id="MinBtn.mainWin" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#MinBtn.mainWin">#&nbsp;&nbsp</a>
-
-        <span class="name">mainWin</span>
-    </div>
-
-            <div class="docstring"><p><code><a href="../../../src.html#Window">src.Window</a></code> instance</p>
-</div>
-
-
-                            </div>
-                            <div id="MinBtn.size" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#MinBtn.size">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">size</span><span class="signature">(self) -&gt; PySide6.QtCore.QSize</span>:
-    </div>
-
-        
-            <div class="docstring"><p>size(self) -> PySide6.QtCore.QSize</p>
-</div>
-
-
-                            </div>
-                            <div id="MinBtn.config" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#MinBtn.config">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">config</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configuring `MinBtn`&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setFixedSize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span>
-            <span class="s2">&quot;border: none;&quot;</span><span class="o">+</span>
-            <span class="s2">&quot;background-color: #448aff; color: #fff;&quot;</span><span class="o">+</span>
-            <span class="s2">&quot;padding: 0;&quot;</span><span class="o">+</span>
-            <span class="s2">&quot;margin: 0&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">PointingHandCursor</span><span class="p">))</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Configuring <code><a href="#MinBtn">MinBtn</a></code></p>
-</div>
-
-
-                            </div>
-                            <div id="MinBtn.action" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#MinBtn.action">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">action</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Connects to `src.Window.minWindow` to minimize Main Window&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">minWindow</span><span class="p">())</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Connects to <code><a href="../../../src.html#Window.minWindow">src.Window.minWindow</a></code> to minimize Main Window</p>
 </div>
 
 
@@ -2150,70 +1812,9 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
                             <div class="inherited">
                                 <h5>Inherited Members</h5>
                                 <dl>
-                                    <div><dt>PySide6.QtWidgets.QPushButton</dt>
-                                <dd id="MinBtn.autoDefault" class="function">autoDefault</dd>
-                <dd id="MinBtn.event" class="function">event</dd>
-                <dd id="MinBtn.focusInEvent" class="function">focusInEvent</dd>
-                <dd id="MinBtn.focusOutEvent" class="function">focusOutEvent</dd>
-                <dd id="MinBtn.hitButton" class="function">hitButton</dd>
-                <dd id="MinBtn.initStyleOption" class="function">initStyleOption</dd>
-                <dd id="MinBtn.isDefault" class="function">isDefault</dd>
-                <dd id="MinBtn.isFlat" class="function">isFlat</dd>
-                <dd id="MinBtn.keyPressEvent" class="function">keyPressEvent</dd>
-                <dd id="MinBtn.menu" class="function">menu</dd>
-                <dd id="MinBtn.minimumSizeHint" class="function">minimumSizeHint</dd>
-                <dd id="MinBtn.mouseMoveEvent" class="function">mouseMoveEvent</dd>
-                <dd id="MinBtn.paintEvent" class="function">paintEvent</dd>
-                <dd id="MinBtn.setAutoDefault" class="function">setAutoDefault</dd>
-                <dd id="MinBtn.setDefault" class="function">setDefault</dd>
-                <dd id="MinBtn.setFlat" class="function">setFlat</dd>
-                <dd id="MinBtn.setMenu" class="function">setMenu</dd>
-                <dd id="MinBtn.showMenu" class="function">showMenu</dd>
-                <dd id="MinBtn.sizeHint" class="function">sizeHint</dd>
-
-            </div>
-            <div><dt>PySide6.QtWidgets.QAbstractButton</dt>
-                                <dd id="MinBtn.animateClick" class="function">animateClick</dd>
-                <dd id="MinBtn.autoExclusive" class="function">autoExclusive</dd>
-                <dd id="MinBtn.autoRepeat" class="function">autoRepeat</dd>
-                <dd id="MinBtn.autoRepeatDelay" class="function">autoRepeatDelay</dd>
-                <dd id="MinBtn.autoRepeatInterval" class="function">autoRepeatInterval</dd>
-                <dd id="MinBtn.changeEvent" class="function">changeEvent</dd>
-                <dd id="MinBtn.checkStateSet" class="function">checkStateSet</dd>
-                <dd id="MinBtn.click" class="function">click</dd>
-                <dd id="MinBtn.group" class="function">group</dd>
-                <dd id="MinBtn.icon" class="function">icon</dd>
-                <dd id="MinBtn.iconSize" class="function">iconSize</dd>
-                <dd id="MinBtn.isCheckable" class="function">isCheckable</dd>
-                <dd id="MinBtn.isChecked" class="function">isChecked</dd>
-                <dd id="MinBtn.isDown" class="function">isDown</dd>
-                <dd id="MinBtn.keyReleaseEvent" class="function">keyReleaseEvent</dd>
-                <dd id="MinBtn.mousePressEvent" class="function">mousePressEvent</dd>
-                <dd id="MinBtn.mouseReleaseEvent" class="function">mouseReleaseEvent</dd>
-                <dd id="MinBtn.nextCheckState" class="function">nextCheckState</dd>
-                <dd id="MinBtn.setAutoExclusive" class="function">setAutoExclusive</dd>
-                <dd id="MinBtn.setAutoRepeat" class="function">setAutoRepeat</dd>
-                <dd id="MinBtn.setAutoRepeatDelay" class="function">setAutoRepeatDelay</dd>
-                <dd id="MinBtn.setAutoRepeatInterval" class="function">setAutoRepeatInterval</dd>
-                <dd id="MinBtn.setCheckable" class="function">setCheckable</dd>
-                <dd id="MinBtn.setChecked" class="function">setChecked</dd>
-                <dd id="MinBtn.setDown" class="function">setDown</dd>
-                <dd id="MinBtn.setIcon" class="function">setIcon</dd>
-                <dd id="MinBtn.setIconSize" class="function">setIconSize</dd>
-                <dd id="MinBtn.setShortcut" class="function">setShortcut</dd>
-                <dd id="MinBtn.setText" class="function">setText</dd>
-                <dd id="MinBtn.shortcut" class="function">shortcut</dd>
-                <dd id="MinBtn.text" class="function">text</dd>
-                <dd id="MinBtn.timerEvent" class="function">timerEvent</dd>
-                <dd id="MinBtn.toggle" class="function">toggle</dd>
-                <dd id="MinBtn.toggled" class="function">toggled</dd>
-                <dd id="MinBtn.pressed" class="function">pressed</dd>
-                <dd id="MinBtn.released" class="function">released</dd>
-                <dd id="MinBtn.clicked" class="function">clicked</dd>
-
-            </div>
-            <div><dt>PySide6.QtWidgets.QWidget</dt>
-                                <dd id="MinBtn.acceptDrops" class="function">acceptDrops</dd>
+                                    <div><dt>PySide6.QtWidgets.QWidget</dt>
+                                <dd id="MinBtn.size" class="function">size</dd>
+                <dd id="MinBtn.acceptDrops" class="function">acceptDrops</dd>
                 <dd id="MinBtn.accessibleDescription" class="function">accessibleDescription</dd>
                 <dd id="MinBtn.accessibleName" class="function">accessibleName</dd>
                 <dd id="MinBtn.actionEvent" class="function">actionEvent</dd>
@@ -2468,8 +2069,70 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
                 <dd id="MinBtn.IgnoreMask" class="variable">IgnoreMask</dd>
                 <dd id="MinBtn.customContextMenuRequested" class="function">customContextMenuRequested</dd>
                 <dd id="MinBtn.windowTitleChanged" class="function">windowTitleChanged</dd>
-                <dd id="MinBtn.windowIconTextChanged" class="function">windowIconTextChanged</dd>
                 <dd id="MinBtn.windowIconChanged" class="function">windowIconChanged</dd>
+                <dd id="MinBtn.windowIconTextChanged" class="function">windowIconTextChanged</dd>
+
+            </div>
+            <div><dt>PySide6.QtWidgets.QPushButton</dt>
+                                <dd id="MinBtn.autoDefault" class="function">autoDefault</dd>
+                <dd id="MinBtn.event" class="function">event</dd>
+                <dd id="MinBtn.focusInEvent" class="function">focusInEvent</dd>
+                <dd id="MinBtn.focusOutEvent" class="function">focusOutEvent</dd>
+                <dd id="MinBtn.hitButton" class="function">hitButton</dd>
+                <dd id="MinBtn.initStyleOption" class="function">initStyleOption</dd>
+                <dd id="MinBtn.isDefault" class="function">isDefault</dd>
+                <dd id="MinBtn.isFlat" class="function">isFlat</dd>
+                <dd id="MinBtn.keyPressEvent" class="function">keyPressEvent</dd>
+                <dd id="MinBtn.menu" class="function">menu</dd>
+                <dd id="MinBtn.minimumSizeHint" class="function">minimumSizeHint</dd>
+                <dd id="MinBtn.mouseMoveEvent" class="function">mouseMoveEvent</dd>
+                <dd id="MinBtn.paintEvent" class="function">paintEvent</dd>
+                <dd id="MinBtn.setAutoDefault" class="function">setAutoDefault</dd>
+                <dd id="MinBtn.setDefault" class="function">setDefault</dd>
+                <dd id="MinBtn.setFlat" class="function">setFlat</dd>
+                <dd id="MinBtn.setMenu" class="function">setMenu</dd>
+                <dd id="MinBtn.showMenu" class="function">showMenu</dd>
+                <dd id="MinBtn.sizeHint" class="function">sizeHint</dd>
+
+            </div>
+            <div><dt>PySide6.QtWidgets.QAbstractButton</dt>
+                                <dd id="MinBtn.animateClick" class="function">animateClick</dd>
+                <dd id="MinBtn.autoExclusive" class="function">autoExclusive</dd>
+                <dd id="MinBtn.autoRepeat" class="function">autoRepeat</dd>
+                <dd id="MinBtn.autoRepeatDelay" class="function">autoRepeatDelay</dd>
+                <dd id="MinBtn.autoRepeatInterval" class="function">autoRepeatInterval</dd>
+                <dd id="MinBtn.changeEvent" class="function">changeEvent</dd>
+                <dd id="MinBtn.checkStateSet" class="function">checkStateSet</dd>
+                <dd id="MinBtn.click" class="function">click</dd>
+                <dd id="MinBtn.group" class="function">group</dd>
+                <dd id="MinBtn.icon" class="function">icon</dd>
+                <dd id="MinBtn.iconSize" class="function">iconSize</dd>
+                <dd id="MinBtn.isCheckable" class="function">isCheckable</dd>
+                <dd id="MinBtn.isChecked" class="function">isChecked</dd>
+                <dd id="MinBtn.isDown" class="function">isDown</dd>
+                <dd id="MinBtn.keyReleaseEvent" class="function">keyReleaseEvent</dd>
+                <dd id="MinBtn.mousePressEvent" class="function">mousePressEvent</dd>
+                <dd id="MinBtn.mouseReleaseEvent" class="function">mouseReleaseEvent</dd>
+                <dd id="MinBtn.nextCheckState" class="function">nextCheckState</dd>
+                <dd id="MinBtn.setAutoExclusive" class="function">setAutoExclusive</dd>
+                <dd id="MinBtn.setAutoRepeat" class="function">setAutoRepeat</dd>
+                <dd id="MinBtn.setAutoRepeatDelay" class="function">setAutoRepeatDelay</dd>
+                <dd id="MinBtn.setAutoRepeatInterval" class="function">setAutoRepeatInterval</dd>
+                <dd id="MinBtn.setCheckable" class="function">setCheckable</dd>
+                <dd id="MinBtn.setChecked" class="function">setChecked</dd>
+                <dd id="MinBtn.setDown" class="function">setDown</dd>
+                <dd id="MinBtn.setIcon" class="function">setIcon</dd>
+                <dd id="MinBtn.setIconSize" class="function">setIconSize</dd>
+                <dd id="MinBtn.setShortcut" class="function">setShortcut</dd>
+                <dd id="MinBtn.setText" class="function">setText</dd>
+                <dd id="MinBtn.shortcut" class="function">shortcut</dd>
+                <dd id="MinBtn.text" class="function">text</dd>
+                <dd id="MinBtn.timerEvent" class="function">timerEvent</dd>
+                <dd id="MinBtn.toggle" class="function">toggle</dd>
+                <dd id="MinBtn.pressed" class="function">pressed</dd>
+                <dd id="MinBtn.clicked" class="function">clicked</dd>
+                <dd id="MinBtn.released" class="function">released</dd>
+                <dd id="MinBtn.toggled" class="function">toggled</dd>
 
             </div>
             <div><dt>PySide6.QtCore.QObject</dt>
@@ -2510,8 +2173,8 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
                 <dd id="MinBtn.startTimer" class="function">startTimer</dd>
                 <dd id="MinBtn.thread" class="function">thread</dd>
                 <dd id="MinBtn.tr" class="function">tr</dd>
-                <dd id="MinBtn.destroyed" class="function">destroyed</dd>
                 <dd id="MinBtn.objectNameChanged" class="function">objectNameChanged</dd>
+                <dd id="MinBtn.destroyed" class="function">destroyed</dd>
 
             </div>
             <div><dt>PySide6.QtGui.QPaintDevice</dt>
@@ -2563,41 +2226,30 @@ __init__(self, text: str, parent: Optional[PySide6.QtWidgets.QWidget] = None) ->
 <span class="sd">    - parent: QWidget </span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Init</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span><span class="n">QWidget</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;`src.Window` instance&quot;&quot;&quot;</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;Sets layout as QHBox&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_widget</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">add_widgets</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_widget</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__add_widgets</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_layout</span><span class="p">()</span>
 
-
-    <span class="c1">#-- Adding Widgets</span>
-    <span class="k">def</span> <span class="nf">add_widgets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Adds Widgets: `Github`, `Title`, `MinBtn` and `CloseBtn`&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Github</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Title</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">MinBtn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">CloseBtn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
-
-
-    <span class="c1">#-- Configuring</span>
-    <span class="k">def</span> <span class="nf">config_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures widget&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setFixedHeight</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setWhatsThis</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">&quot;padding: 0 15px 0 0; margin: 0;&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setContentsMargins</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures layout&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">setContentsMargins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__add_widgets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Github</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Title</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">MinBtn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">CloseBtn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
 </pre></div>
 
         </details>
@@ -2623,15 +2275,12 @@ param:</p>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span><span class="n">QWidget</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;`src.Window` instance&quot;&quot;&quot;</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;Sets layout as QHBox&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_widget</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">add_widgets</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_widget</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__add_widgets</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_layout</span><span class="p">()</span>
 </pre></div>
 
         </details>
@@ -2639,103 +2288,6 @@ param:</p>
             <div class="docstring"><p>__init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = None, f: PySide6.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
 
 <p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</div>
-
-
-                            </div>
-                            <div id="TopBar.mainWin" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#TopBar.mainWin">#&nbsp;&nbsp</a>
-
-        <span class="name">mainWin</span>
-    </div>
-
-            <div class="docstring"><p><code><a href="../../../src.html#Window">src.Window</a></code> instance</p>
-</div>
-
-
-                            </div>
-                            <div id="TopBar.layout" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#TopBar.layout">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">layout</span><span class="signature">(self) -&gt; PySide6.QtWidgets.QLayout</span>:
-    </div>
-
-        
-            <div class="docstring"><p>layout(self) -> PySide6.QtWidgets.QLayout</p>
-</div>
-
-
-                            </div>
-                            <div id="TopBar.add_widgets" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#TopBar.add_widgets">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">add_widgets</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">add_widgets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Adds Widgets: `Github`, `Title`, `MinBtn` and `CloseBtn`&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Github</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Title</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">MinBtn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">CloseBtn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Adds Widgets: <code><a href="#Github">Github</a></code>, <code><a href="#Title">Title</a></code>, <code><a href="#MinBtn">MinBtn</a></code> and <code><a href="#CloseBtn">CloseBtn</a></code></p>
-</div>
-
-
-                            </div>
-                            <div id="TopBar.config_widget" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#TopBar.config_widget">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">config_widget</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures widget&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setFixedHeight</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWhatsThis</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">&quot;padding: 0 15px 0 0; margin: 0;&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setContentsMargins</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Configures widget</p>
-</div>
-
-
-                            </div>
-                            <div id="TopBar.config_layout" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#TopBar.config_layout">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">config_layout</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures layout&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">setContentsMargins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Configures layout</p>
 </div>
 
 
@@ -2753,7 +2305,8 @@ param:</p>
                                 <h5>Inherited Members</h5>
                                 <dl>
                                     <div><dt>PySide6.QtWidgets.QWidget</dt>
-                                <dd id="TopBar.acceptDrops" class="function">acceptDrops</dd>
+                                <dd id="TopBar.layout" class="function">layout</dd>
+                <dd id="TopBar.acceptDrops" class="function">acceptDrops</dd>
                 <dd id="TopBar.accessibleDescription" class="function">accessibleDescription</dd>
                 <dd id="TopBar.accessibleName" class="function">accessibleName</dd>
                 <dd id="TopBar.actionEvent" class="function">actionEvent</dd>
@@ -3020,8 +2573,8 @@ param:</p>
                 <dd id="TopBar.IgnoreMask" class="variable">IgnoreMask</dd>
                 <dd id="TopBar.customContextMenuRequested" class="function">customContextMenuRequested</dd>
                 <dd id="TopBar.windowTitleChanged" class="function">windowTitleChanged</dd>
-                <dd id="TopBar.windowIconTextChanged" class="function">windowIconTextChanged</dd>
                 <dd id="TopBar.windowIconChanged" class="function">windowIconChanged</dd>
+                <dd id="TopBar.windowIconTextChanged" class="function">windowIconTextChanged</dd>
 
             </div>
             <div><dt>PySide6.QtCore.QObject</dt>
@@ -3063,8 +2616,8 @@ param:</p>
                 <dd id="TopBar.thread" class="function">thread</dd>
                 <dd id="TopBar.timerEvent" class="function">timerEvent</dd>
                 <dd id="TopBar.tr" class="function">tr</dd>
-                <dd id="TopBar.destroyed" class="function">destroyed</dd>
                 <dd id="TopBar.objectNameChanged" class="function">objectNameChanged</dd>
+                <dd id="TopBar.destroyed" class="function">destroyed</dd>
 
             </div>
             <div><dt>PySide6.QtGui.QPaintDevice</dt>

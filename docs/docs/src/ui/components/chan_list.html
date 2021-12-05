@@ -22,6 +22,7 @@
   <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
 </svg>                            &nbsp;src.ui.components</a>
 
+                        <img src="../assets/PreviewGram.svg" class="logo" alt="project logo"/>
 
                         <input type="search" placeholder="Search..." role="searchbox" aria-label="search"
                                pattern=".+" required>
@@ -37,33 +38,6 @@
                                 <a class="function" href="#ChannelList.__init__">ChannelList</a>
                         </li>
                         <li>
-                                <a class="variable" href="#ChannelList.channels">channels</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#ChannelList.parent">parent</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#ChannelList.layout">layout</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#ChannelList.wid">wid</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#ChannelList.wid_layout">wid_layout</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#ChannelList.scroll">scroll</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#ChannelList.config_scroll">config_scroll</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#ChannelList.config_layout">config_layout</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#ChannelList.gen_buttons">gen_buttons</a>
-                        </li>
-                        <li>
                                 <a class="variable" href="#ChannelList.staticMetaObject">staticMetaObject</a>
                         </li>
                 </ul>
@@ -72,6 +46,7 @@
     </ul>
 
 
+                    <footer>Private PreviewGram 1.1</footer>
 
                     <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev">
                         built with <span class="visually-hidden">pdoc</span><img
@@ -88,68 +63,45 @@
                 
                         <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span><span class="c1">#-- importing Qt modules</span>
-<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span>
+            <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">QWidget</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span>
     <span class="n">QScrollArea</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">QColor</span><span class="p">,</span> <span class="n">QCursor</span>
 <span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="n">QPoint</span><span class="p">,</span> <span class="n">QUrl</span><span class="p">,</span> <span class="n">Qt</span>
-
-<span class="c1">#-- importing functools to partial connect</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 
 
-<span class="c1">#-- ChannelList Widget (SideBar)</span>
 <span class="k">class</span> <span class="nc">ChannelList</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;It&#39;s the application SideBar, that will load the channel List, creating buttons to change the `src.ui.components.engine.Engine` current url&quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Init</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
 
-        <span class="c1">#-- class&#39; variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the channel list loaded from `src.Window.channels`&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the `src.Window` instance&quot;&quot;&quot;</span>
 
-        <span class="c1">#-- class&#39; widgets variables </span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;`ChannelList`&#39;s Layout as QHBox&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;`ChannelList`&#39;s main Widget&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;`wid`&#39;s layout as QVBox &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span> <span class="o">=</span> <span class="n">QScrollArea</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;Scroll Area&quot;&quot;&quot;</span>
 
-        <span class="c1">#-- generating layout</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gen_buttons</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__gen_buttons</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="p">)</span>
 
-        <span class="c1">#-- configuring layout</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_scroll</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_scroll</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_layout</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="p">)</span>
 
     
-    <span class="k">def</span> <span class="nf">config_scroll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the Scroll Area&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config_scroll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setVerticalScrollBarPolicy</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOn</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setHorizontalScrollBarPolicy</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOff</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setWidgetResizable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wid</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the layout&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="o">.</span><span class="n">addStretch</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">__gen_fixed_buttons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The first button: &quot;Test privacy&quot; opens https://www.whatismybrowser.com/</span>
-
-<span class="sd">        The second button: &quot;Official Channel&quot; opens https://t.me/s/previewgram</span>
-<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">btn_test</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Test privacy!&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">btn_test</span><span class="o">.</span><span class="n">setMaximumHeight</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
@@ -168,8 +120,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">btn_test</span><span class="p">,</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignBottom</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">official_channel</span><span class="p">,</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignBottom</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">gen_buttons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Generates the Dynamic buttons and fixed buttons&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__gen_buttons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__gen_fixed_buttons</span><span class="p">()</span>        
 
@@ -198,55 +149,36 @@
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">ChannelList</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;It&#39;s the application SideBar, that will load the channel List, creating buttons to change the `src.ui.components.engine.Engine` current url&quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Init</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
 
-        <span class="c1">#-- class&#39; variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the channel list loaded from `src.Window.channels`&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the `src.Window` instance&quot;&quot;&quot;</span>
 
-        <span class="c1">#-- class&#39; widgets variables </span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;`ChannelList`&#39;s Layout as QHBox&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;`ChannelList`&#39;s main Widget&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;`wid`&#39;s layout as QVBox &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span> <span class="o">=</span> <span class="n">QScrollArea</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;Scroll Area&quot;&quot;&quot;</span>
 
-        <span class="c1">#-- generating layout</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gen_buttons</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__gen_buttons</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="p">)</span>
 
-        <span class="c1">#-- configuring layout</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_scroll</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_scroll</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_layout</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="p">)</span>
 
     
-    <span class="k">def</span> <span class="nf">config_scroll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the Scroll Area&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config_scroll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setVerticalScrollBarPolicy</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOn</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setHorizontalScrollBarPolicy</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOff</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setWidgetResizable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wid</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the layout&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="o">.</span><span class="n">addStretch</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">__gen_fixed_buttons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The first button: &quot;Test privacy&quot; opens https://www.whatismybrowser.com/</span>
-
-<span class="sd">        The second button: &quot;Official Channel&quot; opens https://t.me/s/previewgram</span>
-<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">btn_test</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Test privacy!&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">btn_test</span><span class="o">.</span><span class="n">setMaximumHeight</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
@@ -265,8 +197,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">btn_test</span><span class="p">,</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignBottom</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">official_channel</span><span class="p">,</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignBottom</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">gen_buttons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Generates the Dynamic buttons and fixed buttons&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__gen_buttons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__gen_fixed_buttons</span><span class="p">()</span>        
 
@@ -282,7 +213,7 @@
 
         </details>
 
-            <div class="docstring"><p>It's the application SideBar, that will load the channel List, creating buttons to change the <code><a href="engine.html#Engine">src.ui.components.engine.Engine</a></code> current url</p>
+            <div class="docstring"><p>QWidget(self, parent: Optional[PySide6.QtWidgets.QWidget] = None, f: PySide6.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
 </div>
 
 
@@ -298,29 +229,19 @@
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
 
-        <span class="c1">#-- class&#39; variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the channel list loaded from `src.Window.channels`&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the `src.Window` instance&quot;&quot;&quot;</span>
 
-        <span class="c1">#-- class&#39; widgets variables </span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;`ChannelList`&#39;s Layout as QHBox&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;`ChannelList`&#39;s main Widget&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;`wid`&#39;s layout as QVBox &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span> <span class="o">=</span> <span class="n">QScrollArea</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;Scroll Area&quot;&quot;&quot;</span>
 
-        <span class="c1">#-- generating layout</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gen_buttons</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__gen_buttons</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="p">)</span>
 
-        <span class="c1">#-- configuring layout</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_scroll</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_scroll</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_layout</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="p">)</span>
 </pre></div>
 
@@ -329,161 +250,6 @@
             <div class="docstring"><p>__init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = None, f: PySide6.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
 
 <p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</div>
-
-
-                            </div>
-                            <div id="ChannelList.channels" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#ChannelList.channels">#&nbsp;&nbsp</a>
-
-        <span class="name">channels</span>
-    </div>
-
-            <div class="docstring"><p>It's the channel list loaded from <code><a href="../../../src.html#Window.channels">src.Window.channels</a></code></p>
-</div>
-
-
-                            </div>
-                            <div id="ChannelList.parent" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#ChannelList.parent">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">parent</span><span class="signature">(self) -&gt; PySide6.QtCore.QObject</span>:
-    </div>
-
-        
-            <div class="docstring"><p>parent(self) -> PySide6.QtCore.QObject</p>
-</div>
-
-
-                            </div>
-                            <div id="ChannelList.layout" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#ChannelList.layout">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">layout</span><span class="signature">(self) -&gt; PySide6.QtWidgets.QLayout</span>:
-    </div>
-
-        
-            <div class="docstring"><p>layout(self) -> PySide6.QtWidgets.QLayout</p>
-</div>
-
-
-                            </div>
-                            <div id="ChannelList.wid" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#ChannelList.wid">#&nbsp;&nbsp</a>
-
-        <span class="name">wid</span>
-    </div>
-
-            <div class="docstring"><p><code><a href="#ChannelList">ChannelList</a></code>'s main Widget</p>
-</div>
-
-
-                            </div>
-                            <div id="ChannelList.wid_layout" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#ChannelList.wid_layout">#&nbsp;&nbsp</a>
-
-        <span class="name">wid_layout</span>
-    </div>
-
-            <div class="docstring"><p><code><a href="#ChannelList.wid">wid</a></code>'s layout as QVBox</p>
-</div>
-
-
-                            </div>
-                            <div id="ChannelList.scroll" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#ChannelList.scroll">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">scroll</span><span class="signature">(unknown)</span>:
-    </div>
-
-        
-            <div class="docstring"><p>scroll(self, dx: int, dy: int) -> None
-scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
-</div>
-
-
-                            </div>
-                            <div id="ChannelList.config_scroll" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#ChannelList.config_scroll">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">config_scroll</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config_scroll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the Scroll Area&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setVerticalScrollBarPolicy</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOn</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setHorizontalScrollBarPolicy</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOff</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setWidgetResizable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wid</span><span class="p">)</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Configures the Scroll Area</p>
-</div>
-
-
-                            </div>
-                            <div id="ChannelList.config_layout" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#ChannelList.config_layout">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">config_layout</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the layout&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="o">.</span><span class="n">addStretch</span><span class="p">()</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Configures the layout</p>
-</div>
-
-
-                            </div>
-                            <div id="ChannelList.gen_buttons" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#ChannelList.gen_buttons">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">gen_buttons</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">gen_buttons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Generates the Dynamic buttons and fixed buttons&quot;&quot;&quot;</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">__gen_fixed_buttons</span><span class="p">()</span>        
-
-        <span class="k">for</span> <span class="n">chan</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span>
-
-            <span class="n">btn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-            <span class="n">btn</span><span class="o">.</span><span class="n">setMaximumHeight</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
-            <span class="n">btn</span><span class="o">.</span><span class="n">setMinimumHeight</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-            <span class="n">btn</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">PointingHandCursor</span><span class="p">))</span>
-            <span class="n">btn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">open_url</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">chan</span><span class="p">]))</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignBottom</span><span class="p">)</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Generates the Dynamic buttons and fixed buttons</p>
 </div>
 
 
@@ -500,8 +266,53 @@ scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
                             <div class="inherited">
                                 <h5>Inherited Members</h5>
                                 <dl>
-                                    <div><dt>PySide6.QtWidgets.QWidget</dt>
-                                <dd id="ChannelList.acceptDrops" class="function">acceptDrops</dd>
+                                    <div><dt>PySide6.QtCore.QObject</dt>
+                                <dd id="ChannelList.parent" class="function">parent</dd>
+                <dd id="ChannelList.blockSignals" class="function">blockSignals</dd>
+                <dd id="ChannelList.childEvent" class="function">childEvent</dd>
+                <dd id="ChannelList.children" class="function">children</dd>
+                <dd id="ChannelList.connect" class="function">connect</dd>
+                <dd id="ChannelList.connectNotify" class="function">connectNotify</dd>
+                <dd id="ChannelList.customEvent" class="function">customEvent</dd>
+                <dd id="ChannelList.deleteLater" class="function">deleteLater</dd>
+                <dd id="ChannelList.disconnect" class="function">disconnect</dd>
+                <dd id="ChannelList.disconnectNotify" class="function">disconnectNotify</dd>
+                <dd id="ChannelList.dumpObjectInfo" class="function">dumpObjectInfo</dd>
+                <dd id="ChannelList.dumpObjectTree" class="function">dumpObjectTree</dd>
+                <dd id="ChannelList.dynamicPropertyNames" class="function">dynamicPropertyNames</dd>
+                <dd id="ChannelList.emit" class="function">emit</dd>
+                <dd id="ChannelList.eventFilter" class="function">eventFilter</dd>
+                <dd id="ChannelList.findChild" class="function">findChild</dd>
+                <dd id="ChannelList.findChildren" class="function">findChildren</dd>
+                <dd id="ChannelList.inherits" class="function">inherits</dd>
+                <dd id="ChannelList.installEventFilter" class="function">installEventFilter</dd>
+                <dd id="ChannelList.isSignalConnected" class="function">isSignalConnected</dd>
+                <dd id="ChannelList.isWidgetType" class="function">isWidgetType</dd>
+                <dd id="ChannelList.isWindowType" class="function">isWindowType</dd>
+                <dd id="ChannelList.killTimer" class="function">killTimer</dd>
+                <dd id="ChannelList.metaObject" class="function">metaObject</dd>
+                <dd id="ChannelList.moveToThread" class="function">moveToThread</dd>
+                <dd id="ChannelList.objectName" class="function">objectName</dd>
+                <dd id="ChannelList.property" class="function">property</dd>
+                <dd id="ChannelList.receivers" class="function">receivers</dd>
+                <dd id="ChannelList.removeEventFilter" class="function">removeEventFilter</dd>
+                <dd id="ChannelList.sender" class="function">sender</dd>
+                <dd id="ChannelList.senderSignalIndex" class="function">senderSignalIndex</dd>
+                <dd id="ChannelList.setObjectName" class="function">setObjectName</dd>
+                <dd id="ChannelList.setProperty" class="function">setProperty</dd>
+                <dd id="ChannelList.signalsBlocked" class="function">signalsBlocked</dd>
+                <dd id="ChannelList.startTimer" class="function">startTimer</dd>
+                <dd id="ChannelList.thread" class="function">thread</dd>
+                <dd id="ChannelList.timerEvent" class="function">timerEvent</dd>
+                <dd id="ChannelList.tr" class="function">tr</dd>
+                <dd id="ChannelList.objectNameChanged" class="function">objectNameChanged</dd>
+                <dd id="ChannelList.destroyed" class="function">destroyed</dd>
+
+            </div>
+            <div><dt>PySide6.QtWidgets.QWidget</dt>
+                                <dd id="ChannelList.layout" class="function">layout</dd>
+                <dd id="ChannelList.scroll" class="function">scroll</dd>
+                <dd id="ChannelList.acceptDrops" class="function">acceptDrops</dd>
                 <dd id="ChannelList.accessibleDescription" class="function">accessibleDescription</dd>
                 <dd id="ChannelList.accessibleName" class="function">accessibleName</dd>
                 <dd id="ChannelList.actionEvent" class="function">actionEvent</dd>
@@ -767,50 +578,8 @@ scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
                 <dd id="ChannelList.IgnoreMask" class="variable">IgnoreMask</dd>
                 <dd id="ChannelList.customContextMenuRequested" class="function">customContextMenuRequested</dd>
                 <dd id="ChannelList.windowTitleChanged" class="function">windowTitleChanged</dd>
-                <dd id="ChannelList.windowIconTextChanged" class="function">windowIconTextChanged</dd>
                 <dd id="ChannelList.windowIconChanged" class="function">windowIconChanged</dd>
-
-            </div>
-            <div><dt>PySide6.QtCore.QObject</dt>
-                                <dd id="ChannelList.blockSignals" class="function">blockSignals</dd>
-                <dd id="ChannelList.childEvent" class="function">childEvent</dd>
-                <dd id="ChannelList.children" class="function">children</dd>
-                <dd id="ChannelList.connect" class="function">connect</dd>
-                <dd id="ChannelList.connectNotify" class="function">connectNotify</dd>
-                <dd id="ChannelList.customEvent" class="function">customEvent</dd>
-                <dd id="ChannelList.deleteLater" class="function">deleteLater</dd>
-                <dd id="ChannelList.disconnect" class="function">disconnect</dd>
-                <dd id="ChannelList.disconnectNotify" class="function">disconnectNotify</dd>
-                <dd id="ChannelList.dumpObjectInfo" class="function">dumpObjectInfo</dd>
-                <dd id="ChannelList.dumpObjectTree" class="function">dumpObjectTree</dd>
-                <dd id="ChannelList.dynamicPropertyNames" class="function">dynamicPropertyNames</dd>
-                <dd id="ChannelList.emit" class="function">emit</dd>
-                <dd id="ChannelList.eventFilter" class="function">eventFilter</dd>
-                <dd id="ChannelList.findChild" class="function">findChild</dd>
-                <dd id="ChannelList.findChildren" class="function">findChildren</dd>
-                <dd id="ChannelList.inherits" class="function">inherits</dd>
-                <dd id="ChannelList.installEventFilter" class="function">installEventFilter</dd>
-                <dd id="ChannelList.isSignalConnected" class="function">isSignalConnected</dd>
-                <dd id="ChannelList.isWidgetType" class="function">isWidgetType</dd>
-                <dd id="ChannelList.isWindowType" class="function">isWindowType</dd>
-                <dd id="ChannelList.killTimer" class="function">killTimer</dd>
-                <dd id="ChannelList.metaObject" class="function">metaObject</dd>
-                <dd id="ChannelList.moveToThread" class="function">moveToThread</dd>
-                <dd id="ChannelList.objectName" class="function">objectName</dd>
-                <dd id="ChannelList.property" class="function">property</dd>
-                <dd id="ChannelList.receivers" class="function">receivers</dd>
-                <dd id="ChannelList.removeEventFilter" class="function">removeEventFilter</dd>
-                <dd id="ChannelList.sender" class="function">sender</dd>
-                <dd id="ChannelList.senderSignalIndex" class="function">senderSignalIndex</dd>
-                <dd id="ChannelList.setObjectName" class="function">setObjectName</dd>
-                <dd id="ChannelList.setProperty" class="function">setProperty</dd>
-                <dd id="ChannelList.signalsBlocked" class="function">signalsBlocked</dd>
-                <dd id="ChannelList.startTimer" class="function">startTimer</dd>
-                <dd id="ChannelList.thread" class="function">thread</dd>
-                <dd id="ChannelList.timerEvent" class="function">timerEvent</dd>
-                <dd id="ChannelList.tr" class="function">tr</dd>
-                <dd id="ChannelList.destroyed" class="function">destroyed</dd>
-                <dd id="ChannelList.objectNameChanged" class="function">objectNameChanged</dd>
+                <dd id="ChannelList.windowIconTextChanged" class="function">windowIconTextChanged</dd>
 
             </div>
             <div><dt>PySide6.QtGui.QPaintDevice</dt>

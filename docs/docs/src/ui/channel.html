@@ -22,6 +22,7 @@
   <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
 </svg>                            &nbsp;src.ui</a>
 
+                        <img src="../assets/PreviewGram.svg" class="logo" alt="project logo"/>
 
                         <input type="search" placeholder="Search..." role="searchbox" aria-label="search"
                                pattern=".+" required>
@@ -37,30 +38,6 @@
                                 <a class="function" href="#Update.__init__">Update</a>
                         </li>
                         <li>
-                                <a class="variable" href="#Update.mainWin">mainWin</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Update.chan">chan</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Update.url">url</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Update.submitBtn">submitBtn</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Update.layout">layout</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Update.input_config">input_config</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Update.config_layout">config_layout</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Update.action">action</a>
-                        </li>
-                        <li>
                                 <a class="variable" href="#Update.staticMetaObject">staticMetaObject</a>
                         </li>
                 </ul>
@@ -71,36 +48,6 @@
                             <ul class="memberlist">
                         <li>
                                 <a class="function" href="#Remove.__init__">Remove</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Remove.mainWin">mainWin</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Remove.channels">channels</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Remove.layout">layout</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Remove.wid">wid</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Remove.wid_layout">wid_layout</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Remove.scroll">scroll</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Remove.load_channels">load_channels</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Remove.config_scroll">config_scroll</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Remove.config_layout">config_layout</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Remove.gen_layout">gen_layout</a>
                         </li>
                         <li>
                                 <a class="function" href="#Remove.destroy_self">destroy_self</a>
@@ -118,19 +65,7 @@
                                 <a class="function" href="#ChannelDialog.__init__">ChannelDialog</a>
                         </li>
                         <li>
-                                <a class="variable" href="#ChannelDialog.mainWin">mainWin</a>
-                        </li>
-                        <li>
                                 <a class="function" href="#ChannelDialog.ui">ui</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#ChannelDialog.config_att">config_att</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#ChannelDialog.combo_page">combo_page</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#ChannelDialog.stacked_layout">stacked_layout</a>
                         </li>
                         <li>
                                 <a class="function" href="#ChannelDialog.switch_page">switch_page</a>
@@ -144,6 +79,7 @@
     </ul>
 
 
+                    <footer>Private PreviewGram 1.1</footer>
 
                     <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev">
                         built with <span class="visually-hidden">pdoc</span><img
@@ -160,7 +96,8 @@
                 
                         <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span><span class="c1">#-- importing Qt modules</span>
+            <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">terminal_size</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Text</span><span class="p">,</span> <span class="n">Tuple</span>
 <span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">QComboBox</span><span class="p">,</span> <span class="n">QFormLayout</span><span class="p">,</span> <span class="n">QLabel</span><span class="p">,</span> <span class="n">QScrollArea</span><span class="p">,</span> <span class="n">QStackedLayout</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span>
     <span class="n">QDialog</span><span class="p">,</span> <span class="n">QGroupBox</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QMessageBox</span>
@@ -168,123 +105,75 @@
 <span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="n">QRegularExpression</span><span class="p">,</span> <span class="n">Qt</span> 
 <span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">QCursor</span><span class="p">,</span> <span class="n">QRegularExpressionValidator</span>
 
-<span class="c1">#-- importing functools to partial connect</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 
 
-<span class="c1">#-- Update Page</span>
 <span class="k">class</span> <span class="nc">Update</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Update channels Page&quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Initing</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
-
-        <span class="c1">#-- class&#39; variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;Is the `src.Window`&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">chan</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the channel&#39;s name input&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the channel&#39;s url input&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">submitBtn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Submit&quot;</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the submit button&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QFormLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;Configures the layout as QForm&quot;&quot;&quot;</span>
-        
-        <span class="c1">#-- Configuring</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">input_config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__input_config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__layout</span><span class="p">()</span>
 
-        <span class="c1">#-- Setting action</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action</span><span class="p">()</span>
         
 
-    <span class="c1">#-- Config</span>
-    <span class="k">def</span> <span class="nf">input_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures inputs (`Update.chan`, `Update.url`) max length&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__input_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">setMaxLength</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="o">.</span><span class="n">setMaxLength</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span>
        
-    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Adds widgets to `Update.layout`&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="s2">&quot;Channel:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="s2">&quot;Url:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">submitBtn</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Close this window to update!&quot;</span><span class="p">))</span>
 
-
-    <span class="c1">#-- Action</span>
-    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Sends the inputs&#39; text to `src.Window.check`&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">submitBtn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
             <span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">text</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
             <span class="p">)</span>
 
 
-<span class="c1">#-- Remove Page</span>
+
+
+
 <span class="k">class</span> <span class="nc">Remove</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Remove channels Page&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
-
-        <span class="c1">#-- class&#39;s variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;Is the `src.Window`&quot;&quot;&quot;</span>
-        
-        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_channels</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;Updates and loads `src.Window.channels`&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">channels</span>
 
-        <span class="c1">#-- class&#39; widgets variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;`Remove`&#39;s layout&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;Main `Remove`&#39;s widget&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;`wid`&#39;s layout&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span> <span class="o">=</span> <span class="n">QScrollArea</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;`Remove`&#39;s Scroll Area&quot;&quot;&quot;</span>
 
-        <span class="c1">#-- generating layout</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gen_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__gen_layout</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="p">)</span>
 
-        <span class="c1">#-- confinguring layout</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_scroll</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_scroll</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_layout</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="p">)</span>
 
-
-    <span class="c1">#-- loading channels</span>
-    <span class="k">def</span> <span class="nf">load_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Loads channels from database to `channels`&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;Updates the `src.Window.channels` from database&quot;&quot;&quot;</span>
-        <span class="n">channels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">channels</span>
-        <span class="sd">&quot;&quot;&quot;Loads the channels dict&quot; from `src.Window.channels`&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">channels</span>
-
-    <span class="c1">#-- generating layout</span>
-    <span class="k">def</span> <span class="nf">config_scroll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the Scroll Area&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config_scroll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setVerticalScrollBarPolicy</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOn</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setHorizontalScrollBarPolicy</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOff</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setWidgetResizable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wid</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the layout&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="o">.</span><span class="n">addStretch</span><span class="p">()</span>
 
-    <span class="c1">#-- Generating and setting action</span>
-    <span class="k">def</span> <span class="nf">gen_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Generates the widget layout</span>
-
-<span class="sd">        The buttons connects to `src.Window.delete_chan` and later to `destroy_self`</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__gen_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">for</span> <span class="n">chan</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span>
 
@@ -296,69 +185,50 @@
             <span class="n">btn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destroy_self</span><span class="p">,</span> <span class="n">btn</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignBottom</span><span class="p">)</span>
 
-    <span class="c1">#-- Action</span>
     <span class="k">def</span> <span class="nf">destroy_self</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">btn</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Disable Button&quot;&quot;&quot;</span>
         <span class="n">btn</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
             
-    
+        
 
-<span class="c1">#-- Channel Dialog Window</span>
+
+
+
 <span class="k">class</span> <span class="nc">ChannelDialog</span><span class="p">(</span><span class="n">QDialog</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;It&#39;s a Dialog Window to dial with database&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
-
-        <span class="c1">#-- class&#39; variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">parent</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the `src.Window` instance&quot;&quot;&quot;</span>
 
-        <span class="c1">#-- WARNING! Important attribute</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_att</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">WA_DeleteOnClose</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 
-        <span class="c1">#-- Configuring layout</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pageCombo</span> <span class="o">=</span> <span class="n">QComboBox</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stackedLayout</span> <span class="o">=</span> <span class="n">QStackedLayout</span><span class="p">()</span>
 
-        <span class="c1">#-- Sets widgets layout</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="p">()</span>
     
 
     <span class="k">def</span> <span class="nf">ui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures UI components&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Channels&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setSizeGripEnabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">combo_page</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stacked_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__combo_page</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__stacked_layout</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pageCombo</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stackedLayout</span><span class="p">)</span>
 
-    <span class="c1">#-- WARNING: Important Attribute</span>
-    <span class="k">def</span> <span class="nf">config_att</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;WARNING: don&#39;t remove it!</span>
-<span class="sd">        </span>
-<span class="sd">        Without it, the Application won&#39;t restart </span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">WA_DeleteOnClose</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-
-    <span class="c1">#-- Layouts</span>
-    <span class="k">def</span> <span class="nf">combo_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create the Switch Button&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__combo_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">pageCombo</span><span class="o">.</span><span class="n">addItems</span><span class="p">([</span><span class="s2">&quot;Add&quot;</span><span class="p">,</span> <span class="s2">&quot;Delete&quot;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pageCombo</span><span class="o">.</span><span class="n">activated</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">switch_page</span><span class="p">)</span>
 
-
-    <span class="k">def</span> <span class="nf">stacked_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create the Pagination layout&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__stacked_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">stackedLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stackedLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
         
-    <span class="c1">#-- Action</span>
+
     <span class="k">def</span> <span class="nf">switch_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Changes the Page&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stackedLayout</span><span class="o">.</span><span class="n">setCurrentIndex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pageCombo</span><span class="o">.</span><span class="n">currentIndex</span><span class="p">())</span>
 </pre></div>
 
@@ -377,50 +247,33 @@
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Update</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Update channels Page&quot;&quot;&quot;</span>
 
-    <span class="c1">#-- Initing</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
-
-        <span class="c1">#-- class&#39; variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;Is the `src.Window`&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">chan</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the channel&#39;s name input&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the channel&#39;s url input&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">submitBtn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Submit&quot;</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the submit button&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QFormLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;Configures the layout as QForm&quot;&quot;&quot;</span>
-        
-        <span class="c1">#-- Configuring</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">input_config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__input_config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__layout</span><span class="p">()</span>
 
-        <span class="c1">#-- Setting action</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action</span><span class="p">()</span>
         
 
-    <span class="c1">#-- Config</span>
-    <span class="k">def</span> <span class="nf">input_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures inputs (`Update.chan`, `Update.url`) max length&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__input_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">setMaxLength</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="o">.</span><span class="n">setMaxLength</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span>
        
-    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Adds widgets to `Update.layout`&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="s2">&quot;Channel:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="s2">&quot;Url:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">submitBtn</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Close this window to update!&quot;</span><span class="p">))</span>
 
-
-    <span class="c1">#-- Action</span>
-    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Sends the inputs&#39; text to `src.Window.check`&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">submitBtn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
             <span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">text</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
             <span class="p">)</span>
@@ -428,7 +281,7 @@
 
         </details>
 
-            <div class="docstring"><p>Update channels Page</p>
+            <div class="docstring"><p>QWidget(self, parent: Optional[PySide6.QtWidgets.QWidget] = None, f: PySide6.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
 </div>
 
 
@@ -443,26 +296,16 @@
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
-
-        <span class="c1">#-- class&#39; variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;Is the `src.Window`&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">chan</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the channel&#39;s name input&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the channel&#39;s url input&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">submitBtn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Submit&quot;</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the submit button&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QFormLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;Configures the layout as QForm&quot;&quot;&quot;</span>
-        
-        <span class="c1">#-- Configuring</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">input_config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__input_config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__layout</span><span class="p">()</span>
 
-        <span class="c1">#-- Setting action</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action</span><span class="p">()</span>
 </pre></div>
 
         </details>
@@ -470,136 +313,6 @@
             <div class="docstring"><p>__init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = None, f: PySide6.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
 
 <p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</div>
-
-
-                            </div>
-                            <div id="Update.mainWin" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#Update.mainWin">#&nbsp;&nbsp</a>
-
-        <span class="name">mainWin</span>
-    </div>
-
-            <div class="docstring"><p>Is the <code><a href="../../src.html#Window">src.Window</a></code></p>
-</div>
-
-
-                            </div>
-                            <div id="Update.chan" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#Update.chan">#&nbsp;&nbsp</a>
-
-        <span class="name">chan</span>
-    </div>
-
-            <div class="docstring"><p>It's the channel's name input</p>
-</div>
-
-
-                            </div>
-                            <div id="Update.url" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#Update.url">#&nbsp;&nbsp</a>
-
-        <span class="name">url</span>
-    </div>
-
-            <div class="docstring"><p>It's the channel's url input</p>
-</div>
-
-
-                            </div>
-                            <div id="Update.submitBtn" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#Update.submitBtn">#&nbsp;&nbsp</a>
-
-        <span class="name">submitBtn</span>
-    </div>
-
-            <div class="docstring"><p>It's the submit button</p>
-</div>
-
-
-                            </div>
-                            <div id="Update.layout" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Update.layout">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">layout</span><span class="signature">(self) -&gt; PySide6.QtWidgets.QLayout</span>:
-    </div>
-
-        
-            <div class="docstring"><p>layout(self) -> PySide6.QtWidgets.QLayout</p>
-</div>
-
-
-                            </div>
-                            <div id="Update.input_config" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Update.input_config">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">input_config</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">input_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures inputs (`Update.chan`, `Update.url`) max length&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">setMaxLength</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="o">.</span><span class="n">setMaxLength</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Configures inputs (<code><a href="#Update.chan">Update.chan</a></code>, <code><a href="#Update.url">Update.url</a></code>) max length</p>
-</div>
-
-
-                            </div>
-                            <div id="Update.config_layout" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Update.config_layout">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">config_layout</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Adds widgets to `Update.layout`&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="s2">&quot;Channel:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="s2">&quot;Url:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">submitBtn</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Close this window to update!&quot;</span><span class="p">))</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Adds widgets to <code><a href="#Update.layout">Update.layout</a></code></p>
-</div>
-
-
-                            </div>
-                            <div id="Update.action" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Update.action">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">action</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Sends the inputs&#39; text to `src.Window.check`&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">submitBtn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-            <span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">text</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
-            <span class="p">)</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Sends the inputs' text to <code><a href="../../src.html#Window.check">src.Window.check</a></code></p>
 </div>
 
 
@@ -617,7 +330,8 @@
                                 <h5>Inherited Members</h5>
                                 <dl>
                                     <div><dt>PySide6.QtWidgets.QWidget</dt>
-                                <dd id="Update.acceptDrops" class="function">acceptDrops</dd>
+                                <dd id="Update.layout" class="function">layout</dd>
+                <dd id="Update.acceptDrops" class="function">acceptDrops</dd>
                 <dd id="Update.accessibleDescription" class="function">accessibleDescription</dd>
                 <dd id="Update.accessibleName" class="function">accessibleName</dd>
                 <dd id="Update.actionEvent" class="function">actionEvent</dd>
@@ -884,8 +598,8 @@
                 <dd id="Update.IgnoreMask" class="variable">IgnoreMask</dd>
                 <dd id="Update.customContextMenuRequested" class="function">customContextMenuRequested</dd>
                 <dd id="Update.windowTitleChanged" class="function">windowTitleChanged</dd>
-                <dd id="Update.windowIconTextChanged" class="function">windowIconTextChanged</dd>
                 <dd id="Update.windowIconChanged" class="function">windowIconChanged</dd>
+                <dd id="Update.windowIconTextChanged" class="function">windowIconTextChanged</dd>
 
             </div>
             <div><dt>PySide6.QtCore.QObject</dt>
@@ -927,8 +641,8 @@
                 <dd id="Update.thread" class="function">thread</dd>
                 <dd id="Update.timerEvent" class="function">timerEvent</dd>
                 <dd id="Update.tr" class="function">tr</dd>
-                <dd id="Update.destroyed" class="function">destroyed</dd>
                 <dd id="Update.objectNameChanged" class="function">objectNameChanged</dd>
+                <dd id="Update.destroyed" class="function">destroyed</dd>
 
             </div>
             <div><dt>PySide6.QtGui.QPaintDevice</dt>
@@ -975,66 +689,35 @@
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Remove</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Remove channels Page&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
-
-        <span class="c1">#-- class&#39;s variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;Is the `src.Window`&quot;&quot;&quot;</span>
-        
-        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_channels</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;Updates and loads `src.Window.channels`&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">channels</span>
 
-        <span class="c1">#-- class&#39; widgets variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;`Remove`&#39;s layout&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;Main `Remove`&#39;s widget&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;`wid`&#39;s layout&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span> <span class="o">=</span> <span class="n">QScrollArea</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;`Remove`&#39;s Scroll Area&quot;&quot;&quot;</span>
 
-        <span class="c1">#-- generating layout</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gen_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__gen_layout</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="p">)</span>
 
-        <span class="c1">#-- confinguring layout</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_scroll</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_scroll</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_layout</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="p">)</span>
 
-
-    <span class="c1">#-- loading channels</span>
-    <span class="k">def</span> <span class="nf">load_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Loads channels from database to `channels`&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;Updates the `src.Window.channels` from database&quot;&quot;&quot;</span>
-        <span class="n">channels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">channels</span>
-        <span class="sd">&quot;&quot;&quot;Loads the channels dict&quot; from `src.Window.channels`&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">channels</span>
-
-    <span class="c1">#-- generating layout</span>
-    <span class="k">def</span> <span class="nf">config_scroll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the Scroll Area&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config_scroll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setVerticalScrollBarPolicy</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOn</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setHorizontalScrollBarPolicy</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOff</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setWidgetResizable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wid</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the layout&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="o">.</span><span class="n">addStretch</span><span class="p">()</span>
 
-    <span class="c1">#-- Generating and setting action</span>
-    <span class="k">def</span> <span class="nf">gen_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Generates the widget layout</span>
-
-<span class="sd">        The buttons connects to `src.Window.delete_chan` and later to `destroy_self`</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__gen_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">for</span> <span class="n">chan</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span>
 
@@ -1046,15 +729,13 @@
             <span class="n">btn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destroy_self</span><span class="p">,</span> <span class="n">btn</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignBottom</span><span class="p">)</span>
 
-    <span class="c1">#-- Action</span>
     <span class="k">def</span> <span class="nf">destroy_self</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">btn</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Disable Button&quot;&quot;&quot;</span>
         <span class="n">btn</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>Remove channels Page</p>
+            <div class="docstring"><p>QWidget(self, parent: Optional[PySide6.QtWidgets.QWidget] = None, f: PySide6.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
 </div>
 
 
@@ -1069,31 +750,20 @@
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
-
-        <span class="c1">#-- class&#39;s variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
-        <span class="sd">&quot;&quot;&quot;Is the `src.Window`&quot;&quot;&quot;</span>
-        
-        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_channels</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;Updates and loads `src.Window.channels`&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">channels</span>
 
-        <span class="c1">#-- class&#39; widgets variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;`Remove`&#39;s layout&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;Main `Remove`&#39;s widget&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;`wid`&#39;s layout&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span> <span class="o">=</span> <span class="n">QScrollArea</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;`Remove`&#39;s Scroll Area&quot;&quot;&quot;</span>
 
-        <span class="c1">#-- generating layout</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gen_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__gen_layout</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wid</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="p">)</span>
 
-        <span class="c1">#-- confinguring layout</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_scroll</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_scroll</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config_layout</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="p">)</span>
 </pre></div>
 
@@ -1102,189 +772,6 @@
             <div class="docstring"><p>__init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = None, f: PySide6.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
 
 <p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</div>
-
-
-                            </div>
-                            <div id="Remove.mainWin" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#Remove.mainWin">#&nbsp;&nbsp</a>
-
-        <span class="name">mainWin</span>
-    </div>
-
-            <div class="docstring"><p>Is the <code><a href="../../src.html#Window">src.Window</a></code></p>
-</div>
-
-
-                            </div>
-                            <div id="Remove.channels" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#Remove.channels">#&nbsp;&nbsp</a>
-
-        <span class="name">channels</span>
-    </div>
-
-            <div class="docstring"><p>Updates and loads <code><a href="../../src.html#Window.channels">src.Window.channels</a></code></p>
-</div>
-
-
-                            </div>
-                            <div id="Remove.layout" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Remove.layout">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">layout</span><span class="signature">(self) -&gt; PySide6.QtWidgets.QLayout</span>:
-    </div>
-
-        
-            <div class="docstring"><p>layout(self) -> PySide6.QtWidgets.QLayout</p>
-</div>
-
-
-                            </div>
-                            <div id="Remove.wid" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#Remove.wid">#&nbsp;&nbsp</a>
-
-        <span class="name">wid</span>
-    </div>
-
-            <div class="docstring"><p>Main <code><a href="#Remove">Remove</a></code>'s widget</p>
-</div>
-
-
-                            </div>
-                            <div id="Remove.wid_layout" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#Remove.wid_layout">#&nbsp;&nbsp</a>
-
-        <span class="name">wid_layout</span>
-    </div>
-
-            <div class="docstring"><p><code><a href="#Remove.wid">wid</a></code>'s layout</p>
-</div>
-
-
-                            </div>
-                            <div id="Remove.scroll" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Remove.scroll">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">scroll</span><span class="signature">(unknown)</span>:
-    </div>
-
-        
-            <div class="docstring"><p>scroll(self, dx: int, dy: int) -> None
-scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
-</div>
-
-
-                            </div>
-                            <div id="Remove.load_channels" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Remove.load_channels">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">load_channels</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">load_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Loads channels from database to `channels`&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;Updates the `src.Window.channels` from database&quot;&quot;&quot;</span>
-        <span class="n">channels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">channels</span>
-        <span class="sd">&quot;&quot;&quot;Loads the channels dict&quot; from `src.Window.channels`&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">channels</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Loads channels from database to <code><a href="#Remove.channels">channels</a></code></p>
-</div>
-
-
-                            </div>
-                            <div id="Remove.config_scroll" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Remove.config_scroll">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">config_scroll</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config_scroll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the Scroll Area&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setVerticalScrollBarPolicy</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOn</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setHorizontalScrollBarPolicy</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOff</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setWidgetResizable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">scroll</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wid</span><span class="p">)</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Configures the Scroll Area</p>
-</div>
-
-
-                            </div>
-                            <div id="Remove.config_layout" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Remove.config_layout">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">config_layout</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures the layout&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="o">.</span><span class="n">addStretch</span><span class="p">()</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Configures the layout</p>
-</div>
-
-
-                            </div>
-                            <div id="Remove.gen_layout" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#Remove.gen_layout">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">gen_layout</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">gen_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Generates the widget layout</span>
-
-<span class="sd">        The buttons connects to `src.Window.delete_chan` and later to `destroy_self`</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">for</span> <span class="n">chan</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span>
-
-            <span class="n">btn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Delete &quot;</span><span class="o">+</span><span class="n">chan</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-            <span class="n">btn</span><span class="o">.</span><span class="n">setMaximumHeight</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
-            <span class="n">btn</span><span class="o">.</span><span class="n">setMinimumHeight</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-            <span class="n">btn</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">PointingHandCursor</span><span class="p">))</span>
-            <span class="n">btn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="o">.</span><span class="n">delete_chan</span><span class="p">,</span> <span class="n">chan</span><span class="p">))</span>
-            <span class="n">btn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destroy_self</span><span class="p">,</span> <span class="n">btn</span><span class="p">))</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">wid_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignBottom</span><span class="p">)</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Generates the widget layout</p>
-
-<p>The buttons connects to <code><a href="../../src.html#Window.delete_chan">src.Window.delete_chan</a></code> and later to <code><a href="#Remove.destroy_self">destroy_self</a></code></p>
 </div>
 
 
@@ -1300,15 +787,12 @@ scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">destroy_self</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">btn</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Disable Button&quot;&quot;&quot;</span>
         <span class="n">btn</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>Disable Button</p>
-</div>
-
+    
 
                             </div>
                             <div id="Remove.staticMetaObject" class="classattr">
@@ -1324,7 +808,9 @@ scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
                                 <h5>Inherited Members</h5>
                                 <dl>
                                     <div><dt>PySide6.QtWidgets.QWidget</dt>
-                                <dd id="Remove.acceptDrops" class="function">acceptDrops</dd>
+                                <dd id="Remove.layout" class="function">layout</dd>
+                <dd id="Remove.scroll" class="function">scroll</dd>
+                <dd id="Remove.acceptDrops" class="function">acceptDrops</dd>
                 <dd id="Remove.accessibleDescription" class="function">accessibleDescription</dd>
                 <dd id="Remove.accessibleName" class="function">accessibleName</dd>
                 <dd id="Remove.actionEvent" class="function">actionEvent</dd>
@@ -1590,8 +1076,8 @@ scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
                 <dd id="Remove.IgnoreMask" class="variable">IgnoreMask</dd>
                 <dd id="Remove.customContextMenuRequested" class="function">customContextMenuRequested</dd>
                 <dd id="Remove.windowTitleChanged" class="function">windowTitleChanged</dd>
-                <dd id="Remove.windowIconTextChanged" class="function">windowIconTextChanged</dd>
                 <dd id="Remove.windowIconChanged" class="function">windowIconChanged</dd>
+                <dd id="Remove.windowIconTextChanged" class="function">windowIconTextChanged</dd>
 
             </div>
             <div><dt>PySide6.QtCore.QObject</dt>
@@ -1633,8 +1119,8 @@ scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
                 <dd id="Remove.thread" class="function">thread</dd>
                 <dd id="Remove.timerEvent" class="function">timerEvent</dd>
                 <dd id="Remove.tr" class="function">tr</dd>
-                <dd id="Remove.destroyed" class="function">destroyed</dd>
                 <dd id="Remove.objectNameChanged" class="function">objectNameChanged</dd>
+                <dd id="Remove.destroyed" class="function">destroyed</dd>
 
             </div>
             <div><dt>PySide6.QtGui.QPaintDevice</dt>
@@ -1681,66 +1167,47 @@ scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">ChannelDialog</span><span class="p">(</span><span class="n">QDialog</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;It&#39;s a Dialog Window to dial with database&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
-
-        <span class="c1">#-- class&#39; variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">parent</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the `src.Window` instance&quot;&quot;&quot;</span>
 
-        <span class="c1">#-- WARNING! Important attribute</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_att</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">WA_DeleteOnClose</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 
-        <span class="c1">#-- Configuring layout</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pageCombo</span> <span class="o">=</span> <span class="n">QComboBox</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stackedLayout</span> <span class="o">=</span> <span class="n">QStackedLayout</span><span class="p">()</span>
 
-        <span class="c1">#-- Sets widgets layout</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="p">()</span>
     
 
     <span class="k">def</span> <span class="nf">ui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures UI components&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Channels&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setSizeGripEnabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">combo_page</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stacked_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__combo_page</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__stacked_layout</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pageCombo</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stackedLayout</span><span class="p">)</span>
 
-    <span class="c1">#-- WARNING: Important Attribute</span>
-    <span class="k">def</span> <span class="nf">config_att</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;WARNING: don&#39;t remove it!</span>
-<span class="sd">        </span>
-<span class="sd">        Without it, the Application won&#39;t restart </span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">WA_DeleteOnClose</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-
-    <span class="c1">#-- Layouts</span>
-    <span class="k">def</span> <span class="nf">combo_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create the Switch Button&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__combo_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">pageCombo</span><span class="o">.</span><span class="n">addItems</span><span class="p">([</span><span class="s2">&quot;Add&quot;</span><span class="p">,</span> <span class="s2">&quot;Delete&quot;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pageCombo</span><span class="o">.</span><span class="n">activated</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">switch_page</span><span class="p">)</span>
 
-
-    <span class="k">def</span> <span class="nf">stacked_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create the Pagination layout&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__stacked_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">stackedLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stackedLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
         
-    <span class="c1">#-- Action</span>
+
     <span class="k">def</span> <span class="nf">switch_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Changes the Page&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stackedLayout</span><span class="o">.</span><span class="n">setCurrentIndex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pageCombo</span><span class="o">.</span><span class="n">currentIndex</span><span class="p">())</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>It's a Dialog Window to dial with database</p>
+            <div class="docstring"><p>QDialog(self, parent: Optional[PySide6.QtWidgets.QWidget] = None, f: PySide6.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
 </div>
 
 
@@ -1755,20 +1222,14 @@ scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
-
-        <span class="c1">#-- class&#39; variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">parent</span>
-        <span class="sd">&quot;&quot;&quot;It&#39;s the `src.Window` instance&quot;&quot;&quot;</span>
 
-        <span class="c1">#-- WARNING! Important attribute</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_att</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">WA_DeleteOnClose</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 
-        <span class="c1">#-- Configuring layout</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pageCombo</span> <span class="o">=</span> <span class="n">QComboBox</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stackedLayout</span> <span class="o">=</span> <span class="n">QStackedLayout</span><span class="p">()</span>
 
-        <span class="c1">#-- Sets widgets layout</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="p">()</span>
 </pre></div>
 
@@ -1777,17 +1238,6 @@ scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
             <div class="docstring"><p>__init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = None, f: PySide6.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
 
 <p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</div>
-
-
-                            </div>
-                            <div id="ChannelDialog.mainWin" class="classattr">
-                                            <div class="attr variable"><a class="headerlink" href="#ChannelDialog.mainWin">#&nbsp;&nbsp</a>
-
-        <span class="name">mainWin</span>
-    </div>
-
-            <div class="docstring"><p>It's the <code><a href="../../src.html#Window">src.Window</a></code> instance</p>
 </div>
 
 
@@ -1803,94 +1253,18 @@ scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">ui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Configures UI components&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Channels&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setSizeGripEnabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">combo_page</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stacked_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__combo_page</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__stacked_layout</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pageCombo</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stackedLayout</span><span class="p">)</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>Configures UI components</p>
-</div>
-
-
-                            </div>
-                            <div id="ChannelDialog.config_att" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#ChannelDialog.config_att">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">config_att</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config_att</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;WARNING: don&#39;t remove it!</span>
-<span class="sd">        </span>
-<span class="sd">        Without it, the Application won&#39;t restart </span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">WA_DeleteOnClose</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>WARNING: don't remove it!</p>
-
-<p>Without it, the Application won't restart</p>
-</div>
-
-
-                            </div>
-                            <div id="ChannelDialog.combo_page" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#ChannelDialog.combo_page">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">combo_page</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">combo_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create the Switch Button&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pageCombo</span><span class="o">.</span><span class="n">addItems</span><span class="p">([</span><span class="s2">&quot;Add&quot;</span><span class="p">,</span> <span class="s2">&quot;Delete&quot;</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pageCombo</span><span class="o">.</span><span class="n">activated</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">switch_page</span><span class="p">)</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Create the Switch Button</p>
-</div>
-
-
-                            </div>
-                            <div id="ChannelDialog.stacked_layout" class="classattr">
-                                        <div class="attr function"><a class="headerlink" href="#ChannelDialog.stacked_layout">#&nbsp;&nbsp</a>
-
-        
-            <span class="def">def</span>
-            <span class="name">stacked_layout</span><span class="signature">(self)</span>:
-    </div>
-
-                <details>
-            <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">stacked_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create the Pagination layout&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stackedLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stackedLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">Remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">))</span>
-</pre></div>
-
-        </details>
-
-            <div class="docstring"><p>Create the Pagination layout</p>
-</div>
-
+    
 
                             </div>
                             <div id="ChannelDialog.switch_page" class="classattr">
@@ -1904,15 +1278,12 @@ scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">switch_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Changes the Page&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stackedLayout</span><span class="o">.</span><span class="n">setCurrentIndex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pageCombo</span><span class="o">.</span><span class="n">currentIndex</span><span class="p">())</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>Changes the Page</p>
-</div>
-
+    
 
                             </div>
                             <div id="ChannelDialog.staticMetaObject" class="classattr">
@@ -2188,8 +1559,8 @@ scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
                 <dd id="ChannelDialog.IgnoreMask" class="variable">IgnoreMask</dd>
                 <dd id="ChannelDialog.customContextMenuRequested" class="function">customContextMenuRequested</dd>
                 <dd id="ChannelDialog.windowTitleChanged" class="function">windowTitleChanged</dd>
-                <dd id="ChannelDialog.windowIconTextChanged" class="function">windowIconTextChanged</dd>
                 <dd id="ChannelDialog.windowIconChanged" class="function">windowIconChanged</dd>
+                <dd id="ChannelDialog.windowIconTextChanged" class="function">windowIconTextChanged</dd>
 
             </div>
             <div><dt>PySide6.QtWidgets.QDialog</dt>
@@ -2217,9 +1588,9 @@ scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
                 <dd id="ChannelDialog.DialogCode" class="class">DialogCode</dd>
                 <dd id="ChannelDialog.Rejected" class="variable">Rejected</dd>
                 <dd id="ChannelDialog.Accepted" class="variable">Accepted</dd>
+                <dd id="ChannelDialog.rejected" class="function">rejected</dd>
                 <dd id="ChannelDialog.finished" class="function">finished</dd>
                 <dd id="ChannelDialog.accepted" class="function">accepted</dd>
-                <dd id="ChannelDialog.rejected" class="function">rejected</dd>
 
             </div>
             <div><dt>PySide6.QtCore.QObject</dt>
@@ -2260,8 +1631,8 @@ scroll(self, dx: int, dy: int, arg__3: PySide6.QtCore.QRect) -> None</p>
                 <dd id="ChannelDialog.thread" class="function">thread</dd>
                 <dd id="ChannelDialog.timerEvent" class="function">timerEvent</dd>
                 <dd id="ChannelDialog.tr" class="function">tr</dd>
-                <dd id="ChannelDialog.destroyed" class="function">destroyed</dd>
                 <dd id="ChannelDialog.objectNameChanged" class="function">objectNameChanged</dd>
+                <dd id="ChannelDialog.destroyed" class="function">destroyed</dd>
 
             </div>
             <div><dt>PySide6.QtGui.QPaintDevice</dt>
