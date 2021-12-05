@@ -8,6 +8,14 @@
 <img src="./assets/follow_on_telegram.png" width="500" align="center">
 </a></div>
 
+---
+
+<div align="center">
+<a href="https://rickbarretto.github.io/PreviewGram/docs/docs">Docs</a> | <a href="#how-to-install">Installing</a> | <a href="https://github.com/RickBarretto/PreviewGram/issues">Issues</a> | <a href="https://github.com/RickBarretto/PreviewGram/discussions">Discussions!</a>
+</div>
+
+---
+
 > [⚠️] - Warning:
 > 
 > USE A **VPN** TO HIDE YOUR IP
@@ -124,7 +132,7 @@ So, PreviewGram can't:
 > Fork it and contribute!
 
 - Build instructions at [`How to install`](#how-to-install)
-- Documentation at [Docs](./docs/docs/index.html)
+- Documentation at [Docs]("https://rickbarretto.github.io/PreviewGram/docs/docs/index.html")
 
 ### Realtime Docs
 
