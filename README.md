@@ -17,6 +17,8 @@
 > 
 > Application's theme from [UN-GCPDS/qt-material](https://github.com/UN-GCPDS/qt-material) under [BSD-2-Clause License](https://github.com/UN-GCPDS/qt-material/blob/master/LICENSE).
 
+> **Please, Read [For Devs](#for-devs)**
+
 ## Why use?
 
 **PreviewGram is for users that wants get a more private experience** with the Telegram's Channel. It's because:
@@ -50,14 +52,21 @@ Or [Download Last Release](https://github.com/RickBarretto/PreviewGram/releases/
 
 - Clone this project
 ```
-git clone https://github.com/RickBarretto/PreviewGram.git
+> git clone https://github.com/RickBarretto/PreviewGram.git
 ```
 
 - Or [Download Source Code](https://github.com/RickBarretto/PreviewGram/archive/refs/heads/main.zip)
 
 - On repository folder, run:
 ```
-pip -m test_application.py
+> pip -m test_application.py
+```
+
+## Running Application
+
+Just type:
+```
+> ppg
 ```
 
 ## Features
@@ -107,6 +116,24 @@ So, PreviewGram can't:
 > **Extra:** Accessing channels through TorBrowser
 >
 > Go to [``Accessing via Tor``](#accessing-via-tor) topic.
+
+---
+
+## For Devs
+
+> Fork it and contribute!
+
+- Build instructions at [`How to install`](#how-to-install)
+- Documentation at [Docs](./docs/docs/index.html)
+
+### Realtime Docs
+
+```
+> pip install -r requirements.txt
+> pdoc ./src
+```
+
+---
 
 ## VPN, Proxy and Tor
 

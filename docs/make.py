@@ -40,7 +40,7 @@ if __name__ == '__main__':
         edit_url_map= {
             "Private PreviewGram": "https://github.com/RickBarretto/PreviewGram/tree/main/src"
         },
-        logo="../assets/PreviewGram.svg",
+        logo="https://raw.githubusercontent.com/RickBarretto/PreviewGram/f0fbfed7d11cc7962d52e8bef4d463a8542e5ba7/assets/PreviewGram.svg",
         footer_text= f"Private PreviewGram {VERSION}"
     )
 
@@ -63,5 +63,5 @@ if __name__ == '__main__':
             if file.name.startswith("_"):
                 continue
             filename = str(file.relative_to(here).replace("index.html", ""))
-            f.write(f"""\n<url><loc>https://github.io.RickBarretto/PreviewGram/{filename}</loc></url>""")
+            f.write(f"""\n<url><loc>https://rickbarretto.github.io/PreviewGram/{filename}</loc></url>""")
         f.write("""\n</urlset>""")
