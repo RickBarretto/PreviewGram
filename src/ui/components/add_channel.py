@@ -1,18 +1,34 @@
+#-- importing Qt modules
 from PySide6.QtGui import QIcon, QCursor
 from PySide6.QtWidgets import QPushButton
 from PySide6.QtCore import Qt
 
-class AddBtn(QPushButton):
 
+#-- Widget Button
+class AddBtn(QPushButton):
+    """It's the blue button on Bottom Right Conner
+    
+    When clicked, it'll open the `src.channel.ChannelDialog` Window
+    """
+
+    #-- Init
     def __init__(self, parent, mainWin):
         # parent = Container(QWidget)
         super().__init__(parent)
 
+        #-- class' variable
         self.mainWin = mainWin
-        self.__config()
-        self.__action()
+        """It's the `src.Window` instance"""
+        
+        #-- Configuring
+        self.config()
+        #-- Action
+        self.action()
 
-    def __config(self):
+
+    #-- Configuring
+    def config(self):
+        """It'll configure the button"""
         self.setText("+")
         self.setGeometry(740, 450, 50, 50)
         self.setStyleSheet(
@@ -22,5 +38,7 @@ class AddBtn(QPushButton):
         self.setCursor(QCursor(Qt.PointingHandCursor))
 
 
-    def __action(self):
+    #-- Action
+    def action(self):
+        """Defines the button act: create a `src.ui.channel.ChannelDialog`"""
         self.clicked.connect(self.mainWin.channelDialog)

@@ -1,42 +1,65 @@
+#-- importing Qt modules
 from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QPushButton,
     QScrollArea)
 from PySide6.QtGui import QColor, QCursor
 from PySide6.QtCore import QPoint, QUrl, Qt
+
+#-- importing functools to partial connect
 from functools import partial
 
 
+#-- ChannelList Widget (SideBar)
 class ChannelList(QWidget):
+    """It's the application SideBar, that will load the channel List, creating buttons to change the `src.ui.components.engine.Engine` current url"""
 
+    #-- Init
     def __init__(self, parent, channels:dict) -> None:
         super().__init__(parent)
 
+        #-- class' variables
         self.channels = channels
+        """It's the channel list loaded from `src.Window.channels`"""
         self.parent = parent
+        """It's the `src.Window` instance"""
 
+        #-- class' widgets variables 
         self.layout = QVBoxLayout(self)
+        """`ChannelList`'s Layout as QHBox"""
         self.wid = QWidget()
+        """`ChannelList`'s main Widget"""
         self.wid_layout = QVBoxLayout()
+        """`wid`'s layout as QVBox """
         self.scroll = QScrollArea()
+        """Scroll Area"""
 
-        self.__gen_buttons()
+        #-- generating layout
+        self.gen_buttons()
         self.wid.setLayout(self.wid_layout)
 
-        self.__config_scroll()
-        self.__config_layout()
+        #-- configuring layout
+        self.config_scroll()
+        self.config_layout()
         self.layout.addWidget(self.scroll)
 
     
-    def __config_scroll(self):
+    def config_scroll(self):
+        """Configures the Scroll Area"""
         self.scroll.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.scroll.setWidgetResizable(True)
         self.scroll.setWidget(self.wid)
 
-    def __config_layout(self):
+    def config_layout(self):
+        """Configures the layout"""
         self.wid_layout.addStretch()
 
     def __gen_fixed_buttons(self):
+        """
+        The first button: "Test privacy" opens https://www.whatismybrowser.com/
+
+        The second button: "Official Channel" opens https://t.me/s/previewgram
+        """
 
         btn_test = QPushButton("Test privacy!", self)
         btn_test.setMaximumHeight(300)
@@ -55,7 +78,8 @@ class ChannelList(QWidget):
         self.wid_layout.addWidget(btn_test, Qt.AlignBottom)
         self.wid_layout.addWidget(official_channel, Qt.AlignBottom)
 
-    def __gen_buttons(self):
+    def gen_buttons(self):
+        """Generates the Dynamic buttons and fixed buttons"""
 
         self.__gen_fixed_buttons()        
 

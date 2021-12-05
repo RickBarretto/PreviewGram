@@ -1,5 +1,7 @@
+#-- importing database module
 import json as js
 
+#-- importing parser module
 from .__parser__ import Parse
 
 PATH = "./src/data/data.json"
@@ -26,6 +28,8 @@ class Model:
         params:
         - chan_name: str
         - url: str (ready to save)
+
+        (ready to save is a Preview url: `https://t.me/s/*`)
         """
 
         new_url = Parse.rts(url)
@@ -66,11 +70,15 @@ class Model:
 
 
     def update_channel(old_chan_name: str, new_chan_name: str, url: str):
-        """Updates name and url from a channel saved on database
+        """> `[!] - Never Used...`
+        
+        Updates name and url from a channel saved on database
         params:
         - old_chan_name: str
         - nem_chan_name: str
         - url: str (ready to save)
+
+        (ready to save is a Preview url: `https://t.me/s/*`)
         """
 
         try:

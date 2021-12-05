@@ -1,0 +1,1699 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="pdoc 8.0.1" />
+    <title>src API documentation</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%2244.5%202.5%2015%2015%22%3E%3Cpath%20d%3D%22M49.351%2021.041c-.233-.721-.546-2.408-.772-4.076-.042-.09-.067-.187-.046-.288-.166-1.347-.277-2.625-.241-3.351-1.378-1.008-2.271-2.586-2.271-4.362%200-.976.272-1.935.788-2.774.057-.094.122-.18.184-.268-.033-.167-.052-.339-.052-.516%200-1.477%201.202-2.679%202.679-2.679.791%200%201.496.352%201.987.9a6.3%206.3%200%200%201%201.001.029c.492-.564%201.207-.929%202.012-.929%201.477%200%202.679%201.202%202.679%202.679a2.65%202.65%200%200%201-.269%201.148c.383.747.595%201.572.595%202.41%200%202.311-1.507%204.29-3.635%205.107.037.699.147%202.27.423%203.294l.137.461c.156%202.136-4.612%205.166-5.199%203.215zm.127-4.919a4.78%204.78%200%200%200%20.775-.584c-.172-.115-.505-.254-.88-.378zm.331%202.302l.828-.502c-.202-.143-.576-.328-.984-.49zm.45%202.157l.701-.403c-.214-.115-.536-.249-.891-.376l.19.779zM49.13%204.141c0%20.152.123.276.276.276s.275-.124.275-.276-.123-.276-.276-.276-.275.124-.275.276zm.735-.389a1.15%201.15%200%200%201%20.314.783%201.16%201.16%200%200%201-1.162%201.162c-.457%200-.842-.27-1.032-.653-.026.117-.042.238-.042.362a1.68%201.68%200%200%200%201.679%201.679%201.68%201.68%200%200%200%201.679-1.679c0-.843-.626-1.535-1.436-1.654zm3.076%201.654a1.68%201.68%200%200%200%201.679%201.679%201.68%201.68%200%200%200%201.679-1.679c0-.037-.009-.072-.011-.109-.21.3-.541.508-.935.508a1.16%201.16%200%200%201-1.162-1.162%201.14%201.14%200%200%201%20.474-.912c-.015%200-.03-.005-.045-.005-.926.001-1.679.754-1.679%201.68zm1.861-1.265c0%20.152.123.276.276.276s.275-.124.275-.276-.123-.276-.276-.276-.275.124-.275.276zm1.823%204.823c0-.52-.103-1.035-.288-1.52-.466.394-1.06.64-1.717.64-1.144%200-2.116-.725-2.499-1.738-.383%201.012-1.355%201.738-2.499%201.738-.867%200-1.631-.421-2.121-1.062-.307.605-.478%201.267-.478%201.942%200%202.486%202.153%204.51%204.801%204.51s4.801-2.023%204.801-4.51zm-3.032%209.156l-.146-.492c-.276-1.02-.395-2.457-.444-3.268a6.11%206.11%200%200%201-1.18.115%206.01%206.01%200%200%201-2.536-.562l.006.175c.802.215%201.848.612%202.021%201.25.079.295-.021.601-.274.837l-.598.501c.667.304%201.243.698%201.311%201.179.02.144.022.507-.393.787l-.564.365c1.285.521%201.361.96%201.381%201.126.018.142.011.496-.427.746l-.854.489c.064-1.19%201.985-2.585%202.697-3.248zM49.34%209.925c0-.667%201-.667%201%200%200%20.653.818%201.205%201.787%201.205s1.787-.552%201.787-1.205c0-.667%201-.667%201%200%200%201.216-1.25%202.205-2.787%202.205s-2.787-.989-2.787-2.205zm-.887-7.633c-.093.077-.205.114-.317.114a.5.5%200%200%201-.318-.886L49.183.397a.5.5%200%200%201%20.703.068.5.5%200%200%201-.069.703zm7.661-.065c-.086%200-.173-.022-.253-.068l-1.523-.893c-.575-.337-.069-1.2.506-.863l1.523.892a.5.5%200%200%201%20.179.685c-.094.158-.261.247-.432.247z%22%20fill%3D%22%233bb300%22/%3E%3C/svg%3E"/>
+
+
+<style>/*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}hr{margin:1rem 0;color:inherit;background-color:currentColor;border:0;opacity:.25}hr:not([size]){height:1px}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2}h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){h1{font-size:2.5rem}}h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){h2{font-size:2rem}}h3{font-size:calc(1.3rem + .6vw)}@media (min-width:1200px){h3{font-size:1.75rem}}h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){h4{font-size:1.5rem}}h5{font-size:1.25rem}h6{font-size:1rem}p{margin-top:0;margin-bottom:1rem}abbr[data-bs-original-title],abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted;cursor:help;-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none}address{margin-bottom:1rem;font-style:normal;line-height:inherit}ol,ul{padding-left:2rem}dl,ol,ul{margin-top:0;margin-bottom:1rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dt{font-weight:700}dd{margin-bottom:.5rem;margin-left:0}blockquote{margin:0 0 1rem}b,strong{font-weight:bolder}small{font-size:.875em}mark{padding:.2em;background-color:#fcf8e3}sub,sup{position:relative;font-size:.75em;line-height:0;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#0d6efd;text-decoration:underline}a:hover{color:#0a58ca}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em;direction:ltr;unicode-bidi:bidi-override}pre{display:block;margin-top:0;margin-bottom:1rem;overflow:auto;font-size:.875em}pre code{font-size:inherit;color:inherit;word-break:normal}code{font-size:.875em;color:#d63384;word-wrap:break-word}a>code{color:inherit}kbd{padding:.2rem .4rem;font-size:.875em;color:#fff;background-color:#212529;border-radius:.2rem}kbd kbd{padding:0;font-size:1em;font-weight:700}figure{margin:0 0 1rem}img,svg{vertical-align:middle}table{caption-side:bottom;border-collapse:collapse}caption{padding-top:.5rem;padding-bottom:.5rem;color:#6c757d;text-align:left}th{text-align:inherit;text-align:-webkit-match-parent}tbody,td,tfoot,th,thead,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus:not(:focus-visible){outline:0}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}select:disabled{opacity:1}[list]::-webkit-calendar-picker-indicator{display:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}fieldset{min-width:0;padding:0;margin:0;border:0}legend{float:left;width:100%;padding:0;margin-bottom:.5rem;font-size:calc(1.275rem + .3vw);line-height:inherit}@media (min-width:1200px){legend{font-size:1.5rem}}legend+*{clear:left}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{outline-offset:-2px;-webkit-appearance:textfield}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{font:inherit}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}output{display:inline-block}iframe{border:0}summary{display:list-item;cursor:pointer}progress{vertical-align:baseline}[hidden]{display:none!important}</style>
+<style>/*! pygments syntax highlighting */pre{line-height:125%;}td.linenos pre{color:#000000; background-color:#f0f0f0; padding-left:5px; padding-right:5px;}span.linenos{color:#000000; background-color:#f0f0f0; padding-left:5px; padding-right:5px;}td.linenos pre.special{color:#000000; background-color:#ffffc0; padding-left:5px; padding-right:5px;}span.linenos.special{color:#000000; background-color:#ffffc0; padding-left:5px; padding-right:5px;}.pdoc .hll{background-color:#ffffcc}.pdoc{background:#f8f8f8;}.pdoc .c{color:#408080; font-style:italic}.pdoc .err{border:1px solid #FF0000}.pdoc .k{color:#008000; font-weight:bold}.pdoc .o{color:#666666}.pdoc .ch{color:#408080; font-style:italic}.pdoc .cm{color:#408080; font-style:italic}.pdoc .cp{color:#BC7A00}.pdoc .cpf{color:#408080; font-style:italic}.pdoc .c1{color:#408080; font-style:italic}.pdoc .cs{color:#408080; font-style:italic}.pdoc .gd{color:#A00000}.pdoc .ge{font-style:italic}.pdoc .gr{color:#FF0000}.pdoc .gh{color:#000080; font-weight:bold}.pdoc .gi{color:#00A000}.pdoc .go{color:#888888}.pdoc .gp{color:#000080; font-weight:bold}.pdoc .gs{font-weight:bold}.pdoc .gu{color:#800080; font-weight:bold}.pdoc .gt{color:#0044DD}.pdoc .kc{color:#008000; font-weight:bold}.pdoc .kd{color:#008000; font-weight:bold}.pdoc .kn{color:#008000; font-weight:bold}.pdoc .kp{color:#008000}.pdoc .kr{color:#008000; font-weight:bold}.pdoc .kt{color:#B00040}.pdoc .m{color:#666666}.pdoc .s{color:#BA2121}.pdoc .na{color:#7D9029}.pdoc .nb{color:#008000}.pdoc .nc{color:#0000FF; font-weight:bold}.pdoc .no{color:#880000}.pdoc .nd{color:#AA22FF}.pdoc .ni{color:#999999; font-weight:bold}.pdoc .ne{color:#D2413A; font-weight:bold}.pdoc .nf{color:#0000FF}.pdoc .nl{color:#A0A000}.pdoc .nn{color:#0000FF; font-weight:bold}.pdoc .nt{color:#008000; font-weight:bold}.pdoc .nv{color:#19177C}.pdoc .ow{color:#AA22FF; font-weight:bold}.pdoc .w{color:#bbbbbb}.pdoc .mb{color:#666666}.pdoc .mf{color:#666666}.pdoc .mh{color:#666666}.pdoc .mi{color:#666666}.pdoc .mo{color:#666666}.pdoc .sa{color:#BA2121}.pdoc .sb{color:#BA2121}.pdoc .sc{color:#BA2121}.pdoc .dl{color:#BA2121}.pdoc .sd{color:#BA2121; font-style:italic}.pdoc .s2{color:#BA2121}.pdoc .se{color:#BB6622; font-weight:bold}.pdoc .sh{color:#BA2121}.pdoc .si{color:#BB6688; font-weight:bold}.pdoc .sx{color:#008000}.pdoc .sr{color:#BB6688}.pdoc .s1{color:#BA2121}.pdoc .ss{color:#19177C}.pdoc .bp{color:#008000}.pdoc .fm{color:#0000FF}.pdoc .vc{color:#19177C}.pdoc .vg{color:#19177C}.pdoc .vi{color:#19177C}.pdoc .vm{color:#19177C}.pdoc .il{color:#666666}</style>
+<style>/*! pdoc */:root{--pdoc-background:#fff;}.pdoc{--text:#212529;--muted:#6c757d;--link:#3660a5;--link-hover:#1659c5;--code:#f7f7f7;--active:#fff598;--accent:#eee;--accent2:#c1c1c1;--nav-hover:rgba(255, 255, 255, 0.5);--name:#0066BB;--def:#008800;--annotation:#007020;}body{background-color:var(--pdoc-background);}html, body{width:100%;height:100%;}@media (max-width:769px){#navtoggle{cursor:pointer;position:absolute;width:50px;height:40px;top:1rem;right:1rem;border-color:var(--text);color:var(--text);display:flex;opacity:0.8;}#navtoggle:hover{opacity:1;}#togglestate + div{display:none;}#togglestate:checked + div{display:inherit;}main, header{padding:2rem 3vw;}.git-button{display:none !important;}nav input[type="search"]:valid ~ *{display:none !important;}}@media (min-width:770px){:root{--sidebar-width:clamp(12.5rem, 28vw, 22rem);}nav{position:fixed;overflow:auto;height:100vh;width:var(--sidebar-width);}main, header{padding:3rem 2rem 3rem calc(var(--sidebar-width) + 3rem);width:calc(54rem + var(--sidebar-width));max-width:100%;}#navtoggle{display:none;}}#togglestate{display:none;}nav.pdoc{--pad:1.75rem;--indent:1.5rem;background-color:var(--accent);border-right:1px solid var(--accent2);box-shadow:0 0 20px rgba(50, 50, 50, .2) inset;padding:0 0 0 var(--pad);overflow-wrap:anywhere;scrollbar-width:thin; scrollbar-color:var(--accent2) transparent }nav.pdoc::-webkit-scrollbar{width:.4rem; }nav.pdoc::-webkit-scrollbar-thumb{background-color:var(--accent2); }nav.pdoc > div{padding:var(--pad) 0;}nav.pdoc .module-list-button{display:inline-flex;align-items:center;color:var(--text);border-color:var(--muted);margin-bottom:1rem;}nav.pdoc .module-list-button:hover{border-color:var(--text);}nav.pdoc input[type=search]{display:block;outline-offset:0;width:calc(100% - var(--pad));}nav.pdoc .logo{max-width:calc(100% - var(--pad));max-height:35vh;display:block;margin:0 auto 1rem;transform:translate(calc(-.5 * var(--pad)), 0);}nav.pdoc ul{list-style:none;padding-left:0;}nav.pdoc li{display:block;margin:0;padding:.2rem 0 .2rem var(--indent);transition:all 100ms;}nav.pdoc > div > ul > li{padding-left:0;}nav.pdoc li:hover{background-color:var(--nav-hover);}nav.pdoc a, nav.pdoc a:hover{color:var(--text);}nav.pdoc a{display:block;}nav.pdoc > h2:first-of-type{margin-top:1.5rem;}nav.pdoc .class:before{content:"class ";color:var(--muted);}nav.pdoc .function:after{content:"()";color:var(--muted);}nav.pdoc footer:before{content:"";display:block;width:calc(100% - var(--pad));border-top:solid var(--accent2) 1px;margin-top:1.5rem;padding-top:.5rem;}nav.pdoc footer{font-size:small;}html, main{scroll-behavior:smooth;}.pdoc{color:var(--text);box-sizing:border-box;line-height:1.5;background:none;}.pdoc .pdoc-button{display:inline-block;border:solid black 1px;border-radius:2px;font-size:.75rem;padding:calc(0.5em - 1px) 1em;transition:100ms all;}.pdoc .visually-hidden{position:absolute !important;width:1px !important;height:1px !important;padding:0 !important;margin:-1px !important;overflow:hidden !important;clip:rect(0, 0, 0, 0) !important;white-space:nowrap !important;border:0 !important;}.pdoc h1, .pdoc h2, .pdoc h3{font-weight:300;margin:.3em 0;padding:.2em 0;}.pdoc a{text-decoration:none;color:var(--link);}.pdoc a:hover{color:var(--link-hover);}.pdoc blockquote{margin-left:2rem;}.pdoc pre{background-color:var(--code);border-top:1px solid var(--accent2);border-bottom:1px solid var(--accent2);margin-bottom:1em;padding:.5rem 0 .5rem .5rem;overflow-x:auto;}.pdoc code{color:var(--text);padding:.2em .4em;margin:0;font-size:85%;background-color:var(--code);border-radius:6px;}.pdoc a > code{color:inherit;}.pdoc pre > code{display:inline-block;font-size:inherit;background:none;border:none;padding:0;}.pdoc .modulename{margin-top:0;font-weight:bold;}.pdoc .modulename a{color:var(--link);transition:100ms all;}.pdoc .git-button{float:right;border:solid var(--link) 1px;}.pdoc .git-button:hover{background-color:var(--link);color:var(--pdoc-background);}.pdoc details{--shift:-40px;text-align:right;margin-top:var(--shift);margin-bottom:calc(0px - var(--shift));clear:both;filter:opacity(1);}.pdoc details:not([open]){height:0;overflow:visible;}.pdoc details > summary{font-size:.75rem;cursor:pointer;color:var(--muted);border-width:0;padding:0 .7em;display:inline-block;display:inline list-item;user-select:none;}.pdoc details > summary:focus{outline:0;}.pdoc details > div{margin-top:calc(0px - var(--shift) / 2);text-align:left;}.pdoc .docstring{margin-bottom:1.5rem;}.pdoc > section:first-of-type > .docstring{margin-bottom:3rem;}.pdoc .docstring pre{margin-left:1em;margin-right:1em;}.pdoc h1:target,.pdoc h2:target,.pdoc h3:target,.pdoc h4:target,.pdoc h5:target,.pdoc h6:target{background-color:var(--active);box-shadow:-1rem 0 0 0 var(--active);}.pdoc div:target > .attr,.pdoc section:target > .attr,.pdoc dd:target > a{background-color:var(--active);}.pdoc .attr:hover{filter:contrast(0.95);}.pdoc .headerlink{position:absolute;width:0;margin-left:-1.5rem;line-height:1.4rem;font-size:1.5rem;font-weight:normal;transition:all 100ms ease-in-out;opacity:0;}.pdoc .attr > .headerlink{margin-left:-2.5rem;}.pdoc *:hover > .headerlink,.pdoc *:target > .attr > .headerlink{opacity:1;}.pdoc .attr{display:block;color:var(--text);margin:1rem 0 .5rem;padding:.4rem 5rem .4rem 1rem;background-color:var(--accent);}.pdoc .classattr{margin-left:2rem;}.pdoc .name{color:var(--name);font-weight:bold;}.pdoc .def{color:var(--def);font-weight:bold;}.pdoc .signature{white-space:pre-wrap;}.pdoc .annotation{color:var(--annotation);}.pdoc .inherited{margin-left:2rem;}.pdoc .inherited dt{font-weight:700;}.pdoc .inherited dt, .pdoc .inherited dd{display:inline;margin-left:0;margin-bottom:.5rem;}.pdoc .inherited dd:not(:last-child):after{content:", ";}.pdoc .inherited .class:before{content:"class ";}.pdoc .inherited .function a:after{content:"()";}.pdoc .search-result .docstring{overflow:auto;max-height:25vh;}.pdoc .search-result.focused > .attr{background-color:var(--active);}.pdoc .attribution{margin-top:2rem;display:block;opacity:0.5;transition:all 200ms;filter:grayscale(100%);}.pdoc .attribution:hover{opacity:1;filter:grayscale(0%);}.pdoc .attribution img{margin-left:5px;height:35px;vertical-align:middle;width:70px;transition:all 200ms;}</style>
+</head>
+<body>        <nav class="pdoc">
+            <label id="navtoggle" for="togglestate" class="pdoc-button"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke-linecap='round' stroke="currentColor" stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg></label>
+            <input id="togglestate" type="checkbox">
+            <div>
+                        <a class="pdoc-button module-list-button" href="index.html">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
+  <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+</svg>                            &nbsp;
+                            Module Index
+                        </a>
+
+
+                        <input type="search" placeholder="Search..." role="searchbox" aria-label="search"
+                               pattern=".+" required>
+
+
+                    <h2>Submodules</h2>
+                    <ul>
+                            <li><a href="src/model.html">src.model</a></li>
+                            <li><a href="src/ui.html">src.ui</a></li>
+                    </ul>
+
+                    <h2>API Documentation</h2>
+                        <ul class="memberlist">
+            <li>
+                    <a class="class" href="#Window">Window</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#Window.__init__">Window</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Window.pressing">pressing</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Window.start">start</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Window.channels">channels</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Window.path">path</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.config_win">config_win</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.add_container">add_container</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.channelDialog">channelDialog</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.get_channels">get_channels</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.add_chan">add_chan</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.delete_chan">delete_chan</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.check">check</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.wrong_url">wrong_url</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.added_channel">added_channel</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.closeWindow">closeWindow</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.minWindow">minWindow</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.mousePressEvent">mousePressEvent</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.mouseMoveEvent">mouseMoveEvent</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.mouseReleaseEvent">mouseReleaseEvent</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.restart">restart</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Window.staticMetaObject">staticMetaObject</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="function" href="#open_win">open_win</a>
+            </li>
+            <li>
+                    <a class="function" href="#start_app">start_app</a>
+            </li>
+    </ul>
+
+
+
+                    <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev">
+                        built with <span class="visually-hidden">pdoc</span><img
+                            alt="pdoc logo"
+                            src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20role%3D%22img%22%20aria-label%3D%22pdoc%20logo%22%20width%3D%22300%22%20height%3D%22150%22%20viewBox%3D%22-1%200%2060%2030%22%3E%3Ctitle%3Epdoc%3C/title%3E%3Cpath%20d%3D%22M29.621%2021.293c-.011-.273-.214-.475-.511-.481a.5.5%200%200%200-.489.503l-.044%201.393c-.097.551-.695%201.215-1.566%201.704-.577.428-1.306.486-2.193.182-1.426-.617-2.467-1.654-3.304-2.487l-.173-.172a3.43%203.43%200%200%200-.365-.306.49.49%200%200%200-.286-.196c-1.718-1.06-4.931-1.47-7.353.191l-.219.15c-1.707%201.187-3.413%202.131-4.328%201.03-.02-.027-.49-.685-.141-1.763.233-.721.546-2.408.772-4.076.042-.09.067-.187.046-.288.166-1.347.277-2.625.241-3.351%201.378-1.008%202.271-2.586%202.271-4.362%200-.976-.272-1.935-.788-2.774-.057-.094-.122-.18-.184-.268.033-.167.052-.339.052-.516%200-1.477-1.202-2.679-2.679-2.679-.791%200-1.496.352-1.987.9a6.3%206.3%200%200%200-1.001.029c-.492-.564-1.207-.929-2.012-.929-1.477%200-2.679%201.202-2.679%202.679A2.65%202.65%200%200%200%20.97%206.554c-.383.747-.595%201.572-.595%202.41%200%202.311%201.507%204.29%203.635%205.107-.037.699-.147%202.27-.423%203.294l-.137.461c-.622%202.042-2.515%208.257%201.727%2010.643%201.614.908%203.06%201.248%204.317%201.248%202.665%200%204.492-1.524%205.322-2.401%201.476-1.559%202.886-1.854%206.491.82%201.877%201.393%203.514%201.753%204.861%201.068%202.223-1.713%202.811-3.867%203.399-6.374.077-.846.056-1.469.054-1.537zm-4.835%204.313c-.054.305-.156.586-.242.629-.034-.007-.131-.022-.307-.157-.145-.111-.314-.478-.456-.908.221.121.432.25.675.355.115.039.219.051.33.081zm-2.251-1.238c-.05.33-.158.648-.252.694-.022.001-.125-.018-.307-.157-.217-.166-.488-.906-.639-1.573.358.344.754.693%201.198%201.036zm-3.887-2.337c-.006-.116-.018-.231-.041-.342.635.145%201.189.368%201.599.625.097.231.166.481.174.642-.03.049-.055.101-.067.158-.046.013-.128.026-.298.004-.278-.037-.901-.57-1.367-1.087zm-1.127-.497c.116.306.176.625.12.71-.019.014-.117.045-.345.016-.206-.027-.604-.332-.986-.695.41-.051.816-.056%201.211-.031zm-4.535%201.535c.209.22.379.47.358.598-.006.041-.088.138-.351.234-.144.055-.539-.063-.979-.259a11.66%2011.66%200%200%200%20.972-.573zm.983-.664c.359-.237.738-.418%201.126-.554.25.237.479.548.457.694-.006.042-.087.138-.351.235-.174.064-.694-.105-1.232-.375zm-3.381%201.794c-.022.145-.061.29-.149.401-.133.166-.358.248-.69.251h-.002c-.133%200-.306-.26-.45-.621.417.091.854.07%201.291-.031zm-2.066-8.077a4.78%204.78%200%200%201-.775-.584c.172-.115.505-.254.88-.378l-.105.962zm-.331%202.302a10.32%2010.32%200%200%201-.828-.502c.202-.143.576-.328.984-.49l-.156.992zm-.45%202.157l-.701-.403c.214-.115.536-.249.891-.376a11.57%2011.57%200%200%201-.19.779zm-.181%201.716c.064.398.194.702.298.893-.194-.051-.435-.162-.736-.398.061-.119.224-.3.438-.495zM8.87%204.141c0%20.152-.123.276-.276.276s-.275-.124-.275-.276.123-.276.276-.276.275.124.275.276zm-.735-.389a1.15%201.15%200%200%200-.314.783%201.16%201.16%200%200%200%201.162%201.162c.457%200%20.842-.27%201.032-.653.026.117.042.238.042.362a1.68%201.68%200%200%201-1.679%201.679%201.68%201.68%200%200%201-1.679-1.679c0-.843.626-1.535%201.436-1.654zM5.059%205.406A1.68%201.68%200%200%201%203.38%207.085a1.68%201.68%200%200%201-1.679-1.679c0-.037.009-.072.011-.109.21.3.541.508.935.508a1.16%201.16%200%200%200%201.162-1.162%201.14%201.14%200%200%200-.474-.912c.015%200%20.03-.005.045-.005.926.001%201.679.754%201.679%201.68zM3.198%204.141c0%20.152-.123.276-.276.276s-.275-.124-.275-.276.123-.276.276-.276.275.124.275.276zM1.375%208.964c0-.52.103-1.035.288-1.52.466.394%201.06.64%201.717.64%201.144%200%202.116-.725%202.499-1.738.383%201.012%201.355%201.738%202.499%201.738.867%200%201.631-.421%202.121-1.062.307.605.478%201.267.478%201.942%200%202.486-2.153%204.51-4.801%204.51s-4.801-2.023-4.801-4.51zm24.342%2019.349c-.985.498-2.267.168-3.813-.979-3.073-2.281-5.453-3.199-7.813-.705-1.315%201.391-4.163%203.365-8.423.97-3.174-1.786-2.239-6.266-1.261-9.479l.146-.492c.276-1.02.395-2.457.444-3.268a6.11%206.11%200%200%200%201.18.115%206.01%206.01%200%200%200%202.536-.562l-.006.175c-.802.215-1.848.612-2.021%201.25-.079.295.021.601.274.837.219.203.415.364.598.501-.667.304-1.243.698-1.311%201.179-.02.144-.022.507.393.787.213.144.395.26.564.365-1.285.521-1.361.96-1.381%201.126-.018.142-.011.496.427.746l.854.489c-.473.389-.971.914-.999%201.429-.018.278.095.532.316.713.675.556%201.231.721%201.653.721.059%200%20.104-.014.158-.02.207.707.641%201.64%201.513%201.64h.013c.8-.008%201.236-.345%201.462-.626.173-.216.268-.457.325-.692.424.195.93.374%201.372.374.151%200%20.294-.021.423-.068.732-.27.944-.704.993-1.021.009-.061.003-.119.002-.179.266.086.538.147.789.147.15%200%20.294-.021.423-.069.542-.2.797-.489.914-.754.237.147.478.258.704.288.106.014.205.021.296.021.356%200%20.595-.101.767-.229.438.435%201.094.992%201.656%201.067.106.014.205.021.296.021a1.56%201.56%200%200%200%20.323-.035c.17.575.453%201.289.866%201.605.358.273.665.362.914.362a.99.99%200%200%200%20.421-.093%201.03%201.03%200%200%200%20.245-.164c.168.428.39.846.68%201.068.358.273.665.362.913.362a.99.99%200%200%200%20.421-.093c.317-.148.512-.448.639-.762.251.157.495.257.726.257.127%200%20.25-.024.37-.071.427-.17.706-.617.841-1.314.022-.015.047-.022.068-.038.067-.051.133-.104.196-.159-.443%201.486-1.107%202.761-2.086%203.257zM8.66%209.925a.5.5%200%201%200-1%200c0%20.653-.818%201.205-1.787%201.205s-1.787-.552-1.787-1.205a.5.5%200%201%200-1%200c0%201.216%201.25%202.205%202.787%202.205s2.787-.989%202.787-2.205zm4.4%2015.965l-.208.097c-2.661%201.258-4.708%201.436-6.086.527-1.542-1.017-1.88-3.19-1.844-4.198a.4.4%200%200%200-.385-.414c-.242-.029-.406.164-.414.385-.046%201.249.367%203.686%202.202%204.896.708.467%201.547.7%202.51.7%201.248%200%202.706-.392%204.362-1.174l.185-.086a.4.4%200%200%200%20.205-.527c-.089-.204-.326-.291-.527-.206zM9.547%202.292c.093.077.205.114.317.114a.5.5%200%200%200%20.318-.886L8.817.397a.5.5%200%200%200-.703.068.5.5%200%200%200%20.069.703l1.364%201.124zm-7.661-.065c.086%200%20.173-.022.253-.068l1.523-.893a.5.5%200%200%200-.506-.863l-1.523.892a.5.5%200%200%200-.179.685c.094.158.261.247.432.247z%22%20transform%3D%22matrix%28-1%200%200%201%2058%200%29%22%20fill%3D%22%233bb300%22/%3E%3Cpath%20d%3D%22M.3%2021.86V10.18q0-.46.02-.68.04-.22.18-.5.28-.54%201.34-.54%201.06%200%201.42.28.38.26.44.78.76-1.04%202.38-1.04%201.64%200%203.1%201.54%201.46%201.54%201.46%203.58%200%202.04-1.46%203.58-1.44%201.54-3.08%201.54-1.64%200-2.38-.92v4.04q0%20.46-.04.68-.02.22-.18.5-.14.3-.5.42-.36.12-.98.12-.62%200-1-.12-.36-.12-.52-.4-.14-.28-.18-.5-.02-.22-.02-.68zm3.96-9.42q-.46.54-.46%201.18%200%20.64.46%201.18.48.52%201.2.52.74%200%201.24-.52.52-.52.52-1.18%200-.66-.48-1.18-.48-.54-1.26-.54-.76%200-1.22.54zm14.741-8.36q.16-.3.54-.42.38-.12%201-.12.64%200%201.02.12.38.12.52.42.16.3.18.54.04.22.04.68v11.94q0%20.46-.04.7-.02.22-.18.5-.3.54-1.7.54-1.38%200-1.54-.98-.84.96-2.34.96-1.8%200-3.28-1.56-1.48-1.58-1.48-3.66%200-2.1%201.48-3.68%201.5-1.58%203.28-1.58%201.48%200%202.3%201v-4.2q0-.46.02-.68.04-.24.18-.52zm-3.24%2010.86q.52.54%201.26.54.74%200%201.22-.54.5-.54.5-1.18%200-.66-.48-1.22-.46-.56-1.26-.56-.8%200-1.28.56-.48.54-.48%201.2%200%20.66.52%201.2zm7.833-1.2q0-2.4%201.68-3.96%201.68-1.56%203.84-1.56%202.16%200%203.82%201.56%201.66%201.54%201.66%203.94%200%201.66-.86%202.96-.86%201.28-2.1%201.9-1.22.6-2.54.6-1.32%200-2.56-.64-1.24-.66-2.1-1.92-.84-1.28-.84-2.88zm4.18%201.44q.64.48%201.3.48.66%200%201.32-.5.66-.5.66-1.48%200-.98-.62-1.46-.62-.48-1.34-.48-.72%200-1.34.5-.62.5-.62%201.48%200%20.96.64%201.46zm11.412-1.44q0%20.84.56%201.32.56.46%201.18.46.64%200%201.18-.36.56-.38.9-.38.6%200%201.46%201.06.46.58.46%201.04%200%20.76-1.1%201.42-1.14.8-2.8.8-1.86%200-3.58-1.34-.82-.64-1.34-1.7-.52-1.08-.52-2.36%200-1.3.52-2.34.52-1.06%201.34-1.7%201.66-1.32%203.54-1.32.76%200%201.48.22.72.2%201.06.4l.32.2q.36.24.56.38.52.4.52.92%200%20.5-.42%201.14-.72%201.1-1.38%201.1-.38%200-1.08-.44-.36-.34-1.04-.34-.66%200-1.24.48-.58.48-.58%201.34z%22%20fill%3D%22green%22/%3E%3C/svg%3E"/>
+                    </a>
+            </div>
+        </nav>
+    <main class="pdoc">
+            <section>
+                    <h1 class="modulename">
+src    </h1>
+
+                        <div class="docstring"><p>This module is the global module, dealing with submodules as model and ui.
+Here is started the application, generating a <code><a href="#Window">Window</a></code> (That is the Main Window) and running with <code><a href="#start_app">start_app</a></code> method. </p>
+
+<p>The Title Bar and movable Window from: https://stackoverflow.com/a/44249552</p>
+
+<p>The QTTheme from: https://github.com/UN-GCPDS/qt-material</p>
+
+<p>A lot of help was gave by Pinnaculum https://github.com/pinnaculum/</p>
+
+<p>Thank you, yurisnm, UN-GCPDS and Pinnaculum!</p>
+</div>
+
+                        <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module is the global module, dealing with submodules as model and ui.</span>
+<span class="sd">Here is started the application, generating a `Window` (That is the Main Window) and running with `start_app` method. </span>
+
+<span class="sd">The Title Bar and movable Window from: https://stackoverflow.com/a/44249552</span>
+
+<span class="sd">The QTTheme from: https://github.com/UN-GCPDS/qt-material</span>
+
+<span class="sd">A lot of help was gave by Pinnaculum https://github.com/pinnaculum/</span>
+
+<span class="sd">Thank you, yurisnm, UN-GCPDS and Pinnaculum!</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">#-- importing system modules</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+
+<span class="c1">#-- importing Qt modules</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Qt</span><span class="p">,</span> <span class="n">QPoint</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span>
+    <span class="n">QMessageBox</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">QCursor</span>
+
+<span class="c1">#-- importing QtMaterial: by https://github.com/UN-GCPDS/qt-material under BSD-2-Clause License</span>
+<span class="kn">from</span> <span class="nn">qt_material</span> <span class="kn">import</span> <span class="n">apply_stylesheet</span>
+
+<span class="c1">#-- importing application modules</span>
+<span class="kn">from</span> <span class="nn">.model.db</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">.ui</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.ui.channel</span> <span class="kn">import</span> <span class="n">ChannelDialog</span>
+
+
+<span class="c1">#-- Main Window</span>
+<span class="k">class</span> <span class="nc">Window</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    It&#39;s the Main Window that is a QMainWindow</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1">#-- init</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="c1">#-- setting Window&#39;s variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span><span class="p">:</span><span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="sd">&quot;&quot;&quot;Is True when mouse is pressing the Window &gt; for move Window&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">:</span><span class="n">QPoint</span> <span class="o">=</span> <span class="n">QPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Defines the initial Window position &gt; for move Window&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span><span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="sd">&quot;&quot;&quot;Loads channels from database&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+        <span class="sd">&quot;&quot;&quot;Defines the current App file&quot;&quot;&quot;</span>
+
+        <span class="c1">#-- updating channels variable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+
+        <span class="c1">#-- Configuring and adding Main Widget to Window</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_win</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_container</span><span class="p">()</span>
+
+
+
+    <span class="c1">#-- Configuring</span>
+    <span class="k">def</span> <span class="nf">config_win</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configures the `Window`&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Private Previewgram&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setFixedWidth</span><span class="p">(</span><span class="mi">830</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMinimumHeight</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowFlags</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">FramelessWindowHint</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
+        
+    <span class="k">def</span> <span class="nf">add_container</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets Container from `src.ui` module as Central Widget&quot;&quot;&quot;</span>
+        <span class="n">container</span> <span class="o">=</span> <span class="n">Container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+
+
+
+    <span class="c1">#-- Database</span>
+    <span class="k">def</span> <span class="nf">channelDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Opens a Window Dialog that dials with the database (`src.model.db.Model`), adding and removing users...&quot;&quot;&quot;</span>
+        <span class="n">dial</span> <span class="o">=</span> <span class="n">ChannelDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">dial</span><span class="o">.</span><span class="n">destroyed</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">restart</span><span class="p">)</span>
+        <span class="n">dial</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets channels fom database (Dialing with `src.model.db.Model`) and Updates Windows&#39;s `channels` variable&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">Model</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">add_chan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds channels to database (Dialing with `src.model.db.Model`) and alert the user calling `added_channel`&quot;&quot;&quot;</span>
+        <span class="n">Model</span><span class="o">.</span><span class="n">add_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">added_channel</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">delete_chan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Deletes channels on database (Dialing with `src.model.db.Model`) and updates `channels` variable&quot;&quot;&quot;</span>
+        <span class="n">Model</span><span class="o">.</span><span class="n">del_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+
+
+
+    <span class="c1">#-- Database :: checking</span>
+    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the user input to add a new channel is correct.</span>
+
+<span class="sd">        If yes, it&#39;ll call `add_chan`,</span>
+
+<span class="sd">        If not, it&#39;ll call `wrong_url`, that will show a alert.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;https://t.me/&quot;</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;https://telegram.me/&quot;</span><span class="p">)</span>
+            <span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_chan</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">wrong_url</span><span class="p">()</span>
+
+
+
+    <span class="c1">#-- Altering user</span>
+    <span class="k">def</span> <span class="nf">wrong_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Alerts the user with a `QMessageBox.critical` that the input to add a new channel is invalid&quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="s2">&quot;Use a valid channel url&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Examples are:</span><span class="se">\n</span><span class="s2">https://t.me/channel, https://telegram.me/channel, @channel, https://t.me/s/channel&quot;</span><span class="p">,</span>
+            <span class="n">buttons</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">added_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Alerts the user with a `QMessageBox.critical` that the input to add a new channel is valid, and the channel was added on database&quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="s2">&quot;Info!&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Channel added to database&quot;</span><span class="p">,</span>
+            <span class="n">buttons</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
+
+
+
+    <span class="c1">#-- Updating Window status</span>
+    <span class="k">def</span> <span class="nf">closeWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Just close the window&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">minWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Minimizes the window&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showMinimized</span><span class="p">()</span>
+
+
+
+    <span class="c1">#-- Moving Window</span>
+    <span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Wen mouse press the Window, `Window.pressing` is set as True and start is set as Global position based on current mouse position&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">position</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">True</span>
+        
+    <span class="k">def</span> <span class="nf">mouseMoveEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        When mouse is in movement and pressing, it&#39;ll set the cursor to `Qt.ClosedHandCursor` and move the window to final position</span>
+<span class="sd">        </span>
+<span class="sd">        If mouse is in movement but not pressing, it&#39;ll only set the cursor to a `Qt.OpenHandCursor`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ClosedHandCursor</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">position</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">movement</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">movement</span><span class="p">)</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">movement</span><span class="p">)</span><span class="o">.</span><span class="n">y</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">QMouseEvent</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;When mouse releases, the `Window.pressing` is setting as `False` and the cursor is set as a `Qt.OpenHandCursor`&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
+
+
+
+    <span class="c1">#-- Restart</span>
+    <span class="k">def</span> <span class="nf">restart</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>  
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        It&#39;ll restart the application for update channels on Window.</span>
+<span class="sd">        </span>
+<span class="sd">        It&#39;ll run when `ui.channel.ChannelDialog` is closed</span>
+<span class="sd">        &quot;&quot;&quot;</span>   
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;closed!&quot;</span><span class="p">)</span>
+        <span class="n">open_win</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+
+
+
+<span class="k">def</span> <span class="nf">open_win</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Will instance and show a new Window</span>
+<span class="sd">    </span>
+<span class="sd">    It is used to update channels on ``Window``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
+
+
+
+<span class="k">def</span> <span class="nf">start_app</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inits the application!</span>
+
+<span class="sd">    Applies the theme, Open a Window and executes!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>        
+    <span class="n">apply_stylesheet</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="s1">&#39;dark_blue.xml&#39;</span><span class="p">)</span>
+    <span class="n">open_win</span><span class="p">()</span>           
+    <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>            
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    
+    <span class="n">start_app</span><span class="p">()</span>
+</pre></div>
+
+        </details>
+
+            </section>
+                <section id="Window">
+                                <div class="attr class">
+        <a class="headerlink" href="#Window">#&nbsp;&nbsp</a>
+
+        
+        <span class="def">class</span>
+        <span class="name">Window</span><wbr>(<span class="base">PySide6.QtWidgets.QMainWindow</span>):
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Window</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    It&#39;s the Main Window that is a QMainWindow</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1">#-- init</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="c1">#-- setting Window&#39;s variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span><span class="p">:</span><span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="sd">&quot;&quot;&quot;Is True when mouse is pressing the Window &gt; for move Window&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">:</span><span class="n">QPoint</span> <span class="o">=</span> <span class="n">QPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Defines the initial Window position &gt; for move Window&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span><span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="sd">&quot;&quot;&quot;Loads channels from database&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+        <span class="sd">&quot;&quot;&quot;Defines the current App file&quot;&quot;&quot;</span>
+
+        <span class="c1">#-- updating channels variable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+
+        <span class="c1">#-- Configuring and adding Main Widget to Window</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_win</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_container</span><span class="p">()</span>
+
+
+
+    <span class="c1">#-- Configuring</span>
+    <span class="k">def</span> <span class="nf">config_win</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configures the `Window`&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Private Previewgram&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setFixedWidth</span><span class="p">(</span><span class="mi">830</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMinimumHeight</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowFlags</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">FramelessWindowHint</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
+        
+    <span class="k">def</span> <span class="nf">add_container</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets Container from `src.ui` module as Central Widget&quot;&quot;&quot;</span>
+        <span class="n">container</span> <span class="o">=</span> <span class="n">Container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+
+
+
+    <span class="c1">#-- Database</span>
+    <span class="k">def</span> <span class="nf">channelDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Opens a Window Dialog that dials with the database (`src.model.db.Model`), adding and removing users...&quot;&quot;&quot;</span>
+        <span class="n">dial</span> <span class="o">=</span> <span class="n">ChannelDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">dial</span><span class="o">.</span><span class="n">destroyed</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">restart</span><span class="p">)</span>
+        <span class="n">dial</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets channels fom database (Dialing with `src.model.db.Model`) and Updates Windows&#39;s `channels` variable&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">Model</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">add_chan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds channels to database (Dialing with `src.model.db.Model`) and alert the user calling `added_channel`&quot;&quot;&quot;</span>
+        <span class="n">Model</span><span class="o">.</span><span class="n">add_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">added_channel</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">delete_chan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Deletes channels on database (Dialing with `src.model.db.Model`) and updates `channels` variable&quot;&quot;&quot;</span>
+        <span class="n">Model</span><span class="o">.</span><span class="n">del_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+
+
+
+    <span class="c1">#-- Database :: checking</span>
+    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the user input to add a new channel is correct.</span>
+
+<span class="sd">        If yes, it&#39;ll call `add_chan`,</span>
+
+<span class="sd">        If not, it&#39;ll call `wrong_url`, that will show a alert.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;https://t.me/&quot;</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;https://telegram.me/&quot;</span><span class="p">)</span>
+            <span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_chan</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">wrong_url</span><span class="p">()</span>
+
+
+
+    <span class="c1">#-- Altering user</span>
+    <span class="k">def</span> <span class="nf">wrong_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Alerts the user with a `QMessageBox.critical` that the input to add a new channel is invalid&quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="s2">&quot;Use a valid channel url&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Examples are:</span><span class="se">\n</span><span class="s2">https://t.me/channel, https://telegram.me/channel, @channel, https://t.me/s/channel&quot;</span><span class="p">,</span>
+            <span class="n">buttons</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">added_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Alerts the user with a `QMessageBox.critical` that the input to add a new channel is valid, and the channel was added on database&quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="s2">&quot;Info!&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Channel added to database&quot;</span><span class="p">,</span>
+            <span class="n">buttons</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
+
+
+
+    <span class="c1">#-- Updating Window status</span>
+    <span class="k">def</span> <span class="nf">closeWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Just close the window&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">minWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Minimizes the window&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showMinimized</span><span class="p">()</span>
+
+
+
+    <span class="c1">#-- Moving Window</span>
+    <span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Wen mouse press the Window, `Window.pressing` is set as True and start is set as Global position based on current mouse position&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">position</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">True</span>
+        
+    <span class="k">def</span> <span class="nf">mouseMoveEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        When mouse is in movement and pressing, it&#39;ll set the cursor to `Qt.ClosedHandCursor` and move the window to final position</span>
+<span class="sd">        </span>
+<span class="sd">        If mouse is in movement but not pressing, it&#39;ll only set the cursor to a `Qt.OpenHandCursor`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ClosedHandCursor</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">position</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">movement</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">movement</span><span class="p">)</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">movement</span><span class="p">)</span><span class="o">.</span><span class="n">y</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">QMouseEvent</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;When mouse releases, the `Window.pressing` is setting as `False` and the cursor is set as a `Qt.OpenHandCursor`&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
+
+
+
+    <span class="c1">#-- Restart</span>
+    <span class="k">def</span> <span class="nf">restart</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>  
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        It&#39;ll restart the application for update channels on Window.</span>
+<span class="sd">        </span>
+<span class="sd">        It&#39;ll run when `ui.channel.ChannelDialog` is closed</span>
+<span class="sd">        &quot;&quot;&quot;</span>   
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;closed!&quot;</span><span class="p">)</span>
+        <span class="n">open_win</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>It's the Main Window that is a QMainWindow</p>
+</div>
+
+
+                            <div id="Window.__init__" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.__init__">#&nbsp;&nbsp</a>
+
+        
+            <span class="name">Window</span><span class="signature">()</span>
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="c1">#-- setting Window&#39;s variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span><span class="p">:</span><span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="sd">&quot;&quot;&quot;Is True when mouse is pressing the Window &gt; for move Window&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">:</span><span class="n">QPoint</span> <span class="o">=</span> <span class="n">QPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Defines the initial Window position &gt; for move Window&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span><span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="sd">&quot;&quot;&quot;Loads channels from database&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+        <span class="sd">&quot;&quot;&quot;Defines the current App file&quot;&quot;&quot;</span>
+
+        <span class="c1">#-- updating channels variable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+
+        <span class="c1">#-- Configuring and adding Main Widget to Window</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_win</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_container</span><span class="p">()</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>__init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = None, flags: PySide6.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
+
+<p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.pressing" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Window.pressing">#&nbsp;&nbsp</a>
+
+        <span class="name">pressing</span><span class="annotation">: bool</span>
+    </div>
+
+            <div class="docstring"><p>Is True when mouse is pressing the Window &gt; for move Window</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.start" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Window.start">#&nbsp;&nbsp</a>
+
+        <span class="name">start</span><span class="annotation">: PySide6.QtCore.QPoint</span>
+    </div>
+
+            <div class="docstring"><p>Defines the initial Window position &gt; for move Window</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.channels" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Window.channels">#&nbsp;&nbsp</a>
+
+        <span class="name">channels</span><span class="annotation">: dict</span>
+    </div>
+
+            <div class="docstring"><p>Loads channels from database</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.path" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Window.path">#&nbsp;&nbsp</a>
+
+        <span class="name">path</span><span class="annotation">: str</span>
+    </div>
+
+            <div class="docstring"><p>Defines the current App file</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.config_win" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.config_win">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">config_win</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config_win</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configures the `Window`&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Private Previewgram&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setFixedWidth</span><span class="p">(</span><span class="mi">830</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMinimumHeight</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowFlags</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">FramelessWindowHint</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Configures the <code><a href="#Window">Window</a></code></p>
+</div>
+
+
+                            </div>
+                            <div id="Window.add_container" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.add_container">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">add_container</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">add_container</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets Container from `src.ui` module as Central Widget&quot;&quot;&quot;</span>
+        <span class="n">container</span> <span class="o">=</span> <span class="n">Container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Sets Container from <code><a href="src/ui.html">src.ui</a></code> module as Central Widget</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.channelDialog" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.channelDialog">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">channelDialog</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">channelDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Opens a Window Dialog that dials with the database (`src.model.db.Model`), adding and removing users...&quot;&quot;&quot;</span>
+        <span class="n">dial</span> <span class="o">=</span> <span class="n">ChannelDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">dial</span><span class="o">.</span><span class="n">destroyed</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">restart</span><span class="p">)</span>
+        <span class="n">dial</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Opens a Window Dialog that dials with the database (<code><a href="src/model/db.html#Model">src.model.db.Model</a></code>), adding and removing users...</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.get_channels" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.get_channels">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">get_channels</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">get_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets channels fom database (Dialing with `src.model.db.Model`) and Updates Windows&#39;s `channels` variable&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">Model</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Gets channels fom database (Dialing with <code><a href="src/model/db.html#Model">src.model.db.Model</a></code>) and Updates Windows's <code><a href="#Window.channels">channels</a></code> variable</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.add_chan" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.add_chan">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">add_chan</span><span class="signature">(self, chan, url)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">add_chan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds channels to database (Dialing with `src.model.db.Model`) and alert the user calling `added_channel`&quot;&quot;&quot;</span>
+        <span class="n">Model</span><span class="o">.</span><span class="n">add_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">added_channel</span><span class="p">()</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Adds channels to database (Dialing with <code><a href="src/model/db.html#Model">src.model.db.Model</a></code>) and alert the user calling <code><a href="#Window.added_channel">added_channel</a></code></p>
+</div>
+
+
+                            </div>
+                            <div id="Window.delete_chan" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.delete_chan">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">delete_chan</span><span class="signature">(self, chan)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">delete_chan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Deletes channels on database (Dialing with `src.model.db.Model`) and updates `channels` variable&quot;&quot;&quot;</span>
+        <span class="n">Model</span><span class="o">.</span><span class="n">del_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Deletes channels on database (Dialing with <code><a href="src/model/db.html#Model">src.model.db.Model</a></code>) and updates <code><a href="#Window.channels">channels</a></code> variable</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.check" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.check">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">check</span><span class="signature">(self, chan, url)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the user input to add a new channel is correct.</span>
+
+<span class="sd">        If yes, it&#39;ll call `add_chan`,</span>
+
+<span class="sd">        If not, it&#39;ll call `wrong_url`, that will show a alert.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;https://t.me/&quot;</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;https://telegram.me/&quot;</span><span class="p">)</span>
+            <span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_chan</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">wrong_url</span><span class="p">()</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Checks if the user input to add a new channel is correct.</p>
+
+<p>If yes, it'll call <code><a href="#Window.add_chan">add_chan</a></code>,</p>
+
+<p>If not, it'll call <code><a href="#Window.wrong_url">wrong_url</a></code>, that will show a alert.</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.wrong_url" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.wrong_url">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">wrong_url</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">wrong_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Alerts the user with a `QMessageBox.critical` that the input to add a new channel is invalid&quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="s2">&quot;Use a valid channel url&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Examples are:</span><span class="se">\n</span><span class="s2">https://t.me/channel, https://telegram.me/channel, @channel, https://t.me/s/channel&quot;</span><span class="p">,</span>
+            <span class="n">buttons</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Alerts the user with a <code>QMessageBox.critical</code> that the input to add a new channel is invalid</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.added_channel" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.added_channel">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">added_channel</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">added_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Alerts the user with a `QMessageBox.critical` that the input to add a new channel is valid, and the channel was added on database&quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="s2">&quot;Info!&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Channel added to database&quot;</span><span class="p">,</span>
+            <span class="n">buttons</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Alerts the user with a <code>QMessageBox.critical</code> that the input to add a new channel is valid, and the channel was added on database</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.closeWindow" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.closeWindow">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">closeWindow</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">closeWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Just close the window&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Just close the window</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.minWindow" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.minWindow">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">minWindow</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">minWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Minimizes the window&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showMinimized</span><span class="p">()</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Minimizes the window</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.mousePressEvent" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.mousePressEvent">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">mousePressEvent</span><span class="signature">(self, event)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Wen mouse press the Window, `Window.pressing` is set as True and start is set as Global position based on current mouse position&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">position</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Wen mouse press the Window, <code><a href="#Window.pressing">Window.pressing</a></code> is set as True and start is set as Global position based on current mouse position</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.mouseMoveEvent" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.mouseMoveEvent">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">mouseMoveEvent</span><span class="signature">(self, event)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseMoveEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        When mouse is in movement and pressing, it&#39;ll set the cursor to `Qt.ClosedHandCursor` and move the window to final position</span>
+<span class="sd">        </span>
+<span class="sd">        If mouse is in movement but not pressing, it&#39;ll only set the cursor to a `Qt.OpenHandCursor`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ClosedHandCursor</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">position</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">movement</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">movement</span><span class="p">)</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">movement</span><span class="p">)</span><span class="o">.</span><span class="n">y</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>When mouse is in movement and pressing, it'll set the cursor to <code>Qt.ClosedHandCursor</code> and move the window to final position</p>
+
+<p>If mouse is in movement but not pressing, it'll only set the cursor to a <code>Qt.OpenHandCursor</code></p>
+</div>
+
+
+                            </div>
+                            <div id="Window.mouseReleaseEvent" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.mouseReleaseEvent">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">mouseReleaseEvent</span><span class="signature">(self, QMouseEvent)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">QMouseEvent</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;When mouse releases, the `Window.pressing` is setting as `False` and the cursor is set as a `Qt.OpenHandCursor`&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>When mouse releases, the <code><a href="#Window.pressing">Window.pressing</a></code> is setting as <code>False</code> and the cursor is set as a <code>Qt.OpenHandCursor</code></p>
+</div>
+
+
+                            </div>
+                            <div id="Window.restart" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.restart">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">restart</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">restart</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>  
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        It&#39;ll restart the application for update channels on Window.</span>
+<span class="sd">        </span>
+<span class="sd">        It&#39;ll run when `ui.channel.ChannelDialog` is closed</span>
+<span class="sd">        &quot;&quot;&quot;</span>   
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;closed!&quot;</span><span class="p">)</span>
+        <span class="n">open_win</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>It'll restart the application for update channels on Window.</p>
+
+<p>It'll run when <code>ui.channel.ChannelDialog</code> is closed</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.staticMetaObject" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Window.staticMetaObject">#&nbsp;&nbsp</a>
+
+        <span class="name">staticMetaObject</span><span class="default_value"> = &lt;PySide6.QtCore.QMetaObject object&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>PySide6.QtWidgets.QMainWindow</dt>
+                                <dd id="Window.addDockWidget" class="function">addDockWidget</dd>
+                <dd id="Window.addToolBar" class="function">addToolBar</dd>
+                <dd id="Window.addToolBarBreak" class="function">addToolBarBreak</dd>
+                <dd id="Window.centralWidget" class="function">centralWidget</dd>
+                <dd id="Window.contextMenuEvent" class="function">contextMenuEvent</dd>
+                <dd id="Window.corner" class="function">corner</dd>
+                <dd id="Window.createPopupMenu" class="function">createPopupMenu</dd>
+                <dd id="Window.dockOptions" class="function">dockOptions</dd>
+                <dd id="Window.dockWidgetArea" class="function">dockWidgetArea</dd>
+                <dd id="Window.documentMode" class="function">documentMode</dd>
+                <dd id="Window.event" class="function">event</dd>
+                <dd id="Window.iconSize" class="function">iconSize</dd>
+                <dd id="Window.insertToolBar" class="function">insertToolBar</dd>
+                <dd id="Window.insertToolBarBreak" class="function">insertToolBarBreak</dd>
+                <dd id="Window.isAnimated" class="function">isAnimated</dd>
+                <dd id="Window.isDockNestingEnabled" class="function">isDockNestingEnabled</dd>
+                <dd id="Window.isSeparator" class="function">isSeparator</dd>
+                <dd id="Window.menuBar" class="function">menuBar</dd>
+                <dd id="Window.menuWidget" class="function">menuWidget</dd>
+                <dd id="Window.removeDockWidget" class="function">removeDockWidget</dd>
+                <dd id="Window.removeToolBar" class="function">removeToolBar</dd>
+                <dd id="Window.removeToolBarBreak" class="function">removeToolBarBreak</dd>
+                <dd id="Window.resizeDocks" class="function">resizeDocks</dd>
+                <dd id="Window.restoreDockWidget" class="function">restoreDockWidget</dd>
+                <dd id="Window.restoreState" class="function">restoreState</dd>
+                <dd id="Window.saveState" class="function">saveState</dd>
+                <dd id="Window.setAnimated" class="function">setAnimated</dd>
+                <dd id="Window.setCentralWidget" class="function">setCentralWidget</dd>
+                <dd id="Window.setCorner" class="function">setCorner</dd>
+                <dd id="Window.setDockNestingEnabled" class="function">setDockNestingEnabled</dd>
+                <dd id="Window.setDockOptions" class="function">setDockOptions</dd>
+                <dd id="Window.setDocumentMode" class="function">setDocumentMode</dd>
+                <dd id="Window.setIconSize" class="function">setIconSize</dd>
+                <dd id="Window.setMenuBar" class="function">setMenuBar</dd>
+                <dd id="Window.setMenuWidget" class="function">setMenuWidget</dd>
+                <dd id="Window.setStatusBar" class="function">setStatusBar</dd>
+                <dd id="Window.setTabPosition" class="function">setTabPosition</dd>
+                <dd id="Window.setTabShape" class="function">setTabShape</dd>
+                <dd id="Window.setToolButtonStyle" class="function">setToolButtonStyle</dd>
+                <dd id="Window.setUnifiedTitleAndToolBarOnMac" class="function">setUnifiedTitleAndToolBarOnMac</dd>
+                <dd id="Window.splitDockWidget" class="function">splitDockWidget</dd>
+                <dd id="Window.statusBar" class="function">statusBar</dd>
+                <dd id="Window.tabPosition" class="function">tabPosition</dd>
+                <dd id="Window.tabShape" class="function">tabShape</dd>
+                <dd id="Window.tabifiedDockWidgets" class="function">tabifiedDockWidgets</dd>
+                <dd id="Window.tabifyDockWidget" class="function">tabifyDockWidget</dd>
+                <dd id="Window.takeCentralWidget" class="function">takeCentralWidget</dd>
+                <dd id="Window.toolBarArea" class="function">toolBarArea</dd>
+                <dd id="Window.toolBarBreak" class="function">toolBarBreak</dd>
+                <dd id="Window.toolButtonStyle" class="function">toolButtonStyle</dd>
+                <dd id="Window.unifiedTitleAndToolBarOnMac" class="function">unifiedTitleAndToolBarOnMac</dd>
+                <dd id="Window.DockOption" class="class">DockOption</dd>
+                <dd id="Window.DockOptions" class="class">DockOptions</dd>
+                <dd id="Window.AnimatedDocks" class="variable">AnimatedDocks</dd>
+                <dd id="Window.AllowNestedDocks" class="variable">AllowNestedDocks</dd>
+                <dd id="Window.AllowTabbedDocks" class="variable">AllowTabbedDocks</dd>
+                <dd id="Window.ForceTabbedDocks" class="variable">ForceTabbedDocks</dd>
+                <dd id="Window.VerticalTabs" class="variable">VerticalTabs</dd>
+                <dd id="Window.GroupedDragging" class="variable">GroupedDragging</dd>
+                <dd id="Window.iconSizeChanged" class="function">iconSizeChanged</dd>
+                <dd id="Window.tabifiedDockWidgetActivated" class="function">tabifiedDockWidgetActivated</dd>
+                <dd id="Window.toolButtonStyleChanged" class="function">toolButtonStyleChanged</dd>
+
+            </div>
+            <div><dt>PySide6.QtWidgets.QWidget</dt>
+                                <dd id="Window.acceptDrops" class="function">acceptDrops</dd>
+                <dd id="Window.accessibleDescription" class="function">accessibleDescription</dd>
+                <dd id="Window.accessibleName" class="function">accessibleName</dd>
+                <dd id="Window.actionEvent" class="function">actionEvent</dd>
+                <dd id="Window.actions" class="function">actions</dd>
+                <dd id="Window.activateWindow" class="function">activateWindow</dd>
+                <dd id="Window.addAction" class="function">addAction</dd>
+                <dd id="Window.addActions" class="function">addActions</dd>
+                <dd id="Window.adjustSize" class="function">adjustSize</dd>
+                <dd id="Window.autoFillBackground" class="function">autoFillBackground</dd>
+                <dd id="Window.backgroundRole" class="function">backgroundRole</dd>
+                <dd id="Window.backingStore" class="function">backingStore</dd>
+                <dd id="Window.baseSize" class="function">baseSize</dd>
+                <dd id="Window.changeEvent" class="function">changeEvent</dd>
+                <dd id="Window.childAt" class="function">childAt</dd>
+                <dd id="Window.childrenRect" class="function">childrenRect</dd>
+                <dd id="Window.childrenRegion" class="function">childrenRegion</dd>
+                <dd id="Window.clearFocus" class="function">clearFocus</dd>
+                <dd id="Window.clearMask" class="function">clearMask</dd>
+                <dd id="Window.close" class="function">close</dd>
+                <dd id="Window.closeEvent" class="function">closeEvent</dd>
+                <dd id="Window.contentsMargins" class="function">contentsMargins</dd>
+                <dd id="Window.contentsRect" class="function">contentsRect</dd>
+                <dd id="Window.contextMenuPolicy" class="function">contextMenuPolicy</dd>
+                <dd id="Window.create" class="function">create</dd>
+                <dd id="Window.createWinId" class="function">createWinId</dd>
+                <dd id="Window.createWindowContainer" class="function">createWindowContainer</dd>
+                <dd id="Window.cursor" class="function">cursor</dd>
+                <dd id="Window.destroy" class="function">destroy</dd>
+                <dd id="Window.devType" class="function">devType</dd>
+                <dd id="Window.dragEnterEvent" class="function">dragEnterEvent</dd>
+                <dd id="Window.dragLeaveEvent" class="function">dragLeaveEvent</dd>
+                <dd id="Window.dragMoveEvent" class="function">dragMoveEvent</dd>
+                <dd id="Window.dropEvent" class="function">dropEvent</dd>
+                <dd id="Window.effectiveWinId" class="function">effectiveWinId</dd>
+                <dd id="Window.ensurePolished" class="function">ensurePolished</dd>
+                <dd id="Window.enterEvent" class="function">enterEvent</dd>
+                <dd id="Window.find" class="function">find</dd>
+                <dd id="Window.focusInEvent" class="function">focusInEvent</dd>
+                <dd id="Window.focusNextChild" class="function">focusNextChild</dd>
+                <dd id="Window.focusNextPrevChild" class="function">focusNextPrevChild</dd>
+                <dd id="Window.focusOutEvent" class="function">focusOutEvent</dd>
+                <dd id="Window.focusPolicy" class="function">focusPolicy</dd>
+                <dd id="Window.focusPreviousChild" class="function">focusPreviousChild</dd>
+                <dd id="Window.focusProxy" class="function">focusProxy</dd>
+                <dd id="Window.focusWidget" class="function">focusWidget</dd>
+                <dd id="Window.font" class="function">font</dd>
+                <dd id="Window.fontInfo" class="function">fontInfo</dd>
+                <dd id="Window.fontMetrics" class="function">fontMetrics</dd>
+                <dd id="Window.foregroundRole" class="function">foregroundRole</dd>
+                <dd id="Window.frameGeometry" class="function">frameGeometry</dd>
+                <dd id="Window.frameSize" class="function">frameSize</dd>
+                <dd id="Window.geometry" class="function">geometry</dd>
+                <dd id="Window.grab" class="function">grab</dd>
+                <dd id="Window.grabGesture" class="function">grabGesture</dd>
+                <dd id="Window.grabKeyboard" class="function">grabKeyboard</dd>
+                <dd id="Window.grabMouse" class="function">grabMouse</dd>
+                <dd id="Window.grabShortcut" class="function">grabShortcut</dd>
+                <dd id="Window.graphicsEffect" class="function">graphicsEffect</dd>
+                <dd id="Window.graphicsProxyWidget" class="function">graphicsProxyWidget</dd>
+                <dd id="Window.hasFocus" class="function">hasFocus</dd>
+                <dd id="Window.hasHeightForWidth" class="function">hasHeightForWidth</dd>
+                <dd id="Window.hasMouseTracking" class="function">hasMouseTracking</dd>
+                <dd id="Window.hasTabletTracking" class="function">hasTabletTracking</dd>
+                <dd id="Window.height" class="function">height</dd>
+                <dd id="Window.heightForWidth" class="function">heightForWidth</dd>
+                <dd id="Window.hide" class="function">hide</dd>
+                <dd id="Window.hideEvent" class="function">hideEvent</dd>
+                <dd id="Window.initPainter" class="function">initPainter</dd>
+                <dd id="Window.inputMethodEvent" class="function">inputMethodEvent</dd>
+                <dd id="Window.inputMethodHints" class="function">inputMethodHints</dd>
+                <dd id="Window.inputMethodQuery" class="function">inputMethodQuery</dd>
+                <dd id="Window.insertAction" class="function">insertAction</dd>
+                <dd id="Window.insertActions" class="function">insertActions</dd>
+                <dd id="Window.internalWinId" class="function">internalWinId</dd>
+                <dd id="Window.isActiveWindow" class="function">isActiveWindow</dd>
+                <dd id="Window.isAncestorOf" class="function">isAncestorOf</dd>
+                <dd id="Window.isEnabled" class="function">isEnabled</dd>
+                <dd id="Window.isEnabledTo" class="function">isEnabledTo</dd>
+                <dd id="Window.isFullScreen" class="function">isFullScreen</dd>
+                <dd id="Window.isHidden" class="function">isHidden</dd>
+                <dd id="Window.isLeftToRight" class="function">isLeftToRight</dd>
+                <dd id="Window.isMaximized" class="function">isMaximized</dd>
+                <dd id="Window.isMinimized" class="function">isMinimized</dd>
+                <dd id="Window.isModal" class="function">isModal</dd>
+                <dd id="Window.isRightToLeft" class="function">isRightToLeft</dd>
+                <dd id="Window.isTopLevel" class="function">isTopLevel</dd>
+                <dd id="Window.isVisible" class="function">isVisible</dd>
+                <dd id="Window.isVisibleTo" class="function">isVisibleTo</dd>
+                <dd id="Window.isWindow" class="function">isWindow</dd>
+                <dd id="Window.isWindowModified" class="function">isWindowModified</dd>
+                <dd id="Window.keyPressEvent" class="function">keyPressEvent</dd>
+                <dd id="Window.keyReleaseEvent" class="function">keyReleaseEvent</dd>
+                <dd id="Window.keyboardGrabber" class="function">keyboardGrabber</dd>
+                <dd id="Window.layout" class="function">layout</dd>
+                <dd id="Window.layoutDirection" class="function">layoutDirection</dd>
+                <dd id="Window.leaveEvent" class="function">leaveEvent</dd>
+                <dd id="Window.locale" class="function">locale</dd>
+                <dd id="Window.lower" class="function">lower</dd>
+                <dd id="Window.mapFrom" class="function">mapFrom</dd>
+                <dd id="Window.mapFromGlobal" class="function">mapFromGlobal</dd>
+                <dd id="Window.mapFromParent" class="function">mapFromParent</dd>
+                <dd id="Window.mapTo" class="function">mapTo</dd>
+                <dd id="Window.mapToGlobal" class="function">mapToGlobal</dd>
+                <dd id="Window.mapToParent" class="function">mapToParent</dd>
+                <dd id="Window.mask" class="function">mask</dd>
+                <dd id="Window.maximumHeight" class="function">maximumHeight</dd>
+                <dd id="Window.maximumSize" class="function">maximumSize</dd>
+                <dd id="Window.maximumWidth" class="function">maximumWidth</dd>
+                <dd id="Window.metric" class="function">metric</dd>
+                <dd id="Window.minimumHeight" class="function">minimumHeight</dd>
+                <dd id="Window.minimumSize" class="function">minimumSize</dd>
+                <dd id="Window.minimumSizeHint" class="function">minimumSizeHint</dd>
+                <dd id="Window.minimumWidth" class="function">minimumWidth</dd>
+                <dd id="Window.mouseDoubleClickEvent" class="function">mouseDoubleClickEvent</dd>
+                <dd id="Window.mouseGrabber" class="function">mouseGrabber</dd>
+                <dd id="Window.move" class="function">move</dd>
+                <dd id="Window.moveEvent" class="function">moveEvent</dd>
+                <dd id="Window.nativeEvent" class="function">nativeEvent</dd>
+                <dd id="Window.nativeParentWidget" class="function">nativeParentWidget</dd>
+                <dd id="Window.nextInFocusChain" class="function">nextInFocusChain</dd>
+                <dd id="Window.normalGeometry" class="function">normalGeometry</dd>
+                <dd id="Window.overrideWindowFlags" class="function">overrideWindowFlags</dd>
+                <dd id="Window.overrideWindowState" class="function">overrideWindowState</dd>
+                <dd id="Window.paintEngine" class="function">paintEngine</dd>
+                <dd id="Window.paintEvent" class="function">paintEvent</dd>
+                <dd id="Window.palette" class="function">palette</dd>
+                <dd id="Window.parentWidget" class="function">parentWidget</dd>
+                <dd id="Window.pos" class="function">pos</dd>
+                <dd id="Window.previousInFocusChain" class="function">previousInFocusChain</dd>
+                <dd id="Window.raise_" class="function">raise_</dd>
+                <dd id="Window.rect" class="function">rect</dd>
+                <dd id="Window.redirected" class="function">redirected</dd>
+                <dd id="Window.releaseKeyboard" class="function">releaseKeyboard</dd>
+                <dd id="Window.releaseMouse" class="function">releaseMouse</dd>
+                <dd id="Window.releaseShortcut" class="function">releaseShortcut</dd>
+                <dd id="Window.removeAction" class="function">removeAction</dd>
+                <dd id="Window.render" class="function">render</dd>
+                <dd id="Window.repaint" class="function">repaint</dd>
+                <dd id="Window.resize" class="function">resize</dd>
+                <dd id="Window.resizeEvent" class="function">resizeEvent</dd>
+                <dd id="Window.restoreGeometry" class="function">restoreGeometry</dd>
+                <dd id="Window.saveGeometry" class="function">saveGeometry</dd>
+                <dd id="Window.screen" class="function">screen</dd>
+                <dd id="Window.scroll" class="function">scroll</dd>
+                <dd id="Window.setAcceptDrops" class="function">setAcceptDrops</dd>
+                <dd id="Window.setAccessibleDescription" class="function">setAccessibleDescription</dd>
+                <dd id="Window.setAccessibleName" class="function">setAccessibleName</dd>
+                <dd id="Window.setAttribute" class="function">setAttribute</dd>
+                <dd id="Window.setAutoFillBackground" class="function">setAutoFillBackground</dd>
+                <dd id="Window.setBackgroundRole" class="function">setBackgroundRole</dd>
+                <dd id="Window.setBaseSize" class="function">setBaseSize</dd>
+                <dd id="Window.setContentsMargins" class="function">setContentsMargins</dd>
+                <dd id="Window.setContextMenuPolicy" class="function">setContextMenuPolicy</dd>
+                <dd id="Window.setCursor" class="function">setCursor</dd>
+                <dd id="Window.setDisabled" class="function">setDisabled</dd>
+                <dd id="Window.setEnabled" class="function">setEnabled</dd>
+                <dd id="Window.setFixedHeight" class="function">setFixedHeight</dd>
+                <dd id="Window.setFixedSize" class="function">setFixedSize</dd>
+                <dd id="Window.setFixedWidth" class="function">setFixedWidth</dd>
+                <dd id="Window.setFocus" class="function">setFocus</dd>
+                <dd id="Window.setFocusPolicy" class="function">setFocusPolicy</dd>
+                <dd id="Window.setFocusProxy" class="function">setFocusProxy</dd>
+                <dd id="Window.setFont" class="function">setFont</dd>
+                <dd id="Window.setForegroundRole" class="function">setForegroundRole</dd>
+                <dd id="Window.setGeometry" class="function">setGeometry</dd>
+                <dd id="Window.setGraphicsEffect" class="function">setGraphicsEffect</dd>
+                <dd id="Window.setHidden" class="function">setHidden</dd>
+                <dd id="Window.setInputMethodHints" class="function">setInputMethodHints</dd>
+                <dd id="Window.setLayout" class="function">setLayout</dd>
+                <dd id="Window.setLayoutDirection" class="function">setLayoutDirection</dd>
+                <dd id="Window.setLocale" class="function">setLocale</dd>
+                <dd id="Window.setMask" class="function">setMask</dd>
+                <dd id="Window.setMaximumHeight" class="function">setMaximumHeight</dd>
+                <dd id="Window.setMaximumSize" class="function">setMaximumSize</dd>
+                <dd id="Window.setMaximumWidth" class="function">setMaximumWidth</dd>
+                <dd id="Window.setMinimumHeight" class="function">setMinimumHeight</dd>
+                <dd id="Window.setMinimumSize" class="function">setMinimumSize</dd>
+                <dd id="Window.setMinimumWidth" class="function">setMinimumWidth</dd>
+                <dd id="Window.setMouseTracking" class="function">setMouseTracking</dd>
+                <dd id="Window.setPalette" class="function">setPalette</dd>
+                <dd id="Window.setParent" class="function">setParent</dd>
+                <dd id="Window.setScreen" class="function">setScreen</dd>
+                <dd id="Window.setShortcutAutoRepeat" class="function">setShortcutAutoRepeat</dd>
+                <dd id="Window.setShortcutEnabled" class="function">setShortcutEnabled</dd>
+                <dd id="Window.setSizeIncrement" class="function">setSizeIncrement</dd>
+                <dd id="Window.setSizePolicy" class="function">setSizePolicy</dd>
+                <dd id="Window.setStatusTip" class="function">setStatusTip</dd>
+                <dd id="Window.setStyle" class="function">setStyle</dd>
+                <dd id="Window.setStyleSheet" class="function">setStyleSheet</dd>
+                <dd id="Window.setTabOrder" class="function">setTabOrder</dd>
+                <dd id="Window.setTabletTracking" class="function">setTabletTracking</dd>
+                <dd id="Window.setToolTip" class="function">setToolTip</dd>
+                <dd id="Window.setToolTipDuration" class="function">setToolTipDuration</dd>
+                <dd id="Window.setUpdatesEnabled" class="function">setUpdatesEnabled</dd>
+                <dd id="Window.setVisible" class="function">setVisible</dd>
+                <dd id="Window.setWhatsThis" class="function">setWhatsThis</dd>
+                <dd id="Window.setWindowFilePath" class="function">setWindowFilePath</dd>
+                <dd id="Window.setWindowFlag" class="function">setWindowFlag</dd>
+                <dd id="Window.setWindowFlags" class="function">setWindowFlags</dd>
+                <dd id="Window.setWindowIcon" class="function">setWindowIcon</dd>
+                <dd id="Window.setWindowIconText" class="function">setWindowIconText</dd>
+                <dd id="Window.setWindowModality" class="function">setWindowModality</dd>
+                <dd id="Window.setWindowModified" class="function">setWindowModified</dd>
+                <dd id="Window.setWindowOpacity" class="function">setWindowOpacity</dd>
+                <dd id="Window.setWindowRole" class="function">setWindowRole</dd>
+                <dd id="Window.setWindowState" class="function">setWindowState</dd>
+                <dd id="Window.setWindowTitle" class="function">setWindowTitle</dd>
+                <dd id="Window.sharedPainter" class="function">sharedPainter</dd>
+                <dd id="Window.show" class="function">show</dd>
+                <dd id="Window.showEvent" class="function">showEvent</dd>
+                <dd id="Window.showFullScreen" class="function">showFullScreen</dd>
+                <dd id="Window.showMaximized" class="function">showMaximized</dd>
+                <dd id="Window.showMinimized" class="function">showMinimized</dd>
+                <dd id="Window.showNormal" class="function">showNormal</dd>
+                <dd id="Window.size" class="function">size</dd>
+                <dd id="Window.sizeHint" class="function">sizeHint</dd>
+                <dd id="Window.sizeIncrement" class="function">sizeIncrement</dd>
+                <dd id="Window.sizePolicy" class="function">sizePolicy</dd>
+                <dd id="Window.stackUnder" class="function">stackUnder</dd>
+                <dd id="Window.statusTip" class="function">statusTip</dd>
+                <dd id="Window.style" class="function">style</dd>
+                <dd id="Window.styleSheet" class="function">styleSheet</dd>
+                <dd id="Window.tabletEvent" class="function">tabletEvent</dd>
+                <dd id="Window.testAttribute" class="function">testAttribute</dd>
+                <dd id="Window.toolTip" class="function">toolTip</dd>
+                <dd id="Window.toolTipDuration" class="function">toolTipDuration</dd>
+                <dd id="Window.topLevelWidget" class="function">topLevelWidget</dd>
+                <dd id="Window.underMouse" class="function">underMouse</dd>
+                <dd id="Window.ungrabGesture" class="function">ungrabGesture</dd>
+                <dd id="Window.unsetCursor" class="function">unsetCursor</dd>
+                <dd id="Window.unsetLayoutDirection" class="function">unsetLayoutDirection</dd>
+                <dd id="Window.unsetLocale" class="function">unsetLocale</dd>
+                <dd id="Window.update" class="function">update</dd>
+                <dd id="Window.updateGeometry" class="function">updateGeometry</dd>
+                <dd id="Window.updateMicroFocus" class="function">updateMicroFocus</dd>
+                <dd id="Window.updatesEnabled" class="function">updatesEnabled</dd>
+                <dd id="Window.visibleRegion" class="function">visibleRegion</dd>
+                <dd id="Window.whatsThis" class="function">whatsThis</dd>
+                <dd id="Window.wheelEvent" class="function">wheelEvent</dd>
+                <dd id="Window.width" class="function">width</dd>
+                <dd id="Window.winId" class="function">winId</dd>
+                <dd id="Window.window" class="function">window</dd>
+                <dd id="Window.windowFilePath" class="function">windowFilePath</dd>
+                <dd id="Window.windowFlags" class="function">windowFlags</dd>
+                <dd id="Window.windowHandle" class="function">windowHandle</dd>
+                <dd id="Window.windowIcon" class="function">windowIcon</dd>
+                <dd id="Window.windowIconText" class="function">windowIconText</dd>
+                <dd id="Window.windowModality" class="function">windowModality</dd>
+                <dd id="Window.windowOpacity" class="function">windowOpacity</dd>
+                <dd id="Window.windowRole" class="function">windowRole</dd>
+                <dd id="Window.windowState" class="function">windowState</dd>
+                <dd id="Window.windowTitle" class="function">windowTitle</dd>
+                <dd id="Window.windowType" class="function">windowType</dd>
+                <dd id="Window.x" class="function">x</dd>
+                <dd id="Window.y" class="function">y</dd>
+                <dd id="Window.RenderFlag" class="class">RenderFlag</dd>
+                <dd id="Window.RenderFlags" class="class">RenderFlags</dd>
+                <dd id="Window.DrawWindowBackground" class="variable">DrawWindowBackground</dd>
+                <dd id="Window.DrawChildren" class="variable">DrawChildren</dd>
+                <dd id="Window.IgnoreMask" class="variable">IgnoreMask</dd>
+                <dd id="Window.customContextMenuRequested" class="function">customContextMenuRequested</dd>
+                <dd id="Window.windowTitleChanged" class="function">windowTitleChanged</dd>
+                <dd id="Window.windowIconTextChanged" class="function">windowIconTextChanged</dd>
+                <dd id="Window.windowIconChanged" class="function">windowIconChanged</dd>
+
+            </div>
+            <div><dt>PySide6.QtCore.QObject</dt>
+                                <dd id="Window.blockSignals" class="function">blockSignals</dd>
+                <dd id="Window.childEvent" class="function">childEvent</dd>
+                <dd id="Window.children" class="function">children</dd>
+                <dd id="Window.connect" class="function">connect</dd>
+                <dd id="Window.connectNotify" class="function">connectNotify</dd>
+                <dd id="Window.customEvent" class="function">customEvent</dd>
+                <dd id="Window.deleteLater" class="function">deleteLater</dd>
+                <dd id="Window.disconnect" class="function">disconnect</dd>
+                <dd id="Window.disconnectNotify" class="function">disconnectNotify</dd>
+                <dd id="Window.dumpObjectInfo" class="function">dumpObjectInfo</dd>
+                <dd id="Window.dumpObjectTree" class="function">dumpObjectTree</dd>
+                <dd id="Window.dynamicPropertyNames" class="function">dynamicPropertyNames</dd>
+                <dd id="Window.emit" class="function">emit</dd>
+                <dd id="Window.eventFilter" class="function">eventFilter</dd>
+                <dd id="Window.findChild" class="function">findChild</dd>
+                <dd id="Window.findChildren" class="function">findChildren</dd>
+                <dd id="Window.inherits" class="function">inherits</dd>
+                <dd id="Window.installEventFilter" class="function">installEventFilter</dd>
+                <dd id="Window.isSignalConnected" class="function">isSignalConnected</dd>
+                <dd id="Window.isWidgetType" class="function">isWidgetType</dd>
+                <dd id="Window.isWindowType" class="function">isWindowType</dd>
+                <dd id="Window.killTimer" class="function">killTimer</dd>
+                <dd id="Window.metaObject" class="function">metaObject</dd>
+                <dd id="Window.moveToThread" class="function">moveToThread</dd>
+                <dd id="Window.objectName" class="function">objectName</dd>
+                <dd id="Window.parent" class="function">parent</dd>
+                <dd id="Window.property" class="function">property</dd>
+                <dd id="Window.receivers" class="function">receivers</dd>
+                <dd id="Window.removeEventFilter" class="function">removeEventFilter</dd>
+                <dd id="Window.sender" class="function">sender</dd>
+                <dd id="Window.senderSignalIndex" class="function">senderSignalIndex</dd>
+                <dd id="Window.setObjectName" class="function">setObjectName</dd>
+                <dd id="Window.setProperty" class="function">setProperty</dd>
+                <dd id="Window.signalsBlocked" class="function">signalsBlocked</dd>
+                <dd id="Window.startTimer" class="function">startTimer</dd>
+                <dd id="Window.thread" class="function">thread</dd>
+                <dd id="Window.timerEvent" class="function">timerEvent</dd>
+                <dd id="Window.tr" class="function">tr</dd>
+                <dd id="Window.destroyed" class="function">destroyed</dd>
+                <dd id="Window.objectNameChanged" class="function">objectNameChanged</dd>
+
+            </div>
+            <div><dt>PySide6.QtGui.QPaintDevice</dt>
+                                <dd id="Window.colorCount" class="function">colorCount</dd>
+                <dd id="Window.depth" class="function">depth</dd>
+                <dd id="Window.devicePixelRatio" class="function">devicePixelRatio</dd>
+                <dd id="Window.devicePixelRatioF" class="function">devicePixelRatioF</dd>
+                <dd id="Window.devicePixelRatioFScale" class="function">devicePixelRatioFScale</dd>
+                <dd id="Window.heightMM" class="function">heightMM</dd>
+                <dd id="Window.logicalDpiX" class="function">logicalDpiX</dd>
+                <dd id="Window.logicalDpiY" class="function">logicalDpiY</dd>
+                <dd id="Window.paintingActive" class="function">paintingActive</dd>
+                <dd id="Window.physicalDpiX" class="function">physicalDpiX</dd>
+                <dd id="Window.physicalDpiY" class="function">physicalDpiY</dd>
+                <dd id="Window.widthMM" class="function">widthMM</dd>
+                <dd id="Window.painters" class="variable">painters</dd>
+                <dd id="Window.PaintDeviceMetric" class="class">PaintDeviceMetric</dd>
+                <dd id="Window.PdmWidth" class="variable">PdmWidth</dd>
+                <dd id="Window.PdmHeight" class="variable">PdmHeight</dd>
+                <dd id="Window.PdmWidthMM" class="variable">PdmWidthMM</dd>
+                <dd id="Window.PdmHeightMM" class="variable">PdmHeightMM</dd>
+                <dd id="Window.PdmNumColors" class="variable">PdmNumColors</dd>
+                <dd id="Window.PdmDepth" class="variable">PdmDepth</dd>
+                <dd id="Window.PdmDpiX" class="variable">PdmDpiX</dd>
+                <dd id="Window.PdmDpiY" class="variable">PdmDpiY</dd>
+                <dd id="Window.PdmPhysicalDpiX" class="variable">PdmPhysicalDpiX</dd>
+                <dd id="Window.PdmPhysicalDpiY" class="variable">PdmPhysicalDpiY</dd>
+                <dd id="Window.PdmDevicePixelRatio" class="variable">PdmDevicePixelRatio</dd>
+                <dd id="Window.PdmDevicePixelRatioScaled" class="variable">PdmDevicePixelRatioScaled</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
+                <section id="open_win">
+                            <div class="attr function"><a class="headerlink" href="#open_win">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">open_win</span><span class="signature">()</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">open_win</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Will instance and show a new Window</span>
+<span class="sd">    </span>
+<span class="sd">    It is used to update channels on ``Window``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Will instance and show a new Window</p>
+
+<p>It is used to update channels on <code><a href="#Window">Window</a></code></p>
+</div>
+
+
+                </section>
+                <section id="start_app">
+                            <div class="attr function"><a class="headerlink" href="#start_app">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">start_app</span><span class="signature">()</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">start_app</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inits the application!</span>
+
+<span class="sd">    Applies the theme, Open a Window and executes!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>        
+    <span class="n">apply_stylesheet</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="s1">&#39;dark_blue.xml&#39;</span><span class="p">)</span>
+    <span class="n">open_win</span><span class="p">()</span>           
+    <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>            
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Inits the application!</p>
+
+<p>Applies the theme, Open a Window and executes!</p>
+</div>
+
+
+                </section>
+    </main>
+<script>
+    function escapeHTML(html) {
+        return document.createElement('div').appendChild(document.createTextNode(html)).parentNode.innerHTML;
+    }
+
+    const originalContent = document.querySelector("main.pdoc");
+    let currentContent = originalContent;
+
+    function setContent(innerHTML) {
+        let elem;
+        if (innerHTML) {
+            elem = document.createElement("main");
+            elem.classList.add("pdoc");
+            elem.innerHTML = innerHTML;
+        } else {
+            elem = originalContent;
+        }
+        if (currentContent !== elem) {
+            currentContent.replaceWith(elem);
+            currentContent = elem;
+        }
+    }
+
+    function getSearchTerm() {
+        return (new URL(window.location)).searchParams.get("search");
+    }
+
+    const searchBox = document.querySelector(".pdoc input[type=search]");
+    searchBox.addEventListener("input", function () {
+        let url = new URL(window.location);
+        if (searchBox.value.trim()) {
+            url.hash = "";
+            url.searchParams.set("search", searchBox.value);
+        } else {
+            url.searchParams.delete("search");
+        }
+        history.replaceState("", "", url.toString());
+        onInput();
+    });
+    window.addEventListener("popstate", onInput);
+
+
+    let search, searchErr;
+
+    async function initialize() {
+        try {
+            search = await new Promise((resolve, reject) => {
+                const script = document.createElement("script");
+                script.type = "text/javascript";
+                script.async = true;
+                script.onload = () => resolve(window.pdocSearch);
+                script.onerror = (e) => reject(e);
+                script.src = "search.js";
+                document.getElementsByTagName("head")[0].appendChild(script);
+            });
+        } catch (e) {
+            console.error("Cannot fetch pdoc search index");
+            searchErr = "Cannot fetch search index.";
+        }
+        onInput();
+
+        document.querySelector("nav.pdoc").addEventListener("click", e => {
+            if (e.target.hash) {
+                searchBox.value = "";
+                searchBox.dispatchEvent(new Event("input"));
+            }
+        });
+    }
+
+    function onInput() {
+        setContent((() => {
+            const term = getSearchTerm();
+            if (!term) {
+                return null
+            }
+            if (searchErr) {
+                return `<h3>Error: ${searchErr}</h3>`
+            }
+            if (!search) {
+                return "<h3>Searching...</h3>"
+            }
+
+            window.scrollTo({top: 0, left: 0, behavior: 'auto'});
+
+            const results = search(term);
+
+            let html;
+            if (results.length === 0) {
+                html = `No search results for '${escapeHTML(term)}'.`
+            } else {
+                html = `<h4>${results.length} search result${results.length > 1 ? "s" : ""} for '${escapeHTML(term)}'.</h4>`;
+            }
+            for (let result of results.slice(0, 10)) {
+                let doc = result.doc;
+                let url = `${doc.modulename.replaceAll(".", "/")}.html`;
+                if (doc.qualname) {
+                    url += `#${doc.qualname}`;
+                }
+
+                let heading;
+                switch (result.doc.type) {
+                    case "function":
+                        heading = `<span class="def">${doc.funcdef}</span> <span class="name">${doc.fullname}</span><span class="signature">(${doc.parameters.join(", ")})</span>`;
+                        break;
+                    case "class":
+                        heading = `<span class="def">class</span> <span class="name">${doc.fullname}</span>`;
+                        break;
+                    default:
+                        heading = `<span class="name">${doc.fullname}</span>`;
+                        break;
+                }
+                html += `
+                        <section class="search-result">
+                        <a href="${url}" class="attr ${doc.type}">${heading}</a>
+                        <div class="docstring">${doc.doc}</div>
+                        </section>
+                    `;
+
+            }
+            return html;
+        })());
+    }
+
+    if (getSearchTerm()) {
+        initialize();
+        searchBox.value = getSearchTerm();
+        onInput();
+    } else {
+        searchBox.addEventListener("focus", initialize, {once: true});
+    }
+
+    searchBox.addEventListener("keydown", e => {
+        if (["ArrowDown", "ArrowUp", "Enter"].includes(e.key)) {
+            let focused = currentContent.querySelector(".search-result.focused");
+            if (!focused) {
+                currentContent.querySelector(".search-result").classList.add("focused");
+            } else if (
+                e.key === "ArrowDown"
+                && focused.nextElementSibling
+                && focused.nextElementSibling.classList.contains("search-result")
+            ) {
+                focused.classList.remove("focused");
+                focused.nextElementSibling.classList.add("focused");
+                focused.nextElementSibling.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest",
+                    inline: "nearest"
+                });
+            } else if (
+                e.key === "ArrowUp"
+                && focused.previousElementSibling
+                && focused.previousElementSibling.classList.contains("search-result")
+            ) {
+                focused.classList.remove("focused");
+                focused.previousElementSibling.classList.add("focused");
+                focused.previousElementSibling.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest",
+                    inline: "nearest"
+                });
+            } else if (
+                e.key === "Enter"
+            ) {
+                focused.querySelector("a").click();
+            }
+        }
+    });
+</script></body>
+</html>
