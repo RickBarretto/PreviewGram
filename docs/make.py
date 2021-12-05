@@ -12,12 +12,29 @@ from markupsafe import Markup
 
 import pdoc.render
 import pdoc
+import pdoc.templates
 
 VERSION = 1.1
 
 here = Path(__file__).parent
 
 if __name__ == '__main__':
+
+    demo = here / ".." / "test" / "testdata" / "demo.py"
+    env = Environment(loader=pdoc.templates, autoescape=True)
+
+    lexer = pygments.lexers.python.PythonLexer()
+    formatter = pygments.formatters.html.HtmlFormatter(style="friendly")
+    pygments_css = formatter.get_style_defs()
+    example_html = Markup(pygments.highlight(demo.read_text("utf8"), lexer, formatter))
+
+    (here / "index.html").write_bytes(
+        env.get_template("index.html.jinja2").render(
+            example_html=example_html,
+            pygments_css=pygments_css,
+            __version__=pdoc.__version__
+        ).encode()
+    )
 
     pdoc.render.configure(
         edit_url_map= {
