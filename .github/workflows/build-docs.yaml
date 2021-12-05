@@ -13,4 +13,4 @@ jobs:
           with:
             python-version: "3.10.0"
         - name: Building Docs
-          run: python -m ./docs/make.py
+          run: py -m ./docs/make.py
