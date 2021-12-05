@@ -59,21 +59,21 @@ Or [Download Last Release](https://github.com/RickBarretto/PreviewGram/releases/
 ### Running without install
 
 - Clone this project
-```
+```bash
 > git clone https://github.com/RickBarretto/PreviewGram.git
 ```
 
 - Or [Download Source Code](https://github.com/RickBarretto/PreviewGram/archive/refs/heads/main.zip)
 
 - On repository folder, run:
-```
+```bash
 > pip -m test_application.py
 ```
 
 ## Running Application
 
 Just type:
-```
+```bash
 > ppg
 ```
 
@@ -136,7 +136,7 @@ So, PreviewGram can't:
 
 ### Realtime Docs
 
-```
+```bash
 > pip install -r requirements.txt
 > pdoc ./src
 ```
