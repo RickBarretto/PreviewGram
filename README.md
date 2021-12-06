@@ -37,7 +37,7 @@
 -  Telegram added Group Read Receipts*
 -  You must to trust on Telegram's Servers
 
->   - **\* PreviewGram doesn't protects you against it, because can't view Group Chats.**
+> - **\* PreviewGram doesn't protects you against it, because can't view Group Chats.**
 
 > \[⚠️\] - Warning
 >
