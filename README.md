@@ -30,11 +30,12 @@
 ## Why use
 
 **PreviewGram is for users that wants get a more private experience** with the Telegram's Channel. It's because:
-  - Telegram collects when you see determinate content
-  - Groups show publicly who are the followers*
-  - The channel owners can see who are them followers
-  - Telegram added Group Read Receipts*
-  - You must to trust on Telegram's Servers
+
+-  Telegram collects when you see determinate content
+-  Groups show publicly who are the followers*
+-  The channel owners can see who are them followers
+-  Telegram added Group Read Receipts*
+-  You must to trust on Telegram's Servers
 
 >   - **\* PreviewGram doesn't protects you against it, because can't view Group Chats.**
 
@@ -58,15 +59,15 @@ Or [Download Last Release](https://github.com/RickBarretto/PreviewGram/releases/
 
 ### Running without install
 
-  - Clone this project
+- Clone this project
 
 ```bash
 > git clone https://github.com/RickBarretto/PreviewGram.git
 ```
 
-  - Or [Download Source Code](https://github.com/RickBarretto/PreviewGram/archive/refs/heads/main.zip)
+- Or [Download Source Code](https://github.com/RickBarretto/PreviewGram/archive/refs/heads/main.zip)
 
-  - On repository folder, run:
+- On repository folder, run:
   
 ```bash
 > pip -m test_application.py
@@ -86,44 +87,47 @@ Just type:
 
 PreviewGram protects you when:
 
-  - Disables JavaScript when Browsing 
-    - Doesn't store cookies
-    - Doesn't run trackers
-  - Uses a generic Chrome user-agent
-  - Doesn't use Telegram's API
-  - Doesn't require a Account
+- Disables JavaScript when Browsing 
+  - Doesn't store cookies
+  - Doesn't run trackers
+- Uses a generic Chrome user-agent
+- Doesn't use Telegram's API
+- Doesn't require a Account
 
 Useful Features:
-  - Store locally your favorites Channels
-  - Can't open some links
+
+- Store locally your favorites Channels
+- Can't open some links
 
 ## Limitations
 
 PreviewGram isn't the perfection on Earth. Because:
- 1. Doesn't use JavaScript
- 2. It's limited by the Telegram's Preview Site itself.
+
+1. Doesn't use JavaScript
+2. It's limited by the Telegram's Preview Site itself.
 
 So, PreviewGram can't:
-  - Hide your IP*
-  - Play videos**
-  - See Group Chats***
-  - Download files directly*** (instead this, do: `RMB**** > Copy link address` and download on Telegram App)
 
->   - \* Use a VPN or Proxy. Read [`Why PreviewGram doesn't use Tor's Proxy by itself?`](#why-previewgram-doesnt-use-tors-proxy-by-itself)
->   - \*\* Because JavaScript is disabled
->   - \*\*\* Preview website limitation
->   - \*\*\*\* RMB is Right Mouse Button 
+- Hide your IP*
+- Play videos**
+- See Group Chats***
+- Download files directly*** (instead this, do: `RMB**** > Copy link address` and download on Telegram App)
+
+> - \* Use a VPN or Proxy. Read [`Why PreviewGram doesn't use Tor's Proxy by itself?`](#why-previewgram-doesnt-use-tors-proxy-by-itself)
+> - \*\* Because JavaScript is disabled
+> - \*\*\* Preview website limitation
+> - \*\*\*\* RMB is Right Mouse Button 
 
 ## Tips
 
-  - Always use Vpn or Proxy
-  - To open links, do `RMB* > Copy link address`
-  - If you want to watch videos, please use Tor** (or any Browser that you trust)
-  - Click on `Test privacy!` button to test for yourself. It's tested by [What Is My Browser](https://www.whatismybrowser.com/)*** 
+- Always use Vpn or Proxy
+- To open links, do `RMB* > Copy link address`
+- If you want to watch videos, please use Tor** (or any Browser that you trust)
+- Click on `Test privacy!` button to test for yourself. It's tested by [What Is My Browser](https://www.whatismybrowser.com/)*** 
 
->   - \* RMB is Right Mouse Button 
->   - \*\* Read [`Accessing via Tor`](#accessing-via-tor)
->   - \*\*\* [What Is My Browser's Privacy Policy](https://www.whatismybrowser.com/about/legal/)
+> - \* RMB is Right Mouse Button 
+> - \*\* Read [`Accessing via Tor`](#accessing-via-tor)
+> - \*\*\* [What Is My Browser's Privacy Policy](https://www.whatismybrowser.com/about/legal/)
 
 > **Extra:** Accessing channels through TorBrowser
 >
@@ -135,8 +139,8 @@ So, PreviewGram can't:
 
 > Fork it and contribute!
 
-  - Build instructions at [`How to install`](#how-to-install)
-  - Documentation at [Docs]("https://rickbarretto.github.io/PreviewGram/docs/docs/index.html")
+- Build instructions at [`How to install`](#how-to-install)
+- Documentation at [Docs]("https://rickbarretto.github.io/PreviewGram/docs/docs/index.html")
 
 ### Realtime Docs
 
@@ -166,10 +170,10 @@ So, PreviewGram can't:
 
 > Sources:
 > 
->   - [Should I Use a VPN, Proxy, or Tor? - AVG](https://www.avg.com/en/signal/vpn-vs-proxy-vs-tor)
->   - [Penetration testing: TOR, VPN or proxy - InfoSec](https://resources.infosecinstitute.com/topic/penetration-testing-tor-vpn-or-proxy/)
->   - [What is the difference between a proxy and a VPN? - ProtonVPN](https://protonvpn.com/blog/proxy-vs-vpn/)
->   - [About Tor - Tor Project](https://support.torproject.org/about/)
+> - [Should I Use a VPN, Proxy, or Tor? - AVG](https://www.avg.com/en/signal/vpn-vs-proxy-vs-tor)
+> - [Penetration testing: TOR, VPN or proxy - InfoSec](https://resources.infosecinstitute.com/topic/penetration-testing-tor-vpn-or-proxy/)
+> - [What is the difference between a proxy and a VPN? - ProtonVPN](https://protonvpn.com/blog/proxy-vs-vpn/)
+> - [About Tor - Tor Project](https://support.torproject.org/about/)
 
 ### The Tor's Power
 
@@ -186,11 +190,11 @@ Tor have some issues, and aren't recommended to use Tor outside TorBrowser to av
 
 > Sources:
 > 
->   - [Bittorrent over Tor isn't a good idea - Tor Project](https://blog.torproject.org/bittorrent-over-tor-isnt-good-idea/)
->   - ["Tor Browser will block browser plugins such as Flash, RealPlayer, QuickTime, and others: they can be manipulated into revealing your IP address." - Tor Project](https://www.torproject.org/download/#Warning)
->   - [KNOWN ISSUES - Tor Project](https://tb-manual.torproject.org/known-issues/)
->   - [TorPlusVPN - Tor Project (GitLab)](https://gitlab.torproject.org/legacy/trac/-/wikis/doc/TorPlusVPN)
->   - [Brave browser leaks onion addresses in DNS traffic - ZDNet](https://www.zdnet.com/article/brave-browser-leaks-onion-addresses-in-dns-traffic/)
+> - [Bittorrent over Tor isn't a good idea - Tor Project](https://blog.torproject.org/bittorrent-over-tor-isnt-good-idea/)
+> - ["Tor Browser will block browser plugins such as Flash, RealPlayer, QuickTime, and others: they can be manipulated into revealing your IP address." - Tor Project](https://www.torproject.org/download/#Warning)
+> - [KNOWN ISSUES - Tor Project](https://tb-manual.torproject.org/known-issues/)
+> - [TorPlusVPN - Tor Project (GitLab)](https://gitlab.torproject.org/legacy/trac/-/wikis/doc/TorPlusVPN)
+> - [Brave browser leaks onion addresses in DNS traffic - ZDNet](https://www.zdnet.com/article/brave-browser-leaks-onion-addresses-in-dns-traffic/)
 
 ### But What The F😡😡😡 talking about Tor, if PreviewGram doesn't use it???
 
@@ -200,18 +204,18 @@ Tor have some issues, and aren't recommended to use Tor outside TorBrowser to av
 
 #### Accessing via Tor
 
-  1. Create a "Telegram Channels" Folder on Bookmarks
-    - ![Create Folder](./assets/bookmarks.png)
-  2. To access your favorite channel, put a ``/s/`` between the domain and channel name, example: `https://t.me/previewgram` to `https://t.me/s/previewgram`
-  3. Save to "Telegram Channels"'s Bookmark Folder
-    - ![Save to BookMark](./assets/open.png)
-  4. Access when you want!
-  5. **Extra:** make [Tor portable](https://tb-manual.torproject.org/make-tor-portable/) and use the [Mobile Tor Browser](https://tb-manual.torproject.org/mobile-tor/) to use everywhere.
+1. Create a "Telegram Channels" Folder on Bookmarks
+  - ![Create Folder](./assets/bookmarks.png)
+2. To access your favorite channel, put a ``/s/`` between the domain and channel name, example: `https://t.me/previewgram` to `https://t.me/s/previewgram`
+3. Save to "Telegram Channels"'s Bookmark Folder
+  - ![Save to BookMark](./assets/open.png)
+4. Access when you want!
+5. **Extra:** make [Tor portable](https://tb-manual.torproject.org/make-tor-portable/) and use the [Mobile Tor Browser](https://tb-manual.torproject.org/mobile-tor/) to use everywhere.
 
 > Sources:
 > 
->   - [MAKE TOR BROWSER PORTABLE - Tor Project](https://tb-manual.torproject.org/make-tor-portable/)
->   - [MOBILE TOR - Tor Project](https://tb-manual.torproject.org/mobile-tor/)
+> - [MAKE TOR BROWSER PORTABLE - Tor Project](https://tb-manual.torproject.org/make-tor-portable/)
+> - [MOBILE TOR - Tor Project](https://tb-manual.torproject.org/mobile-tor/)
 
 ## Help PreviewGram
 
@@ -221,26 +225,26 @@ If you're a Dev (or not), help PreviewGram forking and making pull requests. Don
 
 ## To Do
 
-  - [ ] Block ``telegram.org`` and other https requests using the `webView.page().profile().setUrlRequestInterceptor(interceptor)` (Thanks, dbunk!)
-  - [ ] Channel Categories
-  - [ ] Open on Tor
-  - [ ] UI improvements?
+- [ ] Block ``telegram.org`` and other https requests using the `webView.page().profile().setUrlRequestInterceptor(interceptor)` (Thanks, dbunk!)
+- [ ] Channel Categories
+- [ ] Open on Tor
+- [ ] UI improvements?
 
 ---
 
 ## Telegram Privacy Issues
 
-  - According to VPN Mentor, Telegram "Telegram is Not as Private as it Claims" saying that they "operates with zero transparency":
-    - Source: [Cybercrime on Telegram: How Hackers Are Using the Messaging App to Share Data Leaks and Hacks - VPN Mentor](https://www.vpnmentor.com/blog/cybercrime-on-telegram/)
-  - Telegram can suffer Law Enforcement
-    - [Telegram agreed to transfer to the special services [but not Russian] IP-addresses and numbers of some users](https://sudonull.com/post/11959-Telegram-agreed-to-transfer-to-the-special-services-but-not-Russian-IP-addresses-and-numbers-of-some) 
-    - [Law Enforcement Authorities](https://telegram.org/privacy#8-3-law-enforcement-authorities)
-  - In 2020, Telegram suffered a data leak:
-    - Source: [Millions of Telegram Users’ Data Exposed on Darknet - CoinTelegraph](https://cointelegraph.com/news/millions-of-telegram-userss-data-exposed-on-darknet)
-    - It isn't a Telegram specific problem Read [`Osint Problems`](#osint-problems), because: “Unfortunately, any contacts-based app faces the challenge of malicious users trying to upload many phone numbers and build databases that match them with user IDs – like this one.” - Telegram representative to CoinTelegraph
-    - **Tip:** hide your phone number on Telegram's configurations.
-  - Telegram added Group Read Receipts:
-    - Source: [Read Receipts in Small Groups - Telegram](https://telegram.org/blog/chat-themes-interactive-emoji-read-receipts#read-receipts-in-small-groups)
+- According to VPN Mentor, Telegram "Telegram is Not as Private as it Claims" saying that they "operates with zero transparency":
+  - Source: [Cybercrime on Telegram: How Hackers Are Using the Messaging App to Share Data Leaks and Hacks - VPN Mentor](https://www.vpnmentor.com/blog/cybercrime-on-telegram/)
+- Telegram can suffer Law Enforcement
+  - [Telegram agreed to transfer to the special services [but not Russian] IP-addresses and numbers of some users](https://sudonull.com/post/11959-Telegram-agreed-to-transfer-to-the-special-services-but-not-Russian-IP-addresses-and-numbers-of-some) 
+  - [Law Enforcement Authorities](https://telegram.org/privacy#8-3-law-enforcement-authorities)
+- In 2020, Telegram suffered a data leak:
+  - Source: [Millions of Telegram Users’ Data Exposed on Darknet - CoinTelegraph](https://cointelegraph.com/news/millions-of-telegram-userss-data-exposed-on-darknet)
+  - It isn't a Telegram specific problem Read [`Osint Problems`](#osint-problems), because: “Unfortunately, any contacts-based app faces the challenge of malicious users trying to upload many phone numbers and build databases that match them with user IDs – like this one.” - Telegram representative to CoinTelegraph
+  - **Tip:** hide your phone number on Telegram's configurations.
+- Telegram added Group Read Receipts:
+  - Source: [Read Receipts in Small Groups - Telegram](https://telegram.org/blog/chat-themes-interactive-emoji-read-receipts#read-receipts-in-small-groups)
 
 > As any Social Network app, Telegram suffers with [Osint](#osint-problems) (Open-Source Intelligence), be caution with the information that you exposes publicly about yourself!
 
@@ -256,6 +260,7 @@ Yeah, it's the information era, 500 milions tweets are published every day. Publ
 So, caution with your public information! 😉
 
 Articles:
-  - [Hackers leak LinkedIn 700 million data scrape](https://therecord.media/hackers-leak-linkedin-700-million-data-scrape/)
-  - [Facebook attributes 533 million users' data leak to "scraping" not hacking](https://www.bleepingcomputer.com/news/security/facebook-attributes-533-million-users-data-leak-to-scraping-not-hacking/)
+
+- [Hackers leak LinkedIn 700 million data scrape](https://therecord.media/hackers-leak-linkedin-700-million-data-scrape/)
+- [Facebook attributes 533 million users' data leak to "scraping" not hacking](https://www.bleepingcomputer.com/news/security/facebook-attributes-533-million-users-data-leak-to-scraping-not-hacking/)
 
