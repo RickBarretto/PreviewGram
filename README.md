@@ -4,14 +4,24 @@
 
 <h2 align="center">Run away from Metadata</h2>
 
-<div align="center"><a href="https://t.me/previewgram" align="center">
-<img src="./assets/follow_on_telegram.png" width="500" align="center">
-</a></div>
+<div align="center">
+  <a href="https://t.me/previewgram" align="center">
+    <img src="./assets/follow_on_telegram.png" width="500" align="center">
+  </a>
+</div>
 
 ---
 
 <div align="center">
-<a href="https://rickbarretto.github.io/PreviewGram/docs/docs">Docs</a> | <a href="#how-to-install">Installing</a> | <a href="https://github.com/RickBarretto/PreviewGram/issues">Issues</a> | <a href="https://github.com/RickBarretto/PreviewGram/discussions">Discussions!</a>
+  <a href="https://rickbarretto.github.io/PreviewGram/docs/docs">Docs</a>
+   | 
+  <a href="#how-to-install">Installing</a>
+   | 
+  <a href="https://github.com/RickBarretto/PreviewGram/issues">Issues</a>
+   | 
+  <a href="https://github.com/RickBarretto/PreviewGram/discussions">
+    Discussions!
+  </a>
 </div>
 
 ---
@@ -23,13 +33,16 @@
 
 > PreviewGram is under LGPL License
 > 
-> Application's theme from [UN-GCPDS/qt-material](https://github.com/UN-GCPDS/qt-material) under [BSD-2-Clause License](https://github.com/UN-GCPDS/qt-material/blob/master/LICENSE).
+> Application's theme from 
+> [UN-GCPDS/qt-material](https://github.com/UN-GCPDS/qt-material) under
+> [BSD-2-Clause License](https://github.com/UN-GCPDS/qt-material/blob/master/LICENSE).
 
 > **Please, Read [For Devs](#for-devs)**
 
 ## Why use
 
-**PreviewGram is for users that wants get a more private experience** with the Telegram's Channel. It's because:
+**PreviewGram is for users that wants get a more private experience** with the
+Telegram's Channel. It's because:
 
 -  Telegram collects when you see determinate content
 -  Groups show publicly who are the followers*
@@ -37,11 +50,14 @@
 -  Telegram added Group Read Receipts*
 -  You must to trust on Telegram's Servers
 
-> - **\* PreviewGram doesn't protects you against it, because can't view Group Chats.**
+> - **\* PreviewGram doesn't protects you against it, because can't view Group
+> Chats.**
 
 > \[⚠️\] - Warning
 >
-> If you don't enabled Github's JavaScript, go to [`Telegram Privacy Issues`](#telegram-privacy-issues) Topic to understand more.
+> If you don't enabled Github's JavaScript, go to 
+> [`Telegram Privacy Issues`](#telegram-privacy-issues) Topic to understand
+> more.
 
 ## How to install
 
@@ -54,7 +70,8 @@
 > [⚠️] - Note
 > If you're in another version, change the ``1.1`` for the current version.
 
-Or [Download Last Release](https://github.com/RickBarretto/PreviewGram/releases/)
+Or 
+[Download Last Release](https://github.com/RickBarretto/PreviewGram/releases/)
 
 
 ### Running without install
@@ -65,7 +82,8 @@ Or [Download Last Release](https://github.com/RickBarretto/PreviewGram/releases/
 > git clone https://github.com/RickBarretto/PreviewGram.git
 ```
 
-- Or [Download Source Code](https://github.com/RickBarretto/PreviewGram/archive/refs/heads/main.zip)
+- Or 
+[Download Source Code](https://github.com/RickBarretto/PreviewGram/archive/refs/heads/main.zip)
 
 - On repository folder, run:
   
@@ -111,9 +129,11 @@ So, PreviewGram can't:
 - Hide your IP*
 - Play videos**
 - See Group Chats***
-- Download files directly*** (instead this, do: `RMB**** > Copy link address` and download on Telegram App)
+- Download files directly*** (instead this, do:
+`RMB**** > Copy link address` and download on Telegram App)
 
-> - \* Use a VPN or Proxy. Read [`Why PreviewGram doesn't use Tor's Proxy by itself?`](#why-previewgram-doesnt-use-tors-proxy-by-itself)
+> - \* Use a VPN or Proxy. Read 
+> [`Why PreviewGram doesn't use Tor's Proxy by itself?`](#why-previewgram-doesnt-use-tors-proxy-by-itself)
 > - \*\* Because JavaScript is disabled
 > - \*\*\* Preview website limitation
 > - \*\*\*\* RMB is Right Mouse Button 
@@ -122,8 +142,10 @@ So, PreviewGram can't:
 
 - Always use Vpn or Proxy
 - To open links, do `RMB* > Copy link address`
-- If you want to watch videos, please use Tor** (or any Browser that you trust)
-- Click on `Test privacy!` button to test for yourself. It's tested by [What Is My Browser](https://www.whatismybrowser.com/)*** 
+- If you want to watch videos,
+please use Tor** (or any Browser that you trust)
+- Click on `Test privacy!` button to test for yourself.
+It's tested by [What Is My Browser](https://www.whatismybrowser.com/)*** 
 
 > - \* RMB is Right Mouse Button 
 > - \*\* Read [`Accessing via Tor`](#accessing-via-tor)
@@ -140,7 +162,8 @@ So, PreviewGram can't:
 > Fork it and contribute!
 
 - Build instructions at [`How to install`](#how-to-install)
-- Documentation at [Docs]("https://rickbarretto.github.io/PreviewGram/docs/docs/index.html")
+- Documentation at 
+[Docs]("https://rickbarretto.github.io/PreviewGram/docs/docs/index.html")
 
 ### Realtime Docs
 
@@ -157,15 +180,20 @@ So, PreviewGram can't:
 
 #### Proxy
 
-> Proxy is your online ID, hiding you real IP Address. It's a intermediary between your Web Browser and the internet, a web site for example. (Needs to be configured per-app basis)
+> Proxy is your online ID, hiding you real IP Address. 
+> It's a intermediary between your Web Browser and the internet, 
+> a web site for example. (Needs to be configured per-app basis)
 
 #### VPN
 
-> VPN covers 100% of you device traffic, encrypting the connection. It'll hide your real IP Address.
+> VPN covers 100% of you device traffic, encrypting the connection. 
+> It'll hide your real IP Address.
 
 #### The Onion Route (Tor)
 
-> Tor anonymizes your traffic sending it through a series of proxies, this proxies are called Nodes, that encrypts the traffic and sends to destiny using a Exit Node.
+> Tor anonymizes your traffic sending it through a series of proxies, 
+> this proxies are called Nodes, that encrypts the traffic and
+> sends to destiny using a Exit Node.
 
 
 > Sources:
@@ -177,6 +205,7 @@ So, PreviewGram can't:
 
 ### The Tor's Power
 
+<!-- ✏️ToDo: Change table to a single image -->
 #### With and Without Tor:
 |Tor: off / Https: off|Tor: off / Https: on|Tor: on / Https: on|
 |---------|---------|---------|
@@ -186,7 +215,9 @@ So, PreviewGram can't:
 
 ### Why PreviewGram doesn't use Tor's Proxy by itself
 
-Tor have some issues, and aren't recommended to use Tor outside TorBrowser to avoid DNS Leaks and VPN+TOR issues.
+Tor have some issues, and
+isn't recommended to use Tor outside TorBrowser to avoid DNS Leaks and
+VPN+TOR issues.
 
 > Sources:
 > 
@@ -206,11 +237,15 @@ Tor have some issues, and aren't recommended to use Tor outside TorBrowser to av
 
 1. Create a "Telegram Channels" Folder on Bookmarks
   - ![Create Folder](./assets/bookmarks.png)
-2. To access your favorite channel, put a ``/s/`` between the domain and channel name, example: `https://t.me/previewgram` to `https://t.me/s/previewgram`
+2. To access your favorite channel, put a ``/s/`` between the domain and
+channel name,
+example: `https://t.me/previewgram` to `https://t.me/s/previewgram`
 3. Save to "Telegram Channels"'s Bookmark Folder
   - ![Save to BookMark](./assets/open.png)
 4. Access when you want!
-5. **Extra:** make [Tor portable](https://tb-manual.torproject.org/make-tor-portable/) and use the [Mobile Tor Browser](https://tb-manual.torproject.org/mobile-tor/) to use everywhere.
+5. **Extra:** make [Tor portable](https://tb-manual.torproject.org/make-tor-portable/)
+and use the [Mobile Tor Browser](https://tb-manual.torproject.org/mobile-tor/)
+to use everywhere.
 
 > Sources:
 > 
@@ -219,13 +254,18 @@ Tor have some issues, and aren't recommended to use Tor outside TorBrowser to av
 
 ## Help PreviewGram
 
-If you're a Dev (or not), help PreviewGram forking and making pull requests. Don't afraid to use the Github's Issue Tab to make critics, suggestions, bugs and security reports! 😉
+If you're a Dev (or not), help PreviewGram forking and making pull requests.
+Don't afraid to use the Github's Issue Tab to make critics,
+suggestions, bugs and security reports! 😉
 
 ---
 
 ## To Do
 
-- [ ] Block ``telegram.org`` and other https requests using the `webView.page().profile().setUrlRequestInterceptor(interceptor)` (Thanks, dbunk!)
+- [ ] Block ``telegram.org`` and
+other https requests using
+`webView.page().profile().setUrlRequestInterceptor(interceptor)` (Thanks, 
+dbunk!)
 - [ ] Channel Categories
 - [ ] Open on Tor
 - [ ] UI improvements?
@@ -234,27 +274,43 @@ If you're a Dev (or not), help PreviewGram forking and making pull requests. Don
 
 ## Telegram Privacy Issues
 
-- According to VPN Mentor, Telegram "Telegram is Not as Private as it Claims" saying that they "operates with zero transparency":
+- According to VPN Mentor,
+Telegram "Telegram is Not as Private as it Claims" saying
+that they "operates with zero transparency":
   - Source: [Cybercrime on Telegram: How Hackers Are Using the Messaging App to Share Data Leaks and Hacks - VPN Mentor](https://www.vpnmentor.com/blog/cybercrime-on-telegram/)
 - Telegram can suffer Law Enforcement
   - [Telegram agreed to transfer to the special services [but not Russian] IP-addresses and numbers of some users](https://sudonull.com/post/11959-Telegram-agreed-to-transfer-to-the-special-services-but-not-Russian-IP-addresses-and-numbers-of-some) 
   - [Law Enforcement Authorities](https://telegram.org/privacy#8-3-law-enforcement-authorities)
 - In 2020, Telegram suffered a data leak:
   - Source: [Millions of Telegram Users’ Data Exposed on Darknet - CoinTelegraph](https://cointelegraph.com/news/millions-of-telegram-userss-data-exposed-on-darknet)
-  - It isn't a Telegram specific problem Read [`Osint Problems`](#osint-problems), because: “Unfortunately, any contacts-based app faces the challenge of malicious users trying to upload many phone numbers and build databases that match them with user IDs – like this one.” - Telegram representative to CoinTelegraph
+  - It isn't a Telegram specific problem.
+Read [`Osint Problems`](#osint-problems), because: “Unfortunately,
+any contacts-based app faces the challenge of
+malicious users trying to upload many phone numbers and
+build databases that match them with user IDs – like this one.” - 
+Telegram representative to CoinTelegraph
   - **Tip:** hide your phone number on Telegram's configurations.
 - Telegram added Group Read Receipts:
   - Source: [Read Receipts in Small Groups - Telegram](https://telegram.org/blog/chat-themes-interactive-emoji-read-receipts#read-receipts-in-small-groups)
 
-> As any Social Network app, Telegram suffers with [Osint](#osint-problems) (Open-Source Intelligence), be caution with the information that you exposes publicly about yourself!
+> As any Social Network app, Telegram suffers with
+[Osint](#osint-problems) (Open-Source Intelligence), 
+be caution with the information that you exposes publicly about yourself!
 
 ## Osint Problems
 
 ### What is Osint
 
-Yeah, it's the information era, 500 milions tweets are published every day. Public informations like birthday, complete name, age are available on internet published by its own users. Which in itself poses privacy risks.
+Yeah, it's the information era, 500 millions tweets are published every day. 
+Public information like birthday, complete name, 
+age are available on internet published by its own users. 
+Which in itself poses privacy risks.
 
-> "Open-source intelligence (OSINT) is a multi-factor (qualitative, quantitative) methodology for collecting, analyzing and making decisions about data accessible in publicly available sources to be used in an intelligence context."
+> "Open-source intelligence (OSINT) is a multi-factor 
+(qualitative, quantitative)
+methodology for collecting, analyzing and
+making decisions about data accessible in
+publicly available sources to be used in an intelligence context."
 > Source: [Open-Source Intelligence - Wikiless](https://wikiless.org/wiki/Open-source_intelligence?lang=en)
 
 So, caution with your public information! 😉
