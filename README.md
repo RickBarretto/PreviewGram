@@ -23,17 +23,16 @@
 
 ---
 
-> \[⚠️\] - Warning:
-> <br>
+\[⚠️\] - Warning:
+
 > USE A **VPN** TO HIDE YOUR IP
 > **IT'S IN TEST**
-<br>
-> PreviewGram is under LGPL License
-> <br>
+
+> PreviewGram is under LGPL License |
 > Application's theme from [UN-GCPDS/qt-material](https://github.com/UN-GCPDS/qt-material)
 > under [BSD-2-Clause License](https://github.com/UN-GCPDS/qt-material/blob/master/LICENSE).
-<br>
-> **Please, Read [For Devs](#for-devs)**
+
+- **Please, Read [For Devs](#for-devs)**
 
 ## Why use
 
