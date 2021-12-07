@@ -23,7 +23,7 @@ def get_channels() -> dict:
     db = open(PATH, "r")
     f = db.read()
     chans = js.loads(f)
-    db.close
+    db.close()
 
     return chans
 
