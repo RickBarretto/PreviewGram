@@ -1,3 +1,5 @@
+"""Loads Widgets from `components` and creates the `Container` main Widget."""
+
 #-- importing Qt modules
 from PySide6.QtCore import (
     QUrl, Qt
@@ -16,7 +18,9 @@ from .components.add_channel import AddBtn
 
 #-- SubWidget: shows the content
 class Content(QWidget):
+
     """It's the content's container, that will show the SideBar (src.ui.components.chan_list.ChannelList) and the Engine (`src.ui.components.engine.Engine`).
+    
     > layout: `HBox`
     params: 
     - parent: QWidget
@@ -74,7 +78,9 @@ class Content(QWidget):
 
 #-- Main Widget: show the Topbar and Content
 class Container(QWidget):
+
     """It's the main container, that will show the TopBar and Content.
+
     > layout: `VBox`
     params: 
     - parent: QMainWindow
@@ -84,6 +90,7 @@ class Container(QWidget):
     """
 
     def __init__(self, parent: QMainWindow, channels: dict, path) -> None:
+        """Inits `Container`."""
         super().__init__(parent)
 
         # Channel param
