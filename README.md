@@ -1,5 +1,7 @@
 # Private PreviewGram
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/33bffcec8ae64df1819b6abc7cb1259a)](https://app.codacy.com/gh/RickBarretto/PreviewGram?utm_source=github.com&utm_medium=referral&utm_content=RickBarretto/PreviewGram&utm_campaign=Badge_Grade_Settings)
+
 ## Run away from Metadata
 
 ![PreviewGram Cover](./assets/PreviewGram%20Banner.svg)
