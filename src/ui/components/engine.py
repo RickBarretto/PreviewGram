@@ -11,7 +11,7 @@ from PySide6.QtWebEngineCore import QWebEngineSettings, QWebEngineProfile
 #-- Widget
 
 class Engine(QWebEngineView):
-
+    
     """
     Widget that will render the html file.
     params:

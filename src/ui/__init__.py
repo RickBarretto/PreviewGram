@@ -19,7 +19,6 @@ from .components.add_channel import AddBtn
 #-- SubWidget: shows the content
 
 class Content(QWidget):
-
     """
     It's the content's container,
     that will show the SideBar
@@ -83,7 +82,6 @@ class Content(QWidget):
 #-- Main Widget: show the Topbar and Content
 
 class Container(QWidget):
-
     """
     It's the main container,
     that will show the TopBar and Content.

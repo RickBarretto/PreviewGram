@@ -16,7 +16,6 @@ from functools import partial
 #-- Update Page
 
 class Update(QWidget):
-
     """Update channels Page."""
 
     #-- Initing
@@ -70,7 +69,6 @@ class Update(QWidget):
 #-- Remove Page
 
 class Remove(QWidget):
-
     """Remove channels Page."""
 
     def __init__(self, parent, mainWin):
@@ -152,7 +150,6 @@ class Remove(QWidget):
 #-- Channel Dialog Window
 
 class ChannelDialog(QDialog):
-
     """It's a Dialog Window to dial with database."""
 
     def __init__(self, parent):

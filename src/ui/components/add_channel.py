@@ -7,8 +7,8 @@ from PySide6.QtCore import Qt
 #-- Widget Button
 
 class AddBtn(QPushButton):
-    
-    """It's the blue button on Bottom Right Conner.
+    """
+    It's the blue button on Bottom Right Conner.
 
     When clicked, it'll open the `src.channel.ChannelDialog` Window.
     """

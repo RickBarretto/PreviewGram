@@ -39,7 +39,6 @@ from src.ui.channel import ChannelDialog
 #-- Main Window
 
 class Window(QMainWindow):
-
     """It's the Main Window that is a QMainWindow."""
 
     #-- init
