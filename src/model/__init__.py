@@ -1,5 +1,4 @@
-"""
-Will dial with database.
+"""Will dial with database.
 
 modules:
 - `src.model`
@@ -18,7 +17,6 @@ PATH = "./src/data/data.json"
 #-- functions
 def get_channels() -> dict:
     """Returns all channels saved."""
-
     db = open(PATH, "r")
     f = db.read()
     chans = js.loads(f)
@@ -37,7 +35,6 @@ def add_channel(chan_name: str, url: str):
 
     (ready to save is a Preview url: `https://t.me/s/*`).
     """
-
     new_url = rts(url)
 
     try:
@@ -62,7 +59,6 @@ def del_channel(chan_name: str):
     param:
     - chan_name: str
     """
-
     try:
 
         f = open(PATH, "r")
@@ -89,7 +85,6 @@ def update_channel(old_chan_name: str, new_chan_name: str, url: str):
 
     (ready to save is a Preview url: `https://t.me/s/*`).
     """
-
     try:
         rts(url)
     except:
