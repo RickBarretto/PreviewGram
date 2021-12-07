@@ -1,8 +1,8 @@
 # Private PreviewGram
 
-![PreviewGram Cover](./assets/PreviewGram%20Banner.svg)
+## Run away from Metadata
 
-<h2 align="center">Run away from Metadata</h2>
+![PreviewGram Cover](./assets/PreviewGram%20Banner.svg)
 
 <div align="center">
   <a href="https://t.me/previewgram" align="center">
@@ -32,7 +32,7 @@
 > <br>
 > Application's theme from [UN-GCPDS/qt-material](https://github.com/UN-GCPDS/qt-material)
 > under [BSD-2-Clause License](https://github.com/UN-GCPDS/qt-material/blob/master/LICENSE).
-
+<br>
 > **Please, Read [For Devs](#for-devs)**
 
 ## Why use
@@ -207,8 +207,7 @@ Sources:
 
 > Source: [When I'm using Tor,
 > can eavesdroppers still see the information I share with websites,
-> like login information and things I type into forms?]
-> (https://support.torproject.org/https/https-1/ )
+> like login information and things I type into forms?](https://support.torproject.org/https/https-1/ )
 
 ### Why PreviewGram doesn't use Tor's Proxy by itself
 
