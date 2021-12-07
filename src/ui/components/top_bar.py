@@ -69,7 +69,8 @@ class Github(QPushButton):
         """
         self.clicked.connect(self.__openGithub)
 
-    def __openGithub():
+    @staticmethod
+    def __openGithub(param: None):
         """
         Opens <a href="https://github.com/RickBarretto/PreviewGram">Github link</a>
         on system default browser.
