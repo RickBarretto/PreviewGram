@@ -11,60 +11,55 @@ Here is started the application, generating a `Window` (That is the Main Window)
 
 VERSION = 1.1
 
-#-- importing system modules
+# -- importing system modules
 import sys, os
 
-#-- importing Qt modules
-from PySide6.QtCore import (
-    Qt, QPoint
-)
-from PySide6.QtWidgets import (
-    QApplication, QMainWindow,
-    QMessageBox
-)
+# -- importing Qt modules
+from PySide6.QtCore import Qt, QPoint
+from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
 from PySide6.QtGui import QCursor
 
-#-- importing QtMaterial: by https://github.com/UN-GCPDS/qt-material under BSD-2-Clause License
+# -- importing QtMaterial: by https://github.com/UN-GCPDS/qt-material under BSD-2-Clause License
 from qt_material import apply_stylesheet
 
-#-- importing application modules
+# -- importing application modules
 import src.model
 from src.ui import *
 from src.ui.channel import ChannelDialog
 
 
-#-- Main Window
+# -- Main Window
+
 
 class Window(QMainWindow):
     """
     It's the Main Window that is a QMainWindow.
     """
+
     def __init__(self):
         """
         Inits the Main Window.
         """
         super().__init__()
 
-        #-- setting Window's variables
-        self.pressing:bool = False
+        # -- setting Window's variables
+        self.pressing: bool = False
         """Is True when mouse is pressing the Window > for move Window."""
-        self.start:QPoint = QPoint(0, 0)
+        self.start: QPoint = QPoint(0, 0)
         """Defines the initial Window position > for move Window."""
-        self.channels:dict = {}
+        self.channels: dict = {}
         """Loads channels from database."""
-        self.path:str = str(os.path.dirname(os.path.realpath(__file__)))
+        self.path: str = str(os.path.dirname(os.path.realpath(__file__)))
         """Defines the current App file."""
 
-        #-- updating channels variable
+        # -- updating channels variable
         self.get_channels()
 
-        #-- Configuring and adding Main Widget to Window
+        # -- Configuring and adding Main Widget to Window
         self.config_win()
         self.add_container()
 
-
-
-    #-- Configuring
+    # -- Configuring
     def config_win(self):
         """Configures the `Window`."""
         self.setWindowTitle("Private Previewgram")
@@ -77,9 +72,7 @@ class Window(QMainWindow):
         """Sets Container from `src.ui` module as Central Widget."""
         self.setCentralWidget(Container(self, self.channels, self.path))
 
-
-
-    #-- Database
+    # -- Database
     def channelDialog(self):
         """
         Opens a Window Dialog that dials with the database (`src.db`),
@@ -112,9 +105,7 @@ class Window(QMainWindow):
         src.model.del_channel(chan)
         self.get_channels()
 
-
-
-    #-- Database :: checking
+    # -- Database :: checking
     def check(self, chan, url):
         """
         Checks if the user input to add a new channel is correct.
@@ -127,7 +118,7 @@ class Window(QMainWindow):
             url.startswith("@")
             or url.startswith("https://t.me/")
             or url.startswith("https://telegram.me/")
-            ):
+        ):
             result = True
             print(result)
             self.add_chan(chan, url)
@@ -136,9 +127,7 @@ class Window(QMainWindow):
             print(result)
             self.wrong_url()
 
-
-
-    #-- Altering user
+    # -- Altering user
     def wrong_url(self):
         """
         Alerts the user with a `QMessageBox.critical`
@@ -149,7 +138,8 @@ class Window(QMainWindow):
             "Use a valid channel url",
             "Examples are:\nhttps://t.me/channel, https://telegram.me/channel, @channel, https://t.me/s/channel",
             buttons=QMessageBox.Close,
-            defaultButton=QMessageBox.Close)
+            defaultButton=QMessageBox.Close,
+        )
 
     def added_channel(self):
         """
@@ -162,11 +152,10 @@ class Window(QMainWindow):
             "Info!",
             "Channel added to database",
             buttons=QMessageBox.Close,
-            defaultButton=QMessageBox.Close)
+            defaultButton=QMessageBox.Close,
+        )
 
-
-
-    #-- Updating Window status
+    # -- Updating Window status
     def closeWindow(self):
         """Just close the window."""
         self.close()
@@ -175,9 +164,7 @@ class Window(QMainWindow):
         """Minimizes the window."""
         self.showMinimized()
 
-
-
-    #-- Moving Window
+    # -- Moving Window
     def mousePressEvent(self, event):
         """
         Wen mouse press the Window,
@@ -199,11 +186,13 @@ class Window(QMainWindow):
         if self.pressing:
             self.setCursor(QCursor(Qt.ClosedHandCursor))
             self.end = self.mapToGlobal(event.position())
-            self.movement = self.end-self.start
+            self.movement = self.end - self.start
             self.setGeometry(
                 self.mapToGlobal(self.movement).x(),
                 self.mapToGlobal(self.movement).y(),
-                self.width(), self.height())
+                self.width(),
+                self.height(),
+            )
             self.start = self.end
         else:
             self.setCursor(QCursor(Qt.OpenHandCursor))
@@ -217,10 +206,8 @@ class Window(QMainWindow):
         self.pressing = False
         self.setCursor(QCursor(Qt.OpenHandCursor))
 
-
-
-    #-- Restart
-    def restart (self):
+    # -- Restart
+    def restart(self):
         """
         It'll restart the application for update channels on Window.
 
@@ -229,7 +216,6 @@ class Window(QMainWindow):
         print("closed!")
         open_win()
         self.destroy()
-
 
 
 def open_win():
@@ -242,7 +228,6 @@ def open_win():
     window.show()
 
 
-
 def start_app():
     """
     Inits the application!
@@ -251,12 +236,11 @@ def start_app():
     """
 
     app = QApplication(sys.argv)
-    apply_stylesheet(app, theme='dark_blue.xml')
+    apply_stylesheet(app, theme="dark_blue.xml")
     open_win()
     app.exec()
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     start_app()

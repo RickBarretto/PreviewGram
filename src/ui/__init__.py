@@ -1,22 +1,18 @@
 """Loads Widgets from `components` and creates the `Container` main Widget."""
 
-#-- importing Qt modules
-from PySide6.QtCore import (
-    QUrl, Qt
-    )
-from PySide6.QtWidgets import (
-    QHBoxLayout, QMainWindow,
-    QVBoxLayout, QWidget
-    )
+# -- importing Qt modules
+from PySide6.QtCore import QUrl, Qt
+from PySide6.QtWidgets import QHBoxLayout, QMainWindow, QVBoxLayout, QWidget
 
-#-- importing components modules
+# -- importing components modules
 from .components.chan_list import ChannelList as SideBar
 from .components.top_bar import TopBar
 from .components.engine import Engine
 from .components.add_channel import AddBtn
 
 
-#-- SubWidget: shows the content
+# -- SubWidget: shows the content
+
 
 class Content(QWidget):
     """
@@ -33,7 +29,8 @@ class Content(QWidget):
 
     > ``channels`` must to be returned by the Model.get_channel()
     """
-    def __init__(self, parent:QWidget, mainWin, channels:dict, path) -> None:
+
+    def __init__(self, parent: QWidget, mainWin, channels: dict, path) -> None:
         """Inits the `Content`."""
         super().__init__(parent)
 
@@ -43,7 +40,9 @@ class Content(QWidget):
         """It's the main window instance."""
         self.path = path
         """It's the application path."""
-        self.eng = Engine(self, self.mainWin, QUrl.fromLocalFile(self.path+"/data/index.html"))
+        self.eng = Engine(
+            self, self.mainWin, QUrl.fromLocalFile(self.path + "/data/index.html")
+        )
         """Instances the WebEngine (`src.ui.components.engine.Engine`)."""
 
         self.add_btn = AddBtn(self, mainWin)
@@ -75,12 +74,13 @@ class Content(QWidget):
 
     def open_url(self, url):
         """Opens a url on `src.ui.components.engine.Engine`."""
-        print(f'handling url: {url}')
+        print(f"handling url: {url}")
         self.eng.stop()
         self.eng.load(QUrl(url))
 
 
-#-- Main Widget: show the Topbar and Content
+# -- Main Widget: show the Topbar and Content
+
 
 class Container(QWidget):
     """
@@ -94,6 +94,7 @@ class Container(QWidget):
 
     > ``channels`` must to be returned by the Model.get_channel()
     """
+
     def __init__(self, parent: QMainWindow, channels: dict, path) -> None:
         """Inits `Container`."""
         super().__init__(parent)
@@ -122,4 +123,6 @@ class Container(QWidget):
     def add_widgets(self):
         """Adding content."""
         self.layout.addWidget(TopBar(self, self.mainWin), Qt.AlignTop)
-        self.layout.addWidget(Content(self, self.mainWin, self.channels, self.path), Qt.AlignTop)
+        self.layout.addWidget(
+            Content(self, self.mainWin, self.channels, self.path), Qt.AlignTop
+        )

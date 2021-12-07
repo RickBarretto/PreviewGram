@@ -1,4 +1,4 @@
-# Private PreviewGram
+# Private PreviewGram 
 
 ## Run away from Metadata
 
@@ -15,11 +15,11 @@
 ---
 
 <div align="center">
-  <a href="https://rickbarretto.github.io/PreviewGram/docs/docs">Docs</a>|
-  <a href="#how-to-install">Installing</a>|
-  <a href="https://github.com/RickBarretto/PreviewGram/issues">Issues</a>|
+  <a href="https://rickbarretto.github.io/PreviewGram/docs/docs">📑 Docs</a>|
+  <a href="#how-to-install">⬇️ Installing</a>|
+  <a href="https://github.com/RickBarretto/PreviewGram/issues">📢 Issues</a>|
   <a href="https://github.com/RickBarretto/PreviewGram/discussions">
-    Discussions!
+    💬 Discussions!
   </a>
 </div>
 
@@ -27,8 +27,10 @@
 
 \[⚠️\] - Warning:
 
-> USE A **VPN** TO HIDE YOUR IP
-> **IT'S IN TEST**
+> USE A 🛡️ **VPN** TO HIDE YOUR IP
+> **IT'S IN TEST** 👶
+
+👨‍⚖️ Licenses:
 
 > PreviewGram is under [LGPL License](https://github.com/RickBarretto/PreviewGram/blob/main/LICENSE) |
 > Application's theme from [UN-GCPDS/qt-material](https://github.com/UN-GCPDS/qt-material)
@@ -50,8 +52,8 @@ Telegram's Channel. It's because:
 > - **\* PreviewGram doesn't protects you against it, because can't view Group
 > Chats.**
 
-> \[⚠️\] - Warning
-> <br>
+\[⚠️\] - Warning:
+
 > If you don't enabled Github's JavaScript, go to [`Telegram Privacy Issues`](#telegram-privacy-issues)
 > Topic to understand
 > more.
@@ -64,7 +66,8 @@ Telegram's Channel. It's because:
 > pip install dist/Private\ PreviewGram-1.1.tar.gz
 ```
 
-> \[⚠️\] - Note
+\[⚠️\] - Note:
+
 > If you're in another version, change the ``1.1`` for the current version.
 
 Or [Download Last Release](https://github.com/RickBarretto/PreviewGram/releases/)
@@ -93,7 +96,7 @@ Just type:
 > ppg
 ```
 
-## Features
+## Features 🚂
 
 ![PreviewGram Screenshot](./assets/ppg_printsc.png)
 
@@ -111,7 +114,7 @@ Useful Features:
 - Store locally your favorites Channels
 - Can't open some links
 
-## Limitations
+## Limitations 🕸️
 
 PreviewGram isn't the perfection on Earth. Because:
 
@@ -132,7 +135,7 @@ So, PreviewGram can't:
 > - \*\*\* Preview website limitation
 > - \*\*\*\* RMB is Right Mouse Button
 
-## Tips
+## Tips ✏️
 
 - Always use Vpn or Proxy
 - To open links, do `RMB* > Copy link address`
@@ -152,14 +155,14 @@ It's tested by [What Is My Browser](https://www.whatismybrowser.com/)
 
 ---
 
-## For Devs
+## For Devs 💻
 
 > Fork it and contribute!
 
 - Build instructions at [`How to install`](#how-to-install)
 - Documentation at [Docs]("https://rickbarretto.github.io/PreviewGram/docs/docs/index.html")
 
-### Realtime Docs
+### Realtime Docs 📑
 
 ```bash
 > pip install -r requirements.txt

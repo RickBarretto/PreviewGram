@@ -6,16 +6,16 @@ modules:
 - `src.model.__parser__`
 """
 
-#-- importing database module
+# -- importing database module
 import json as js
 
-#-- importing parser module
+# -- importing parser module
 from .__parser__ import rts
 
 PATH = "./src/data/data.json"
 
 
-#-- functions
+# -- functions
 def get_channels() -> dict:
     """Returns all channels saved."""
     db = open(PATH, "r")

@@ -1,19 +1,18 @@
-#-- importing system modules
+# -- importing system modules
 import os, sys
 
-#-- importing Qt modules
-from PySide6.QtWidgets import (
-    QLabel, QWidget, QHBoxLayout, QPushButton
-)
+# -- importing Qt modules
+from PySide6.QtWidgets import QLabel, QWidget, QHBoxLayout, QPushButton
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QCursor
 
 
-#-- Sets Title
+# -- Sets Title
 class Title(QLabel):
     """
     Sets the Title.
     """
+
     def __init__(self) -> None:
         """Inits `Title`."""
         super().__init__()
@@ -21,21 +20,21 @@ class Title(QLabel):
         self.setText("Private Previewgram")
         self.config()
 
-
-    #-- Configuring
+    # -- Configuring
     def config(self):
         """Configures the `Title`."""
         self.setFixedHeight(35)
         self.setAlignment(Qt.AlignCenter)
 
 
-#-- Sets Open on Github Button
+# -- Sets Open on Github Button
 class Github(QPushButton):
     """
     Creates a 'open Repository' Button.
 
     it'll open on <a href="https://github.com/RickBarretto/PreviewGram">GitHub</a>.
     """
+
     def __init__(self) -> None:
         """Inits `Github`."""
         super().__init__()
@@ -43,19 +42,18 @@ class Github(QPushButton):
         self.config()
         self.action()
 
-    #-- Configuring
+    # -- Configuring
     def config(self):
         """Configures the `Github` button."""
-        self.setText('Visit Us on Github!')
+        self.setText("Visit Us on Github!")
         self.setStyleSheet(
-            "border: none;"+
-            "background-color: #448aff; color: #fff;"+
-            "padding: 0; margin: 0 36px 0 0;"
-            )
+            "border: none;"
+            + "background-color: #448aff; color: #fff;"
+            + "padding: 0; margin: 0 36px 0 0;"
+        )
         self.setCursor(QCursor(Qt.PointingHandCursor))
 
-
-    #-- Action
+    # -- Action
     def action(self):
         """
         When clicked,
@@ -73,22 +71,23 @@ class Github(QPushButton):
         on system default browser.
         """
         repo_link = "https://github.com/RickBarretto/PreviewGram"
-        command = "explorer "+repo_link
+        command = "explorer " + repo_link
         if sys.platform == "MacOSX":
-            command = "open "+repo_link
+            command = "open " + repo_link
         os.system(command)
 
 
-#-- Sets the Close Window Button
+# -- Sets the Close Window Button
 class CloseBtn(QPushButton):
     """
     Closes the `Window` and ends the application.
     """
+
     def __init__(self, mainWin) -> None:
         """Inits `Github`."""
         super().__init__()
 
-        #-- class' variables
+        # -- class' variables
         self.mainWin = mainWin
         """`src.Window` instance."""
         self.size = 35
@@ -97,32 +96,32 @@ class CloseBtn(QPushButton):
         self.config()
         self.action()
 
-
-    #-- Configuring
+    # -- Configuring
     def config(self):
         """Configuring `CloseBtn`."""
-        self.setText('X')
+        self.setText("X")
         self.setFixedSize(self.size, self.size)
         self.setStyleSheet(
-            "background-color: red;"+
-            "border: none;"+
-            "color: white;"+
-            "padding: 0;"+
-            "margin: 0")
+            "background-color: red;"
+            + "border: none;"
+            + "color: white;"
+            + "padding: 0;"
+            + "margin: 0"
+        )
         self.setCursor(QCursor(Qt.PointingHandCursor))
 
-
-    #-- Action
+    # -- Action
     def action(self):
         """Connects to `src.Window.closeWindow` to close Main Window."""
         self.clicked.connect(self.mainWin.closeWindow)
 
 
-#-- Sets the Minimize Window Button
+# -- Sets the Minimize Window Button
 class MinBtn(QPushButton):
     """
     Minimize Button: Minimizes the `src.Window` when clicked.
     """
+
     def __init__(self, mainWin) -> None:
         """Inits `MinBtn`."""
         super().__init__()
@@ -134,28 +133,26 @@ class MinBtn(QPushButton):
         self.config()
         self.action()
 
-
-    #-- Configuring
+    # -- Configuring
     def config(self):
         """Configuring `MinBtn`."""
-        self.setText('_')
+        self.setText("_")
         self.setFixedSize(self.size, self.size)
         self.setStyleSheet(
-            "border: none;"+
-            "background-color: #448aff; color: #fff;"+
-            "padding: 0;"+
-            "margin: 0")
+            "border: none;"
+            + "background-color: #448aff; color: #fff;"
+            + "padding: 0;"
+            + "margin: 0"
+        )
         self.setCursor(QCursor(Qt.PointingHandCursor))
 
-
-    #-- Action
+    # -- Action
     def action(self):
         """Connects to `src.Window.minWindow` to minimize Main Window."""
         self.clicked.connect(self.mainWin.minWindow())
 
 
-
-#-- Sets the Window's TopBar
+# -- Sets the Window's TopBar
 class TopBar(QWidget):
     """
     It will change the default Windows's title bar.
@@ -163,7 +160,8 @@ class TopBar(QWidget):
     param:
     - parent: QWidget
     """
-    def __init__(self, parent:QWidget, mainWin) -> None:
+
+    def __init__(self, parent: QWidget, mainWin) -> None:
         """Inits `TopBar`."""
         super().__init__(parent)
 
@@ -177,8 +175,7 @@ class TopBar(QWidget):
         self.add_widgets()
         self.config_layout()
 
-
-    #-- Adding Widgets
+    # -- Adding Widgets
     def add_widgets(self):
         """Adds Widgets: `Github`, `Title`, `MinBtn` and `CloseBtn`."""
         self.layout.addWidget(Github())
@@ -186,8 +183,7 @@ class TopBar(QWidget):
         self.layout.addWidget(MinBtn(self.mainWin))
         self.layout.addWidget(CloseBtn(self.mainWin))
 
-
-    #-- Configuring
+    # -- Configuring
     def config_widget(self):
         """Configures widget."""
         self.setFixedHeight(35)
@@ -198,4 +194,3 @@ class TopBar(QWidget):
     def config_layout(self):
         """Configures layout."""
         self.layout.setContentsMargins(0, 0, 0, 10)
-
