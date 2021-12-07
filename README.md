@@ -40,11 +40,11 @@
 **PreviewGram is for users that wants get a more private experience** with the
 Telegram's Channel. It's because:
 
--  Telegram collects when you see determinate content
--  Groups show publicly who are the followers*
--  The channel owners can see who are them followers
--  Telegram added Group Read Receipts*
--  You must to trust on Telegram's Servers
+- Telegram collects when you see determinate content
+- Groups show publicly who are the followers*
+- The channel owners can see who are them followers
+- Telegram added Group Read Receipts*
+- You must to trust on Telegram's Servers
 
 > - **\* PreviewGram doesn't protects you against it, because can't view Group
 > Chats.**
