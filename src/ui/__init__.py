@@ -20,18 +20,19 @@ from .components.add_channel import AddBtn
 
 class Content(QWidget):
     """
-    It's the content's container,
-    that will show the SideBar
+    It's the content's container-
+
+    It'll show the SideBar
     (src.ui.components.chan_list.ChannelList) and the Engine (`src.ui.components.engine.Engine`).
 
     > layout: `HBox`
+
     params:
     - parent: QWidget
     - channels: dict
 
     > ``channels`` must to be returned by the Model.get_channel()
     """
-
     def __init__(self, parent:QWidget, mainWin, channels:dict, path) -> None:
         """Inits the `Content`."""
         super().__init__(parent)
@@ -93,7 +94,6 @@ class Container(QWidget):
 
     > ``channels`` must to be returned by the Model.get_channel()
     """
-
     def __init__(self, parent: QMainWindow, channels: dict, path) -> None:
         """Inits `Container`."""
         super().__init__(parent)

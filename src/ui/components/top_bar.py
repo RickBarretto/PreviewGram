@@ -10,12 +10,10 @@ from PySide6.QtGui import QCursor
 
 
 #-- Sets Title
-
 class Title(QLabel):
-
-    """Sets the Title."""
-
-    #-- Init
+    """
+    Sets the Title.
+    """
     def __init__(self) -> None:
         """Inits `Title`."""
         super().__init__()
@@ -32,15 +30,12 @@ class Title(QLabel):
 
 
 #-- Sets Open on Github Button
-
 class Github(QPushButton):
-
-    """Creates a 'open Repository' Button.
+    """
+    Creates a 'open Repository' Button.
 
     it'll open on <a href="https://github.com/RickBarretto/PreviewGram">GitHub</a>.
     """
-
-    #-- Init
     def __init__(self) -> None:
         """Inits `Github`."""
         super().__init__()
@@ -72,7 +67,9 @@ class Github(QPushButton):
     @staticmethod
     def __openGithub(param: None):
         """
-        Opens <a href="https://github.com/RickBarretto/PreviewGram">Github link</a>
+        Opens Project's Github Repository.
+
+        <a href="https://github.com/RickBarretto/PreviewGram">Github link</a>
         on system default browser.
         """
         repo_link = "https://github.com/RickBarretto/PreviewGram"
@@ -83,12 +80,10 @@ class Github(QPushButton):
 
 
 #-- Sets the Close Window Button
-
 class CloseBtn(QPushButton):
-
-    """Closes the `Window` and ends the application."""
-
-    #-- Init
+    """
+    Closes the `Window` and ends the application.
+    """
     def __init__(self, mainWin) -> None:
         """Inits `Github`."""
         super().__init__()
@@ -124,12 +119,10 @@ class CloseBtn(QPushButton):
 
 
 #-- Sets the Minimize Window Button
-
 class MinBtn(QPushButton):
-
-    """Minimize Button: Minimizes the `src.Window` when clicked."""
-
-    #-- Init
+    """
+    Minimize Button: Minimizes the `src.Window` when clicked.
+    """
     def __init__(self, mainWin) -> None:
         """Inits `MinBtn`."""
         super().__init__()
@@ -163,16 +156,13 @@ class MinBtn(QPushButton):
 
 
 #-- Sets the Window's TopBar
-
 class TopBar(QWidget):
-
-    """It will change the default Windows's title bar.
+    """
+    It will change the default Windows's title bar.
 
     param:
     - parent: QWidget
     """
-
-    #-- Init
     def __init__(self, parent:QWidget, mainWin) -> None:
         """Inits `TopBar`."""
         super().__init__(parent)

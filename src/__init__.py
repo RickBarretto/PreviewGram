@@ -36,9 +36,9 @@ from src.ui.channel import ChannelDialog
 #-- Main Window
 
 class Window(QMainWindow):
-    """It's the Main Window that is a QMainWindow."""
-
-    #-- init
+    """
+    It's the Main Window that is a QMainWindow.
+    """
     def __init__(self):
         """
         Inits the Main Window.
@@ -82,22 +82,34 @@ class Window(QMainWindow):
 
     #-- Database
     def channelDialog(self):
-        """Opens a Window Dialog that dials with the database (`src.db`), adding and removing users..."""
+        """
+        Opens a Window Dialog that dials with the database (`src.db`),
+        adding and removing users...
+        """
         dial = ChannelDialog(self)
         dial.destroyed.connect(self.restart)
         dial.exec()
 
     def get_channels(self):
-        """Gets channels fom database (Dialing with `src.model`) and Updates Windows's `channels` variable."""
+        """
+        Gets channels fom database (Dialing with `src.model`)
+        and Updates Windows's `channels` variable.
+        """
         self.channels = src.model.get_channels()
 
     def add_chan(self, chan, url):
-        """Adds channels to database (Dialing with `src.model`) and alert the user calling `added_channel`."""
+        """
+        Adds channels to database (Dialing with `src.model`)
+        and alert the user calling `added_channel`.
+        """
         src.model.add_channel(chan, url)
         self.added_channel()
 
     def delete_chan(self, chan):
-        """Deletes channels on database (Dialing with `src.model`) and updates `channels` variable."""
+        """
+        Deletes channels on database (Dialing with `src.model`)
+        and updates `channels` variable.
+        """
         src.model.del_channel(chan)
         self.get_channels()
 
@@ -108,9 +120,8 @@ class Window(QMainWindow):
         """
         Checks if the user input to add a new channel is correct.
 
-        If yes, it'll call `add_chan`,
-
-        If not, it'll call `wrong_url`, that will show a alert.
+        - If yes, it'll call `add_chan`,
+        - If not, it'll call `wrong_url`, that will show a alert.
         """
 
         if (
@@ -130,7 +141,10 @@ class Window(QMainWindow):
 
     #-- Altering user
     def wrong_url(self):
-        """Alerts the user with a `QMessageBox.critical` that the input to add a new channel is invalid."""
+        """
+        Alerts the user with a `QMessageBox.critical`
+        that the input to add a new channel is invalid.
+        """
         QMessageBox.critical(
             self,
             "Use a valid channel url",
@@ -142,7 +156,8 @@ class Window(QMainWindow):
         """
         Alerts the user with a `QMessageBox.critical`
         that the input to add a new channel is valid,
-        and the channel was added on database."""
+        and the channel was added on database.
+        """
         QMessageBox.critical(
             self,
             "Info!",

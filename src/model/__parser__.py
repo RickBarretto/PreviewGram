@@ -1,4 +1,6 @@
-"""Transform a non preview url to a Telegram preview url."""
+"""
+Transforms a non preview url to a Telegram preview url.
+"""
 
 def rts(url: str) -> str:
     """
@@ -16,7 +18,6 @@ def rts(url: str) -> str:
         '@chan'
         ]
     ```
-
     """
     if url.startswith("https://"):
         new_url = "https://t.me/s/" + "/".join(url.split("/")[3:])
