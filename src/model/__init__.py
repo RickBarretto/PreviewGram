@@ -15,7 +15,7 @@ from .__parser__ import rts
 PATH = "./src/data/data.json"
 
 
-#-- functions    
+#-- functions
 def get_channels() -> dict:
     """Returns all channels saved
     """
@@ -76,7 +76,7 @@ def del_channel(chan_name: str):
 
 def update_channel(old_chan_name: str, new_chan_name: str, url: str):
     """> `[!] - Never Used...`
-    
+
     Updates name and url from a channel saved on database
     params:
     - old_chan_name: str
@@ -90,7 +90,7 @@ def update_channel(old_chan_name: str, new_chan_name: str, url: str):
         rts(url)
     except:
         raise ValueError("Wrong url")
-    
+
     try:
 
         f = open(PATH, "rw")
