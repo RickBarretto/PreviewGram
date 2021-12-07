@@ -13,6 +13,7 @@ class AddBtn(QPushButton):
 
     #-- Init
     def __init__(self, parent, mainWin):
+        """Inits the `AddBtn`."""
         # parent = Container(QWidget)
         super().__init__(parent)
 
