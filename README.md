@@ -10,6 +10,8 @@
   </a>
 </div>
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/0d6bbf4974044655be8e274c62bc5fac)](https://www.codacy.com/gh/RickBarretto/PreviewGram/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=RickBarretto/PreviewGram&amp;utm_campaign=Badge_Grade)
+
 ---
 
 <div align="center">
@@ -28,7 +30,7 @@
 > USE A **VPN** TO HIDE YOUR IP
 > **IT'S IN TEST**
 
-> PreviewGram is under LGPL License |
+> PreviewGram is under [LGPL License](https://github.com/RickBarretto/PreviewGram/blob/main/LICENSE) |
 > Application's theme from [UN-GCPDS/qt-material](https://github.com/UN-GCPDS/qt-material)
 > under [BSD-2-Clause License](https://github.com/UN-GCPDS/qt-material/blob/master/LICENSE).
 
