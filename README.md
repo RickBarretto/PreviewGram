@@ -13,9 +13,9 @@
 ---
 
 <div align="center">
-  <a href="https://rickbarretto.github.io/PreviewGram/docs/docs">Docs</a>| 
-  <a href="#how-to-install">Installing</a>| 
-  <a href="https://github.com/RickBarretto/PreviewGram/issues">Issues</a>| 
+  <a href="https://rickbarretto.github.io/PreviewGram/docs/docs">Docs</a>|
+  <a href="#how-to-install">Installing</a>|
+  <a href="https://github.com/RickBarretto/PreviewGram/issues">Issues</a>|
   <a href="https://github.com/RickBarretto/PreviewGram/discussions">
     Discussions!
   </a>
@@ -23,11 +23,13 @@
 
 ---
 
-> \[⚠️\] - Warning: <br>
+> \[⚠️\] - Warning:
+> <br>
 > USE A **VPN** TO HIDE YOUR IP
 > **IT'S IN TEST**
 
-> PreviewGram is under LGPL License <br>
+> PreviewGram is under LGPL License
+> <br>
 > Application's theme from [UN-GCPDS/qt-material](https://github.com/UN-GCPDS/qt-material)
 > under [BSD-2-Clause License](https://github.com/UN-GCPDS/qt-material/blob/master/LICENSE).
 
@@ -47,7 +49,8 @@ Telegram's Channel. It's because:
 > - **\* PreviewGram doesn't protects you against it, because can't view Group
 > Chats.**
 
-> \[⚠️\] - Warning <br>
+> \[⚠️\] - Warning
+> <br>
 > If you don't enabled Github's JavaScript, go to [`Telegram Privacy Issues`](#telegram-privacy-issues)
 > Topic to understand
 > more.
@@ -77,7 +80,7 @@ Or [Download Last Release](https://github.com/RickBarretto/PreviewGram/releases/
 - Or [Download Source Code](https://github.com/RickBarretto/PreviewGram/archive/refs/heads/main.zip)
 
 - On repository folder, run:
-  
+
 ```bash
 > pip -m test_application.py
 ```
@@ -123,8 +126,10 @@ So, PreviewGram can't:
 - Download files directly*** (instead this, do:
 `RMB**** > Copy link address` and download on Telegram App)
 
-> - \* Use a VPN or Proxy. Read <br>
-> [`Why PreviewGram doesn't use Tor's Proxy by itself?`](#why-previewgram-doesnt-use-tors-proxy-by-itself) <br>
+> - \* Use a VPN or Proxy. Read
+> <br>
+> [`Why PreviewGram doesn't use Tor's Proxy by itself?`](#why-previewgram-doesnt-use-tors-proxy-by-itself)
+> <br>
 > - \*\* Because JavaScript is disabled
 > - \*\*\* Preview website limitation
 > - \*\*\*\* RMB is Right Mouse Button
@@ -136,13 +141,17 @@ So, PreviewGram can't:
 - If you want to watch videos,
 please use Tor** (or any Browser that you trust)
 - Click on `Test privacy!` button to test for yourself. It's tested by [What Is My Browser](https://www.whatismybrowser.com/)
-\*\*\* 
+\*\*\*
 
-> - \* RMB is Right Mouse Button <br>
-> - \*\* Read [`Accessing via Tor`](#accessing-via-tor) <br>
-> - \*\*\* [What Is My Browser's Privacy Policy](https://www.whatismybrowser.com/about/legal/) <br>
+> - \* RMB is Right Mouse Button
+> <br>
+> - \*\* Read [`Accessing via Tor`](#accessing-via-tor)
+> <br>
+> - \*\*\* [What Is My Browser's Privacy Policy](https://www.whatismybrowser.com/about/legal/)
+> <br>
 
-> **Extra:** Accessing channels through TorBrowser <br>
+> **Extra:** Accessing channels through TorBrowser
+> <br>
 > Go to [``Accessing via Tor``](#accessing-via-tor) topic.
 
 ---
@@ -185,7 +194,8 @@ please use Tor** (or any Browser that you trust)
 > sends to destiny using a Exit Node.
 
 
-> Sources: <br>
+> Sources:
+> <br>
 > - [Should I Use a VPN, Proxy, or Tor? - AVG](https://www.avg.com/en/signal/vpn-vs-proxy-vs-tor)
 > - [Penetration testing: TOR, VPN or proxy - InfoSec](https://resources.infosecinstitute.com/topic/penetration-testing-tor-vpn-or-proxy/)
 > - [What is the difference between a proxy and a VPN? - ProtonVPN](https://protonvpn.com/blog/proxy-vs-vpn/)
@@ -207,7 +217,8 @@ Tor have some issues, and
 isn't recommended to use Tor outside TorBrowser to avoid DNS Leaks and
 VPN+TOR issues.
 
-> Sources: <br>
+> Sources:
+> <br>
 > - [Bittorrent over Tor isn't a good idea - Tor Project](https://blog.torproject.org/bittorrent-over-tor-isnt-good-idea/)
 > - ["Tor Browser will block browser plugins such as Flash, RealPlayer, QuickTime, and others: they can be manipulated into revealing your IP address." - Tor Project](https://www.torproject.org/download/#Warning)
 > - [KNOWN ISSUES - Tor Project](https://tb-manual.torproject.org/known-issues/)
@@ -217,7 +228,7 @@ VPN+TOR issues.
 ### But What The F😡😡😡 talking about Tor, if PreviewGram doesn't use it???
 
 > Because you can Access the channels via Tor
-> 
+> <br>
 > Yep, you don't need this application if you have Tor... 🙃
 
 #### Accessing via Tor
@@ -235,7 +246,7 @@ and use the [Mobile Tor Browser](https://tb-manual.torproject.org/mobile-tor/)
 to use everywhere.
 
 > Sources:
-> 
+>
 > - [MAKE TOR BROWSER PORTABLE - Tor Project](https://tb-manual.torproject.org/make-tor-portable/)
 > - [MOBILE TOR - Tor Project](https://tb-manual.torproject.org/mobile-tor/)
 
@@ -266,7 +277,7 @@ Telegram "Telegram is Not as Private as it Claims" saying
 that they "operates with zero transparency":
   - Source: [Cybercrime on Telegram: How Hackers Are Using the Messaging App to Share Data Leaks and Hacks - VPN Mentor](https://www.vpnmentor.com/blog/cybercrime-on-telegram/)
 - Telegram can suffer Law Enforcement
-  - [Telegram agreed to transfer to the special services \[but not Russian\] IP-addresses and numbers of some users](https://sudonull.com/post/11959-Telegram-agreed-to-transfer-to-the-special-services-but-not-Russian-IP-addresses-and-numbers-of-some) 
+  - [Telegram agreed to transfer to the special services \[but not Russian\] IP-addresses and numbers of some users](https://sudonull.com/post/11959-Telegram-agreed-to-transfer-to-the-special-services-but-not-Russian-IP-addresses-and-numbers-of-some)
   - [Law Enforcement Authorities](https://telegram.org/privacy#8-3-law-enforcement-authorities)
 - In 2020, Telegram suffered a data leak:
   - Source: [Millions of Telegram Users’ Data Exposed on Darknet - CoinTelegraph](https://cointelegraph.com/news/millions-of-telegram-userss-data-exposed-on-darknet)
@@ -288,12 +299,12 @@ be caution with the information that you exposes publicly about yourself!
 
 ### What is Osint
 
-Yeah, it's the information era, 500 millions tweets are published every day. 
-Public information like birthday, complete name, 
-age are available on internet published by its own users. 
+Yeah, it's the information era, 500 millions tweets are published every day.
+Public information like birthday, complete name,
+age are available on internet published by its own users.
 Which in itself poses privacy risks.
 
-> "Open-source intelligence (OSINT) is a multi-factor 
+> "Open-source intelligence (OSINT) is a multi-factor
 (qualitative, quantitative)
 methodology for collecting, analyzing and
 making decisions about data accessible in
