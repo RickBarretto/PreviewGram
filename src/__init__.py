@@ -1,4 +1,5 @@
-"""This module is the global module, dealing with submodules as model and ui.
+"""
+This module is the global module, dealing with submodules as model and ui.
 
 Here is started the application, generating a `Window` (That is the Main Window) and running with `start_app` method.
 
@@ -36,10 +37,10 @@ from src.ui.channel import ChannelDialog
 
 
 #-- Main Window
+
 class Window(QMainWindow):
-    """
-    It's the Main Window that is a QMainWindow.
-    """
+
+    """It's the Main Window that is a QMainWindow."""
 
     #-- init
     def __init__(self):

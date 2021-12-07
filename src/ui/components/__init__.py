@@ -1,5 +1,4 @@
-"""
-Loads the widgets that will compose the `src.ui`.
+"""Loads the widgets that will compose the `src.ui`.
 
 Modules:
 - `src.ui.add_channel`

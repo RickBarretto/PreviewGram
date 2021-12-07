@@ -17,9 +17,13 @@ from .components.add_channel import AddBtn
 
 
 #-- SubWidget: shows the content
+
 class Content(QWidget):
 
-    """It's the content's container, that will show the SideBar (src.ui.components.chan_list.ChannelList) and the Engine (`src.ui.components.engine.Engine`).
+    """
+    It's the content's container,
+    that will show the SideBar
+    (src.ui.components.chan_list.ChannelList) and the Engine (`src.ui.components.engine.Engine`).
     
     > layout: `HBox`
     params: 
@@ -77,9 +81,12 @@ class Content(QWidget):
 
 
 #-- Main Widget: show the Topbar and Content
+
 class Container(QWidget):
 
-    """It's the main container, that will show the TopBar and Content.
+    """
+    It's the main container,
+    that will show the TopBar and Content.
 
     > layout: `VBox`
     params: 

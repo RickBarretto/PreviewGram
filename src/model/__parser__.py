@@ -1,8 +1,7 @@
 """Transform a non preview url to a Telegram preview url."""
 
 def rts(url: str) -> str:
-    """
-    > rts = Ready to save.
+    """> rts = Ready to save.
 
     Recives a url/username and tranforms to a Telegram's preview url.
 

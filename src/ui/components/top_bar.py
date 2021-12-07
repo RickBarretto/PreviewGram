@@ -10,7 +10,9 @@ from PySide6.QtGui import QCursor
 
 
 #-- Sets Title
+
 class Title(QLabel):
+
 
     """Sets the Title."""
 
@@ -31,10 +33,10 @@ class Title(QLabel):
 
 
 #-- Sets Open on Github Button
+
 class Github(QPushButton):
 
-    """
-    Creates a 'open Repository' Button.
+    """Creates a 'open Repository' Button.
 
     it'll open on <a href="https://github.com/RickBarretto/PreviewGram">GitHub</a>.
     """
@@ -64,13 +66,15 @@ class Github(QPushButton):
         """
         When clicked,
         Opens <a href="https://github.com/RickBarretto/PreviewGram">Github link</a>
-        on system default browser."""
+        on system default browser.
+        """
         self.clicked.connect(self.__openGithub)
 
     def __openGithub(self):
         """
         Opens <a href="https://github.com/RickBarretto/PreviewGram">Github link</a>
-        on system default browser."""
+        on system default browser.
+        """
         repo_link = "https://github.com/RickBarretto/PreviewGram"
         command = "explorer "+repo_link
         if sys.platform == "MacOSX":
@@ -79,9 +83,12 @@ class Github(QPushButton):
 
 
 #-- Sets the Close Window Button
+
 class CloseBtn(QPushButton):
 
-    """Closes the `Window` and ends the application."""
+    """
+    Closes the `Window` and ends the application.
+    """
 
     #-- Init
     def __init__(self, mainWin) -> None:
@@ -119,6 +126,7 @@ class CloseBtn(QPushButton):
 
 
 #-- Sets the Minimize Window Button
+
 class MinBtn(QPushButton):
 
     """Minimize Button: Minimizes the `src.Window` when clicked."""
@@ -156,6 +164,7 @@ class MinBtn(QPushButton):
 
 
 #-- Sets the Window's TopBar
+
 class TopBar(QWidget):
 
     """

@@ -9,6 +9,7 @@ from PySide6.QtWebEngineCore import QWebEngineSettings, QWebEngineProfile
 
 
 #-- Widget
+
 class Engine(QWebEngineView):
 
     """
@@ -17,7 +18,6 @@ class Engine(QWebEngineView):
     - parent: QWidget
     - url: QUrl
     """
-
     #-- Init
     def __init__(self, parent:QWidget, mainWin, url: QUrl):
         """Inits `Engine`."""

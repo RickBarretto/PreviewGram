@@ -10,6 +10,7 @@ from functools import partial
 
 
 #-- ChannelList Widget (SideBar)
+
 class ChannelList(QWidget):
 
     """
@@ -17,7 +18,6 @@ class ChannelList(QWidget):
     that will load the channel List,
     creating buttons to change the `src.ui.components.engine.Engine` current url.
     """
-
     #-- Init
     def __init__(self, parent, channels:dict) -> None:
         """Inits `ChannelList`."""

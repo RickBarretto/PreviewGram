@@ -1,4 +1,5 @@
-"""Will dial with database.
+"""
+Will dial with database.
 
 modules:
 - `src.model`

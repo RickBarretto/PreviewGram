@@ -14,6 +14,7 @@ from functools import partial
 
 
 #-- Update Page
+
 class Update(QWidget):
 
     """Update channels Page."""
@@ -67,6 +68,7 @@ class Update(QWidget):
 
 
 #-- Remove Page
+
 class Remove(QWidget):
 
     """Remove channels Page."""
@@ -126,7 +128,7 @@ class Remove(QWidget):
     #-- Generating and setting action
     def gen_layout(self):
         """
-        Generates the widget layout,
+        Generates the widget layout.
 
         The buttons connects to `src.Window.delete_chan` and later to `destroy_self`.
         """
@@ -148,6 +150,7 @@ class Remove(QWidget):
 
 
 #-- Channel Dialog Window
+
 class ChannelDialog(QDialog):
 
     """It's a Dialog Window to dial with database."""
