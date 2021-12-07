@@ -15,4 +15,5 @@ Changelog:
 - src.model.db moved to src.model
 - Parse class from `src.model.__parser__` deleted
 - Imports on `src` starts with `src.`
+
 """

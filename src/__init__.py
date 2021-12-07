@@ -90,16 +90,16 @@ class Window(QMainWindow):
 
     def get_channels(self):
         """Gets channels fom database (Dialing with `src.model`) and Updates Windows's `channels` variable"""
-        self.channels = model.get_channels()
+        self.channels = src.model.get_channels()
 
     def add_chan(self, chan, url):
         """Adds channels to database (Dialing with `src.model`) and alert the user calling `added_channel`"""
-        model.add_channel(chan, url)
+        src.model.add_channel(chan, url)
         self.added_channel()
 
     def delete_chan(self, chan):
         """Deletes channels on database (Dialing with `src.model`) and updates `channels` variable"""
-        model.del_channel(chan)
+        src.model.del_channel(chan)
         self.get_channels()
 
 
