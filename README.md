@@ -28,9 +28,8 @@
 > **IT'S IN TEST**
 
 > PreviewGram is under LGPL License <br>
-> Application's theme from 
-> [UN-GCPDS/qt-material](https://github.com/UN-GCPDS/qt-material) under
-> [BSD-2-Clause License](https://github.com/UN-GCPDS/qt-material/blob/master/LICENSE).
+> Application's theme from [UN-GCPDS/qt-material](https://github.com/UN-GCPDS/qt-material)
+> under [BSD-2-Clause License](https://github.com/UN-GCPDS/qt-material/blob/master/LICENSE).
 
 > **Please, Read [For Devs](#for-devs)**
 
@@ -49,8 +48,8 @@ Telegram's Channel. It's because:
 > Chats.**
 
 > \[⚠️\] - Warning <br>
-> If you don't enabled Github's JavaScript, go to 
-> [`Telegram Privacy Issues`](#telegram-privacy-issues) Topic to understand
+> If you don't enabled Github's JavaScript, go to [`Telegram Privacy Issues`](#telegram-privacy-issues)
+> Topic to understand
 > more.
 
 ## How to install
@@ -136,8 +135,8 @@ So, PreviewGram can't:
 - To open links, do `RMB* > Copy link address`
 - If you want to watch videos,
 please use Tor** (or any Browser that you trust)
-- Click on `Test privacy!` button to test for yourself.
-It's tested by [What Is My Browser](https://www.whatismybrowser.com/)*** 
+- Click on `Test privacy!` button to test for yourself. It's tested by [What Is My Browser](https://www.whatismybrowser.com/)
+\*\*\* 
 
 > - \* RMB is Right Mouse Button <br>
 > - \*\* Read [`Accessing via Tor`](#accessing-via-tor) <br>
@@ -170,18 +169,18 @@ It's tested by [What Is My Browser](https://www.whatismybrowser.com/)***
 
 #### Proxy
 
-> Proxy is your online ID, hiding you real IP Address. 
-> It's a intermediary between your Web Browser and the internet, 
+> Proxy is your online ID, hiding you real IP Address.
+> It's a intermediary between your Web Browser and the internet,
 > a web site for example. (Needs to be configured per-app basis)
 
 #### VPN
 
-> VPN covers 100% of you device traffic, encrypting the connection. 
+> VPN covers 100% of you device traffic, encrypting the connection.
 > It'll hide your real IP Address.
 
 #### The Onion Route (Tor)
 
-> Tor anonymizes your traffic sending it through a series of proxies, 
+> Tor anonymizes your traffic sending it through a series of proxies,
 > this proxies are called Nodes, that encrypts the traffic and
 > sends to destiny using a Exit Node.
 
@@ -208,8 +207,7 @@ Tor have some issues, and
 isn't recommended to use Tor outside TorBrowser to avoid DNS Leaks and
 VPN+TOR issues.
 
-> Sources:
-> 
+> Sources: <br>
 > - [Bittorrent over Tor isn't a good idea - Tor Project](https://blog.torproject.org/bittorrent-over-tor-isnt-good-idea/)
 > - ["Tor Browser will block browser plugins such as Flash, RealPlayer, QuickTime, and others: they can be manipulated into revealing your IP address." - Tor Project](https://www.torproject.org/download/#Warning)
 > - [KNOWN ISSUES - Tor Project](https://tb-manual.torproject.org/known-issues/)
@@ -253,8 +251,8 @@ suggestions, bugs and security reports! 😉
 
 - [ ] Block ``telegram.org`` and
 other https requests using
-`webView.page().profile().setUrlRequestInterceptor(interceptor)` (Thanks, 
-dbunk!)
+`webView.page().profile().setUrlRequestInterceptor(interceptor)`
+(Thanks, dbunk!)
 - [ ] Channel Categories
 - [ ] Open on Tor
 - [ ] UI improvements?
@@ -276,14 +274,14 @@ that they "operates with zero transparency":
 Read [`Osint Problems`](#osint-problems), because: “Unfortunately,
 any contacts-based app faces the challenge of
 malicious users trying to upload many phone numbers and
-build databases that match them with user IDs – like this one.” - 
-Telegram representative to CoinTelegraph
+build databases that match them with user IDs – like this one.”
+\- Telegram representative to CoinTelegraph
   - **Tip:** hide your phone number on Telegram's configurations.
 - Telegram added Group Read Receipts:
   - Source: [Read Receipts in Small Groups - Telegram](https://telegram.org/blog/chat-themes-interactive-emoji-read-receipts#read-receipts-in-small-groups)
 
 > As any Social Network app, Telegram suffers with
-[Osint](#osint-problems) (Open-Source Intelligence), 
+[Osint](#osint-problems) (Open-Source Intelligence),
 be caution with the information that you exposes publicly about yourself!
 
 ## Osint Problems
