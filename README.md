@@ -199,7 +199,9 @@ It's tested by [What Is My Browser](https://www.whatismybrowser.com/)
 ### The Tor's Power
 
 <!-- ✏️ToDo: Change table to a single image -->
+
 #### With and Without Tor
+
 |Tor: off / Https: off|Tor: off / Https: on|Tor: on / Https: on|
 |---------|---------|---------|
 |[![Tor: off / Https: off](./assets/Tor/tor-https-0.png)](./assets/Tor/tor-https-0.png)| [![Tor: off / Https: on](./assets/Tor/tor-https-1.png)](./assets/Tor/tor-https-1.png) |[![Tor: on / Https: on](./assets/Tor/tor-https-3.png)](./assets/Tor/tor-https-3.png)|
