@@ -188,7 +188,7 @@ please use Tor** (or any Browser that you trust)
 > sends to destiny using a Exit Node.
 
 
-#### Sources:
+#### Sources
 
 > - [Should I Use a VPN, Proxy, or Tor? - AVG](https://www.avg.com/en/signal/vpn-vs-proxy-vs-tor)
 > - [Penetration testing: TOR, VPN or proxy - InfoSec](https://resources.infosecinstitute.com/topic/penetration-testing-tor-vpn-or-proxy/)
@@ -198,7 +198,7 @@ please use Tor** (or any Browser that you trust)
 ### The Tor's Power
 
 <!-- ✏️ToDo: Change table to a single image -->
-#### With and Without Tor:
+#### With and Without Tor
 |Tor: off / Https: off|Tor: off / Https: on|Tor: on / Https: on|
 |---------|---------|---------|
 |[![Tor: off / Https: off](./assets/Tor/tor-https-0.png)](./assets/Tor/tor-https-0.png)| [![Tor: off / Https: on](./assets/Tor/tor-https-1.png)](./assets/Tor/tor-https-1.png) |[![Tor: on / Https: on](./assets/Tor/tor-https-3.png)](./assets/Tor/tor-https-3.png)|
