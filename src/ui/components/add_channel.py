@@ -12,8 +12,6 @@ class AddBtn(QPushButton):
 
     When clicked, it'll open the `src.channel.ChannelDialog` Window.
     """
-
-    #-- Init
     def __init__(self, parent, mainWin):
         """Inits the `AddBtn`."""
         # parent = Container(QWidget)
