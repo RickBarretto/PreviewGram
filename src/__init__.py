@@ -38,7 +38,7 @@ from src.ui.channel import ChannelDialog
 #-- Main Window
 class Window(QMainWindow):
     """
-    It's the Main Window that is a QMainWindow
+    It's the Main Window that is a QMainWindow.
     """
 
     #-- init
@@ -47,13 +47,13 @@ class Window(QMainWindow):
 
         #-- setting Window's variables
         self.pressing:bool = False
-        """Is True when mouse is pressing the Window > for move Window"""
+        """Is True when mouse is pressing the Window > for move Window."""
         self.start:QPoint = QPoint(0, 0)
-        """Defines the initial Window position > for move Window"""
+        """Defines the initial Window position > for move Window."""
         self.channels:dict = {}
-        """Loads channels from database"""
+        """Loads channels from database."""
         self.path:str = str(os.path.dirname(os.path.realpath(__file__)))
-        """Defines the current App file"""
+        """Defines the current App file."""
 
         #-- updating channels variable
         self.get_channels()
@@ -66,7 +66,7 @@ class Window(QMainWindow):
 
     #-- Configuring
     def config_win(self):
-        """Configures the `Window`"""
+        """Configures the `Window`."""
 
         self.setWindowTitle("Private Previewgram")
         self.setFixedWidth(830)
@@ -75,7 +75,7 @@ class Window(QMainWindow):
         self.setCursor(QCursor(Qt.OpenHandCursor))
 
     def add_container(self):
-        """Sets Container from `src.ui` module as Central Widget"""
+        """Sets Container from `src.ui` module as Central Widget."""
         container = Container(self, self.channels, self.path)
         self.setCentralWidget(container)
 
@@ -89,16 +89,16 @@ class Window(QMainWindow):
         dial.exec()
 
     def get_channels(self):
-        """Gets channels fom database (Dialing with `src.model`) and Updates Windows's `channels` variable"""
+        """Gets channels fom database (Dialing with `src.model`) and Updates Windows's `channels` variable."""
         self.channels = src.model.get_channels()
 
     def add_chan(self, chan, url):
-        """Adds channels to database (Dialing with `src.model`) and alert the user calling `added_channel`"""
+        """Adds channels to database (Dialing with `src.model`) and alert the user calling `added_channel`."""
         src.model.add_channel(chan, url)
         self.added_channel()
 
     def delete_chan(self, chan):
-        """Deletes channels on database (Dialing with `src.model`) and updates `channels` variable"""
+        """Deletes channels on database (Dialing with `src.model`) and updates `channels` variable."""
         src.model.del_channel(chan)
         self.get_channels()
 
@@ -131,7 +131,7 @@ class Window(QMainWindow):
 
     #-- Altering user
     def wrong_url(self):
-        """Alerts the user with a `QMessageBox.critical` that the input to add a new channel is invalid"""
+        """Alerts the user with a `QMessageBox.critical` that the input to add a new channel is invalid."""
         QMessageBox.critical(
             self,
             "Use a valid channel url",
@@ -140,7 +140,9 @@ class Window(QMainWindow):
             defaultButton=QMessageBox.Close)
 
     def added_channel(self):
-        """Alerts the user with a `QMessageBox.critical` that the input to add a new channel is valid, and the channel was added on database"""
+        """Alerts the user with a `QMessageBox.critical`.
+        that the input to add a new channel is valid,
+        and the channel was added on database."""
         QMessageBox.critical(
             self,
             "Info!",
@@ -152,26 +154,30 @@ class Window(QMainWindow):
 
     #-- Updating Window status
     def closeWindow(self):
-        """Just close the window"""
+        """Just close the window."""
         self.close()
 
     def minWindow(self):
-        """Minimizes the window"""
+        """Minimizes the window."""
         self.showMinimized()
 
 
 
     #-- Moving Window
     def mousePressEvent(self, event):
-        """Wen mouse press the Window, `Window.pressing` is set as True and start is set as Global position based on current mouse position"""
+        """Wen mouse press the Window,
+        `Window.pressing` is set as True
+        and start is set as Global position based on current mouse position."""
         self.start = self.mapToGlobal(event.position())
         self.pressing = True
 
     def mouseMoveEvent(self, event):
-        """
-        When mouse is in movement and pressing, it'll set the cursor to `Qt.ClosedHandCursor` and move the window to final position
+        """When mouse is in movement and pressing,
+        it'll set the cursor to `Qt.ClosedHandCursor`
+        and move the window to final position.
 
-        If mouse is in movement but not pressing, it'll only set the cursor to a `Qt.OpenHandCursor`
+        If mouse is in movement but not pressing,
+        it'll only set the cursor to a `Qt.OpenHandCursor`.
         """
         if self.pressing:
             self.setCursor(QCursor(Qt.ClosedHandCursor))
@@ -186,7 +192,9 @@ class Window(QMainWindow):
             self.setCursor(QCursor(Qt.OpenHandCursor))
 
     def mouseReleaseEvent(self, QMouseEvent):
-        """When mouse releases, the `Window.pressing` is setting as `False` and the cursor is set as a `Qt.OpenHandCursor`"""
+        """When mouse releases,
+        the `Window.pressing` is setting as `False`
+        and the cursor is set as a `Qt.OpenHandCursor`."""
         self.pressing = False
         self.setCursor(QCursor(Qt.OpenHandCursor))
 
@@ -197,7 +205,7 @@ class Window(QMainWindow):
         """
         It'll restart the application for update channels on Window.
 
-        It'll run when `ui.channel.ChannelDialog` is closed
+        It'll run when `ui.channel.ChannelDialog` is closed.
         """
         print("closed!")
         open_win()
@@ -207,9 +215,9 @@ class Window(QMainWindow):
 
 def open_win():
     """
-    Will instance and show a new Window
+    Will instance and show a new Window.
 
-    It is used to update channels on ``Window``
+    It is used to update channels on ``Window``.
     """
     window = Window()
     window.show()

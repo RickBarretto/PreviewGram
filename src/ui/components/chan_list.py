@@ -19,19 +19,19 @@ class ChannelList(QWidget):
 
         #-- class' variables
         self.channels = channels
-        """It's the channel list loaded from `src.Window.channels`"""
+        """It's the channel list loaded from `src.Window.channels`."""
         self.parent = parent
-        """It's the `src.Window` instance"""
+        """It's the `src.Window` instance."""
 
-        #-- class' widgets variables 
+        #-- class' widgets variables
         self.layout = QVBoxLayout(self)
-        """`ChannelList`'s Layout as QHBox"""
+        """`ChannelList`'s Layout as QHBox."""
         self.wid = QWidget()
-        """`ChannelList`'s main Widget"""
+        """`ChannelList`'s main Widget."""
         self.wid_layout = QVBoxLayout()
-        """`wid`'s layout as QVBox """
+        """`wid`'s layout as QVBox."""
         self.scroll = QScrollArea()
-        """Scroll Area"""
+        """Scroll Area."""
 
         #-- generating layout
         self.gen_buttons()
@@ -42,23 +42,23 @@ class ChannelList(QWidget):
         self.config_layout()
         self.layout.addWidget(self.scroll)
 
-    
+
     def config_scroll(self):
-        """Configures the Scroll Area"""
+        """Configures the Scroll Area."""
         self.scroll.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.scroll.setWidgetResizable(True)
         self.scroll.setWidget(self.wid)
 
     def config_layout(self):
-        """Configures the layout"""
+        """Configures the layout."""
         self.wid_layout.addStretch()
 
     def __gen_fixed_buttons(self):
         """
-        The first button: "Test privacy" opens https://www.whatismybrowser.com/
+        The first button: "Test privacy" opens https://www.whatismybrowser.com/.
 
-        The second button: "Official Channel" opens https://t.me/s/previewgram
+        The second button: "Official Channel" opens https://t.me/s/previewgram.
         """
 
         btn_test = QPushButton("Test privacy!", self)
@@ -79,9 +79,9 @@ class ChannelList(QWidget):
         self.wid_layout.addWidget(official_channel, Qt.AlignBottom)
 
     def gen_buttons(self):
-        """Generates the Dynamic buttons and fixed buttons"""
+        """Generates the Dynamic buttons and fixed buttons."""
 
-        self.__gen_fixed_buttons()        
+        self.__gen_fixed_buttons()
 
         for chan in self.channels:
 

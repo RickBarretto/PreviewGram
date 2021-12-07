@@ -1,5 +1,4 @@
-"""
-Will dial with database
+"""Will dial with database.
 
 modules:
 - `src.model`
@@ -17,7 +16,7 @@ PATH = "./src/data/data.json"
 
 #-- functions
 def get_channels() -> dict:
-    """Returns all channels saved
+    """Returns all channels saved.
     """
 
     db = open(PATH, "r")
@@ -29,12 +28,12 @@ def get_channels() -> dict:
 
 
 def add_channel(chan_name: str, url: str):
-    """Add a new channel to database
+    """Add a new channel to database.
     params:
     - chan_name: str
     - url: str (ready to save)
 
-    (ready to save is a Preview url: `https://t.me/s/*`)
+    (ready to save is a Preview url: `https://t.me/s/*`).
     """
 
     new_url = rts(url)
@@ -55,7 +54,7 @@ def add_channel(chan_name: str, url: str):
 
 
 def del_channel(chan_name: str):
-    """Delete a channel from database
+    """Delete a channel from database.
     param:
     - chan_name: str
     """
@@ -77,13 +76,13 @@ def del_channel(chan_name: str):
 def update_channel(old_chan_name: str, new_chan_name: str, url: str):
     """> `[!] - Never Used...`
 
-    Updates name and url from a channel saved on database
+    Updates name and url from a channel saved on database.
     params:
     - old_chan_name: str
     - nem_chan_name: str
     - url: str (ready to save)
 
-    (ready to save is a Preview url: `https://t.me/s/*`)
+    (ready to save is a Preview url: `https://t.me/s/*`).
     """
 
     try:

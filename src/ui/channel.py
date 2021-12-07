@@ -15,7 +15,7 @@ from functools import partial
 
 #-- Update Page
 class Update(QWidget):
-    """Update channels Page"""
+    """Update channels Page."""
 
     #-- Initing
     def __init__(self, parent, mainWin):
@@ -23,16 +23,16 @@ class Update(QWidget):
 
         #-- class' variables
         self.mainWin = mainWin
-        """Is the `src.Window`"""
+        """Is the `src.Window`."""
         self.chan = QLineEdit()
-        """It's the channel's name input"""
+        """It's the channel's name input."""
         self.url = QLineEdit()
-        """It's the channel's url input"""
+        """It's the channel's url input."""
         self.submitBtn = QPushButton("Submit")
-        """It's the submit button"""
+        """It's the submit button."""
 
         self.layout = QFormLayout(self)
-        """Configures the layout as QForm"""
+        """Configures the layout as QForm."""
         
         #-- Configuring
         self.input_config()
@@ -44,12 +44,12 @@ class Update(QWidget):
 
     #-- Config
     def input_config(self):
-        """Configures inputs (`Update.chan`, `Update.url`) max length"""
+        """Configures inputs (`Update.chan`, `Update.url`) max length."""
         self.chan.setMaxLength(20)
         self.url.setMaxLength(256)
        
     def config_layout(self):
-        """Adds widgets to `Update.layout`"""
+        """Adds widgets to `Update.layout`."""
         self.layout.addRow("Channel:", self.chan)
         self.layout.addRow("Url:", self.url)
         self.layout.addRow(self.submitBtn)
@@ -58,7 +58,7 @@ class Update(QWidget):
 
     #-- Action
     def action(self):
-        """Sends the inputs' text to `src.Window.check`"""
+        """Sends the inputs' text to `src.Window.check`."""
         self.submitBtn.clicked.connect(
             lambda: self.mainWin.check(self.chan.text(), self.url.text())
             )
@@ -66,27 +66,27 @@ class Update(QWidget):
 
 #-- Remove Page
 class Remove(QWidget):
-    """Remove channels Page"""
+    """Remove channels Page."""
 
     def __init__(self, parent, mainWin):
         super().__init__(parent)
 
         #-- class's variables
         self.mainWin = mainWin
-        """Is the `src.Window`"""
+        """Is the `src.Window`."""
         
         self.channels = self.load_channels()
-        """Updates and loads `src.Window.channels`"""
+        """Updates and loads `src.Window.channels`."""
 
         #-- class' widgets variables
         self.layout = QVBoxLayout(self)
-        """`Remove`'s layout"""
+        """`Remove`'s layout."""
         self.wid = QWidget()
-        """Main `Remove`'s widget"""
+        """Main `Remove`'s widget."""
         self.wid_layout = QVBoxLayout()
-        """`wid`'s layout"""
+        """`wid`'s layout."""
         self.scroll = QScrollArea()
-        """`Remove`'s Scroll Area"""
+        """`Remove`'s Scroll Area."""
 
         #-- generating layout
         self.gen_layout()
@@ -100,31 +100,31 @@ class Remove(QWidget):
 
     #-- loading channels
     def load_channels(self):
-        """Loads channels from database to `channels`"""
+        """Loads channels from database to `channels`."""
         self.mainWin.get_channels()
-        """Updates the `src.Window.channels` from database"""
+        """Updates the `src.Window.channels` from database."""
         channels = self.mainWin.channels
-        """Loads the channels dict" from `src.Window.channels`"""
+        """Loads the channels dict" from `src.Window.channels`."""
         return channels
 
     #-- generating layout
     def config_scroll(self):
-        """Configures the Scroll Area"""
+        """Configures the Scroll Area."""
         self.scroll.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.scroll.setWidgetResizable(True)
         self.scroll.setWidget(self.wid)
 
     def config_layout(self):
-        """Configures the layout"""
+        """Configures the layout."""
         self.wid_layout.addStretch()
 
     #-- Generating and setting action
     def gen_layout(self):
         """
-        Generates the widget layout
+        Generates the widget layout,
 
-        The buttons connects to `src.Window.delete_chan` and later to `destroy_self`
+        The buttons connects to `src.Window.delete_chan` and later to `destroy_self`.
         """
 
         for chan in self.channels:
@@ -139,21 +139,21 @@ class Remove(QWidget):
 
     #-- Action
     def destroy_self(self, btn):
-        """Disable Button"""
+        """Disable Button."""
         btn.setEnabled(False)
             
     
 
 #-- Channel Dialog Window
 class ChannelDialog(QDialog):
-    """It's a Dialog Window to dial with database"""
+    """It's a Dialog Window to dial with database."""
 
     def __init__(self, parent):
         super().__init__(parent)
 
         #-- class' variables
         self.mainWin = parent
-        """It's the `src.Window` instance"""
+        """It's the `src.Window` instance."""
 
         #-- WARNING! Important attribute
         self.config_att()
@@ -168,7 +168,7 @@ class ChannelDialog(QDialog):
     
 
     def ui(self):
-        """Configures UI components"""
+        """Configures UI components."""
 
         self.setWindowTitle("Channels")
         self.setSizeGripEnabled(True) 
@@ -181,25 +181,25 @@ class ChannelDialog(QDialog):
     def config_att(self):
         """WARNING: don't remove it!
         
-        Without it, the Application won't restart 
+        Without it, the Application won't restart.
         """
         self.setAttribute(Qt.WA_DeleteOnClose, True)
 
     #-- Layouts
     def combo_page(self):
-        """Create the Switch Button"""
+        """Create the Switch Button."""
         self.pageCombo.addItems(["Add", "Delete"])
         self.pageCombo.activated.connect(self.switch_page)
 
 
     def stacked_layout(self):
-        """Create the Pagination layout"""
+        """Create the Pagination layout."""
         self.stackedLayout.addWidget(Update(self, self.mainWin))
         self.stackedLayout.addWidget(Remove(self, self.mainWin))
         
     #-- Action
     def switch_page(self):
-        """Changes the Page"""
+        """Changes the Page."""
         self.stackedLayout.setCurrentIndex(self.pageCombo.currentIndex())
 
 

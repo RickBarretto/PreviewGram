@@ -10,10 +10,10 @@ from PySide6.QtWebEngineCore import QWebEngineSettings, QWebEngineProfile
 
 #-- Widget
 class Engine(QWebEngineView):
-    """Widget that will render the html file
+    """Widget that will render the html file.
     params:
     - parent: QWidget
-    - url: QUrl 
+    - url: QUrl
     """
 
     #-- Init
@@ -22,7 +22,7 @@ class Engine(QWebEngineView):
 
         # Setting parameters
         self.mainWin = mainWin
-        """`src.Window` instance"""
+        """`src.Window` instance."""
 
         # Configuring Widget and Privacy
         self.privacy_config()
@@ -40,8 +40,8 @@ class Engine(QWebEngineView):
 
     #-- Configuring
     def config_widget(self):
-        """Configures the Widget"""
-        self.setMinimumWidth(600)   
+        """Configures the Widget."""
+        self.setMinimumWidth(600)
 
     #-- Privacy Config
     #-- WARNING: Important!
@@ -50,7 +50,7 @@ class Engine(QWebEngineView):
         Configures the `Engine` attributes to improve user privacy, blocking Js, cookies, trackers...
         It's the main Browser Privacy Feature, please add a Issue if you find.
 
-        <a href="https://github.com/RickBarretto/PreviewGram/issues">Report a Issue</a> 
+        <a href="https://github.com/RickBarretto/PreviewGram/issues">Report a Issue</a>.
         """
 
         self.page().settings().setAttribute(QWebEngineSettings.JavascriptEnabled, False)
@@ -62,33 +62,33 @@ class Engine(QWebEngineView):
 
     #-- WARNING: Important!
     def clear_data(self):
-        """Clears HttpsCache and VisitedLinks"""
+        """Clears HttpsCache and VisitedLinks."""
         self.page().profile().clearHttpCache()
         self.page().profile().clearAllVisitedLinks()
 
 
     #-- Actions
     def update(self):
-        """Reload the `Engine`'s page"""
+        """Reload the `Engine`'s page."""
         self.reload()
 
     def loading(self):
-        """Clears HttpsCache and VisitedLinks and changes the cursor to `Qt.BusyCursor`"""
+        """Clears HttpsCache and VisitedLinks and changes the cursor to `Qt.BusyCursor`."""
         self.mainWin.setCursor(QCursor(Qt.BusyCursor))
-        
+
     def loaded(self):
-        """Changes the cursor to `Qt.OpenHandCursor`"""
+        """Changes the cursor to `Qt.OpenHandCursor`."""
         self.clear_data()
         self.mainWin.setCursor(QCursor(Qt.OpenHandCursor))
 
     def link_hover(self):
-        """Creates a tooltip, teachin how to open links"""
+        """Creates a tooltip, teachin how to open links."""
         self.setToolTip("[Right Mouse Button] > Copy Link Address")
 
     def url_changed(self):
-        """Clears HttpsCache and VisitedLinks and checks current url
-        
+        """Clears HttpsCache and VisitedLinks and checks current url.
+
         - Todo:
-            - Change url checker to intercept() 
+            - Change url checker to intercept()
         """
         pass
