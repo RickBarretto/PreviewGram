@@ -75,8 +75,7 @@ class Window(QMainWindow):
 
     def add_container(self):
         """Sets Container from `src.ui` module as Central Widget."""
-        container = Container(self, self.channels, self.path)
-        self.setCentralWidget(container)
+        self.setCentralWidget(Container(self, self.channels, self.path))
 
 
 
