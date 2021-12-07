@@ -144,7 +144,7 @@ It's tested by [What Is My Browser](https://www.whatismybrowser.com/)
 > - \* RMB is Right Mouse Button
 > - \*\* Read [`Accessing via Tor`](#accessing-via-tor)
 > - \*\*\* [What Is My Browser's Privacy Policy](https://www.whatismybrowser.com/about/legal/)
-
+<br>
 > **Extra:** Accessing channels through TorBrowser
 > <br>
 > Go to [``Accessing via Tor``](#accessing-via-tor) topic.
