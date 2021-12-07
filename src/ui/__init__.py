@@ -26,6 +26,7 @@ class Content(QWidget):
     """
 
     def __init__(self, parent:QWidget, mainWin, channels:dict, path) -> None:
+        """Inits the `Content`."""
         super().__init__(parent)
 
         self.channels = channels
