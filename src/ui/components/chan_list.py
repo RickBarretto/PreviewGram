@@ -11,10 +11,16 @@ from functools import partial
 
 #-- ChannelList Widget (SideBar)
 class ChannelList(QWidget):
-    """It's the application SideBar, that will load the channel List, creating buttons to change the `src.ui.components.engine.Engine` current url"""
+
+    """
+    It's the application SideBar,
+    that will load the channel List,
+    creating buttons to change the `src.ui.components.engine.Engine` current url.
+    """
 
     #-- Init
     def __init__(self, parent, channels:dict) -> None:
+        """Inits `ChannelList`."""
         super().__init__(parent)
 
         #-- class' variables
@@ -60,7 +66,6 @@ class ChannelList(QWidget):
 
         The second button: "Official Channel" opens https://t.me/s/previewgram.
         """
-
         btn_test = QPushButton("Test privacy!", self)
         btn_test.setMaximumHeight(300)
         btn_test.setMinimumHeight(50)
@@ -80,7 +85,6 @@ class ChannelList(QWidget):
 
     def gen_buttons(self):
         """Generates the Dynamic buttons and fixed buttons."""
-
         self.__gen_fixed_buttons()
 
         for chan in self.channels:
