@@ -1,6 +1,6 @@
-![PreviewGram Cover](./assets/PreviewGram%20Banner.svg)
+# Private PreviewGram
 
-<h1 align="center">Private PreviewGram</h1>
+![PreviewGram Cover](./assets/PreviewGram%20Banner.svg)
 
 <h2 align="center">Run away from Metadata</h2>
 
