@@ -188,8 +188,7 @@ It's tested by [What Is My Browser](https://www.whatismybrowser.com/)
 > this proxies are called Nodes, that encrypts the traffic and
 > sends to destiny using a Exit Node.
 
-
-#### Sources
+Sources:
 
 > - [Should I Use a VPN, Proxy, or Tor? - AVG](https://www.avg.com/en/signal/vpn-vs-proxy-vs-tor)
 > - [Penetration testing: TOR, VPN or proxy - InfoSec](https://resources.infosecinstitute.com/topic/penetration-testing-tor-vpn-or-proxy/)
@@ -217,7 +216,7 @@ Tor have some issues, and
 isn't recommended to use Tor outside TorBrowser to avoid DNS Leaks and
 VPN+TOR issues.
 
-#### Sources:
+Sources:
 
 > - [Bittorrent over Tor isn't a good idea - Tor Project](https://blog.torproject.org/bittorrent-over-tor-isnt-good-idea/)
 > - ["Tor Browser will block browser plugins such as Flash, RealPlayer, QuickTime, and others: they can be manipulated into revealing your IP address." - Tor Project](https://www.torproject.org/download/#Warning)
@@ -245,7 +244,7 @@ example: `https://t.me/previewgram` to `https://t.me/s/previewgram`
 and use the [Mobile Tor Browser](https://tb-manual.torproject.org/mobile-tor/)
 to use everywhere.
 
-#### Sources:
+Sources:
 
 > - [MAKE TOR BROWSER PORTABLE - Tor Project](https://tb-manual.torproject.org/make-tor-portable/)
 > - [MOBILE TOR - Tor Project](https://tb-manual.torproject.org/mobile-tor/)
