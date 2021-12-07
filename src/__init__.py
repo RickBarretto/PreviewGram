@@ -30,9 +30,9 @@ from PySide6.QtGui import QCursor
 from qt_material import apply_stylesheet
 
 #-- importing application modules
-from .model.db import Model
-from .ui import *
-from .ui.channel import ChannelDialog
+import src.model
+from src.ui import *
+from src.ui.channel import ChannelDialog
 
 
 #-- Main Window
@@ -83,23 +83,23 @@ class Window(QMainWindow):
 
     #-- Database
     def channelDialog(self):
-        """Opens a Window Dialog that dials with the database (`src.model.db.Model`), adding and removing users..."""
+        """Opens a Window Dialog that dials with the database (`src.db`), adding and removing users..."""
         dial = ChannelDialog(self)
         dial.destroyed.connect(self.restart)
         dial.exec()
 
     def get_channels(self):
-        """Gets channels fom database (Dialing with `src.model.db.Model`) and Updates Windows's `channels` variable"""
-        self.channels = Model.get_channels()
+        """Gets channels fom database (Dialing with `src.model`) and Updates Windows's `channels` variable"""
+        self.channels = model.get_channels()
 
     def add_chan(self, chan, url):
-        """Adds channels to database (Dialing with `src.model.db.Model`) and alert the user calling `added_channel`"""
-        Model.add_channel(chan, url)
+        """Adds channels to database (Dialing with `src.model`) and alert the user calling `added_channel`"""
+        model.add_channel(chan, url)
         self.added_channel()
 
     def delete_chan(self, chan):
-        """Deletes channels on database (Dialing with `src.model.db.Model`) and updates `channels` variable"""
-        Model.del_channel(chan)
+        """Deletes channels on database (Dialing with `src.model`) and updates `channels` variable"""
+        model.del_channel(chan)
         self.get_channels()
 
 

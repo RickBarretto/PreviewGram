@@ -91,5 +91,4 @@ class Engine(QWebEngineView):
         - Todo:
             - Change url checker to intercept() 
         """
-        #self.clear_data()
         pass
