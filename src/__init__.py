@@ -132,7 +132,7 @@ class Window(QMainWindow):
     #-- Altering user
     def wrong_url(self):
         """Alerts the user with a `QMessageBox.critical` that the input to add a new channel is invalid"""
-        m = QMessageBox.critical(
+        QMessageBox.critical(
             self,
             "Use a valid channel url",
             "Examples are:\nhttps://t.me/channel, https://telegram.me/channel, @channel, https://t.me/s/channel",
@@ -141,7 +141,7 @@ class Window(QMainWindow):
 
     def added_channel(self):
         """Alerts the user with a `QMessageBox.critical` that the input to add a new channel is valid, and the channel was added on database"""
-        m = QMessageBox.critical(
+        QMessageBox.critical(
             self,
             "Info!",
             "Channel added to database",
