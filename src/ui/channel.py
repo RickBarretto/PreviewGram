@@ -1,10 +1,13 @@
 #-- importing Qt modules
 from PySide6.QtWidgets import (
-    QComboBox, QFormLayout, QLabel, QScrollArea, QStackedLayout, QVBoxLayout, QWidget, QHBoxLayout, QPushButton,
-    QDialog, QGroupBox, QLineEdit, QMessageBox
+    QComboBox, QFormLayout,
+    QLabel, QScrollArea,
+    QStackedLayout, QVBoxLayout,
+    QWidget, QPushButton,
+    QDialog, QLineEdit
 )
-from PySide6.QtCore import QRegularExpression, Qt 
-from PySide6.QtGui import QCursor, QRegularExpressionValidator
+from PySide6.QtCore import Qt 
+from PySide6.QtGui import QCursor
 
 #-- importing functools to partial connect
 from functools import partial

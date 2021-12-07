@@ -5,7 +5,7 @@ from PySide6.QtCore import QUrl, Qt
 
 #-- Importing Web QT modules
 from PySide6.QtWebEngineWidgets import QWebEngineView
-from PySide6.QtWebEngineCore import QWebEnginePage, QWebEngineSettings, QWebEngineProfile, QWebEngineUrlRequestInterceptor
+from PySide6.QtWebEngineCore import QWebEngineSettings, QWebEngineProfile
 
 
 #-- Widget
@@ -91,5 +91,4 @@ class Engine(QWebEngineView):
         - Todo:
             - Change url checker to intercept() 
         """
-        #self.clear_data()
         pass

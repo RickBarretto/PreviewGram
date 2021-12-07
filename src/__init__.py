@@ -1,6 +1,6 @@
 """
 This module is the global module, dealing with submodules as model and ui.
-Here is started the application, generating a `Window` (That is the Main Window) and running with `start_app` method. 
+Here is started the application, generating a `Window` (That is the Main Window) and running with `start_app` method.
 
 The Title Bar and movable Window from: https://stackoverflow.com/a/44249552
 
@@ -30,9 +30,9 @@ from PySide6.QtGui import QCursor
 from qt_material import apply_stylesheet
 
 #-- importing application modules
-from .model.db import Model
-from .ui import *
-from .ui.channel import ChannelDialog
+import src.model
+from src.ui import *
+from src.ui.channel import ChannelDialog
 
 
 #-- Main Window
@@ -73,7 +73,7 @@ class Window(QMainWindow):
         self.setMinimumHeight(600)
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.setCursor(QCursor(Qt.OpenHandCursor))
-        
+
     def add_container(self):
         """Sets Container from `src.ui` module as Central Widget"""
         container = Container(self, self.channels, self.path)
@@ -83,23 +83,23 @@ class Window(QMainWindow):
 
     #-- Database
     def channelDialog(self):
-        """Opens a Window Dialog that dials with the database (`src.model.db.Model`), adding and removing users..."""
+        """Opens a Window Dialog that dials with the database (`src.db`), adding and removing users..."""
         dial = ChannelDialog(self)
         dial.destroyed.connect(self.restart)
         dial.exec()
 
     def get_channels(self):
-        """Gets channels fom database (Dialing with `src.model.db.Model`) and Updates Windows's `channels` variable"""
-        self.channels = Model.get_channels()
+        """Gets channels fom database (Dialing with `src.model`) and Updates Windows's `channels` variable"""
+        self.channels = src.model.get_channels()
 
     def add_chan(self, chan, url):
-        """Adds channels to database (Dialing with `src.model.db.Model`) and alert the user calling `added_channel`"""
-        Model.add_channel(chan, url)
+        """Adds channels to database (Dialing with `src.model`) and alert the user calling `added_channel`"""
+        src.model.add_channel(chan, url)
         self.added_channel()
 
     def delete_chan(self, chan):
-        """Deletes channels on database (Dialing with `src.model.db.Model`) and updates `channels` variable"""
-        Model.del_channel(chan)
+        """Deletes channels on database (Dialing with `src.model`) and updates `channels` variable"""
+        src.model.del_channel(chan)
         self.get_channels()
 
 
@@ -113,13 +113,13 @@ class Window(QMainWindow):
 
         If not, it'll call `wrong_url`, that will show a alert.
         """
-        
+
         if (
             url.startswith("@")
             or url.startswith("https://t.me/")
             or url.startswith("https://telegram.me/")
             ):
-            result = True 
+            result = True
             print(result)
             self.add_chan(chan, url)
         else:
@@ -132,7 +132,7 @@ class Window(QMainWindow):
     #-- Altering user
     def wrong_url(self):
         """Alerts the user with a `QMessageBox.critical` that the input to add a new channel is invalid"""
-        m = QMessageBox.critical(
+        QMessageBox.critical(
             self,
             "Use a valid channel url",
             "Examples are:\nhttps://t.me/channel, https://telegram.me/channel, @channel, https://t.me/s/channel",
@@ -141,7 +141,7 @@ class Window(QMainWindow):
 
     def added_channel(self):
         """Alerts the user with a `QMessageBox.critical` that the input to add a new channel is valid, and the channel was added on database"""
-        m = QMessageBox.critical(
+        QMessageBox.critical(
             self,
             "Info!",
             "Channel added to database",
@@ -166,11 +166,11 @@ class Window(QMainWindow):
         """Wen mouse press the Window, `Window.pressing` is set as True and start is set as Global position based on current mouse position"""
         self.start = self.mapToGlobal(event.position())
         self.pressing = True
-        
+
     def mouseMoveEvent(self, event):
         """
         When mouse is in movement and pressing, it'll set the cursor to `Qt.ClosedHandCursor` and move the window to final position
-        
+
         If mouse is in movement but not pressing, it'll only set the cursor to a `Qt.OpenHandCursor`
         """
         if self.pressing:
@@ -193,12 +193,12 @@ class Window(QMainWindow):
 
 
     #-- Restart
-    def restart (self):  
+    def restart (self):
         """
         It'll restart the application for update channels on Window.
-        
+
         It'll run when `ui.channel.ChannelDialog` is closed
-        """   
+        """
         print("closed!")
         open_win()
         self.destroy()
@@ -208,11 +208,11 @@ class Window(QMainWindow):
 def open_win():
     """
     Will instance and show a new Window
-    
+
     It is used to update channels on ``Window``
     """
     window = Window()
-    window.show()  
+    window.show()
 
 
 
@@ -223,13 +223,13 @@ def start_app():
     Applies the theme, Open a Window and executes!
     """
 
-    app = QApplication(sys.argv)        
+    app = QApplication(sys.argv)
     apply_stylesheet(app, theme='dark_blue.xml')
-    open_win()           
-    app.exec()            
+    open_win()
+    app.exec()
 
 
 
 if __name__ == '__main__':
-    
+
     start_app()

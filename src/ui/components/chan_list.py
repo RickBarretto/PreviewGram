@@ -2,8 +2,8 @@
 from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QPushButton,
     QScrollArea)
-from PySide6.QtGui import QColor, QCursor
-from PySide6.QtCore import QPoint, QUrl, Qt
+from PySide6.QtGui import QCursor
+from PySide6.QtCore import Qt
 
 #-- importing functools to partial connect
 from functools import partial
