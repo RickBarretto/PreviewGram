@@ -126,10 +126,7 @@ So, PreviewGram can't:
 - Download files directly*** (instead this, do:
 `RMB**** > Copy link address` and download on Telegram App)
 
-> - \* Use a VPN or Proxy. Read
-> <br>
-> [`Why PreviewGram doesn't use Tor's Proxy by itself?`](#why-previewgram-doesnt-use-tors-proxy-by-itself)
-> <br>
+> - \* Use a VPN or Proxy. Read [`Why PreviewGram doesn't use Tor's Proxy by itself?`](#why-previewgram-doesnt-use-tors-proxy-by-itself)
 > - \*\* Because JavaScript is disabled
 > - \*\*\* Preview website limitation
 > - \*\*\*\* RMB is Right Mouse Button
@@ -144,11 +141,8 @@ please use Tor** (or any Browser that you trust)
 \*\*\*
 
 > - \* RMB is Right Mouse Button
-> <br>
 > - \*\* Read [`Accessing via Tor`](#accessing-via-tor)
-> <br>
 > - \*\*\* [What Is My Browser's Privacy Policy](https://www.whatismybrowser.com/about/legal/)
-> <br>
 
 > **Extra:** Accessing channels through TorBrowser
 > <br>
@@ -194,8 +188,8 @@ please use Tor** (or any Browser that you trust)
 > sends to destiny using a Exit Node.
 
 
-> Sources:
-> <br>
+#### Sources:
+
 > - [Should I Use a VPN, Proxy, or Tor? - AVG](https://www.avg.com/en/signal/vpn-vs-proxy-vs-tor)
 > - [Penetration testing: TOR, VPN or proxy - InfoSec](https://resources.infosecinstitute.com/topic/penetration-testing-tor-vpn-or-proxy/)
 > - [What is the difference between a proxy and a VPN? - ProtonVPN](https://protonvpn.com/blog/proxy-vs-vpn/)
@@ -217,8 +211,8 @@ Tor have some issues, and
 isn't recommended to use Tor outside TorBrowser to avoid DNS Leaks and
 VPN+TOR issues.
 
-> Sources:
-> <br>
+#### Sources:
+
 > - [Bittorrent over Tor isn't a good idea - Tor Project](https://blog.torproject.org/bittorrent-over-tor-isnt-good-idea/)
 > - ["Tor Browser will block browser plugins such as Flash, RealPlayer, QuickTime, and others: they can be manipulated into revealing your IP address." - Tor Project](https://www.torproject.org/download/#Warning)
 > - [KNOWN ISSUES - Tor Project](https://tb-manual.torproject.org/known-issues/)
