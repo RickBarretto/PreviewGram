@@ -125,7 +125,8 @@ So, PreviewGram can't:
 - Download files directly*** (instead this, do:
 `RMB**** > Copy link address` and download on Telegram App)
 
-> - \* Use a VPN or Proxy. Read [`Why PreviewGram doesn't use Tor's Proxy by itself?`](#why-previewgram-doesnt-use-tors-proxy-by-itself)
+> - \* Use a VPN or Proxy.
+> Read [`Why PreviewGram doesn't use Tor's Proxy by itself?`](#why-previewgram-doesnt-use-tors-proxy-by-itself)
 > - \*\* Because JavaScript is disabled
 > - \*\*\* Preview website limitation
 > - \*\*\*\* RMB is Right Mouse Button
@@ -202,7 +203,10 @@ please use Tor** (or any Browser that you trust)
 |---------|---------|---------|
 |[![Tor: off / Https: off](./assets/Tor/tor-https-0.png)](./assets/Tor/tor-https-0.png)| [![Tor: off / Https: on](./assets/Tor/tor-https-1.png)](./assets/Tor/tor-https-1.png) |[![Tor: on / Https: on](./assets/Tor/tor-https-3.png)](./assets/Tor/tor-https-3.png)|
 
-> Source: [When I'm using Tor, can eavesdroppers still see the information I share with websites, like login information and things I type into forms?](https://support.torproject.org/https/https-1/ )
+> Source: [When I'm using Tor,
+> can eavesdroppers still see the information I share with websites,
+> like login information and things I type into forms?]
+> (https://support.torproject.org/https/https-1/ )
 
 ### Why PreviewGram doesn't use Tor's Proxy by itself
 
@@ -268,12 +272,15 @@ other https requests using
 - According to VPN Mentor,
 Telegram "Telegram is Not as Private as it Claims" saying
 that they "operates with zero transparency":
-  - Source: [Cybercrime on Telegram: How Hackers Are Using the Messaging App to Share Data Leaks and Hacks - VPN Mentor](https://www.vpnmentor.com/blog/cybercrime-on-telegram/)
+  - Source: [Cybercrime on Telegram:
+  How Hackers Are Using the Messaging App to Share Data Leaks and Hacks
+  \- VPN Mentor](https://www.vpnmentor.com/blog/cybercrime-on-telegram/)
 - Telegram can suffer Law Enforcement
-  - [Telegram agreed to transfer to the special services \[but not Russian\] IP-addresses and numbers of some users](https://sudonull.com/post/11959-Telegram-agreed-to-transfer-to-the-special-services-but-not-Russian-IP-addresses-and-numbers-of-some)
+  - [Telegram agreed to transfer to the special services
+  \[but not Russian\] IP-addresses and numbers of some users](https://sudonull.com/post/11959-Telegram-agreed-to-transfer-to-the-special-services-but-not-Russian-IP-addresses-and-numbers-of-some)
   - [Law Enforcement Authorities](https://telegram.org/privacy#8-3-law-enforcement-authorities)
 - In 2020, Telegram suffered a data leak:
-  - Source: [Millions of Telegram Users’ Data Exposed on Darknet - CoinTelegraph](https://cointelegraph.com/news/millions-of-telegram-userss-data-exposed-on-darknet)
+  - [Millions of Telegram Users’ Data Exposed on Darknet - CoinTelegraph](https://cointelegraph.com/news/millions-of-telegram-userss-data-exposed-on-darknet)
   - It isn't a Telegram specific problem.
 Read [`Osint Problems`](#osint-problems), because: “Unfortunately,
 any contacts-based app faces the challenge of
