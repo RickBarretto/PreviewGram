@@ -1,4 +1,5 @@
-"""Will dial with database.
+"""
+Will dial with database.
 
 modules:
 - `src.model`
@@ -16,9 +17,7 @@ PATH = "./src/data/data.json"
 
 #-- functions
 def get_channels() -> dict:
-    """
-    Returns all channels saved.
-    """
+    """Returns all channels saved."""
     db = open(PATH, "r")
     f = db.read()
     chans = js.loads(f)

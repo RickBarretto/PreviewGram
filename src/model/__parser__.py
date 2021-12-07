@@ -1,6 +1,4 @@
-"""
-Transforms a non preview url to a Telegram preview url.
-"""
+"""Transforms a non preview url to a Telegram preview url."""
 
 def rts(url: str) -> str:
     """
