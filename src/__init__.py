@@ -108,7 +108,8 @@ class Window(QMainWindow):
 
     #-- Database :: checking
     def check(self, chan, url):
-        """Checks if the user input to add a new channel is correct.
+        """
+        Checks if the user input to add a new channel is correct.
 
         If yes, it'll call `add_chan`,
 
@@ -170,7 +171,8 @@ class Window(QMainWindow):
         """
         Wen mouse press the Window,
         `Window.pressing` is set as True
-        and start is set as Global position based on current mouse position."""
+        and start is set as Global position based on current mouse position.
+        """
         self.start = self.mapToGlobal(event.position())
         self.pressing = True
 
@@ -199,7 +201,8 @@ class Window(QMainWindow):
         """
         When mouse releases,
         the `Window.pressing` is setting as `False`
-        and the cursor is set as a `Qt.OpenHandCursor`."""
+        and the cursor is set as a `Qt.OpenHandCursor`.
+        """
         self.pressing = False
         self.setCursor(QCursor(Qt.OpenHandCursor))
 
@@ -207,7 +210,8 @@ class Window(QMainWindow):
 
     #-- Restart
     def restart (self):
-        """It'll restart the application for update channels on Window.
+        """
+        It'll restart the application for update channels on Window.
 
         It'll run when `ui.channel.ChannelDialog` is closed.
         """
@@ -218,7 +222,8 @@ class Window(QMainWindow):
 
 
 def open_win():
-    """Will instance and show a new Window.
+    """
+    Will instance and show a new Window.
 
     It is used to update channels on ``Window``.
     """
@@ -228,7 +233,8 @@ def open_win():
 
 
 def start_app():
-    """Inits the application!
+    """
+    Inits the application!
 
     Applies the theme, Open a Window and executes!
     """
