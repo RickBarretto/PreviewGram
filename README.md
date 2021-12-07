@@ -68,7 +68,6 @@ Telegram's Channel. It's because:
 
 Or [Download Last Release](https://github.com/RickBarretto/PreviewGram/releases/)
 
-
 ### Running without install
 
 - Clone this project
@@ -311,4 +310,3 @@ Articles:
 
 - [Hackers leak LinkedIn 700 million data scrape](https://therecord.media/hackers-leak-linkedin-700-million-data-scrape/)
 - [Facebook attributes 533 million users' data leak to "scraping" not hacking](https://www.bleepingcomputer.com/news/security/facebook-attributes-533-million-users-data-leak-to-scraping-not-hacking/)
-
