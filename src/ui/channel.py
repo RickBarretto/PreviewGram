@@ -6,7 +6,7 @@ from PySide6.QtWidgets import (
     QWidget, QPushButton,
     QDialog, QLineEdit
 )
-from PySide6.QtCore import Qt 
+from PySide6.QtCore import Qt
 from PySide6.QtGui import QCursor
 
 #-- importing functools to partial connect
@@ -20,6 +20,7 @@ class Update(QWidget):
 
     #-- Initing
     def __init__(self, parent, mainWin):
+        """Inits `Update`."""
         super().__init__(parent)
 
         #-- class' variables
@@ -34,21 +35,21 @@ class Update(QWidget):
 
         self.layout = QFormLayout(self)
         """Configures the layout as QForm."""
-        
+
         #-- Configuring
         self.input_config()
         self.config_layout()
 
         #-- Setting action
         self.action()
-        
+
 
     #-- Config
     def input_config(self):
         """Configures inputs (`Update.chan`, `Update.url`) max length."""
         self.chan.setMaxLength(20)
         self.url.setMaxLength(256)
-       
+
     def config_layout(self):
         """Adds widgets to `Update.layout`."""
         self.layout.addRow("Channel:", self.chan)
@@ -71,12 +72,13 @@ class Remove(QWidget):
     """Remove channels Page."""
 
     def __init__(self, parent, mainWin):
+        """Inits `Remove`."""
         super().__init__(parent)
 
         #-- class's variables
         self.mainWin = mainWin
         """Is the `src.Window`."""
-        
+
         self.channels = self.load_channels()
         """Updates and loads `src.Window.channels`."""
 
@@ -142,8 +144,8 @@ class Remove(QWidget):
     def destroy_self(self, btn):
         """Disable Button."""
         btn.setEnabled(False)
-            
-    
+
+
 
 #-- Channel Dialog Window
 class ChannelDialog(QDialog):
@@ -151,6 +153,7 @@ class ChannelDialog(QDialog):
     """It's a Dialog Window to dial with database."""
 
     def __init__(self, parent):
+        """Inits `ChannelDialog`."""
         super().__init__(parent)
 
         #-- class' variables
@@ -167,12 +170,12 @@ class ChannelDialog(QDialog):
 
         #-- Sets widgets layout
         self.ui()
-    
+
 
     def ui(self):
         """Configures UI components."""
         self.setWindowTitle("Channels")
-        self.setSizeGripEnabled(True) 
+        self.setSizeGripEnabled(True)
         self.combo_page()
         self.stacked_layout()
         self.layout.addWidget(self.pageCombo)
@@ -180,8 +183,9 @@ class ChannelDialog(QDialog):
 
     #-- WARNING: Important Attribute
     def config_att(self):
-        """WARNING: don't remove it!
-        
+        """
+        WARNING: don't remove it!
+
         Without it, the Application won't restart.
         """
         self.setAttribute(Qt.WA_DeleteOnClose, True)
@@ -197,7 +201,7 @@ class ChannelDialog(QDialog):
         """Create the Pagination layout."""
         self.stackedLayout.addWidget(Update(self, self.mainWin))
         self.stackedLayout.addWidget(Remove(self, self.mainWin))
-        
+
     #-- Action
     def switch_page(self):
         """Changes the Page."""
