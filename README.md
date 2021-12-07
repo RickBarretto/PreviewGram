@@ -137,7 +137,8 @@ So, PreviewGram can't:
 - To open links, do `RMB* > Copy link address`
 - If you want to watch videos,
 please use Tor** (or any Browser that you trust)
-- Click on `Test privacy!` button to test for yourself. It's tested by [What Is My Browser](https://www.whatismybrowser.com/)
+- Click on `Test privacy!` button to test for yourself.
+It's tested by [What Is My Browser](https://www.whatismybrowser.com/)
 \*\*\*
 
 > - \* RMB is Right Mouse Button
