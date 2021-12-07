@@ -10,7 +10,9 @@ from PySide6.QtWebEngineCore import QWebEngineSettings, QWebEngineProfile
 
 #-- Widget
 class Engine(QWebEngineView):
-    """Widget that will render the html file.
+
+    """
+    Widget that will render the html file.
     params:
     - parent: QWidget
     - url: QUrl
@@ -18,6 +20,7 @@ class Engine(QWebEngineView):
 
     #-- Init
     def __init__(self, parent:QWidget, mainWin, url: QUrl):
+        """Inits `Engine`."""
         super().__init__(parent)
 
         # Setting parameters
@@ -52,7 +55,6 @@ class Engine(QWebEngineView):
 
         <a href="https://github.com/RickBarretto/PreviewGram/issues">Report a Issue</a>.
         """
-
         self.page().settings().setAttribute(QWebEngineSettings.JavascriptEnabled, False)
         self.page().profile().clearHttpCache()
         print( "Off Record:" + str(self.page().profile().isOffTheRecord()) )
@@ -86,7 +88,8 @@ class Engine(QWebEngineView):
         self.setToolTip("[Right Mouse Button] > Copy Link Address")
 
     def url_changed(self):
-        """Clears HttpsCache and VisitedLinks and checks current url.
+        """
+        Clears HttpsCache and VisitedLinks and checks current url.
 
         - Todo:
             - Change url checker to intercept()
