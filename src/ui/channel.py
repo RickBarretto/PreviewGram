@@ -1,28 +1,34 @@
-#-- importing Qt modules
+# -- importing Qt modules
 from PySide6.QtWidgets import (
-    QComboBox, QFormLayout,
-    QLabel, QScrollArea,
-    QStackedLayout, QVBoxLayout,
-    QWidget, QPushButton,
-    QDialog, QLineEdit
+    QComboBox,
+    QFormLayout,
+    QLabel,
+    QScrollArea,
+    QStackedLayout,
+    QVBoxLayout,
+    QWidget,
+    QPushButton,
+    QDialog,
+    QLineEdit,
 )
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QCursor
 
-#-- importing functools to partial connect
+# -- importing functools to partial connect
 from functools import partial
 
 
-#-- Update Page
+# -- Update Page
 class Update(QWidget):
     """
     Update channels Page.
     """
+
     def __init__(self, parent, mainWin):
         """Inits `Update`."""
         super().__init__(parent)
 
-        #-- class' variables
+        # -- class' variables
         self.mainWin = mainWin
         """Is the `src.Window`."""
         self.chan = QLineEdit()
@@ -35,15 +41,14 @@ class Update(QWidget):
         self.layout = QFormLayout(self)
         """Configures the layout as QForm."""
 
-        #-- Configuring
+        # -- Configuring
         self.input_config()
         self.config_layout()
 
-        #-- Setting action
+        # -- Setting action
         self.action()
 
-
-    #-- Config
+    # -- Config
     def input_config(self):
         """Configures inputs (`Update.chan`, `Update.url`) max length."""
         self.chan.setMaxLength(20)
@@ -56,32 +61,32 @@ class Update(QWidget):
         self.layout.addRow(self.submitBtn)
         self.layout.addRow(QLabel("Close this window to update!"))
 
-
-    #-- Action
+    # -- Action
     def action(self):
         """Sends the inputs' text to `src.Window.check`."""
         self.submitBtn.clicked.connect(
             lambda: self.mainWin.check(self.chan.text(), self.url.text())
-            )
+        )
 
 
-#-- Remove Page
+# -- Remove Page
 class Remove(QWidget):
     """
     Remove channels Page.
     """
+
     def __init__(self, parent, mainWin):
         """Inits `Remove`."""
         super().__init__(parent)
 
-        #-- class's variables
+        # -- class's variables
         self.mainWin = mainWin
         """Is the `src.Window`."""
 
         self.channels = self.load_channels()
         """Updates and loads `src.Window.channels`."""
 
-        #-- class' widgets variables
+        # -- class' widgets variables
         self.layout = QVBoxLayout(self)
         """`Remove`'s layout."""
         self.wid = QWidget()
@@ -91,17 +96,16 @@ class Remove(QWidget):
         self.scroll = QScrollArea()
         """`Remove`'s Scroll Area."""
 
-        #-- generating layout
+        # -- generating layout
         self.gen_layout()
         self.wid.setLayout(self.wid_layout)
 
-        #-- confinguring layout
+        # -- confinguring layout
         self.config_scroll()
         self.config_layout()
         self.layout.addWidget(self.scroll)
 
-
-    #-- loading channels
+    # -- loading channels
     def load_channels(self):
         """Loads channels from database to `channels`."""
         self.mainWin.get_channels()
@@ -110,7 +114,7 @@ class Remove(QWidget):
         """Loads the channels dict" from `src.Window.channels`."""
         return channels
 
-    #-- generating layout
+    # -- generating layout
     def config_scroll(self):
         """Configures the Scroll Area."""
         self.scroll.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
@@ -122,7 +126,7 @@ class Remove(QWidget):
         """Configures the layout."""
         self.wid_layout.addStretch()
 
-    #-- Generating and setting action
+    # -- Generating and setting action
     def gen_layout(self):
         """
         Generates the widget layout.
@@ -131,7 +135,7 @@ class Remove(QWidget):
         """
         for chan in self.channels:
 
-            btn = QPushButton("Delete "+chan, self)
+            btn = QPushButton("Delete " + chan, self)
             btn.setMaximumHeight(300)
             btn.setMinimumHeight(50)
             btn.setCursor(QCursor(Qt.PointingHandCursor))
@@ -139,38 +143,38 @@ class Remove(QWidget):
             btn.clicked.connect(partial(self.destroy_self, btn))
             self.wid_layout.addWidget(btn, Qt.AlignBottom)
 
-    #-- Action
+    # -- Action
     def destroy_self(btn):
         """Disable Button."""
         btn.setEnabled(False)
 
 
+# -- Channel Dialog Window
 
-#-- Channel Dialog Window
 
 class ChannelDialog(QDialog):
     """
     It's a Dialog Window to dial with database.
     """
+
     def __init__(self, parent):
         """Inits `ChannelDialog`."""
         super().__init__(parent)
 
-        #-- class' variables
+        # -- class' variables
         self.mainWin = parent
         """It's the `src.Window` instance."""
 
-        #-- WARNING! Important attribute
+        # -- WARNING! Important attribute
         self.config_att()
 
-        #-- Configuring layout
+        # -- Configuring layout
         self.layout = QVBoxLayout(self)
         self.pageCombo = QComboBox()
         self.stackedLayout = QStackedLayout()
 
-        #-- Sets widgets layout
+        # -- Sets widgets layout
         self.ui()
-
 
     def ui(self):
         """Configures UI components."""
@@ -181,7 +185,7 @@ class ChannelDialog(QDialog):
         self.layout.addWidget(self.pageCombo)
         self.layout.addLayout(self.stackedLayout)
 
-    #-- WARNING: Important Attribute
+    # -- WARNING: Important Attribute
     def config_att(self):
         """
         WARNING: don't remove it!
@@ -190,21 +194,18 @@ class ChannelDialog(QDialog):
         """
         self.setAttribute(Qt.WA_DeleteOnClose, True)
 
-    #-- Layouts
+    # -- Layouts
     def combo_page(self):
         """Create the Switch Button."""
         self.pageCombo.addItems(["Add", "Delete"])
         self.pageCombo.activated.connect(self.switch_page)
-
 
     def stacked_layout(self):
         """Create the Pagination layout."""
         self.stackedLayout.addWidget(Update(self, self.mainWin))
         self.stackedLayout.addWidget(Remove(self, self.mainWin))
 
-    #-- Action
+    # -- Action
     def switch_page(self):
         """Changes the Page."""
         self.stackedLayout.setCurrentIndex(self.pageCombo.currentIndex())
-
-

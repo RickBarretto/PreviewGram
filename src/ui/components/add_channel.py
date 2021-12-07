@@ -1,10 +1,11 @@
-#-- importing Qt modules
+# -- importing Qt modules
 from PySide6.QtGui import QCursor
 from PySide6.QtWidgets import QPushButton
 from PySide6.QtCore import Qt
 
 
-#-- Widget Button
+# -- Widget Button
+
 
 class AddBtn(QPushButton):
     """
@@ -12,22 +13,22 @@ class AddBtn(QPushButton):
 
     When clicked, it'll open the `src.channel.ChannelDialog` Window.
     """
+
     def __init__(self, parent, mainWin):
         """Inits the `AddBtn`."""
         # parent = Container(QWidget)
         super().__init__(parent)
 
-        #-- class' variable
+        # -- class' variable
         self.mainWin = mainWin
         """It's the `src.Window` instance."""
 
-        #-- Configuring
+        # -- Configuring
         self.config()
-        #-- Action
+        # -- Action
         self.action()
 
-
-    #-- Configuring
+    # -- Configuring
     def config(self):
         """It'll configure the button."""
         self.setText("+")
@@ -35,11 +36,11 @@ class AddBtn(QPushButton):
         self.setStyleSheet(
             """
             color: #fff; background-color: #448aff;
-            """)
+            """
+        )
         self.setCursor(QCursor(Qt.PointingHandCursor))
 
-
-    #-- Action
+    # -- Action
     def action(self):
         """Defines the button act: create a `src.ui.channel.ChannelDialog`."""
         self.clicked.connect(self.mainWin.channelDialog)

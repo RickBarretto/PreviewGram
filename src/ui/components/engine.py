@@ -1,14 +1,15 @@
-#-- Importing basic QT modules
+# -- Importing basic QT modules
 from PySide6.QtGui import QCursor
 from PySide6.QtWidgets import QWidget
 from PySide6.QtCore import QUrl, Qt
 
-#-- Importing Web QT modules
+# -- Importing Web QT modules
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWebEngineCore import QWebEngineSettings, QWebEngineProfile
 
 
-#-- Widget
+# -- Widget
+
 
 class Engine(QWebEngineView):
     """
@@ -18,7 +19,8 @@ class Engine(QWebEngineView):
     - parent: QWidget
     - url: QUrl
     """
-    def __init__(self, parent:QWidget, mainWin, url: QUrl):
+
+    def __init__(self, parent: QWidget, mainWin, url: QUrl):
         """Inits `Engine`."""
         super().__init__(parent)
 
@@ -39,14 +41,13 @@ class Engine(QWebEngineView):
         self.page().linkHovered.connect(self.link_hover)
         self.page().urlChanged.connect(self.url_changed)
 
-
-    #-- Configuring
+    # -- Configuring
     def config_widget(self):
         """Configures the Widget."""
         self.setMinimumWidth(600)
 
-    #-- Privacy Config
-    #-- WARNING: Important!
+    # -- Privacy Config
+    # -- WARNING: Important!
     def privacy_config(self):
         """
         Configures the `Engine` attributes to improve user privacy, blocking Js, cookies, trackers...
@@ -56,19 +57,22 @@ class Engine(QWebEngineView):
         """
         self.page().settings().setAttribute(QWebEngineSettings.JavascriptEnabled, False)
         self.page().profile().clearHttpCache()
-        print( "Off Record:" + str(self.page().profile().isOffTheRecord()) )
+        print("Off Record:" + str(self.page().profile().isOffTheRecord()))
         self.page().profile().setPersistentStoragePath("")
-        self.page().profile().setPersistentCookiesPolicy(QWebEngineProfile.NoPersistentCookies)
-        self.page().profile().setHttpUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36")
+        self.page().profile().setPersistentCookiesPolicy(
+            QWebEngineProfile.NoPersistentCookies
+        )
+        self.page().profile().setHttpUserAgent(
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+        )
 
-    #-- WARNING: Important!
+    # -- WARNING: Important!
     def clear_data(self):
         """Clears HttpsCache and VisitedLinks."""
         self.page().profile().clearHttpCache()
         self.page().profile().clearAllVisitedLinks()
 
-
-    #-- Actions
+    # -- Actions
     def update(self):
         """Reload the `Engine`'s page."""
         self.reload()
