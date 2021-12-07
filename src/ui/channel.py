@@ -15,6 +15,7 @@ from functools import partial
 
 #-- Update Page
 class Update(QWidget):
+
     """Update channels Page."""
 
     #-- Initing
@@ -66,6 +67,7 @@ class Update(QWidget):
 
 #-- Remove Page
 class Remove(QWidget):
+
     """Remove channels Page."""
 
     def __init__(self, parent, mainWin):
@@ -126,7 +128,6 @@ class Remove(QWidget):
 
         The buttons connects to `src.Window.delete_chan` and later to `destroy_self`.
         """
-
         for chan in self.channels:
 
             btn = QPushButton("Delete "+chan, self)
@@ -146,6 +147,7 @@ class Remove(QWidget):
 
 #-- Channel Dialog Window
 class ChannelDialog(QDialog):
+
     """It's a Dialog Window to dial with database."""
 
     def __init__(self, parent):
@@ -169,7 +171,6 @@ class ChannelDialog(QDialog):
 
     def ui(self):
         """Configures UI components."""
-
         self.setWindowTitle("Channels")
         self.setSizeGripEnabled(True) 
         self.combo_page()
