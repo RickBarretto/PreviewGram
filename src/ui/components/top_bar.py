@@ -11,10 +11,12 @@ from PySide6.QtGui import QCursor
 
 #-- Sets Title
 class Title(QLabel):
+
     """Sets the Title."""
 
     #-- Init
     def __init__(self) -> None:
+        """Inits `Title`."""
         super().__init__()
         self.size = 35
         self.setText("Private Previewgram")
@@ -30,13 +32,16 @@ class Title(QLabel):
 
 #-- Sets Open on Github Button
 class Github(QPushButton):
-    """Creates a 'open Repository' Button.
+
+    """
+    Creates a 'open Repository' Button.
 
     it'll open on <a href="https://github.com/RickBarretto/PreviewGram">GitHub</a>.
     """
 
     #-- Init
     def __init__(self) -> None:
+        """Inits `Github`."""
         super().__init__()
 
         self.config()
@@ -56,13 +61,15 @@ class Github(QPushButton):
 
     #-- Action
     def action(self):
-        """When clicked,
+        """
+        When clicked,
         Opens <a href="https://github.com/RickBarretto/PreviewGram">Github link</a>
         on system default browser."""
         self.clicked.connect(self.__openGithub)
 
     def __openGithub(self):
-        """Opens <a href="https://github.com/RickBarretto/PreviewGram">Github link</a>
+        """
+        Opens <a href="https://github.com/RickBarretto/PreviewGram">Github link</a>
         on system default browser."""
         repo_link = "https://github.com/RickBarretto/PreviewGram"
         command = "explorer "+repo_link
@@ -73,10 +80,12 @@ class Github(QPushButton):
 
 #-- Sets the Close Window Button
 class CloseBtn(QPushButton):
+
     """Closes the `Window` and ends the application."""
 
     #-- Init
     def __init__(self, mainWin) -> None:
+        """Inits `Github`."""
         super().__init__()
 
         #-- class' variables
@@ -111,6 +120,7 @@ class CloseBtn(QPushButton):
 
 #-- Sets the Minimize Window Button
 class MinBtn(QPushButton):
+
     """Minimize Button: Minimizes the `src.Window` when clicked."""
 
     #-- Init
@@ -147,7 +157,10 @@ class MinBtn(QPushButton):
 
 #-- Sets the Window's TopBar
 class TopBar(QWidget):
-    """It will change the default Windows's title bar.
+
+    """
+    It will change the default Windows's title bar.
+
     param:
     - parent: QWidget
     """
