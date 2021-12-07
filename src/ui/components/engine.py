@@ -11,14 +11,14 @@ from PySide6.QtWebEngineCore import QWebEngineSettings, QWebEngineProfile
 #-- Widget
 
 class Engine(QWebEngineView):
-    
+
     """
     Widget that will render the html file.
+    
     params:
     - parent: QWidget
     - url: QUrl
     """
-    #-- Init
     def __init__(self, parent:QWidget, mainWin, url: QUrl):
         """Inits `Engine`."""
         super().__init__(parent)
@@ -94,4 +94,3 @@ class Engine(QWebEngineView):
         - Todo:
             - Change url checker to intercept()
         """
-        pass

@@ -12,8 +12,8 @@ from PySide6.QtWidgets import (
 #-- importing components modules
 from .components.chan_list import ChannelList as SideBar
 from .components.top_bar import TopBar
-from .components.engine import Engine  
-from .components.add_channel import AddBtn   
+from .components.engine import Engine
+from .components.add_channel import AddBtn
 
 
 #-- SubWidget: shows the content
@@ -23,9 +23,9 @@ class Content(QWidget):
     It's the content's container,
     that will show the SideBar
     (src.ui.components.chan_list.ChannelList) and the Engine (`src.ui.components.engine.Engine`).
-    
+
     > layout: `HBox`
-    params: 
+    params:
     - parent: QWidget
     - channels: dict
 
@@ -44,7 +44,7 @@ class Content(QWidget):
         """It's the application path."""
         self.eng = Engine(self, self.mainWin, QUrl.fromLocalFile(self.path+"/data/index.html"))
         """Instances the WebEngine (`src.ui.components.engine.Engine`)."""
-        
+
         self.add_btn = AddBtn(self, mainWin)
         """Adds the `AddBtn` to current Widget."""
 
@@ -87,7 +87,7 @@ class Container(QWidget):
     that will show the TopBar and Content.
 
     > layout: `VBox`
-    params: 
+    params:
     - parent: QMainWindow
     - channels: dict
 

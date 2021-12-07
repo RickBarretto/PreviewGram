@@ -12,7 +12,7 @@ from functools import partial
 #-- ChannelList Widget (SideBar)
 
 class ChannelList(QWidget):
-    
+
     """
     It's the application SideBar,
     that will load the channel List,

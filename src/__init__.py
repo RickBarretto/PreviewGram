@@ -2,14 +2,11 @@
 This module is the global module, dealing with submodules as model and ui.
 
 Here is started the application, generating a `Window` (That is the Main Window) and running with `start_app` method.
+- The Title Bar and movable Window from: https://stackoverflow.com/a/44249552
+- The QTTheme from: https://github.com/UN-GCPDS/qt-material
+- A lot of help was gave by Pinnaculum https://github.com/pinnaculum/
 
-The Title Bar and movable Window from: https://stackoverflow.com/a/44249552
-
-The QTTheme from: https://github.com/UN-GCPDS/qt-material
-
-A lot of help was gave by Pinnaculum https://github.com/pinnaculum/
-
-Thank you, yurisnm, UN-GCPDS and Pinnaculum!
+> Thank you, yurisnm, UN-GCPDS and Pinnaculum!
 """
 
 VERSION = 1.1

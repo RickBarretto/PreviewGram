@@ -16,6 +16,7 @@ from functools import partial
 #-- Update Page
 
 class Update(QWidget):
+
     """Update channels Page."""
 
     #-- Initing
@@ -141,7 +142,7 @@ class Remove(QWidget):
             self.wid_layout.addWidget(btn, Qt.AlignBottom)
 
     #-- Action
-    def destroy_self(self, btn):
+    def destroy_self(btn):
         """Disable Button."""
         btn.setEnabled(False)
 
