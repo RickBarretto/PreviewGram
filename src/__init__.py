@@ -1,5 +1,5 @@
-"""
-This module is the global module, dealing with submodules as model and ui.
+"""This module is the global module, dealing with submodules as model and ui.
+
 Here is started the application, generating a `Window` (That is the Main Window) and running with `start_app` method.
 
 The Title Bar and movable Window from: https://stackoverflow.com/a/44249552
