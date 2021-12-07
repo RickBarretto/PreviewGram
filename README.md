@@ -13,12 +13,9 @@
 ---
 
 <div align="center">
-  <a href="https://rickbarretto.github.io/PreviewGram/docs/docs">Docs</a>
-   | 
-  <a href="#how-to-install">Installing</a>
-   | 
-  <a href="https://github.com/RickBarretto/PreviewGram/issues">Issues</a>
-   | 
+  <a href="https://rickbarretto.github.io/PreviewGram/docs/docs">Docs</a>| 
+  <a href="#how-to-install">Installing</a>| 
+  <a href="https://github.com/RickBarretto/PreviewGram/issues">Issues</a>| 
   <a href="https://github.com/RickBarretto/PreviewGram/discussions">
     Discussions!
   </a>
@@ -26,13 +23,11 @@
 
 ---
 
-> [⚠️] - Warning:
-> 
+> \[⚠️\] - Warning: <br>
 > USE A **VPN** TO HIDE YOUR IP
 > **IT'S IN TEST**
 
-> PreviewGram is under LGPL License
-> 
+> PreviewGram is under LGPL License <br>
 > Application's theme from 
 > [UN-GCPDS/qt-material](https://github.com/UN-GCPDS/qt-material) under
 > [BSD-2-Clause License](https://github.com/UN-GCPDS/qt-material/blob/master/LICENSE).
@@ -53,8 +48,7 @@ Telegram's Channel. It's because:
 > - **\* PreviewGram doesn't protects you against it, because can't view Group
 > Chats.**
 
-> \[⚠️\] - Warning
->
+> \[⚠️\] - Warning <br>
 > If you don't enabled Github's JavaScript, go to 
 > [`Telegram Privacy Issues`](#telegram-privacy-issues) Topic to understand
 > more.
@@ -67,11 +61,10 @@ Telegram's Channel. It's because:
 > pip install dist/Private\ PreviewGram-1.1.tar.gz
 ```
 
-> [⚠️] - Note
+> \[⚠️\] - Note
 > If you're in another version, change the ``1.1`` for the current version.
 
-Or 
-[Download Last Release](https://github.com/RickBarretto/PreviewGram/releases/)
+Or [Download Last Release](https://github.com/RickBarretto/PreviewGram/releases/)
 
 
 ### Running without install
@@ -82,8 +75,7 @@ Or
 > git clone https://github.com/RickBarretto/PreviewGram.git
 ```
 
-- Or 
-[Download Source Code](https://github.com/RickBarretto/PreviewGram/archive/refs/heads/main.zip)
+- Or [Download Source Code](https://github.com/RickBarretto/PreviewGram/archive/refs/heads/main.zip)
 
 - On repository folder, run:
   
@@ -105,7 +97,7 @@ Just type:
 
 PreviewGram protects you when:
 
-- Disables JavaScript when Browsing 
+- Disables JavaScript when Browsing
   - Doesn't store cookies
   - Doesn't run trackers
 - Uses a generic Chrome user-agent
@@ -132,11 +124,11 @@ So, PreviewGram can't:
 - Download files directly*** (instead this, do:
 `RMB**** > Copy link address` and download on Telegram App)
 
-> - \* Use a VPN or Proxy. Read 
-> [`Why PreviewGram doesn't use Tor's Proxy by itself?`](#why-previewgram-doesnt-use-tors-proxy-by-itself)
+> - \* Use a VPN or Proxy. Read <br>
+> [`Why PreviewGram doesn't use Tor's Proxy by itself?`](#why-previewgram-doesnt-use-tors-proxy-by-itself) <br>
 > - \*\* Because JavaScript is disabled
 > - \*\*\* Preview website limitation
-> - \*\*\*\* RMB is Right Mouse Button 
+> - \*\*\*\* RMB is Right Mouse Button
 
 ## Tips
 
@@ -147,12 +139,11 @@ please use Tor** (or any Browser that you trust)
 - Click on `Test privacy!` button to test for yourself.
 It's tested by [What Is My Browser](https://www.whatismybrowser.com/)*** 
 
-> - \* RMB is Right Mouse Button 
-> - \*\* Read [`Accessing via Tor`](#accessing-via-tor)
-> - \*\*\* [What Is My Browser's Privacy Policy](https://www.whatismybrowser.com/about/legal/)
+> - \* RMB is Right Mouse Button <br>
+> - \*\* Read [`Accessing via Tor`](#accessing-via-tor) <br>
+> - \*\*\* [What Is My Browser's Privacy Policy](https://www.whatismybrowser.com/about/legal/) <br>
 
-> **Extra:** Accessing channels through TorBrowser
->
+> **Extra:** Accessing channels through TorBrowser <br>
 > Go to [``Accessing via Tor``](#accessing-via-tor) topic.
 
 ---
@@ -162,8 +153,7 @@ It's tested by [What Is My Browser](https://www.whatismybrowser.com/)***
 > Fork it and contribute!
 
 - Build instructions at [`How to install`](#how-to-install)
-- Documentation at 
-[Docs]("https://rickbarretto.github.io/PreviewGram/docs/docs/index.html")
+- Documentation at [Docs]("https://rickbarretto.github.io/PreviewGram/docs/docs/index.html")
 
 ### Realtime Docs
 
@@ -196,8 +186,7 @@ It's tested by [What Is My Browser](https://www.whatismybrowser.com/)***
 > sends to destiny using a Exit Node.
 
 
-> Sources:
-> 
+> Sources: <br>
 > - [Should I Use a VPN, Proxy, or Tor? - AVG](https://www.avg.com/en/signal/vpn-vs-proxy-vs-tor)
 > - [Penetration testing: TOR, VPN or proxy - InfoSec](https://resources.infosecinstitute.com/topic/penetration-testing-tor-vpn-or-proxy/)
 > - [What is the difference between a proxy and a VPN? - ProtonVPN](https://protonvpn.com/blog/proxy-vs-vpn/)
@@ -279,7 +268,7 @@ Telegram "Telegram is Not as Private as it Claims" saying
 that they "operates with zero transparency":
   - Source: [Cybercrime on Telegram: How Hackers Are Using the Messaging App to Share Data Leaks and Hacks - VPN Mentor](https://www.vpnmentor.com/blog/cybercrime-on-telegram/)
 - Telegram can suffer Law Enforcement
-  - [Telegram agreed to transfer to the special services [but not Russian] IP-addresses and numbers of some users](https://sudonull.com/post/11959-Telegram-agreed-to-transfer-to-the-special-services-but-not-Russian-IP-addresses-and-numbers-of-some) 
+  - [Telegram agreed to transfer to the special services \[but not Russian\] IP-addresses and numbers of some users](https://sudonull.com/post/11959-Telegram-agreed-to-transfer-to-the-special-services-but-not-Russian-IP-addresses-and-numbers-of-some) 
   - [Law Enforcement Authorities](https://telegram.org/privacy#8-3-law-enforcement-authorities)
 - In 2020, Telegram suffered a data leak:
   - Source: [Millions of Telegram Users’ Data Exposed on Darknet - CoinTelegraph](https://cointelegraph.com/news/millions-of-telegram-userss-data-exposed-on-darknet)
