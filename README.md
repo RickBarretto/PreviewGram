@@ -228,19 +228,19 @@ VPN+TOR issues.
 #### Accessing via Tor
 
 1. Create a "Telegram Channels" Folder on Bookmarks
-  - ![Create Folder](./assets/bookmarks.png)
-2. To access your favorite channel, put a ``/s/`` between the domain and
+  1. ![Create Folder](./assets/bookmarks.png)
+1. To access your favorite channel, put a ``/s/`` between the domain and
 channel name,
 example: `https://t.me/previewgram` to `https://t.me/s/previewgram`
-3. Save to "Telegram Channels"'s Bookmark Folder
-  - ![Save to BookMark](./assets/open.png)
-4. Access when you want!
-5. **Extra:** make [Tor portable](https://tb-manual.torproject.org/make-tor-portable/)
+1. Save to "Telegram Channels"'s Bookmark Folder
+  1. ![Save to BookMark](./assets/open.png)
+1. Access when you want!
+1. **Extra:** make [Tor portable](https://tb-manual.torproject.org/make-tor-portable/)
 and use the [Mobile Tor Browser](https://tb-manual.torproject.org/mobile-tor/)
 to use everywhere.
 
-> Sources:
->
+#### Sources:
+
 > - [MAKE TOR BROWSER PORTABLE - Tor Project](https://tb-manual.torproject.org/make-tor-portable/)
 > - [MOBILE TOR - Tor Project](https://tb-manual.torproject.org/mobile-tor/)
 
