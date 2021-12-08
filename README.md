@@ -1,4 +1,4 @@
-# Private PreviewGram 
+# Private PreviewGram
 
 ## Run away from Metadata
 
@@ -62,25 +62,54 @@ Telegram's Channel. It's because:
 
 - [Install Python 3.10](https://www.python.org/downloads/release/python-3101/)
 on your machine
+  - For non Python users, you can't use this application for while, read:
+[Issue: Can't compile to .exe #13](https://github.com/RickBarretto/PreviewGram/issues/13)
+
+### Using Pipx or Poetry
 
 ```bash
-> pip install git+https://github.com/RickBarretto/PreviewGram
-> pip install -r requirements.txt
-> py -m build
-> pip install dist/Private\ PreviewGram-{{version}}.tar.gz
+> pipx install git+https://github.com/RickBarretto/PreviewGram.git
 ```
 
-- For non Python users, you can't use this application for while, read:
-[Issue: Can't compile to .exe #13](https://github.com/RickBarretto/PreviewGram/issues/13) 
+```bash
+> poetry add git+https://github.com/RickBarretto/PreviewGram.git
+```
 
-\[⚠️\] - Note:
+### Why not to use Pip
 
-> If you're in another version, change the ``{{version}}`` for the current version.
+> You can install using Pip,
+just replace `pipx` on [Using Pipx](#using-pipx-or-poetry)
+by `pip`.
 
+But it isn't recommended!
+Because, PreviewGram uses some dependencies and
+it may cause conflicts with another packages or
+with your's personal project.
+
+I recommend to you, always use a `pipenv` or `poetry` for
+use packages and `pipx` for Python Applications.
+
+### Build instructions
+
+```bash
+> git clone https://github.com/RickBarretto/PreviewGram.git
+> pipx install -r requirements.txt
+> py -m build
+> pipx install dist/Private\ PreviewGram-{{version}}.tar.gz
+```
+
+or
+
+```bash
+> git clone https://github.com/RickBarretto/PreviewGram.git
+> poetry install
+> py -m build
+> poetry install dist/Private\ PreviewGram-{{version}}.tar.gz
+```
 
 ### Running without install
 
-- Clone this project
+- Just clone this project
 
 ```bash
 > git clone https://github.com/RickBarretto/PreviewGram.git
@@ -91,7 +120,7 @@ on your machine
 - On repository folder, run:
 
 ```bash
-> pip -m test_application.py
+> py -m test_application.py
 ```
 
 ## Running Application
