@@ -60,17 +60,23 @@ Telegram's Channel. It's because:
 
 ## How to install
 
+- [Install Python 3.10](https://www.python.org/downloads/release/python-3101/)
+on your machine
+
 ```bash
+> pip install git+https://github.com/RickBarretto/PreviewGram
 > pip install -r requirements.txt
 > py -m build
-> pip install dist/Private\ PreviewGram-1.1.tar.gz
+> pip install dist/Private\ PreviewGram-{{version}}.tar.gz
 ```
+
+- For non Python users, you can't use this application for while, read:
+[Issue: Can't compile to .exe #13](https://github.com/RickBarretto/PreviewGram/issues/13) 
 
 \[⚠️\] - Note:
 
-> If you're in another version, change the ``1.1`` for the current version.
+> If you're in another version, change the ``{{version}}`` for the current version.
 
-Or [Download Last Release](https://github.com/RickBarretto/PreviewGram/releases/)
 
 ### Running without install
 
