@@ -11,7 +11,7 @@ class AddBtn(QPushButton):
     """
     It's the blue button on Bottom Right Conner.
 
-    When clicked, it'll open the `src.channel.ChannelDialog` Window.
+    When clicked, it'll open the `src.dialog.ChannelDialog` Window.
     """
 
     def __init__(self, parent, mainWin):
@@ -42,5 +42,5 @@ class AddBtn(QPushButton):
 
     # -- Action
     def action(self):
-        """Defines the button act: create a `src.ui.channel.ChannelDialog`."""
+        """Defines the button act: create a `src.ui.dialog.ChannelDialog`."""
         self.clicked.connect(self.mainWin.channelDialog)

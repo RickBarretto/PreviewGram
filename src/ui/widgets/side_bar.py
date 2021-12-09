@@ -12,7 +12,7 @@ class ChannelList(QWidget):
     """
     It's the application SideBar,
     that will load the channel List,
-    creating buttons to change the `src.ui.components.engine.Engine` current url.
+    creating buttons to change the `src.ui.widgets.engine.Engine` current url.
     """
 
     def __init__(self, parent, channels: dict) -> None:

@@ -131,7 +131,7 @@ class Remove(QWidget):
         """
         Generates the widget layout.
 
-        The buttons connects to `src.Window.delete_chan` and later to `destroy_self`.
+        The buttons connects to `src.Window.delete_chan` and later to `disable_self`.
         """
         for chan in self.channels:
 
@@ -140,12 +140,18 @@ class Remove(QWidget):
             btn.setMinimumHeight(50)
             btn.setCursor(QCursor(Qt.PointingHandCursor))
             btn.clicked.connect(partial(self.mainWin.delete_chan, chan))
-            btn.clicked.connect(partial(self.destroy_self, btn))
+            btn.clicked.connect(partial(self.disable_self, btn))
             self.wid_layout.addWidget(btn, Qt.AlignBottom)
 
     # -- Action
-    def destroy_self(btn):
-        """Disable Button."""
+    def disable_self(self, btn):
+        """
+        Disables the clicked Button.
+
+        Obs.: Pylint must warning because the self is given on argument
+        without be used.
+        But, without him, it doesn't disables the button.
+        """
         btn.setEnabled(False)
 
 

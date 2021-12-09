@@ -1,5 +1,5 @@
 """
-This module is the global module, dealing with submodules as model and ui.
+This module is the global module, dealing with submodules as database and ui.
 
 Here is started the application, generating a `Window` (That is the Main Window) and running with `start_app` method.
 - The Title Bar and movable Window from: https://stackoverflow.com/a/44249552
@@ -75,7 +75,7 @@ class Window(QMainWindow):
     # -- Database
     def channelDialog(self):
         """
-        Opens a Window Dialog that dials with the database (`src.db`),
+        Opens a Window Dialog that dials with the database (`src.database`),
         adding and removing users...
         """
         dial = ChannelDialog(self)
@@ -84,25 +84,25 @@ class Window(QMainWindow):
 
     def get_channels(self):
         """
-        Gets channels fom database (Dialing with `src.model`)
+        Gets channels fom database (Dialing with `src.database`)
         and Updates Windows's `channels` variable.
         """
-        self.channels = src.model.get_channels()
+        self.channels = src.database.get_channels()
 
     def add_chan(self, chan, url):
         """
-        Adds channels to database (Dialing with `src.model`)
+        Adds channels to database (Dialing with `src.database`)
         and alert the user calling `added_channel`.
         """
-        src.model.add_channel(chan, url)
+        src.database.add_channel(chan, url)
         self.added_channel()
 
     def delete_chan(self, chan):
         """
-        Deletes channels on database (Dialing with `src.model`)
+        Deletes channels on database (Dialing with `src.database`)
         and updates `channels` variable.
         """
-        src.model.del_channel(chan)
+        src.database.del_channel(chan)
         self.get_channels()
 
     # -- Database :: checking
@@ -211,7 +211,7 @@ class Window(QMainWindow):
         """
         It'll restart the application for update channels on Window.
 
-        It'll run when `ui.channel.ChannelDialog` is closed.
+        It'll run when `ui.dialog.ChannelDialog` is closed.
         """
         print("closed!")
         open_win()
