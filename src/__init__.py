@@ -25,7 +25,7 @@ from qt_material import apply_stylesheet
 # -- importing application modules
 import src.model
 from src.ui import *
-from src.ui.channel import ChannelDialog
+from src.ui.dialog import ChannelDialog
 
 
 # -- Main Window
