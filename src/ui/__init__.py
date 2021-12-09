@@ -1,14 +1,14 @@
-"""Loads Widgets from `components` and creates the `Container` main Widget."""
+"""Loads Widgets from `widgets` and creates the `Container` main Widget."""
 
 # -- importing Qt modules
 from PySide6.QtCore import QUrl, Qt
 from PySide6.QtWidgets import QHBoxLayout, QMainWindow, QVBoxLayout, QWidget
 
-# -- importing components modules
-from .components.chan_list import ChannelList as SideBar
-from .components.top_bar import TopBar
-from .components.engine import Engine
-from .components.add_channel import AddBtn
+# -- importing widgets modules
+from .widgets.side_bar import ChannelList as SideBar
+from .widgets.top_bar import TopBar
+from .widgets.engine import Engine
+from .widgets.open_dialog import AddBtn
 
 
 # -- SubWidget: shows the content
@@ -19,7 +19,7 @@ class Content(QWidget):
     It's the content's container-
 
     It'll show the SideBar
-    (src.ui.components.chan_list.ChannelList) and the Engine (`src.ui.components.engine.Engine`).
+    (src.ui.widgets.chan_list.ChannelList) and the Engine (`src.ui.widgets.engine.Engine`).
 
     > layout: `HBox`
 
@@ -43,7 +43,7 @@ class Content(QWidget):
         self.eng = Engine(
             self, self.mainWin, QUrl.fromLocalFile(self.path + "/data/index.html")
         )
-        """Instances the WebEngine (`src.ui.components.engine.Engine`)."""
+        """Instances the WebEngine (`src.ui.widgets.engine.Engine`)."""
 
         self.add_btn = AddBtn(self, mainWin)
         """Adds the `AddBtn` to current Widget."""
@@ -73,7 +73,7 @@ class Content(QWidget):
         self.layout.addWidget((self.eng), 1)
 
     def open_url(self, url):
-        """Opens a url on `src.ui.components.engine.Engine`."""
+        """Opens a url on `src.ui.widgets.engine.Engine`."""
         print(f"handling url: {url}")
         self.eng.stop()
         self.eng.load(QUrl(url))
