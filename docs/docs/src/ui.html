@@ -30,10 +30,85 @@
 
                     <h2>Submodules</h2>
                     <ul>
-                            <li><a href="ui/channel.html">src.ui.channel</a></li>
-                            <li><a href="ui/components.html">src.ui.components</a></li>
-                            <li><a href="ui/ui.html">src.ui.ui</a></li>
+                            <li><a href="ui/dialog.html">src.ui.dialog</a></li>
+                            <li><a href="ui/widgets.html">src.ui.widgets</a></li>
                     </ul>
+
+                    <h2>API Documentation</h2>
+                        <ul class="memberlist">
+            <li>
+                    <a class="class" href="#Content">Content</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#Content.__init__">Content</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Content.channels">channels</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Content.mainWin">mainWin</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Content.path">path</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Content.eng">eng</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Content.add_btn">add_btn</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Content.layout">layout</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Content.config_widget">config_widget</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Content.config_layout">config_layout</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Content.add_widgets">add_widgets</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Content.open_url">open_url</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Content.staticMetaObject">staticMetaObject</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#Container">Container</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#Container.__init__">Container</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Container.channels">channels</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Container.mainWin">mainWin</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Container.path">path</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Container.layout">layout</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Container.config_layout">config_layout</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Container.add_widgets">add_widgets</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Container.staticMetaObject">staticMetaObject</a>
+                        </li>
+                </ul>
+
+            </li>
+    </ul>
 
 
                     <footer>Private PreviewGram 1.1</footer>
@@ -50,9 +125,1341 @@
                     <h1 class="modulename">
 <a href="./../src.html">src</a><wbr>.ui    </h1>
 
-                
-                
+                        <div class="docstring"><p>Loads Widgets from <code>widgets</code> and creates the <code><a href="#Container">Container</a></code> main Widget.</p>
+</div>
+
+                        <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="sd">&quot;&quot;&quot;Loads Widgets from `widgets` and creates the `Container` main Widget.&quot;&quot;&quot;</span>
+
+<span class="c1"># -- importing Qt modules</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="n">QUrl</span><span class="p">,</span> <span class="n">Qt</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="n">QHBoxLayout</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QWidget</span>
+
+<span class="c1"># -- importing widgets modules</span>
+<span class="kn">from</span> <span class="nn">.widgets.side_bar</span> <span class="kn">import</span> <span class="n">ChannelList</span> <span class="k">as</span> <span class="n">SideBar</span>
+<span class="kn">from</span> <span class="nn">.widgets.top_bar</span> <span class="kn">import</span> <span class="n">TopBar</span>
+<span class="kn">from</span> <span class="nn">.widgets.engine</span> <span class="kn">import</span> <span class="n">Engine</span>
+<span class="kn">from</span> <span class="nn">.widgets.open_dialog</span> <span class="kn">import</span> <span class="n">AddBtn</span>
+
+
+<span class="c1"># -- SubWidget: shows the content</span>
+
+
+<span class="k">class</span> <span class="nc">Content</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    It&#39;s the content&#39;s container-</span>
+
+<span class="sd">    It&#39;ll show the SideBar</span>
+<span class="sd">    (src.ui.widgets.chan_list.ChannelList) and the Engine (`src.ui.widgets.engine.Engine`).</span>
+
+<span class="sd">    &gt; layout: `HBox`</span>
+
+<span class="sd">    params:</span>
+<span class="sd">    - parent: QWidget</span>
+<span class="sd">    - channels: dict</span>
+
+<span class="sd">    &gt; ``channels`` must to be returned by the Model.get_channel()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Inits the `Content`.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
+        <span class="sd">&quot;&quot;&quot;`channels` is the channels loaded from database.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
+        <span class="sd">&quot;&quot;&quot;It&#39;s the main window instance.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="sd">&quot;&quot;&quot;It&#39;s the application path.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eng</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">,</span> <span class="n">QUrl</span><span class="o">.</span><span class="n">fromLocalFile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;/data/index.html&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Instances the WebEngine (`src.ui.widgets.engine.Engine`).&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_btn</span> <span class="o">=</span> <span class="n">AddBtn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Adds the `AddBtn` to current Widget.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">()</span>
+        <span class="sd">&quot;&quot;&quot;Sets layout as Horizontal Box.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_widget</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_widgets</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">config_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configures the `Content` Widget.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoFillBackground</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWhatsThis</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configures the `Content.layout`.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">setContentsMargins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addStretch</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_widgets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds `SideBar` and `eng` to `Content.layout`.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">SideBar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">eng</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">open_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Opens a url on `src.ui.widgets.engine.Engine`.&quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;handling url: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eng</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eng</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">QUrl</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+
+
+<span class="c1"># -- Main Widget: show the Topbar and Content</span>
+
+
+<span class="k">class</span> <span class="nc">Container</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    It&#39;s the main container,</span>
+<span class="sd">    that will show the TopBar and Content.</span>
+
+<span class="sd">    &gt; layout: `VBox`</span>
+<span class="sd">    params:</span>
+<span class="sd">    - parent: QMainWindow</span>
+<span class="sd">    - channels: dict</span>
+
+<span class="sd">    &gt; ``channels`` must to be returned by the Model.get_channel()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Inits `Container`.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+
+        <span class="c1"># Channel param</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
+        <span class="sd">&quot;&quot;&quot;Defines channels to be loaded.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="sd">&quot;&quot;&quot;Get the `src.Window` instance.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="sd">&quot;&quot;&quot;Gets the Application Path `src.Window.path`.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Init layout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Sets layout to QVBox.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Configuring</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_widgets</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configuring layout.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">setContentsMargins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addStretch</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_widgets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adding content.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">TopBar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">),</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignTop</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span>
+            <span class="n">Content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">),</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignTop</span>
+        <span class="p">)</span>
+</pre></div>
+
+        </details>
+
             </section>
+                <section id="Content">
+                                <div class="attr class">
+        <a class="headerlink" href="#Content">#&nbsp;&nbsp</a>
+
+        
+        <span class="def">class</span>
+        <span class="name">Content</span><wbr>(<span class="base">PySide6.QtWidgets.QWidget</span>):
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Content</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    It&#39;s the content&#39;s container-</span>
+
+<span class="sd">    It&#39;ll show the SideBar</span>
+<span class="sd">    (src.ui.widgets.chan_list.ChannelList) and the Engine (`src.ui.widgets.engine.Engine`).</span>
+
+<span class="sd">    &gt; layout: `HBox`</span>
+
+<span class="sd">    params:</span>
+<span class="sd">    - parent: QWidget</span>
+<span class="sd">    - channels: dict</span>
+
+<span class="sd">    &gt; ``channels`` must to be returned by the Model.get_channel()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Inits the `Content`.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
+        <span class="sd">&quot;&quot;&quot;`channels` is the channels loaded from database.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
+        <span class="sd">&quot;&quot;&quot;It&#39;s the main window instance.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="sd">&quot;&quot;&quot;It&#39;s the application path.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eng</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">,</span> <span class="n">QUrl</span><span class="o">.</span><span class="n">fromLocalFile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;/data/index.html&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Instances the WebEngine (`src.ui.widgets.engine.Engine`).&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_btn</span> <span class="o">=</span> <span class="n">AddBtn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Adds the `AddBtn` to current Widget.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">()</span>
+        <span class="sd">&quot;&quot;&quot;Sets layout as Horizontal Box.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_widget</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_widgets</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">config_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configures the `Content` Widget.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoFillBackground</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWhatsThis</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configures the `Content.layout`.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">setContentsMargins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addStretch</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_widgets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds `SideBar` and `eng` to `Content.layout`.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">SideBar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">eng</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">open_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Opens a url on `src.ui.widgets.engine.Engine`.&quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;handling url: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eng</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eng</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">QUrl</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+</pre></div>
+
+        </details>
+
+    
+
+                            <div id="Content.__init__" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Content.__init__">#&nbsp;&nbsp</a>
+
+        
+            <span class="name">Content</span><span class="signature">(parent: PySide6.QtWidgets.QWidget, mainWin, channels: dict, path)</span>
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Inits the `Content`.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
+        <span class="sd">&quot;&quot;&quot;`channels` is the channels loaded from database.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">mainWin</span>
+        <span class="sd">&quot;&quot;&quot;It&#39;s the main window instance.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="sd">&quot;&quot;&quot;It&#39;s the application path.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eng</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">,</span> <span class="n">QUrl</span><span class="o">.</span><span class="n">fromLocalFile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;/data/index.html&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Instances the WebEngine (`src.ui.widgets.engine.Engine`).&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_btn</span> <span class="o">=</span> <span class="n">AddBtn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mainWin</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Adds the `AddBtn` to current Widget.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">()</span>
+        <span class="sd">&quot;&quot;&quot;Sets layout as Horizontal Box.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_widget</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_widgets</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="p">)</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Inits the <code><a href="#Content">Content</a></code>.</p>
+</div>
+
+
+                            </div>
+                            <div id="Content.channels" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Content.channels">#&nbsp;&nbsp</a>
+
+        <span class="name">channels</span>
+    </div>
+
+            <div class="docstring"><p><code><a href="#Content.channels">channels</a></code> is the channels loaded from database.</p>
+</div>
+
+
+                            </div>
+                            <div id="Content.mainWin" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Content.mainWin">#&nbsp;&nbsp</a>
+
+        <span class="name">mainWin</span>
+    </div>
+
+            <div class="docstring"><p>It's the main window instance.</p>
+</div>
+
+
+                            </div>
+                            <div id="Content.path" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Content.path">#&nbsp;&nbsp</a>
+
+        <span class="name">path</span>
+    </div>
+
+            <div class="docstring"><p>It's the application path.</p>
+</div>
+
+
+                            </div>
+                            <div id="Content.eng" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Content.eng">#&nbsp;&nbsp</a>
+
+        <span class="name">eng</span>
+    </div>
+
+            <div class="docstring"><p>Instances the WebEngine (<code><a href="ui/widgets/engine.html#Engine">src.ui.widgets.engine.Engine</a></code>).</p>
+</div>
+
+
+                            </div>
+                            <div id="Content.add_btn" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Content.add_btn">#&nbsp;&nbsp</a>
+
+        <span class="name">add_btn</span>
+    </div>
+
+            <div class="docstring"><p>Adds the <code>AddBtn</code> to current Widget.</p>
+</div>
+
+
+                            </div>
+                            <div id="Content.layout" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Content.layout">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">layout</span><span class="signature">(self) -&gt; PySide6.QtWidgets.QLayout</span>:
+    </div>
+
+        
+            <div class="docstring"><p>layout(self) -> PySide6.QtWidgets.QLayout</p>
+</div>
+
+
+                            </div>
+                            <div id="Content.config_widget" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Content.config_widget">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">config_widget</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configures the `Content` Widget.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoFillBackground</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWhatsThis</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Configures the <code><a href="#Content">Content</a></code> Widget.</p>
+</div>
+
+
+                            </div>
+                            <div id="Content.config_layout" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Content.config_layout">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">config_layout</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configures the `Content.layout`.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">setContentsMargins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addStretch</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Configures the <code><a href="#Content.layout">Content.layout</a></code>.</p>
+</div>
+
+
+                            </div>
+                            <div id="Content.add_widgets" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Content.add_widgets">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">add_widgets</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">add_widgets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds `SideBar` and `eng` to `Content.layout`.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">SideBar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">eng</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Adds <code>SideBar</code> and <code><a href="#Content.eng">eng</a></code> to <code><a href="#Content.layout">Content.layout</a></code>.</p>
+</div>
+
+
+                            </div>
+                            <div id="Content.open_url" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Content.open_url">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">open_url</span><span class="signature">(self, url)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">open_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Opens a url on `src.ui.widgets.engine.Engine`.&quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;handling url: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eng</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eng</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">QUrl</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Opens a url on <code><a href="ui/widgets/engine.html#Engine">src.ui.widgets.engine.Engine</a></code>.</p>
+</div>
+
+
+                            </div>
+                            <div id="Content.staticMetaObject" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Content.staticMetaObject">#&nbsp;&nbsp</a>
+
+        <span class="name">staticMetaObject</span><span class="default_value"> = &lt;PySide6.QtCore.QMetaObject object&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>PySide6.QtWidgets.QWidget</dt>
+                                <dd id="Content.acceptDrops" class="function">acceptDrops</dd>
+                <dd id="Content.accessibleDescription" class="function">accessibleDescription</dd>
+                <dd id="Content.accessibleName" class="function">accessibleName</dd>
+                <dd id="Content.actionEvent" class="function">actionEvent</dd>
+                <dd id="Content.actions" class="function">actions</dd>
+                <dd id="Content.activateWindow" class="function">activateWindow</dd>
+                <dd id="Content.addAction" class="function">addAction</dd>
+                <dd id="Content.addActions" class="function">addActions</dd>
+                <dd id="Content.adjustSize" class="function">adjustSize</dd>
+                <dd id="Content.autoFillBackground" class="function">autoFillBackground</dd>
+                <dd id="Content.backgroundRole" class="function">backgroundRole</dd>
+                <dd id="Content.backingStore" class="function">backingStore</dd>
+                <dd id="Content.baseSize" class="function">baseSize</dd>
+                <dd id="Content.changeEvent" class="function">changeEvent</dd>
+                <dd id="Content.childAt" class="function">childAt</dd>
+                <dd id="Content.childrenRect" class="function">childrenRect</dd>
+                <dd id="Content.childrenRegion" class="function">childrenRegion</dd>
+                <dd id="Content.clearFocus" class="function">clearFocus</dd>
+                <dd id="Content.clearMask" class="function">clearMask</dd>
+                <dd id="Content.close" class="function">close</dd>
+                <dd id="Content.closeEvent" class="function">closeEvent</dd>
+                <dd id="Content.contentsMargins" class="function">contentsMargins</dd>
+                <dd id="Content.contentsRect" class="function">contentsRect</dd>
+                <dd id="Content.contextMenuEvent" class="function">contextMenuEvent</dd>
+                <dd id="Content.contextMenuPolicy" class="function">contextMenuPolicy</dd>
+                <dd id="Content.create" class="function">create</dd>
+                <dd id="Content.createWinId" class="function">createWinId</dd>
+                <dd id="Content.createWindowContainer" class="function">createWindowContainer</dd>
+                <dd id="Content.cursor" class="function">cursor</dd>
+                <dd id="Content.destroy" class="function">destroy</dd>
+                <dd id="Content.devType" class="function">devType</dd>
+                <dd id="Content.dragEnterEvent" class="function">dragEnterEvent</dd>
+                <dd id="Content.dragLeaveEvent" class="function">dragLeaveEvent</dd>
+                <dd id="Content.dragMoveEvent" class="function">dragMoveEvent</dd>
+                <dd id="Content.dropEvent" class="function">dropEvent</dd>
+                <dd id="Content.effectiveWinId" class="function">effectiveWinId</dd>
+                <dd id="Content.ensurePolished" class="function">ensurePolished</dd>
+                <dd id="Content.enterEvent" class="function">enterEvent</dd>
+                <dd id="Content.event" class="function">event</dd>
+                <dd id="Content.find" class="function">find</dd>
+                <dd id="Content.focusInEvent" class="function">focusInEvent</dd>
+                <dd id="Content.focusNextChild" class="function">focusNextChild</dd>
+                <dd id="Content.focusNextPrevChild" class="function">focusNextPrevChild</dd>
+                <dd id="Content.focusOutEvent" class="function">focusOutEvent</dd>
+                <dd id="Content.focusPolicy" class="function">focusPolicy</dd>
+                <dd id="Content.focusPreviousChild" class="function">focusPreviousChild</dd>
+                <dd id="Content.focusProxy" class="function">focusProxy</dd>
+                <dd id="Content.focusWidget" class="function">focusWidget</dd>
+                <dd id="Content.font" class="function">font</dd>
+                <dd id="Content.fontInfo" class="function">fontInfo</dd>
+                <dd id="Content.fontMetrics" class="function">fontMetrics</dd>
+                <dd id="Content.foregroundRole" class="function">foregroundRole</dd>
+                <dd id="Content.frameGeometry" class="function">frameGeometry</dd>
+                <dd id="Content.frameSize" class="function">frameSize</dd>
+                <dd id="Content.geometry" class="function">geometry</dd>
+                <dd id="Content.grab" class="function">grab</dd>
+                <dd id="Content.grabGesture" class="function">grabGesture</dd>
+                <dd id="Content.grabKeyboard" class="function">grabKeyboard</dd>
+                <dd id="Content.grabMouse" class="function">grabMouse</dd>
+                <dd id="Content.grabShortcut" class="function">grabShortcut</dd>
+                <dd id="Content.graphicsEffect" class="function">graphicsEffect</dd>
+                <dd id="Content.graphicsProxyWidget" class="function">graphicsProxyWidget</dd>
+                <dd id="Content.hasFocus" class="function">hasFocus</dd>
+                <dd id="Content.hasHeightForWidth" class="function">hasHeightForWidth</dd>
+                <dd id="Content.hasMouseTracking" class="function">hasMouseTracking</dd>
+                <dd id="Content.hasTabletTracking" class="function">hasTabletTracking</dd>
+                <dd id="Content.height" class="function">height</dd>
+                <dd id="Content.heightForWidth" class="function">heightForWidth</dd>
+                <dd id="Content.hide" class="function">hide</dd>
+                <dd id="Content.hideEvent" class="function">hideEvent</dd>
+                <dd id="Content.initPainter" class="function">initPainter</dd>
+                <dd id="Content.inputMethodEvent" class="function">inputMethodEvent</dd>
+                <dd id="Content.inputMethodHints" class="function">inputMethodHints</dd>
+                <dd id="Content.inputMethodQuery" class="function">inputMethodQuery</dd>
+                <dd id="Content.insertAction" class="function">insertAction</dd>
+                <dd id="Content.insertActions" class="function">insertActions</dd>
+                <dd id="Content.internalWinId" class="function">internalWinId</dd>
+                <dd id="Content.isActiveWindow" class="function">isActiveWindow</dd>
+                <dd id="Content.isAncestorOf" class="function">isAncestorOf</dd>
+                <dd id="Content.isEnabled" class="function">isEnabled</dd>
+                <dd id="Content.isEnabledTo" class="function">isEnabledTo</dd>
+                <dd id="Content.isFullScreen" class="function">isFullScreen</dd>
+                <dd id="Content.isHidden" class="function">isHidden</dd>
+                <dd id="Content.isLeftToRight" class="function">isLeftToRight</dd>
+                <dd id="Content.isMaximized" class="function">isMaximized</dd>
+                <dd id="Content.isMinimized" class="function">isMinimized</dd>
+                <dd id="Content.isModal" class="function">isModal</dd>
+                <dd id="Content.isRightToLeft" class="function">isRightToLeft</dd>
+                <dd id="Content.isTopLevel" class="function">isTopLevel</dd>
+                <dd id="Content.isVisible" class="function">isVisible</dd>
+                <dd id="Content.isVisibleTo" class="function">isVisibleTo</dd>
+                <dd id="Content.isWindow" class="function">isWindow</dd>
+                <dd id="Content.isWindowModified" class="function">isWindowModified</dd>
+                <dd id="Content.keyPressEvent" class="function">keyPressEvent</dd>
+                <dd id="Content.keyReleaseEvent" class="function">keyReleaseEvent</dd>
+                <dd id="Content.keyboardGrabber" class="function">keyboardGrabber</dd>
+                <dd id="Content.layoutDirection" class="function">layoutDirection</dd>
+                <dd id="Content.leaveEvent" class="function">leaveEvent</dd>
+                <dd id="Content.locale" class="function">locale</dd>
+                <dd id="Content.lower" class="function">lower</dd>
+                <dd id="Content.mapFrom" class="function">mapFrom</dd>
+                <dd id="Content.mapFromGlobal" class="function">mapFromGlobal</dd>
+                <dd id="Content.mapFromParent" class="function">mapFromParent</dd>
+                <dd id="Content.mapTo" class="function">mapTo</dd>
+                <dd id="Content.mapToGlobal" class="function">mapToGlobal</dd>
+                <dd id="Content.mapToParent" class="function">mapToParent</dd>
+                <dd id="Content.mask" class="function">mask</dd>
+                <dd id="Content.maximumHeight" class="function">maximumHeight</dd>
+                <dd id="Content.maximumSize" class="function">maximumSize</dd>
+                <dd id="Content.maximumWidth" class="function">maximumWidth</dd>
+                <dd id="Content.metric" class="function">metric</dd>
+                <dd id="Content.minimumHeight" class="function">minimumHeight</dd>
+                <dd id="Content.minimumSize" class="function">minimumSize</dd>
+                <dd id="Content.minimumSizeHint" class="function">minimumSizeHint</dd>
+                <dd id="Content.minimumWidth" class="function">minimumWidth</dd>
+                <dd id="Content.mouseDoubleClickEvent" class="function">mouseDoubleClickEvent</dd>
+                <dd id="Content.mouseGrabber" class="function">mouseGrabber</dd>
+                <dd id="Content.mouseMoveEvent" class="function">mouseMoveEvent</dd>
+                <dd id="Content.mousePressEvent" class="function">mousePressEvent</dd>
+                <dd id="Content.mouseReleaseEvent" class="function">mouseReleaseEvent</dd>
+                <dd id="Content.move" class="function">move</dd>
+                <dd id="Content.moveEvent" class="function">moveEvent</dd>
+                <dd id="Content.nativeEvent" class="function">nativeEvent</dd>
+                <dd id="Content.nativeParentWidget" class="function">nativeParentWidget</dd>
+                <dd id="Content.nextInFocusChain" class="function">nextInFocusChain</dd>
+                <dd id="Content.normalGeometry" class="function">normalGeometry</dd>
+                <dd id="Content.overrideWindowFlags" class="function">overrideWindowFlags</dd>
+                <dd id="Content.overrideWindowState" class="function">overrideWindowState</dd>
+                <dd id="Content.paintEngine" class="function">paintEngine</dd>
+                <dd id="Content.paintEvent" class="function">paintEvent</dd>
+                <dd id="Content.palette" class="function">palette</dd>
+                <dd id="Content.parentWidget" class="function">parentWidget</dd>
+                <dd id="Content.pos" class="function">pos</dd>
+                <dd id="Content.previousInFocusChain" class="function">previousInFocusChain</dd>
+                <dd id="Content.raise_" class="function">raise_</dd>
+                <dd id="Content.rect" class="function">rect</dd>
+                <dd id="Content.redirected" class="function">redirected</dd>
+                <dd id="Content.releaseKeyboard" class="function">releaseKeyboard</dd>
+                <dd id="Content.releaseMouse" class="function">releaseMouse</dd>
+                <dd id="Content.releaseShortcut" class="function">releaseShortcut</dd>
+                <dd id="Content.removeAction" class="function">removeAction</dd>
+                <dd id="Content.render" class="function">render</dd>
+                <dd id="Content.repaint" class="function">repaint</dd>
+                <dd id="Content.resize" class="function">resize</dd>
+                <dd id="Content.resizeEvent" class="function">resizeEvent</dd>
+                <dd id="Content.restoreGeometry" class="function">restoreGeometry</dd>
+                <dd id="Content.saveGeometry" class="function">saveGeometry</dd>
+                <dd id="Content.screen" class="function">screen</dd>
+                <dd id="Content.scroll" class="function">scroll</dd>
+                <dd id="Content.setAcceptDrops" class="function">setAcceptDrops</dd>
+                <dd id="Content.setAccessibleDescription" class="function">setAccessibleDescription</dd>
+                <dd id="Content.setAccessibleName" class="function">setAccessibleName</dd>
+                <dd id="Content.setAttribute" class="function">setAttribute</dd>
+                <dd id="Content.setAutoFillBackground" class="function">setAutoFillBackground</dd>
+                <dd id="Content.setBackgroundRole" class="function">setBackgroundRole</dd>
+                <dd id="Content.setBaseSize" class="function">setBaseSize</dd>
+                <dd id="Content.setContentsMargins" class="function">setContentsMargins</dd>
+                <dd id="Content.setContextMenuPolicy" class="function">setContextMenuPolicy</dd>
+                <dd id="Content.setCursor" class="function">setCursor</dd>
+                <dd id="Content.setDisabled" class="function">setDisabled</dd>
+                <dd id="Content.setEnabled" class="function">setEnabled</dd>
+                <dd id="Content.setFixedHeight" class="function">setFixedHeight</dd>
+                <dd id="Content.setFixedSize" class="function">setFixedSize</dd>
+                <dd id="Content.setFixedWidth" class="function">setFixedWidth</dd>
+                <dd id="Content.setFocus" class="function">setFocus</dd>
+                <dd id="Content.setFocusPolicy" class="function">setFocusPolicy</dd>
+                <dd id="Content.setFocusProxy" class="function">setFocusProxy</dd>
+                <dd id="Content.setFont" class="function">setFont</dd>
+                <dd id="Content.setForegroundRole" class="function">setForegroundRole</dd>
+                <dd id="Content.setGeometry" class="function">setGeometry</dd>
+                <dd id="Content.setGraphicsEffect" class="function">setGraphicsEffect</dd>
+                <dd id="Content.setHidden" class="function">setHidden</dd>
+                <dd id="Content.setInputMethodHints" class="function">setInputMethodHints</dd>
+                <dd id="Content.setLayout" class="function">setLayout</dd>
+                <dd id="Content.setLayoutDirection" class="function">setLayoutDirection</dd>
+                <dd id="Content.setLocale" class="function">setLocale</dd>
+                <dd id="Content.setMask" class="function">setMask</dd>
+                <dd id="Content.setMaximumHeight" class="function">setMaximumHeight</dd>
+                <dd id="Content.setMaximumSize" class="function">setMaximumSize</dd>
+                <dd id="Content.setMaximumWidth" class="function">setMaximumWidth</dd>
+                <dd id="Content.setMinimumHeight" class="function">setMinimumHeight</dd>
+                <dd id="Content.setMinimumSize" class="function">setMinimumSize</dd>
+                <dd id="Content.setMinimumWidth" class="function">setMinimumWidth</dd>
+                <dd id="Content.setMouseTracking" class="function">setMouseTracking</dd>
+                <dd id="Content.setPalette" class="function">setPalette</dd>
+                <dd id="Content.setParent" class="function">setParent</dd>
+                <dd id="Content.setScreen" class="function">setScreen</dd>
+                <dd id="Content.setShortcutAutoRepeat" class="function">setShortcutAutoRepeat</dd>
+                <dd id="Content.setShortcutEnabled" class="function">setShortcutEnabled</dd>
+                <dd id="Content.setSizeIncrement" class="function">setSizeIncrement</dd>
+                <dd id="Content.setSizePolicy" class="function">setSizePolicy</dd>
+                <dd id="Content.setStatusTip" class="function">setStatusTip</dd>
+                <dd id="Content.setStyle" class="function">setStyle</dd>
+                <dd id="Content.setStyleSheet" class="function">setStyleSheet</dd>
+                <dd id="Content.setTabOrder" class="function">setTabOrder</dd>
+                <dd id="Content.setTabletTracking" class="function">setTabletTracking</dd>
+                <dd id="Content.setToolTip" class="function">setToolTip</dd>
+                <dd id="Content.setToolTipDuration" class="function">setToolTipDuration</dd>
+                <dd id="Content.setUpdatesEnabled" class="function">setUpdatesEnabled</dd>
+                <dd id="Content.setVisible" class="function">setVisible</dd>
+                <dd id="Content.setWhatsThis" class="function">setWhatsThis</dd>
+                <dd id="Content.setWindowFilePath" class="function">setWindowFilePath</dd>
+                <dd id="Content.setWindowFlag" class="function">setWindowFlag</dd>
+                <dd id="Content.setWindowFlags" class="function">setWindowFlags</dd>
+                <dd id="Content.setWindowIcon" class="function">setWindowIcon</dd>
+                <dd id="Content.setWindowIconText" class="function">setWindowIconText</dd>
+                <dd id="Content.setWindowModality" class="function">setWindowModality</dd>
+                <dd id="Content.setWindowModified" class="function">setWindowModified</dd>
+                <dd id="Content.setWindowOpacity" class="function">setWindowOpacity</dd>
+                <dd id="Content.setWindowRole" class="function">setWindowRole</dd>
+                <dd id="Content.setWindowState" class="function">setWindowState</dd>
+                <dd id="Content.setWindowTitle" class="function">setWindowTitle</dd>
+                <dd id="Content.sharedPainter" class="function">sharedPainter</dd>
+                <dd id="Content.show" class="function">show</dd>
+                <dd id="Content.showEvent" class="function">showEvent</dd>
+                <dd id="Content.showFullScreen" class="function">showFullScreen</dd>
+                <dd id="Content.showMaximized" class="function">showMaximized</dd>
+                <dd id="Content.showMinimized" class="function">showMinimized</dd>
+                <dd id="Content.showNormal" class="function">showNormal</dd>
+                <dd id="Content.size" class="function">size</dd>
+                <dd id="Content.sizeHint" class="function">sizeHint</dd>
+                <dd id="Content.sizeIncrement" class="function">sizeIncrement</dd>
+                <dd id="Content.sizePolicy" class="function">sizePolicy</dd>
+                <dd id="Content.stackUnder" class="function">stackUnder</dd>
+                <dd id="Content.statusTip" class="function">statusTip</dd>
+                <dd id="Content.style" class="function">style</dd>
+                <dd id="Content.styleSheet" class="function">styleSheet</dd>
+                <dd id="Content.tabletEvent" class="function">tabletEvent</dd>
+                <dd id="Content.testAttribute" class="function">testAttribute</dd>
+                <dd id="Content.toolTip" class="function">toolTip</dd>
+                <dd id="Content.toolTipDuration" class="function">toolTipDuration</dd>
+                <dd id="Content.topLevelWidget" class="function">topLevelWidget</dd>
+                <dd id="Content.underMouse" class="function">underMouse</dd>
+                <dd id="Content.ungrabGesture" class="function">ungrabGesture</dd>
+                <dd id="Content.unsetCursor" class="function">unsetCursor</dd>
+                <dd id="Content.unsetLayoutDirection" class="function">unsetLayoutDirection</dd>
+                <dd id="Content.unsetLocale" class="function">unsetLocale</dd>
+                <dd id="Content.update" class="function">update</dd>
+                <dd id="Content.updateGeometry" class="function">updateGeometry</dd>
+                <dd id="Content.updateMicroFocus" class="function">updateMicroFocus</dd>
+                <dd id="Content.updatesEnabled" class="function">updatesEnabled</dd>
+                <dd id="Content.visibleRegion" class="function">visibleRegion</dd>
+                <dd id="Content.whatsThis" class="function">whatsThis</dd>
+                <dd id="Content.wheelEvent" class="function">wheelEvent</dd>
+                <dd id="Content.width" class="function">width</dd>
+                <dd id="Content.winId" class="function">winId</dd>
+                <dd id="Content.window" class="function">window</dd>
+                <dd id="Content.windowFilePath" class="function">windowFilePath</dd>
+                <dd id="Content.windowFlags" class="function">windowFlags</dd>
+                <dd id="Content.windowHandle" class="function">windowHandle</dd>
+                <dd id="Content.windowIcon" class="function">windowIcon</dd>
+                <dd id="Content.windowIconText" class="function">windowIconText</dd>
+                <dd id="Content.windowModality" class="function">windowModality</dd>
+                <dd id="Content.windowOpacity" class="function">windowOpacity</dd>
+                <dd id="Content.windowRole" class="function">windowRole</dd>
+                <dd id="Content.windowState" class="function">windowState</dd>
+                <dd id="Content.windowTitle" class="function">windowTitle</dd>
+                <dd id="Content.windowType" class="function">windowType</dd>
+                <dd id="Content.x" class="function">x</dd>
+                <dd id="Content.y" class="function">y</dd>
+                <dd id="Content.RenderFlag" class="class">RenderFlag</dd>
+                <dd id="Content.RenderFlags" class="class">RenderFlags</dd>
+                <dd id="Content.DrawWindowBackground" class="variable">DrawWindowBackground</dd>
+                <dd id="Content.DrawChildren" class="variable">DrawChildren</dd>
+                <dd id="Content.IgnoreMask" class="variable">IgnoreMask</dd>
+                <dd id="Content.customContextMenuRequested" class="function">customContextMenuRequested</dd>
+                <dd id="Content.windowIconChanged" class="function">windowIconChanged</dd>
+                <dd id="Content.windowIconTextChanged" class="function">windowIconTextChanged</dd>
+                <dd id="Content.windowTitleChanged" class="function">windowTitleChanged</dd>
+
+            </div>
+            <div><dt>PySide6.QtCore.QObject</dt>
+                                <dd id="Content.blockSignals" class="function">blockSignals</dd>
+                <dd id="Content.childEvent" class="function">childEvent</dd>
+                <dd id="Content.children" class="function">children</dd>
+                <dd id="Content.connect" class="function">connect</dd>
+                <dd id="Content.connectNotify" class="function">connectNotify</dd>
+                <dd id="Content.customEvent" class="function">customEvent</dd>
+                <dd id="Content.deleteLater" class="function">deleteLater</dd>
+                <dd id="Content.disconnect" class="function">disconnect</dd>
+                <dd id="Content.disconnectNotify" class="function">disconnectNotify</dd>
+                <dd id="Content.dumpObjectInfo" class="function">dumpObjectInfo</dd>
+                <dd id="Content.dumpObjectTree" class="function">dumpObjectTree</dd>
+                <dd id="Content.dynamicPropertyNames" class="function">dynamicPropertyNames</dd>
+                <dd id="Content.emit" class="function">emit</dd>
+                <dd id="Content.eventFilter" class="function">eventFilter</dd>
+                <dd id="Content.findChild" class="function">findChild</dd>
+                <dd id="Content.findChildren" class="function">findChildren</dd>
+                <dd id="Content.inherits" class="function">inherits</dd>
+                <dd id="Content.installEventFilter" class="function">installEventFilter</dd>
+                <dd id="Content.isSignalConnected" class="function">isSignalConnected</dd>
+                <dd id="Content.isWidgetType" class="function">isWidgetType</dd>
+                <dd id="Content.isWindowType" class="function">isWindowType</dd>
+                <dd id="Content.killTimer" class="function">killTimer</dd>
+                <dd id="Content.metaObject" class="function">metaObject</dd>
+                <dd id="Content.moveToThread" class="function">moveToThread</dd>
+                <dd id="Content.objectName" class="function">objectName</dd>
+                <dd id="Content.parent" class="function">parent</dd>
+                <dd id="Content.property" class="function">property</dd>
+                <dd id="Content.receivers" class="function">receivers</dd>
+                <dd id="Content.removeEventFilter" class="function">removeEventFilter</dd>
+                <dd id="Content.sender" class="function">sender</dd>
+                <dd id="Content.senderSignalIndex" class="function">senderSignalIndex</dd>
+                <dd id="Content.setObjectName" class="function">setObjectName</dd>
+                <dd id="Content.setProperty" class="function">setProperty</dd>
+                <dd id="Content.signalsBlocked" class="function">signalsBlocked</dd>
+                <dd id="Content.startTimer" class="function">startTimer</dd>
+                <dd id="Content.thread" class="function">thread</dd>
+                <dd id="Content.timerEvent" class="function">timerEvent</dd>
+                <dd id="Content.tr" class="function">tr</dd>
+                <dd id="Content.destroyed" class="function">destroyed</dd>
+                <dd id="Content.objectNameChanged" class="function">objectNameChanged</dd>
+
+            </div>
+            <div><dt>PySide6.QtGui.QPaintDevice</dt>
+                                <dd id="Content.colorCount" class="function">colorCount</dd>
+                <dd id="Content.depth" class="function">depth</dd>
+                <dd id="Content.devicePixelRatio" class="function">devicePixelRatio</dd>
+                <dd id="Content.devicePixelRatioF" class="function">devicePixelRatioF</dd>
+                <dd id="Content.devicePixelRatioFScale" class="function">devicePixelRatioFScale</dd>
+                <dd id="Content.heightMM" class="function">heightMM</dd>
+                <dd id="Content.logicalDpiX" class="function">logicalDpiX</dd>
+                <dd id="Content.logicalDpiY" class="function">logicalDpiY</dd>
+                <dd id="Content.paintingActive" class="function">paintingActive</dd>
+                <dd id="Content.physicalDpiX" class="function">physicalDpiX</dd>
+                <dd id="Content.physicalDpiY" class="function">physicalDpiY</dd>
+                <dd id="Content.widthMM" class="function">widthMM</dd>
+                <dd id="Content.painters" class="variable">painters</dd>
+                <dd id="Content.PaintDeviceMetric" class="class">PaintDeviceMetric</dd>
+                <dd id="Content.PdmWidth" class="variable">PdmWidth</dd>
+                <dd id="Content.PdmHeight" class="variable">PdmHeight</dd>
+                <dd id="Content.PdmWidthMM" class="variable">PdmWidthMM</dd>
+                <dd id="Content.PdmHeightMM" class="variable">PdmHeightMM</dd>
+                <dd id="Content.PdmNumColors" class="variable">PdmNumColors</dd>
+                <dd id="Content.PdmDepth" class="variable">PdmDepth</dd>
+                <dd id="Content.PdmDpiX" class="variable">PdmDpiX</dd>
+                <dd id="Content.PdmDpiY" class="variable">PdmDpiY</dd>
+                <dd id="Content.PdmPhysicalDpiX" class="variable">PdmPhysicalDpiX</dd>
+                <dd id="Content.PdmPhysicalDpiY" class="variable">PdmPhysicalDpiY</dd>
+                <dd id="Content.PdmDevicePixelRatio" class="variable">PdmDevicePixelRatio</dd>
+                <dd id="Content.PdmDevicePixelRatioScaled" class="variable">PdmDevicePixelRatioScaled</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
+                <section id="Container">
+                                <div class="attr class">
+        <a class="headerlink" href="#Container">#&nbsp;&nbsp</a>
+
+        
+        <span class="def">class</span>
+        <span class="name">Container</span><wbr>(<span class="base">PySide6.QtWidgets.QWidget</span>):
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Container</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    It&#39;s the main container,</span>
+<span class="sd">    that will show the TopBar and Content.</span>
+
+<span class="sd">    &gt; layout: `VBox`</span>
+<span class="sd">    params:</span>
+<span class="sd">    - parent: QMainWindow</span>
+<span class="sd">    - channels: dict</span>
+
+<span class="sd">    &gt; ``channels`` must to be returned by the Model.get_channel()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Inits `Container`.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+
+        <span class="c1"># Channel param</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
+        <span class="sd">&quot;&quot;&quot;Defines channels to be loaded.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="sd">&quot;&quot;&quot;Get the `src.Window` instance.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="sd">&quot;&quot;&quot;Gets the Application Path `src.Window.path`.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Init layout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Sets layout to QVBox.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Configuring</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_widgets</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configuring layout.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">setContentsMargins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addStretch</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_widgets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adding content.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">TopBar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">),</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignTop</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span>
+            <span class="n">Content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">),</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignTop</span>
+        <span class="p">)</span>
+</pre></div>
+
+        </details>
+
+    
+
+                            <div id="Container.__init__" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Container.__init__">#&nbsp;&nbsp</a>
+
+        
+            <span class="name">Container</span><span class="signature">(parent: PySide6.QtWidgets.QMainWindow, channels: dict, path)</span>
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Inits `Container`.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+
+        <span class="c1"># Channel param</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
+        <span class="sd">&quot;&quot;&quot;Defines channels to be loaded.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="sd">&quot;&quot;&quot;Get the `src.Window` instance.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="sd">&quot;&quot;&quot;Gets the Application Path `src.Window.path`.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Init layout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Sets layout to QVBox.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Configuring</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_layout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_widgets</span><span class="p">()</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Inits <code><a href="#Container">Container</a></code>.</p>
+</div>
+
+
+                            </div>
+                            <div id="Container.channels" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Container.channels">#&nbsp;&nbsp</a>
+
+        <span class="name">channels</span>
+    </div>
+
+            <div class="docstring"><p>Defines channels to be loaded.</p>
+</div>
+
+
+                            </div>
+                            <div id="Container.mainWin" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Container.mainWin">#&nbsp;&nbsp</a>
+
+        <span class="name">mainWin</span>
+    </div>
+
+            <div class="docstring"><p>Get the <code><a href="../src.html#Window">src.Window</a></code> instance.</p>
+</div>
+
+
+                            </div>
+                            <div id="Container.path" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Container.path">#&nbsp;&nbsp</a>
+
+        <span class="name">path</span>
+    </div>
+
+            <div class="docstring"><p>Gets the Application Path <code><a href="../src.html#Window.path">src.Window.path</a></code>.</p>
+</div>
+
+
+                            </div>
+                            <div id="Container.layout" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Container.layout">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">layout</span><span class="signature">(self) -&gt; PySide6.QtWidgets.QLayout</span>:
+    </div>
+
+        
+            <div class="docstring"><p>layout(self) -> PySide6.QtWidgets.QLayout</p>
+</div>
+
+
+                            </div>
+                            <div id="Container.config_layout" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Container.config_layout">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">config_layout</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configuring layout.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">setContentsMargins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addStretch</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Configuring layout.</p>
+</div>
+
+
+                            </div>
+                            <div id="Container.add_widgets" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Container.add_widgets">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">add_widgets</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">add_widgets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adding content.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">TopBar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">),</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignTop</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span>
+            <span class="n">Content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mainWin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">),</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignTop</span>
+        <span class="p">)</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Adding content.</p>
+</div>
+
+
+                            </div>
+                            <div id="Container.staticMetaObject" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Container.staticMetaObject">#&nbsp;&nbsp</a>
+
+        <span class="name">staticMetaObject</span><span class="default_value"> = &lt;PySide6.QtCore.QMetaObject object&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>PySide6.QtWidgets.QWidget</dt>
+                                <dd id="Container.acceptDrops" class="function">acceptDrops</dd>
+                <dd id="Container.accessibleDescription" class="function">accessibleDescription</dd>
+                <dd id="Container.accessibleName" class="function">accessibleName</dd>
+                <dd id="Container.actionEvent" class="function">actionEvent</dd>
+                <dd id="Container.actions" class="function">actions</dd>
+                <dd id="Container.activateWindow" class="function">activateWindow</dd>
+                <dd id="Container.addAction" class="function">addAction</dd>
+                <dd id="Container.addActions" class="function">addActions</dd>
+                <dd id="Container.adjustSize" class="function">adjustSize</dd>
+                <dd id="Container.autoFillBackground" class="function">autoFillBackground</dd>
+                <dd id="Container.backgroundRole" class="function">backgroundRole</dd>
+                <dd id="Container.backingStore" class="function">backingStore</dd>
+                <dd id="Container.baseSize" class="function">baseSize</dd>
+                <dd id="Container.changeEvent" class="function">changeEvent</dd>
+                <dd id="Container.childAt" class="function">childAt</dd>
+                <dd id="Container.childrenRect" class="function">childrenRect</dd>
+                <dd id="Container.childrenRegion" class="function">childrenRegion</dd>
+                <dd id="Container.clearFocus" class="function">clearFocus</dd>
+                <dd id="Container.clearMask" class="function">clearMask</dd>
+                <dd id="Container.close" class="function">close</dd>
+                <dd id="Container.closeEvent" class="function">closeEvent</dd>
+                <dd id="Container.contentsMargins" class="function">contentsMargins</dd>
+                <dd id="Container.contentsRect" class="function">contentsRect</dd>
+                <dd id="Container.contextMenuEvent" class="function">contextMenuEvent</dd>
+                <dd id="Container.contextMenuPolicy" class="function">contextMenuPolicy</dd>
+                <dd id="Container.create" class="function">create</dd>
+                <dd id="Container.createWinId" class="function">createWinId</dd>
+                <dd id="Container.createWindowContainer" class="function">createWindowContainer</dd>
+                <dd id="Container.cursor" class="function">cursor</dd>
+                <dd id="Container.destroy" class="function">destroy</dd>
+                <dd id="Container.devType" class="function">devType</dd>
+                <dd id="Container.dragEnterEvent" class="function">dragEnterEvent</dd>
+                <dd id="Container.dragLeaveEvent" class="function">dragLeaveEvent</dd>
+                <dd id="Container.dragMoveEvent" class="function">dragMoveEvent</dd>
+                <dd id="Container.dropEvent" class="function">dropEvent</dd>
+                <dd id="Container.effectiveWinId" class="function">effectiveWinId</dd>
+                <dd id="Container.ensurePolished" class="function">ensurePolished</dd>
+                <dd id="Container.enterEvent" class="function">enterEvent</dd>
+                <dd id="Container.event" class="function">event</dd>
+                <dd id="Container.find" class="function">find</dd>
+                <dd id="Container.focusInEvent" class="function">focusInEvent</dd>
+                <dd id="Container.focusNextChild" class="function">focusNextChild</dd>
+                <dd id="Container.focusNextPrevChild" class="function">focusNextPrevChild</dd>
+                <dd id="Container.focusOutEvent" class="function">focusOutEvent</dd>
+                <dd id="Container.focusPolicy" class="function">focusPolicy</dd>
+                <dd id="Container.focusPreviousChild" class="function">focusPreviousChild</dd>
+                <dd id="Container.focusProxy" class="function">focusProxy</dd>
+                <dd id="Container.focusWidget" class="function">focusWidget</dd>
+                <dd id="Container.font" class="function">font</dd>
+                <dd id="Container.fontInfo" class="function">fontInfo</dd>
+                <dd id="Container.fontMetrics" class="function">fontMetrics</dd>
+                <dd id="Container.foregroundRole" class="function">foregroundRole</dd>
+                <dd id="Container.frameGeometry" class="function">frameGeometry</dd>
+                <dd id="Container.frameSize" class="function">frameSize</dd>
+                <dd id="Container.geometry" class="function">geometry</dd>
+                <dd id="Container.grab" class="function">grab</dd>
+                <dd id="Container.grabGesture" class="function">grabGesture</dd>
+                <dd id="Container.grabKeyboard" class="function">grabKeyboard</dd>
+                <dd id="Container.grabMouse" class="function">grabMouse</dd>
+                <dd id="Container.grabShortcut" class="function">grabShortcut</dd>
+                <dd id="Container.graphicsEffect" class="function">graphicsEffect</dd>
+                <dd id="Container.graphicsProxyWidget" class="function">graphicsProxyWidget</dd>
+                <dd id="Container.hasFocus" class="function">hasFocus</dd>
+                <dd id="Container.hasHeightForWidth" class="function">hasHeightForWidth</dd>
+                <dd id="Container.hasMouseTracking" class="function">hasMouseTracking</dd>
+                <dd id="Container.hasTabletTracking" class="function">hasTabletTracking</dd>
+                <dd id="Container.height" class="function">height</dd>
+                <dd id="Container.heightForWidth" class="function">heightForWidth</dd>
+                <dd id="Container.hide" class="function">hide</dd>
+                <dd id="Container.hideEvent" class="function">hideEvent</dd>
+                <dd id="Container.initPainter" class="function">initPainter</dd>
+                <dd id="Container.inputMethodEvent" class="function">inputMethodEvent</dd>
+                <dd id="Container.inputMethodHints" class="function">inputMethodHints</dd>
+                <dd id="Container.inputMethodQuery" class="function">inputMethodQuery</dd>
+                <dd id="Container.insertAction" class="function">insertAction</dd>
+                <dd id="Container.insertActions" class="function">insertActions</dd>
+                <dd id="Container.internalWinId" class="function">internalWinId</dd>
+                <dd id="Container.isActiveWindow" class="function">isActiveWindow</dd>
+                <dd id="Container.isAncestorOf" class="function">isAncestorOf</dd>
+                <dd id="Container.isEnabled" class="function">isEnabled</dd>
+                <dd id="Container.isEnabledTo" class="function">isEnabledTo</dd>
+                <dd id="Container.isFullScreen" class="function">isFullScreen</dd>
+                <dd id="Container.isHidden" class="function">isHidden</dd>
+                <dd id="Container.isLeftToRight" class="function">isLeftToRight</dd>
+                <dd id="Container.isMaximized" class="function">isMaximized</dd>
+                <dd id="Container.isMinimized" class="function">isMinimized</dd>
+                <dd id="Container.isModal" class="function">isModal</dd>
+                <dd id="Container.isRightToLeft" class="function">isRightToLeft</dd>
+                <dd id="Container.isTopLevel" class="function">isTopLevel</dd>
+                <dd id="Container.isVisible" class="function">isVisible</dd>
+                <dd id="Container.isVisibleTo" class="function">isVisibleTo</dd>
+                <dd id="Container.isWindow" class="function">isWindow</dd>
+                <dd id="Container.isWindowModified" class="function">isWindowModified</dd>
+                <dd id="Container.keyPressEvent" class="function">keyPressEvent</dd>
+                <dd id="Container.keyReleaseEvent" class="function">keyReleaseEvent</dd>
+                <dd id="Container.keyboardGrabber" class="function">keyboardGrabber</dd>
+                <dd id="Container.layoutDirection" class="function">layoutDirection</dd>
+                <dd id="Container.leaveEvent" class="function">leaveEvent</dd>
+                <dd id="Container.locale" class="function">locale</dd>
+                <dd id="Container.lower" class="function">lower</dd>
+                <dd id="Container.mapFrom" class="function">mapFrom</dd>
+                <dd id="Container.mapFromGlobal" class="function">mapFromGlobal</dd>
+                <dd id="Container.mapFromParent" class="function">mapFromParent</dd>
+                <dd id="Container.mapTo" class="function">mapTo</dd>
+                <dd id="Container.mapToGlobal" class="function">mapToGlobal</dd>
+                <dd id="Container.mapToParent" class="function">mapToParent</dd>
+                <dd id="Container.mask" class="function">mask</dd>
+                <dd id="Container.maximumHeight" class="function">maximumHeight</dd>
+                <dd id="Container.maximumSize" class="function">maximumSize</dd>
+                <dd id="Container.maximumWidth" class="function">maximumWidth</dd>
+                <dd id="Container.metric" class="function">metric</dd>
+                <dd id="Container.minimumHeight" class="function">minimumHeight</dd>
+                <dd id="Container.minimumSize" class="function">minimumSize</dd>
+                <dd id="Container.minimumSizeHint" class="function">minimumSizeHint</dd>
+                <dd id="Container.minimumWidth" class="function">minimumWidth</dd>
+                <dd id="Container.mouseDoubleClickEvent" class="function">mouseDoubleClickEvent</dd>
+                <dd id="Container.mouseGrabber" class="function">mouseGrabber</dd>
+                <dd id="Container.mouseMoveEvent" class="function">mouseMoveEvent</dd>
+                <dd id="Container.mousePressEvent" class="function">mousePressEvent</dd>
+                <dd id="Container.mouseReleaseEvent" class="function">mouseReleaseEvent</dd>
+                <dd id="Container.move" class="function">move</dd>
+                <dd id="Container.moveEvent" class="function">moveEvent</dd>
+                <dd id="Container.nativeEvent" class="function">nativeEvent</dd>
+                <dd id="Container.nativeParentWidget" class="function">nativeParentWidget</dd>
+                <dd id="Container.nextInFocusChain" class="function">nextInFocusChain</dd>
+                <dd id="Container.normalGeometry" class="function">normalGeometry</dd>
+                <dd id="Container.overrideWindowFlags" class="function">overrideWindowFlags</dd>
+                <dd id="Container.overrideWindowState" class="function">overrideWindowState</dd>
+                <dd id="Container.paintEngine" class="function">paintEngine</dd>
+                <dd id="Container.paintEvent" class="function">paintEvent</dd>
+                <dd id="Container.palette" class="function">palette</dd>
+                <dd id="Container.parentWidget" class="function">parentWidget</dd>
+                <dd id="Container.pos" class="function">pos</dd>
+                <dd id="Container.previousInFocusChain" class="function">previousInFocusChain</dd>
+                <dd id="Container.raise_" class="function">raise_</dd>
+                <dd id="Container.rect" class="function">rect</dd>
+                <dd id="Container.redirected" class="function">redirected</dd>
+                <dd id="Container.releaseKeyboard" class="function">releaseKeyboard</dd>
+                <dd id="Container.releaseMouse" class="function">releaseMouse</dd>
+                <dd id="Container.releaseShortcut" class="function">releaseShortcut</dd>
+                <dd id="Container.removeAction" class="function">removeAction</dd>
+                <dd id="Container.render" class="function">render</dd>
+                <dd id="Container.repaint" class="function">repaint</dd>
+                <dd id="Container.resize" class="function">resize</dd>
+                <dd id="Container.resizeEvent" class="function">resizeEvent</dd>
+                <dd id="Container.restoreGeometry" class="function">restoreGeometry</dd>
+                <dd id="Container.saveGeometry" class="function">saveGeometry</dd>
+                <dd id="Container.screen" class="function">screen</dd>
+                <dd id="Container.scroll" class="function">scroll</dd>
+                <dd id="Container.setAcceptDrops" class="function">setAcceptDrops</dd>
+                <dd id="Container.setAccessibleDescription" class="function">setAccessibleDescription</dd>
+                <dd id="Container.setAccessibleName" class="function">setAccessibleName</dd>
+                <dd id="Container.setAttribute" class="function">setAttribute</dd>
+                <dd id="Container.setAutoFillBackground" class="function">setAutoFillBackground</dd>
+                <dd id="Container.setBackgroundRole" class="function">setBackgroundRole</dd>
+                <dd id="Container.setBaseSize" class="function">setBaseSize</dd>
+                <dd id="Container.setContentsMargins" class="function">setContentsMargins</dd>
+                <dd id="Container.setContextMenuPolicy" class="function">setContextMenuPolicy</dd>
+                <dd id="Container.setCursor" class="function">setCursor</dd>
+                <dd id="Container.setDisabled" class="function">setDisabled</dd>
+                <dd id="Container.setEnabled" class="function">setEnabled</dd>
+                <dd id="Container.setFixedHeight" class="function">setFixedHeight</dd>
+                <dd id="Container.setFixedSize" class="function">setFixedSize</dd>
+                <dd id="Container.setFixedWidth" class="function">setFixedWidth</dd>
+                <dd id="Container.setFocus" class="function">setFocus</dd>
+                <dd id="Container.setFocusPolicy" class="function">setFocusPolicy</dd>
+                <dd id="Container.setFocusProxy" class="function">setFocusProxy</dd>
+                <dd id="Container.setFont" class="function">setFont</dd>
+                <dd id="Container.setForegroundRole" class="function">setForegroundRole</dd>
+                <dd id="Container.setGeometry" class="function">setGeometry</dd>
+                <dd id="Container.setGraphicsEffect" class="function">setGraphicsEffect</dd>
+                <dd id="Container.setHidden" class="function">setHidden</dd>
+                <dd id="Container.setInputMethodHints" class="function">setInputMethodHints</dd>
+                <dd id="Container.setLayout" class="function">setLayout</dd>
+                <dd id="Container.setLayoutDirection" class="function">setLayoutDirection</dd>
+                <dd id="Container.setLocale" class="function">setLocale</dd>
+                <dd id="Container.setMask" class="function">setMask</dd>
+                <dd id="Container.setMaximumHeight" class="function">setMaximumHeight</dd>
+                <dd id="Container.setMaximumSize" class="function">setMaximumSize</dd>
+                <dd id="Container.setMaximumWidth" class="function">setMaximumWidth</dd>
+                <dd id="Container.setMinimumHeight" class="function">setMinimumHeight</dd>
+                <dd id="Container.setMinimumSize" class="function">setMinimumSize</dd>
+                <dd id="Container.setMinimumWidth" class="function">setMinimumWidth</dd>
+                <dd id="Container.setMouseTracking" class="function">setMouseTracking</dd>
+                <dd id="Container.setPalette" class="function">setPalette</dd>
+                <dd id="Container.setParent" class="function">setParent</dd>
+                <dd id="Container.setScreen" class="function">setScreen</dd>
+                <dd id="Container.setShortcutAutoRepeat" class="function">setShortcutAutoRepeat</dd>
+                <dd id="Container.setShortcutEnabled" class="function">setShortcutEnabled</dd>
+                <dd id="Container.setSizeIncrement" class="function">setSizeIncrement</dd>
+                <dd id="Container.setSizePolicy" class="function">setSizePolicy</dd>
+                <dd id="Container.setStatusTip" class="function">setStatusTip</dd>
+                <dd id="Container.setStyle" class="function">setStyle</dd>
+                <dd id="Container.setStyleSheet" class="function">setStyleSheet</dd>
+                <dd id="Container.setTabOrder" class="function">setTabOrder</dd>
+                <dd id="Container.setTabletTracking" class="function">setTabletTracking</dd>
+                <dd id="Container.setToolTip" class="function">setToolTip</dd>
+                <dd id="Container.setToolTipDuration" class="function">setToolTipDuration</dd>
+                <dd id="Container.setUpdatesEnabled" class="function">setUpdatesEnabled</dd>
+                <dd id="Container.setVisible" class="function">setVisible</dd>
+                <dd id="Container.setWhatsThis" class="function">setWhatsThis</dd>
+                <dd id="Container.setWindowFilePath" class="function">setWindowFilePath</dd>
+                <dd id="Container.setWindowFlag" class="function">setWindowFlag</dd>
+                <dd id="Container.setWindowFlags" class="function">setWindowFlags</dd>
+                <dd id="Container.setWindowIcon" class="function">setWindowIcon</dd>
+                <dd id="Container.setWindowIconText" class="function">setWindowIconText</dd>
+                <dd id="Container.setWindowModality" class="function">setWindowModality</dd>
+                <dd id="Container.setWindowModified" class="function">setWindowModified</dd>
+                <dd id="Container.setWindowOpacity" class="function">setWindowOpacity</dd>
+                <dd id="Container.setWindowRole" class="function">setWindowRole</dd>
+                <dd id="Container.setWindowState" class="function">setWindowState</dd>
+                <dd id="Container.setWindowTitle" class="function">setWindowTitle</dd>
+                <dd id="Container.sharedPainter" class="function">sharedPainter</dd>
+                <dd id="Container.show" class="function">show</dd>
+                <dd id="Container.showEvent" class="function">showEvent</dd>
+                <dd id="Container.showFullScreen" class="function">showFullScreen</dd>
+                <dd id="Container.showMaximized" class="function">showMaximized</dd>
+                <dd id="Container.showMinimized" class="function">showMinimized</dd>
+                <dd id="Container.showNormal" class="function">showNormal</dd>
+                <dd id="Container.size" class="function">size</dd>
+                <dd id="Container.sizeHint" class="function">sizeHint</dd>
+                <dd id="Container.sizeIncrement" class="function">sizeIncrement</dd>
+                <dd id="Container.sizePolicy" class="function">sizePolicy</dd>
+                <dd id="Container.stackUnder" class="function">stackUnder</dd>
+                <dd id="Container.statusTip" class="function">statusTip</dd>
+                <dd id="Container.style" class="function">style</dd>
+                <dd id="Container.styleSheet" class="function">styleSheet</dd>
+                <dd id="Container.tabletEvent" class="function">tabletEvent</dd>
+                <dd id="Container.testAttribute" class="function">testAttribute</dd>
+                <dd id="Container.toolTip" class="function">toolTip</dd>
+                <dd id="Container.toolTipDuration" class="function">toolTipDuration</dd>
+                <dd id="Container.topLevelWidget" class="function">topLevelWidget</dd>
+                <dd id="Container.underMouse" class="function">underMouse</dd>
+                <dd id="Container.ungrabGesture" class="function">ungrabGesture</dd>
+                <dd id="Container.unsetCursor" class="function">unsetCursor</dd>
+                <dd id="Container.unsetLayoutDirection" class="function">unsetLayoutDirection</dd>
+                <dd id="Container.unsetLocale" class="function">unsetLocale</dd>
+                <dd id="Container.update" class="function">update</dd>
+                <dd id="Container.updateGeometry" class="function">updateGeometry</dd>
+                <dd id="Container.updateMicroFocus" class="function">updateMicroFocus</dd>
+                <dd id="Container.updatesEnabled" class="function">updatesEnabled</dd>
+                <dd id="Container.visibleRegion" class="function">visibleRegion</dd>
+                <dd id="Container.whatsThis" class="function">whatsThis</dd>
+                <dd id="Container.wheelEvent" class="function">wheelEvent</dd>
+                <dd id="Container.width" class="function">width</dd>
+                <dd id="Container.winId" class="function">winId</dd>
+                <dd id="Container.window" class="function">window</dd>
+                <dd id="Container.windowFilePath" class="function">windowFilePath</dd>
+                <dd id="Container.windowFlags" class="function">windowFlags</dd>
+                <dd id="Container.windowHandle" class="function">windowHandle</dd>
+                <dd id="Container.windowIcon" class="function">windowIcon</dd>
+                <dd id="Container.windowIconText" class="function">windowIconText</dd>
+                <dd id="Container.windowModality" class="function">windowModality</dd>
+                <dd id="Container.windowOpacity" class="function">windowOpacity</dd>
+                <dd id="Container.windowRole" class="function">windowRole</dd>
+                <dd id="Container.windowState" class="function">windowState</dd>
+                <dd id="Container.windowTitle" class="function">windowTitle</dd>
+                <dd id="Container.windowType" class="function">windowType</dd>
+                <dd id="Container.x" class="function">x</dd>
+                <dd id="Container.y" class="function">y</dd>
+                <dd id="Container.RenderFlag" class="class">RenderFlag</dd>
+                <dd id="Container.RenderFlags" class="class">RenderFlags</dd>
+                <dd id="Container.DrawWindowBackground" class="variable">DrawWindowBackground</dd>
+                <dd id="Container.DrawChildren" class="variable">DrawChildren</dd>
+                <dd id="Container.IgnoreMask" class="variable">IgnoreMask</dd>
+                <dd id="Container.customContextMenuRequested" class="function">customContextMenuRequested</dd>
+                <dd id="Container.windowIconChanged" class="function">windowIconChanged</dd>
+                <dd id="Container.windowIconTextChanged" class="function">windowIconTextChanged</dd>
+                <dd id="Container.windowTitleChanged" class="function">windowTitleChanged</dd>
+
+            </div>
+            <div><dt>PySide6.QtCore.QObject</dt>
+                                <dd id="Container.blockSignals" class="function">blockSignals</dd>
+                <dd id="Container.childEvent" class="function">childEvent</dd>
+                <dd id="Container.children" class="function">children</dd>
+                <dd id="Container.connect" class="function">connect</dd>
+                <dd id="Container.connectNotify" class="function">connectNotify</dd>
+                <dd id="Container.customEvent" class="function">customEvent</dd>
+                <dd id="Container.deleteLater" class="function">deleteLater</dd>
+                <dd id="Container.disconnect" class="function">disconnect</dd>
+                <dd id="Container.disconnectNotify" class="function">disconnectNotify</dd>
+                <dd id="Container.dumpObjectInfo" class="function">dumpObjectInfo</dd>
+                <dd id="Container.dumpObjectTree" class="function">dumpObjectTree</dd>
+                <dd id="Container.dynamicPropertyNames" class="function">dynamicPropertyNames</dd>
+                <dd id="Container.emit" class="function">emit</dd>
+                <dd id="Container.eventFilter" class="function">eventFilter</dd>
+                <dd id="Container.findChild" class="function">findChild</dd>
+                <dd id="Container.findChildren" class="function">findChildren</dd>
+                <dd id="Container.inherits" class="function">inherits</dd>
+                <dd id="Container.installEventFilter" class="function">installEventFilter</dd>
+                <dd id="Container.isSignalConnected" class="function">isSignalConnected</dd>
+                <dd id="Container.isWidgetType" class="function">isWidgetType</dd>
+                <dd id="Container.isWindowType" class="function">isWindowType</dd>
+                <dd id="Container.killTimer" class="function">killTimer</dd>
+                <dd id="Container.metaObject" class="function">metaObject</dd>
+                <dd id="Container.moveToThread" class="function">moveToThread</dd>
+                <dd id="Container.objectName" class="function">objectName</dd>
+                <dd id="Container.parent" class="function">parent</dd>
+                <dd id="Container.property" class="function">property</dd>
+                <dd id="Container.receivers" class="function">receivers</dd>
+                <dd id="Container.removeEventFilter" class="function">removeEventFilter</dd>
+                <dd id="Container.sender" class="function">sender</dd>
+                <dd id="Container.senderSignalIndex" class="function">senderSignalIndex</dd>
+                <dd id="Container.setObjectName" class="function">setObjectName</dd>
+                <dd id="Container.setProperty" class="function">setProperty</dd>
+                <dd id="Container.signalsBlocked" class="function">signalsBlocked</dd>
+                <dd id="Container.startTimer" class="function">startTimer</dd>
+                <dd id="Container.thread" class="function">thread</dd>
+                <dd id="Container.timerEvent" class="function">timerEvent</dd>
+                <dd id="Container.tr" class="function">tr</dd>
+                <dd id="Container.destroyed" class="function">destroyed</dd>
+                <dd id="Container.objectNameChanged" class="function">objectNameChanged</dd>
+
+            </div>
+            <div><dt>PySide6.QtGui.QPaintDevice</dt>
+                                <dd id="Container.colorCount" class="function">colorCount</dd>
+                <dd id="Container.depth" class="function">depth</dd>
+                <dd id="Container.devicePixelRatio" class="function">devicePixelRatio</dd>
+                <dd id="Container.devicePixelRatioF" class="function">devicePixelRatioF</dd>
+                <dd id="Container.devicePixelRatioFScale" class="function">devicePixelRatioFScale</dd>
+                <dd id="Container.heightMM" class="function">heightMM</dd>
+                <dd id="Container.logicalDpiX" class="function">logicalDpiX</dd>
+                <dd id="Container.logicalDpiY" class="function">logicalDpiY</dd>
+                <dd id="Container.paintingActive" class="function">paintingActive</dd>
+                <dd id="Container.physicalDpiX" class="function">physicalDpiX</dd>
+                <dd id="Container.physicalDpiY" class="function">physicalDpiY</dd>
+                <dd id="Container.widthMM" class="function">widthMM</dd>
+                <dd id="Container.painters" class="variable">painters</dd>
+                <dd id="Container.PaintDeviceMetric" class="class">PaintDeviceMetric</dd>
+                <dd id="Container.PdmWidth" class="variable">PdmWidth</dd>
+                <dd id="Container.PdmHeight" class="variable">PdmHeight</dd>
+                <dd id="Container.PdmWidthMM" class="variable">PdmWidthMM</dd>
+                <dd id="Container.PdmHeightMM" class="variable">PdmHeightMM</dd>
+                <dd id="Container.PdmNumColors" class="variable">PdmNumColors</dd>
+                <dd id="Container.PdmDepth" class="variable">PdmDepth</dd>
+                <dd id="Container.PdmDpiX" class="variable">PdmDpiX</dd>
+                <dd id="Container.PdmDpiY" class="variable">PdmDpiY</dd>
+                <dd id="Container.PdmPhysicalDpiX" class="variable">PdmPhysicalDpiX</dd>
+                <dd id="Container.PdmPhysicalDpiY" class="variable">PdmPhysicalDpiY</dd>
+                <dd id="Container.PdmDevicePixelRatio" class="variable">PdmDevicePixelRatio</dd>
+                <dd id="Container.PdmDevicePixelRatioScaled" class="variable">PdmDevicePixelRatioScaled</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
     </main>
 <script>
     function escapeHTML(html) {

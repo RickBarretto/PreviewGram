@@ -2,8 +2,8 @@
 Will dial with database.
 
 modules:
-- `src.model`
-- `src.model.__parser__`
+- `src.database`
+- `src.database.__parser__`
 """
 
 # -- importing database module

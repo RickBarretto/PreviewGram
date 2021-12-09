@@ -4,15 +4,12 @@
    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url><loc>https://rickbarretto.github.io/PreviewGram/docs\</loc></url>
 <url><loc>https://rickbarretto.github.io/PreviewGram/docs\src.html</loc></url>
-<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\model.html</loc></url>
+<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\database.html</loc></url>
 <url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\ui.html</loc></url>
-<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\model\db.html</loc></url>
-<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\model\page.html</loc></url>
-<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\ui\channel.html</loc></url>
-<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\ui\components.html</loc></url>
-<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\ui\ui.html</loc></url>
-<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\ui\components\add_channel.html</loc></url>
-<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\ui\components\chan_list.html</loc></url>
-<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\ui\components\engine.html</loc></url>
-<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\ui\components\top_bar.html</loc></url>
+<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\ui\dialog.html</loc></url>
+<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\ui\widgets.html</loc></url>
+<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\ui\widgets\engine.html</loc></url>
+<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\ui\widgets\open_dialog.html</loc></url>
+<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\ui\widgets\side_bar.html</loc></url>
+<url><loc>https://rickbarretto.github.io/PreviewGram/docs\src\ui\widgets\top_bar.html</loc></url>
 </urlset>

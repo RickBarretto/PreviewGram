@@ -32,7 +32,7 @@
 
                     <h2>Submodules</h2>
                     <ul>
-                            <li><a href="src/model.html">src.model</a></li>
+                            <li><a href="src/database.html">src.database</a></li>
                             <li><a href="src/ui.html">src.ui</a></li>
                     </ul>
 
@@ -43,6 +43,24 @@
                             <ul class="memberlist">
                         <li>
                                 <a class="function" href="#Window.__init__">Window</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Window.pressing">pressing</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Window.start">start</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Window.channels">channels</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Window.path">path</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.config_win">config_win</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Window.add_container">add_container</a>
                         </li>
                         <li>
                                 <a class="function" href="#Window.channelDialog">channelDialog</a>
@@ -95,6 +113,9 @@
             <li>
                     <a class="function" href="#start_app">start_app</a>
             </li>
+            <li>
+                    <a class="module" href="#src">src</a>
+            </li>
     </ul>
 
 
@@ -112,77 +133,145 @@
                     <h1 class="modulename">
 src    </h1>
 
-                
+                        <div class="docstring"><p>This module is the global module, dealing with submodules as database and ui.</p>
+
+<p>Here is started the application, generating a <code><a href="#Window">Window</a></code> (That is the Main Window) and running with <code><a href="#start_app">start_app</a></code> method.</p>
+
+<ul>
+<li>The Title Bar and movable Window from: https://stackoverflow.com/a/44249552</li>
+<li>The QTTheme from: https://github.com/UN-GCPDS/qt-material</li>
+<li>A lot of help was gave by Pinnaculum https://github.com/pinnaculum/</li>
+</ul>
+
+<blockquote>
+  <p>Thank you, yurisnm, UN-GCPDS and Pinnaculum!</p>
+</blockquote>
+</div>
+
                         <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+            <div class="codehilite"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module is the global module, dealing with submodules as database and ui.</span>
 
-<span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span><span class="p">,</span> <span class="n">QPoint</span><span class="p">,</span> <span class="n">QCoreApplication</span><span class="p">,</span> <span class="n">QFileInfo</span>
-<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QMessageBox</span>
-    <span class="p">)</span>
+<span class="sd">Here is started the application, generating a `Window` (That is the Main Window) and running with `start_app` method.</span>
+<span class="sd">- The Title Bar and movable Window from: https://stackoverflow.com/a/44249552</span>
+<span class="sd">- The QTTheme from: https://github.com/UN-GCPDS/qt-material</span>
+<span class="sd">- A lot of help was gave by Pinnaculum https://github.com/pinnaculum/</span>
+
+<span class="sd">&gt; Thank you, yurisnm, UN-GCPDS and Pinnaculum!</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">VERSION</span> <span class="o">=</span> <span class="mf">1.1</span>
+
+<span class="c1"># -- importing system modules</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+
+<span class="c1"># -- importing Qt modules</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span><span class="p">,</span> <span class="n">QPoint</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QMessageBox</span>
 <span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">QCursor</span>
 
+<span class="c1"># -- importing QtMaterial: by https://github.com/UN-GCPDS/qt-material under BSD-2-Clause License</span>
 <span class="kn">from</span> <span class="nn">qt_material</span> <span class="kn">import</span> <span class="n">apply_stylesheet</span>
 
-<span class="kn">from</span> <span class="nn">.model.db</span> <span class="kn">import</span> <span class="n">Model</span>
-<span class="kn">from</span> <span class="nn">.model.page</span> <span class="kn">import</span> <span class="n">Page</span>
-<span class="kn">from</span> <span class="nn">.ui</span> <span class="kn">import</span> <span class="n">channel</span>
-<span class="kn">from</span> <span class="nn">.ui.ui</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.ui.channel</span> <span class="kn">import</span> <span class="n">ChannelDialog</span><span class="p">,</span> <span class="n">Update</span>
-<span class="kn">from</span> <span class="nn">.ui.components.chan_list</span> <span class="kn">import</span> <span class="n">ChannelList</span> <span class="k">as</span> <span class="n">SideBar</span>
+<span class="c1"># -- importing application modules</span>
+<span class="kn">import</span> <span class="nn">src.database</span>
+<span class="kn">from</span> <span class="nn">src.ui</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">src.ui.dialog</span> <span class="kn">import</span> <span class="n">ChannelDialog</span>
+
+
+<span class="c1"># -- Main Window</span>
+
 
 <span class="k">class</span> <span class="nc">Window</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    It&#39;s the Main Window that is a QMainWindow.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Inits the Main Window.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">QPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
 
+        <span class="c1"># -- setting Window&#39;s variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="sd">&quot;&quot;&quot;Is True when mouse is pressing the Window &gt; for move Window.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">:</span> <span class="n">QPoint</span> <span class="o">=</span> <span class="n">QPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Defines the initial Window position &gt; for move Window.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="sd">&quot;&quot;&quot;Loads channels from database.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+        <span class="sd">&quot;&quot;&quot;Defines the current App file.&quot;&quot;&quot;</span>
+
+        <span class="c1"># -- updating channels variable</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">__config_win</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__add_container</span><span class="p">()</span>
+        <span class="c1"># -- Configuring and adding Main Widget to Window</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_win</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_container</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">__config_win</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># -- Configuring</span>
+    <span class="k">def</span> <span class="nf">config_win</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configures the `Window`.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Private Previewgram&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setFixedWidth</span><span class="p">(</span><span class="mi">830</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setMinimumHeight</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setWindowFlags</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">FramelessWindowHint</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
-        
-    <span class="k">def</span> <span class="nf">__add_container</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">container</span> <span class="o">=</span> <span class="n">Container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
 
-    <span class="c1">#-- Database</span>
+    <span class="k">def</span> <span class="nf">add_container</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets Container from `src.ui` module as Central Widget.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">Container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">))</span>
+
+    <span class="c1"># -- Database</span>
     <span class="k">def</span> <span class="nf">channelDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Opens a Window Dialog that dials with the database (`src.database`),</span>
+<span class="sd">        adding and removing users...</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">dial</span> <span class="o">=</span> <span class="n">ChannelDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">dial</span><span class="o">.</span><span class="n">destroyed</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">restart</span><span class="p">)</span>
         <span class="n">dial</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">get_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">Model</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets channels fom database (Dialing with `src.database`)</span>
+<span class="sd">        and Updates Windows&#39;s `channels` variable.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">add_chan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
-        <span class="n">Model</span><span class="o">.</span><span class="n">add_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds channels to database (Dialing with `src.database`)</span>
+<span class="sd">        and alert the user calling `added_channel`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">src</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">add_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">added_channel</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">delete_chan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">):</span>
-        <span class="n">Model</span><span class="o">.</span><span class="n">del_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deletes channels on database (Dialing with `src.database`)</span>
+<span class="sd">        and updates `channels` variable.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">src</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">del_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
 
-    <span class="c1">#-- Database :: checking</span>
+    <span class="c1"># -- Database :: checking</span>
     <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
-        
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the user input to add a new channel is correct.</span>
+
+<span class="sd">        - If yes, it&#39;ll call `add_chan`,</span>
+<span class="sd">        - If not, it&#39;ll call `wrong_url`, that will show a alert.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">if</span> <span class="p">(</span>
             <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
             <span class="ow">or</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;https://t.me/&quot;</span><span class="p">)</span>
             <span class="ow">or</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;https://telegram.me/&quot;</span><span class="p">)</span>
-            <span class="p">):</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span> 
+        <span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add_chan</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -190,73 +279,122 @@ src    </h1>
             <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">wrong_url</span><span class="p">()</span>
 
+    <span class="c1"># -- Altering user</span>
     <span class="k">def</span> <span class="nf">wrong_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Alerts the user with a `QMessageBox.critical`</span>
+<span class="sd">        that the input to add a new channel is invalid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
             <span class="s2">&quot;Use a valid channel url&quot;</span><span class="p">,</span>
             <span class="s2">&quot;Examples are:</span><span class="se">\n</span><span class="s2">https://t.me/channel, https://telegram.me/channel, @channel, https://t.me/s/channel&quot;</span><span class="p">,</span>
             <span class="n">buttons</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
-            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
+            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+        <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">added_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Alerts the user with a `QMessageBox.critical`</span>
+<span class="sd">        that the input to add a new channel is valid,</span>
+<span class="sd">        and the channel was added on database.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
             <span class="s2">&quot;Info!&quot;</span><span class="p">,</span>
             <span class="s2">&quot;Channel added to database&quot;</span><span class="p">,</span>
             <span class="n">buttons</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
-            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
+            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+        <span class="p">)</span>
 
-
-    <span class="c1">#-- Updating Window status</span>
+    <span class="c1"># -- Updating Window status</span>
     <span class="k">def</span> <span class="nf">closeWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Just close the window.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">minWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Minimizes the window.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">showMinimized</span><span class="p">()</span>
 
-    <span class="c1">#-- Moving Window</span>
+    <span class="c1"># -- Moving Window</span>
     <span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wen mouse press the Window,</span>
+<span class="sd">        `Window.pressing` is set as True</span>
+<span class="sd">        and start is set as Global position based on current mouse position.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">position</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">True</span>
-        
 
     <span class="k">def</span> <span class="nf">mouseMoveEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        When mouse is in movement and pressing,</span>
+<span class="sd">        it&#39;ll set the cursor to `Qt.ClosedHandCursor`</span>
+<span class="sd">        and move the window to final position.</span>
+
+<span class="sd">        If mouse is in movement but not pressing,</span>
+<span class="sd">        it&#39;ll only set the cursor to a `Qt.OpenHandCursor`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ClosedHandCursor</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">position</span><span class="p">())</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">movement</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">movement</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">movement</span><span class="p">)</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">movement</span><span class="p">)</span><span class="o">.</span><span class="n">y</span><span class="p">(),</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">())</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">(),</span>
+            <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">QMouseEvent</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        When mouse releases,</span>
+<span class="sd">        the `Window.pressing` is setting as `False`</span>
+<span class="sd">        and the cursor is set as a `Qt.OpenHandCursor`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
 
-    <span class="c1">#-- Restart</span>
-    <span class="k">def</span> <span class="nf">restart</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>     
+    <span class="c1"># -- Restart</span>
+    <span class="k">def</span> <span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        It&#39;ll restart the application for update channels on Window.</span>
+
+<span class="sd">        It&#39;ll run when `ui.dialog.ChannelDialog` is closed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;closed!&quot;</span><span class="p">)</span>
         <span class="n">open_win</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
-           
+
+
 <span class="k">def</span> <span class="nf">open_win</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Will instance and show a new Window.</span>
+
+<span class="sd">    It is used to update channels on ``Window``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">window</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
-    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
+    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
 
 <span class="k">def</span> <span class="nf">start_app</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inits the application!</span>
 
-    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>        
-    <span class="n">apply_stylesheet</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="s1">&#39;dark_blue.xml&#39;</span><span class="p">)</span>
-    <span class="n">open_win</span><span class="p">()</span>           
-    <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>            
+<span class="sd">    Applies the theme, Open a Window and executes!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">apply_stylesheet</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="s2">&quot;dark_blue.xml&quot;</span><span class="p">)</span>
+    <span class="n">open_win</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
     <span class="n">start_app</span><span class="p">()</span>
 </pre></div>
 
@@ -275,56 +413,94 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Window</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    It&#39;s the Main Window that is a QMainWindow.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Inits the Main Window.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">QPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
 
+        <span class="c1"># -- setting Window&#39;s variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="sd">&quot;&quot;&quot;Is True when mouse is pressing the Window &gt; for move Window.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">:</span> <span class="n">QPoint</span> <span class="o">=</span> <span class="n">QPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Defines the initial Window position &gt; for move Window.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="sd">&quot;&quot;&quot;Loads channels from database.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+        <span class="sd">&quot;&quot;&quot;Defines the current App file.&quot;&quot;&quot;</span>
+
+        <span class="c1"># -- updating channels variable</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">__config_win</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__add_container</span><span class="p">()</span>
+        <span class="c1"># -- Configuring and adding Main Widget to Window</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_win</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_container</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">__config_win</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># -- Configuring</span>
+    <span class="k">def</span> <span class="nf">config_win</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configures the `Window`.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Private Previewgram&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setFixedWidth</span><span class="p">(</span><span class="mi">830</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setMinimumHeight</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setWindowFlags</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">FramelessWindowHint</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
-        
-    <span class="k">def</span> <span class="nf">__add_container</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">container</span> <span class="o">=</span> <span class="n">Container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
 
-    <span class="c1">#-- Database</span>
+    <span class="k">def</span> <span class="nf">add_container</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets Container from `src.ui` module as Central Widget.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">Container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">))</span>
+
+    <span class="c1"># -- Database</span>
     <span class="k">def</span> <span class="nf">channelDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Opens a Window Dialog that dials with the database (`src.database`),</span>
+<span class="sd">        adding and removing users...</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">dial</span> <span class="o">=</span> <span class="n">ChannelDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">dial</span><span class="o">.</span><span class="n">destroyed</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">restart</span><span class="p">)</span>
         <span class="n">dial</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">get_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">Model</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets channels fom database (Dialing with `src.database`)</span>
+<span class="sd">        and Updates Windows&#39;s `channels` variable.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">add_chan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
-        <span class="n">Model</span><span class="o">.</span><span class="n">add_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds channels to database (Dialing with `src.database`)</span>
+<span class="sd">        and alert the user calling `added_channel`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">src</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">add_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">added_channel</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">delete_chan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">):</span>
-        <span class="n">Model</span><span class="o">.</span><span class="n">del_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deletes channels on database (Dialing with `src.database`)</span>
+<span class="sd">        and updates `channels` variable.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">src</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">del_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
 
-    <span class="c1">#-- Database :: checking</span>
+    <span class="c1"># -- Database :: checking</span>
     <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
-        
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the user input to add a new channel is correct.</span>
+
+<span class="sd">        - If yes, it&#39;ll call `add_chan`,</span>
+<span class="sd">        - If not, it&#39;ll call `wrong_url`, that will show a alert.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">if</span> <span class="p">(</span>
             <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
             <span class="ow">or</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;https://t.me/&quot;</span><span class="p">)</span>
             <span class="ow">or</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;https://telegram.me/&quot;</span><span class="p">)</span>
-            <span class="p">):</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span> 
+        <span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add_chan</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -332,55 +508,92 @@ src    </h1>
             <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">wrong_url</span><span class="p">()</span>
 
+    <span class="c1"># -- Altering user</span>
     <span class="k">def</span> <span class="nf">wrong_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Alerts the user with a `QMessageBox.critical`</span>
+<span class="sd">        that the input to add a new channel is invalid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
             <span class="s2">&quot;Use a valid channel url&quot;</span><span class="p">,</span>
             <span class="s2">&quot;Examples are:</span><span class="se">\n</span><span class="s2">https://t.me/channel, https://telegram.me/channel, @channel, https://t.me/s/channel&quot;</span><span class="p">,</span>
             <span class="n">buttons</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
-            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
+            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+        <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">added_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Alerts the user with a `QMessageBox.critical`</span>
+<span class="sd">        that the input to add a new channel is valid,</span>
+<span class="sd">        and the channel was added on database.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
             <span class="s2">&quot;Info!&quot;</span><span class="p">,</span>
             <span class="s2">&quot;Channel added to database&quot;</span><span class="p">,</span>
             <span class="n">buttons</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
-            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
+            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+        <span class="p">)</span>
 
-
-    <span class="c1">#-- Updating Window status</span>
+    <span class="c1"># -- Updating Window status</span>
     <span class="k">def</span> <span class="nf">closeWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Just close the window.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">minWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Minimizes the window.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">showMinimized</span><span class="p">()</span>
 
-    <span class="c1">#-- Moving Window</span>
+    <span class="c1"># -- Moving Window</span>
     <span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wen mouse press the Window,</span>
+<span class="sd">        `Window.pressing` is set as True</span>
+<span class="sd">        and start is set as Global position based on current mouse position.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">position</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">True</span>
-        
 
     <span class="k">def</span> <span class="nf">mouseMoveEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        When mouse is in movement and pressing,</span>
+<span class="sd">        it&#39;ll set the cursor to `Qt.ClosedHandCursor`</span>
+<span class="sd">        and move the window to final position.</span>
+
+<span class="sd">        If mouse is in movement but not pressing,</span>
+<span class="sd">        it&#39;ll only set the cursor to a `Qt.OpenHandCursor`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ClosedHandCursor</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">position</span><span class="p">())</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">movement</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">movement</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">movement</span><span class="p">)</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">movement</span><span class="p">)</span><span class="o">.</span><span class="n">y</span><span class="p">(),</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">())</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">(),</span>
+            <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">QMouseEvent</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        When mouse releases,</span>
+<span class="sd">        the `Window.pressing` is setting as `False`</span>
+<span class="sd">        and the cursor is set as a `Qt.OpenHandCursor`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
 
-    <span class="c1">#-- Restart</span>
-    <span class="k">def</span> <span class="nf">restart</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>     
+    <span class="c1"># -- Restart</span>
+    <span class="k">def</span> <span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        It&#39;ll restart the application for update channels on Window.</span>
+
+<span class="sd">        It&#39;ll run when `ui.dialog.ChannelDialog` is closed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;closed!&quot;</span><span class="p">)</span>
         <span class="n">open_win</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
@@ -388,9 +601,7 @@ src    </h1>
 
         </details>
 
-            <div class="docstring"><p>QMainWindow(self, parent: Optional[PySide6.QtWidgets.QWidget] = None, flags: PySide6.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
-</div>
-
+    
 
                             <div id="Window.__init__" class="classattr">
                                         <div class="attr function"><a class="headerlink" href="#Window.__init__">#&nbsp;&nbsp</a>
@@ -402,23 +613,124 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Inits the Main Window.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">QPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
 
+        <span class="c1"># -- setting Window&#39;s variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="sd">&quot;&quot;&quot;Is True when mouse is pressing the Window &gt; for move Window.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">:</span> <span class="n">QPoint</span> <span class="o">=</span> <span class="n">QPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Defines the initial Window position &gt; for move Window.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="sd">&quot;&quot;&quot;Loads channels from database.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+        <span class="sd">&quot;&quot;&quot;Defines the current App file.&quot;&quot;&quot;</span>
+
+        <span class="c1"># -- updating channels variable</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">__config_win</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__add_container</span><span class="p">()</span>
+        <span class="c1"># -- Configuring and adding Main Widget to Window</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_win</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_container</span><span class="p">()</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>__init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = None, flags: PySide6.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
+            <div class="docstring"><p>Inits the Main Window.</p>
+</div>
 
-<p>Initialize self.  See help(type(self)) for accurate signature.</p>
+
+                            </div>
+                            <div id="Window.pressing" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Window.pressing">#&nbsp;&nbsp</a>
+
+        <span class="name">pressing</span><span class="annotation">: bool</span>
+    </div>
+
+            <div class="docstring"><p>Is True when mouse is pressing the Window &gt; for move Window.</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.start" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Window.start">#&nbsp;&nbsp</a>
+
+        <span class="name">start</span><span class="annotation">: PySide6.QtCore.QPoint</span>
+    </div>
+
+            <div class="docstring"><p>Defines the initial Window position &gt; for move Window.</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.channels" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Window.channels">#&nbsp;&nbsp</a>
+
+        <span class="name">channels</span><span class="annotation">: dict</span>
+    </div>
+
+            <div class="docstring"><p>Loads channels from database.</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.path" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#Window.path">#&nbsp;&nbsp</a>
+
+        <span class="name">path</span><span class="annotation">: str</span>
+    </div>
+
+            <div class="docstring"><p>Defines the current App file.</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.config_win" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.config_win">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">config_win</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">config_win</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configures the `Window`.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Private Previewgram&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setFixedWidth</span><span class="p">(</span><span class="mi">830</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMinimumHeight</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowFlags</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">FramelessWindowHint</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Configures the <code><a href="#Window">Window</a></code>.</p>
+</div>
+
+
+                            </div>
+                            <div id="Window.add_container" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#Window.add_container">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">add_container</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">add_container</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets Container from `src.ui` module as Central Widget.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">Container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">))</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Sets Container from <code><a href="src/ui.html">src.ui</a></code> module as Central Widget.</p>
 </div>
 
 
@@ -434,6 +746,10 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">channelDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Opens a Window Dialog that dials with the database (`src.database`),</span>
+<span class="sd">        adding and removing users...</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">dial</span> <span class="o">=</span> <span class="n">ChannelDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">dial</span><span class="o">.</span><span class="n">destroyed</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">restart</span><span class="p">)</span>
         <span class="n">dial</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
@@ -441,7 +757,10 @@ src    </h1>
 
         </details>
 
-    
+            <div class="docstring"><p>Opens a Window Dialog that dials with the database (<code><a href="src/database.html">src.database</a></code>),
+adding and removing users...</p>
+</div>
+
 
                             </div>
                             <div id="Window.get_channels" class="classattr">
@@ -455,12 +774,19 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">get_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">Model</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets channels fom database (Dialing with `src.database`)</span>
+<span class="sd">        and Updates Windows&#39;s `channels` variable.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
 </pre></div>
 
         </details>
 
-    
+            <div class="docstring"><p>Gets channels fom database (Dialing with <code><a href="src/database.html">src.database</a></code>)
+and Updates Windows's <code><a href="#Window.channels">channels</a></code> variable.</p>
+</div>
+
 
                             </div>
                             <div id="Window.add_chan" class="classattr">
@@ -474,13 +800,20 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">add_chan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
-        <span class="n">Model</span><span class="o">.</span><span class="n">add_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds channels to database (Dialing with `src.database`)</span>
+<span class="sd">        and alert the user calling `added_channel`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">src</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">add_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">added_channel</span><span class="p">()</span>
 </pre></div>
 
         </details>
 
-    
+            <div class="docstring"><p>Adds channels to database (Dialing with <code><a href="src/database.html">src.database</a></code>)
+and alert the user calling <code><a href="#Window.added_channel">added_channel</a></code>.</p>
+</div>
+
 
                             </div>
                             <div id="Window.delete_chan" class="classattr">
@@ -494,13 +827,20 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">delete_chan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">):</span>
-        <span class="n">Model</span><span class="o">.</span><span class="n">del_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deletes channels on database (Dialing with `src.database`)</span>
+<span class="sd">        and updates `channels` variable.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">src</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">del_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
 </pre></div>
 
         </details>
 
-    
+            <div class="docstring"><p>Deletes channels on database (Dialing with <code><a href="src/database.html">src.database</a></code>)
+and updates <code><a href="#Window.channels">channels</a></code> variable.</p>
+</div>
+
 
                             </div>
                             <div id="Window.check" class="classattr">
@@ -514,13 +854,19 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
-        
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the user input to add a new channel is correct.</span>
+
+<span class="sd">        - If yes, it&#39;ll call `add_chan`,</span>
+<span class="sd">        - If not, it&#39;ll call `wrong_url`, that will show a alert.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">if</span> <span class="p">(</span>
             <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
             <span class="ow">or</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;https://t.me/&quot;</span><span class="p">)</span>
             <span class="ow">or</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;https://telegram.me/&quot;</span><span class="p">)</span>
-            <span class="p">):</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span> 
+        <span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add_chan</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -531,7 +877,14 @@ src    </h1>
 
         </details>
 
-    
+            <div class="docstring"><p>Checks if the user input to add a new channel is correct.</p>
+
+<ul>
+<li>If yes, it'll call <code><a href="#Window.add_chan">add_chan</a></code>,</li>
+<li>If not, it'll call <code><a href="#Window.wrong_url">wrong_url</a></code>, that will show a alert.</li>
+</ul>
+</div>
+
 
                             </div>
                             <div id="Window.wrong_url" class="classattr">
@@ -545,17 +898,25 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">wrong_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Alerts the user with a `QMessageBox.critical`</span>
+<span class="sd">        that the input to add a new channel is invalid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
             <span class="s2">&quot;Use a valid channel url&quot;</span><span class="p">,</span>
             <span class="s2">&quot;Examples are:</span><span class="se">\n</span><span class="s2">https://t.me/channel, https://telegram.me/channel, @channel, https://t.me/s/channel&quot;</span><span class="p">,</span>
             <span class="n">buttons</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
-            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
+            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+        <span class="p">)</span>
 </pre></div>
 
         </details>
 
-    
+            <div class="docstring"><p>Alerts the user with a <code>QMessageBox.critical</code>
+that the input to add a new channel is invalid.</p>
+</div>
+
 
                             </div>
                             <div id="Window.added_channel" class="classattr">
@@ -569,17 +930,27 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">added_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Alerts the user with a `QMessageBox.critical`</span>
+<span class="sd">        that the input to add a new channel is valid,</span>
+<span class="sd">        and the channel was added on database.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
             <span class="s2">&quot;Info!&quot;</span><span class="p">,</span>
             <span class="s2">&quot;Channel added to database&quot;</span><span class="p">,</span>
             <span class="n">buttons</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
-            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
+            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+        <span class="p">)</span>
 </pre></div>
 
         </details>
 
-    
+            <div class="docstring"><p>Alerts the user with a <code>QMessageBox.critical</code>
+that the input to add a new channel is valid,
+and the channel was added on database.</p>
+</div>
+
 
                             </div>
                             <div id="Window.closeWindow" class="classattr">
@@ -593,12 +964,15 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">closeWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Just close the window.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 
         </details>
 
-    
+            <div class="docstring"><p>Just close the window.</p>
+</div>
+
 
                             </div>
                             <div id="Window.minWindow" class="classattr">
@@ -612,12 +986,15 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">minWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Minimizes the window.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">showMinimized</span><span class="p">()</span>
 </pre></div>
 
         </details>
 
-    
+            <div class="docstring"><p>Minimizes the window.</p>
+</div>
+
 
                             </div>
                             <div id="Window.mousePressEvent" class="classattr">
@@ -631,13 +1008,20 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wen mouse press the Window,</span>
+<span class="sd">        `Window.pressing` is set as True</span>
+<span class="sd">        and start is set as Global position based on current mouse position.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">position</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>mousePressEvent(self, event: PySide6.QtGui.QMouseEvent) -> None</p>
+            <div class="docstring"><p>Wen mouse press the Window,
+<code><a href="#Window.pressing">Window.pressing</a></code> is set as True
+and start is set as Global position based on current mouse position.</p>
 </div>
 
 
@@ -653,14 +1037,24 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseMoveEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        When mouse is in movement and pressing,</span>
+<span class="sd">        it&#39;ll set the cursor to `Qt.ClosedHandCursor`</span>
+<span class="sd">        and move the window to final position.</span>
+
+<span class="sd">        If mouse is in movement but not pressing,</span>
+<span class="sd">        it&#39;ll only set the cursor to a `Qt.OpenHandCursor`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ClosedHandCursor</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">position</span><span class="p">())</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">movement</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">movement</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">movement</span><span class="p">)</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">movement</span><span class="p">)</span><span class="o">.</span><span class="n">y</span><span class="p">(),</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">())</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">(),</span>
+            <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
@@ -668,7 +1062,12 @@ src    </h1>
 
         </details>
 
-            <div class="docstring"><p>mouseMoveEvent(self, event: PySide6.QtGui.QMouseEvent) -> None</p>
+            <div class="docstring"><p>When mouse is in movement and pressing,
+it'll set the cursor to <code>Qt.ClosedHandCursor</code>
+and move the window to final position.</p>
+
+<p>If mouse is in movement but not pressing,
+it'll only set the cursor to a <code>Qt.OpenHandCursor</code>.</p>
 </div>
 
 
@@ -684,13 +1083,20 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">QMouseEvent</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        When mouse releases,</span>
+<span class="sd">        the `Window.pressing` is setting as `False`</span>
+<span class="sd">        and the cursor is set as a `Qt.OpenHandCursor`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>mouseReleaseEvent(self, event: PySide6.QtGui.QMouseEvent) -> None</p>
+            <div class="docstring"><p>When mouse releases,
+the <code><a href="#Window.pressing">Window.pressing</a></code> is setting as <code>False</code>
+and the cursor is set as a <code>Qt.OpenHandCursor</code>.</p>
 </div>
 
 
@@ -705,7 +1111,12 @@ src    </h1>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">restart</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>     
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        It&#39;ll restart the application for update channels on Window.</span>
+
+<span class="sd">        It&#39;ll run when `ui.dialog.ChannelDialog` is closed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;closed!&quot;</span><span class="p">)</span>
         <span class="n">open_win</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
@@ -713,7 +1124,11 @@ src    </h1>
 
         </details>
 
-    
+            <div class="docstring"><p>It'll restart the application for update channels on Window.</p>
+
+<p>It'll run when <code>ui.dialog.ChannelDialog</code> is closed.</p>
+</div>
+
 
                             </div>
                             <div id="Window.staticMetaObject" class="classattr">
@@ -788,9 +1203,9 @@ src    </h1>
                 <dd id="Window.ForceTabbedDocks" class="variable">ForceTabbedDocks</dd>
                 <dd id="Window.VerticalTabs" class="variable">VerticalTabs</dd>
                 <dd id="Window.GroupedDragging" class="variable">GroupedDragging</dd>
-                <dd id="Window.iconSizeChanged" class="function">iconSizeChanged</dd>
-                <dd id="Window.tabifiedDockWidgetActivated" class="function">tabifiedDockWidgetActivated</dd>
                 <dd id="Window.toolButtonStyleChanged" class="function">toolButtonStyleChanged</dd>
+                <dd id="Window.tabifiedDockWidgetActivated" class="function">tabifiedDockWidgetActivated</dd>
+                <dd id="Window.iconSizeChanged" class="function">iconSizeChanged</dd>
 
             </div>
             <div><dt>PySide6.QtWidgets.QWidget</dt>
@@ -1055,10 +1470,10 @@ src    </h1>
                 <dd id="Window.DrawWindowBackground" class="variable">DrawWindowBackground</dd>
                 <dd id="Window.DrawChildren" class="variable">DrawChildren</dd>
                 <dd id="Window.IgnoreMask" class="variable">IgnoreMask</dd>
-                <dd id="Window.windowTitleChanged" class="function">windowTitleChanged</dd>
+                <dd id="Window.customContextMenuRequested" class="function">customContextMenuRequested</dd>
                 <dd id="Window.windowIconChanged" class="function">windowIconChanged</dd>
                 <dd id="Window.windowIconTextChanged" class="function">windowIconTextChanged</dd>
-                <dd id="Window.customContextMenuRequested" class="function">customContextMenuRequested</dd>
+                <dd id="Window.windowTitleChanged" class="function">windowTitleChanged</dd>
 
             </div>
             <div><dt>PySide6.QtCore.QObject</dt>
@@ -1100,8 +1515,8 @@ src    </h1>
                 <dd id="Window.thread" class="function">thread</dd>
                 <dd id="Window.timerEvent" class="function">timerEvent</dd>
                 <dd id="Window.tr" class="function">tr</dd>
-                <dd id="Window.objectNameChanged" class="function">objectNameChanged</dd>
                 <dd id="Window.destroyed" class="function">destroyed</dd>
+                <dd id="Window.objectNameChanged" class="function">objectNameChanged</dd>
 
             </div>
             <div><dt>PySide6.QtGui.QPaintDevice</dt>
@@ -1147,13 +1562,22 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">open_win</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Will instance and show a new Window.</span>
+
+<span class="sd">    It is used to update channels on ``Window``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">window</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
-    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
+    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
         </details>
 
-    
+            <div class="docstring"><p>Will instance and show a new Window.</p>
+
+<p>It is used to update channels on <code><a href="#Window">Window</a></code>.</p>
+</div>
+
 
                 </section>
                 <section id="start_app">
@@ -1167,16 +1591,298 @@ src    </h1>
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">start_app</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inits the application!</span>
 
-    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>        
-    <span class="n">apply_stylesheet</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="s1">&#39;dark_blue.xml&#39;</span><span class="p">)</span>
-    <span class="n">open_win</span><span class="p">()</span>           
-    <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>            
+<span class="sd">    Applies the theme, Open a Window and executes!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">apply_stylesheet</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="s2">&quot;dark_blue.xml&quot;</span><span class="p">)</span>
+    <span class="n">open_win</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
 </pre></div>
 
         </details>
 
-    
+            <div class="docstring"><p>Inits the application!</p>
+
+<p>Applies the theme, Open a Window and executes!</p>
+</div>
+
+
+                </section>
+                <section id="src">
+                                <div class="attr module"><a class="headerlink" href="#src">#&nbsp;&nbsp</a>
+<span class="name"><a href=""></a></span></div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module is the global module, dealing with submodules as database and ui.</span>
+
+<span class="sd">Here is started the application, generating a `Window` (That is the Main Window) and running with `start_app` method.</span>
+<span class="sd">- The Title Bar and movable Window from: https://stackoverflow.com/a/44249552</span>
+<span class="sd">- The QTTheme from: https://github.com/UN-GCPDS/qt-material</span>
+<span class="sd">- A lot of help was gave by Pinnaculum https://github.com/pinnaculum/</span>
+
+<span class="sd">&gt; Thank you, yurisnm, UN-GCPDS and Pinnaculum!</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">VERSION</span> <span class="o">=</span> <span class="mf">1.1</span>
+
+<span class="c1"># -- importing system modules</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+
+<span class="c1"># -- importing Qt modules</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span><span class="p">,</span> <span class="n">QPoint</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QMessageBox</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">QCursor</span>
+
+<span class="c1"># -- importing QtMaterial: by https://github.com/UN-GCPDS/qt-material under BSD-2-Clause License</span>
+<span class="kn">from</span> <span class="nn">qt_material</span> <span class="kn">import</span> <span class="n">apply_stylesheet</span>
+
+<span class="c1"># -- importing application modules</span>
+<span class="kn">import</span> <span class="nn">src.database</span>
+<span class="kn">from</span> <span class="nn">src.ui</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">src.ui.dialog</span> <span class="kn">import</span> <span class="n">ChannelDialog</span>
+
+
+<span class="c1"># -- Main Window</span>
+
+
+<span class="k">class</span> <span class="nc">Window</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    It&#39;s the Main Window that is a QMainWindow.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Inits the Main Window.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="c1"># -- setting Window&#39;s variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="sd">&quot;&quot;&quot;Is True when mouse is pressing the Window &gt; for move Window.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">:</span> <span class="n">QPoint</span> <span class="o">=</span> <span class="n">QPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Defines the initial Window position &gt; for move Window.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="sd">&quot;&quot;&quot;Loads channels from database.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+        <span class="sd">&quot;&quot;&quot;Defines the current App file.&quot;&quot;&quot;</span>
+
+        <span class="c1"># -- updating channels variable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+
+        <span class="c1"># -- Configuring and adding Main Widget to Window</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_win</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_container</span><span class="p">()</span>
+
+    <span class="c1"># -- Configuring</span>
+    <span class="k">def</span> <span class="nf">config_win</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Configures the `Window`.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Private Previewgram&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setFixedWidth</span><span class="p">(</span><span class="mi">830</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMinimumHeight</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowFlags</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">FramelessWindowHint</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">add_container</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets Container from `src.ui` module as Central Widget.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">Container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">))</span>
+
+    <span class="c1"># -- Database</span>
+    <span class="k">def</span> <span class="nf">channelDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Opens a Window Dialog that dials with the database (`src.database`),</span>
+<span class="sd">        adding and removing users...</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dial</span> <span class="o">=</span> <span class="n">ChannelDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">dial</span><span class="o">.</span><span class="n">destroyed</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">restart</span><span class="p">)</span>
+        <span class="n">dial</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets channels fom database (Dialing with `src.database`)</span>
+<span class="sd">        and Updates Windows&#39;s `channels` variable.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">add_chan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds channels to database (Dialing with `src.database`)</span>
+<span class="sd">        and alert the user calling `added_channel`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">src</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">add_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">added_channel</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">delete_chan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deletes channels on database (Dialing with `src.database`)</span>
+<span class="sd">        and updates `channels` variable.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">src</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">del_channel</span><span class="p">(</span><span class="n">chan</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+
+    <span class="c1"># -- Database :: checking</span>
+    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the user input to add a new channel is correct.</span>
+
+<span class="sd">        - If yes, it&#39;ll call `add_chan`,</span>
+<span class="sd">        - If not, it&#39;ll call `wrong_url`, that will show a alert.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;https://t.me/&quot;</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;https://telegram.me/&quot;</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_chan</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">wrong_url</span><span class="p">()</span>
+
+    <span class="c1"># -- Altering user</span>
+    <span class="k">def</span> <span class="nf">wrong_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Alerts the user with a `QMessageBox.critical`</span>
+<span class="sd">        that the input to add a new channel is invalid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="s2">&quot;Use a valid channel url&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Examples are:</span><span class="se">\n</span><span class="s2">https://t.me/channel, https://telegram.me/channel, @channel, https://t.me/s/channel&quot;</span><span class="p">,</span>
+            <span class="n">buttons</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">added_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Alerts the user with a `QMessageBox.critical`</span>
+<span class="sd">        that the input to add a new channel is valid,</span>
+<span class="sd">        and the channel was added on database.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">QMessageBox</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="s2">&quot;Info!&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Channel added to database&quot;</span><span class="p">,</span>
+            <span class="n">buttons</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+            <span class="n">defaultButton</span><span class="o">=</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1"># -- Updating Window status</span>
+    <span class="k">def</span> <span class="nf">closeWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Just close the window.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">minWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Minimizes the window.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showMinimized</span><span class="p">()</span>
+
+    <span class="c1"># -- Moving Window</span>
+    <span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wen mouse press the Window,</span>
+<span class="sd">        `Window.pressing` is set as True</span>
+<span class="sd">        and start is set as Global position based on current mouse position.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">position</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">mouseMoveEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        When mouse is in movement and pressing,</span>
+<span class="sd">        it&#39;ll set the cursor to `Qt.ClosedHandCursor`</span>
+<span class="sd">        and move the window to final position.</span>
+
+<span class="sd">        If mouse is in movement but not pressing,</span>
+<span class="sd">        it&#39;ll only set the cursor to a `Qt.OpenHandCursor`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ClosedHandCursor</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">position</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">movement</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">movement</span><span class="p">)</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mapToGlobal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">movement</span><span class="p">)</span><span class="o">.</span><span class="n">y</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">(),</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">QMouseEvent</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        When mouse releases,</span>
+<span class="sd">        the `Window.pressing` is setting as `False`</span>
+<span class="sd">        and the cursor is set as a `Qt.OpenHandCursor`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pressing</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">OpenHandCursor</span><span class="p">))</span>
+
+    <span class="c1"># -- Restart</span>
+    <span class="k">def</span> <span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        It&#39;ll restart the application for update channels on Window.</span>
+
+<span class="sd">        It&#39;ll run when `ui.dialog.ChannelDialog` is closed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;closed!&quot;</span><span class="p">)</span>
+        <span class="n">open_win</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">open_win</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Will instance and show a new Window.</span>
+
+<span class="sd">    It is used to update channels on ``Window``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">start_app</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inits the application!</span>
+
+<span class="sd">    Applies the theme, Open a Window and executes!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">apply_stylesheet</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="s2">&quot;dark_blue.xml&quot;</span><span class="p">)</span>
+    <span class="n">open_win</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="n">start_app</span><span class="p">()</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>This module is the global module, dealing with submodules as database and ui.</p>
+
+<p>Here is started the application, generating a <code><a href="#Window">Window</a></code> (That is the Main Window) and running with <code><a href="#start_app">start_app</a></code> method.</p>
+
+<ul>
+<li>The Title Bar and movable Window from: https://stackoverflow.com/a/44249552</li>
+<li>The QTTheme from: https://github.com/UN-GCPDS/qt-material</li>
+<li>A lot of help was gave by Pinnaculum https://github.com/pinnaculum/</li>
+</ul>
+
+<blockquote>
+  <p>Thank you, yurisnm, UN-GCPDS and Pinnaculum!</p>
+</blockquote>
+</div>
+
 
                 </section>
     </main>
