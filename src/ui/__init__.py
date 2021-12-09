@@ -5,10 +5,10 @@ from PySide6.QtCore import QUrl, Qt
 from PySide6.QtWidgets import QHBoxLayout, QMainWindow, QVBoxLayout, QWidget
 
 # -- importing components modules
-from .widgets.chan_list import ChannelList as SideBar
+from .widgets.side_bar import ChannelList as SideBar
 from .widgets.top_bar import TopBar
 from .widgets.engine import Engine
-from .widgets.open_dialog_button import AddBtn
+from .widgets.open_dialog import AddBtn
 
 
 # -- SubWidget: shows the content
