@@ -23,7 +23,7 @@ from PySide6.QtGui import QCursor
 from qt_material import apply_stylesheet
 
 # -- importing application modules
-import src.model
+import src.database
 from src.ui import *
 from src.ui.dialog import ChannelDialog
 
