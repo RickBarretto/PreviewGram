@@ -89,6 +89,8 @@ with your's personal project.
 I recommend to you, always use a `pipenv` or `poetry` for
 use packages and `pipx` for Python Applications.
 
+> Read: [Issue #15: Change pip for pipx or poetry](https://github.com/RickBarretto/PreviewGram/issues/15)
+
 ### Build instructions
 
 ```bash
