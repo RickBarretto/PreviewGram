@@ -8,7 +8,7 @@ from PySide6.QtWidgets import QHBoxLayout, QMainWindow, QVBoxLayout, QWidget
 from .widgets.chan_list import ChannelList as SideBar
 from .widgets.top_bar import TopBar
 from .widgets.engine import Engine
-from .widgets.add_channel import AddBtn
+from .widgets.open_dialog_button import AddBtn
 
 
 # -- SubWidget: shows the content
