@@ -70,13 +70,13 @@ class ChannelList(QWidget):
             partial(self.parent.open_url, "https://www.whatismybrowser.com/")
         )
 
-        official_channel = QPushButton("Official Channel", self)
+        official_channel = QPushButton("Durov's Channel", self)
         official_channel.setMaximumHeight(300)
         official_channel.setMinimumHeight(50)
         official_channel.setStyleSheet("background-color: #448aff; color: #fff")
         official_channel.setCursor(QCursor(Qt.PointingHandCursor))
         official_channel.clicked.connect(
-            partial(self.parent.open_url, "https://t.me/s/previewgram")
+            partial(self.parent.open_url, "https://t.me/s/durov")
         )
 
         self.wid_layout.addWidget(btn_test, Qt.AlignBottom)
