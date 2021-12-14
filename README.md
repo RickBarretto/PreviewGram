@@ -15,7 +15,7 @@ and to train: OOP, git branches, merges and pull requests, setuptools and pyproj
 \[⚠️\] - Warning:
 
 > **This project will no longer be supported,**
-> read `[Acessing Via Tor](#accessing-via-tor)`
+> read [`Acessing Via Tor`](#accessing-via-tor)
 
 ---
 
