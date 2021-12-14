@@ -4,13 +4,18 @@
 
 ![PreviewGram Cover](./assets/PreviewGram%20Banner.svg)
 
-<div align="center">
-  <a href="https://t.me/previewgram" align="center">
-    <img src="./assets/follow_on_telegram.png" width="500" align="center">
-  </a>
-</div>
-
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/0d6bbf4974044655be8e274c62bc5fac)](https://www.codacy.com/gh/RickBarretto/PreviewGram/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=RickBarretto/PreviewGram&amp;utm_campaign=Badge_Grade)
+
+## Closing this project 😭
+
+This project was created with the intention of learn: PySide6 (hand-made) code,
+github workflows, QWebEngine, poetry support...
+and to train: OOP, git branches, merges and pull requests, setuptools and pyproject.
+
+\[⚠️\] - Warning:
+
+> **This project will no longer be supported,**
+> read `[Acessing Via Tor](#accessing-via-tor)`
 
 ---
 
@@ -276,11 +281,11 @@ Sources:
      - ![Create Folder](./assets/bookmarks.png)
 1. To access your favorite channel, put a ``/s/`` between the domain and
 channel name,
-example: `https://t.me/previewgram` to `https://t.me/s/previewgram`
+example: `https://t.me/durov` to `https://t.me/s/durov`
 1. Save to "Telegram Channels"'s Bookmark Folder
      - ![Save to BookMark](./assets/open.png)
-1. Access when you want!
-1. **Extra:** make [Tor portable](https://tb-manual.torproject.org/make-tor-portable/)
+2. Access when you want!
+3. **Extra:** make [Tor portable](https://tb-manual.torproject.org/make-tor-portable/)
 and use the [Mobile Tor Browser](https://tb-manual.torproject.org/mobile-tor/)
 to use everywhere.
 
@@ -299,13 +304,13 @@ suggestions, bugs and security reports! 😉
 
 ## To Do
 
-- [ ] Block ``telegram.org`` and
+- [ ] ~~Block ``telegram.org`` and
 other https requests using
-`webView.page().profile().setUrlRequestInterceptor(interceptor)`
+`webView.page().profile().setUrlRequestInterceptor(interceptor)`~~
 (Thanks, dbunk!)
-- [ ] Channel Categories
-- [ ] Open on Tor
-- [ ] UI improvements?
+- [ ] ~~Channel Categories~~
+- [ ] ~~Open on Tor~~
+- [ ] UI improvements? (Maybe it can get an update)
 
 ---
 
